@@ -7,7 +7,7 @@ reproduce:
 	bash artifact/commands.sh
 
 test:
-	python3.12 -m pytest tests/unit -q --ignore=tests/unit/test_dataset_adapters.py
+	python3.12 -m pytest tests/unit -q
 
 check:
 	ruff format --check .

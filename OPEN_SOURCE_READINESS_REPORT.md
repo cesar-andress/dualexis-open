@@ -1,39 +1,25 @@
 # Open-source readiness report
 
-Repository: **TSGG Reference Implementation**
+Repository: **TSGG Reference Implementation** (public JSS artefact)
 URL: https://github.com/cesar-andress/dualexis-open
 Version: v1.0.0
 
-## Scores
+## Verification
 
-| Dimension | Score |
-|-----------|------:|
-| Documentation | 96/100 |
-| Reproducibility | 90/100 |
-| Testability | 85/100 |
-| Repository hygiene | 100/100 |
-| JSS suitability | 100/100 |
+- **PASS** — no legacy_archive/
+- **PASS** — no paper/
+- **PASS** — no apps/
+- **FAIL** — pytest tests/unit
+- **FAIL** — artifact/commands.sh
+- **FAIL** — forbidden string grep clean
 
-## Verification checks
+## Test result
 
-- **PASS** — file README.md
-- **PASS** — file LICENSE
-- **PASS** — file CITATION.cff
-- **PASS** — file CONTRIBUTING.md
-- **PASS** — file CODE_OF_CONDUCT.md
-- **PASS** — file CHANGELOG.md
-- **PASS** — file Dockerfile
-- **PASS** — file Makefile
-- **PASS** — file requirements.txt
-- **PASS** — file environment.yml
-- **PASS** — file .zenodo.json
-- **PASS** — file artifact/INSTALL.md
-- **PASS** — file artifact/REPRODUCE.md
-- **PASS** — file artifact/EXPECTED_OUTPUTS.md
-- **PASS** — file artifact/commands.sh
-- **PASS** — file results_reference/baseline_comparison/results.csv
-- **PASS** — no ESWA paths outside legacy_archive: []
-- **PASS** — no paper/ directory
+pytest exit code: 2
 
-## Overall: **PASS**
+## Reproducibility
+
+artifact/commands.sh exit code: 1
+
+## Overall: **FAIL**
 

@@ -151,7 +151,7 @@ Purple=triggers\quad Green dashed=mitigates\quad Blue dotted=temporal};
 def generate_causal_state_graph_pdf(path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     repo_root = Path(__file__).resolve().parents[2]
-    tex_source = repo_root / "paper" / "figures" / "causal_state_graph.tex"
+    tex_source = Path(__file__).resolve().parent / "assets" / "causal_state_graph.tex"
     if not tex_source.is_file():
         write_causal_chain_figure_tex(tex_source)
     work_dir = path.parent

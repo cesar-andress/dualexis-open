@@ -16,7 +16,7 @@ def write_formal_governance_model_section(report: GovernanceAuditReport, path: P
     content = f"""\\subsection{{Formal Human-AI Governance State Machine}}
 \\label{{sec:formal-governance-model}}
 
-\\eswareponame{{}} positions human oversight as a \\textbf{{formal governance framework for high-risk
+\\jssrepname{{}} positions human oversight as a \\textbf{{formal governance framework for high-risk
 decision support systems}}, not an informal review flag. The macro-state space is
 \\begin{{equation*}}
   S = \\{{s^{{AI}}, s^{{H}}, s^{{I}}\\}}
@@ -45,7 +45,7 @@ visualises the machine.
 \\paragraph{{Formal audit metrics.}}
 The \\texttt{{GovernanceAuditReport}} bundles (same values as
 $\\gamma_{{\\mathrm{{comp}}}}$ and $\\tau_{{\\mathrm{{trace}}}}$ in
-Table~\\ref{{tab:tsgg-unified-metrics}}):
+Table~\\ref{{tab:harness-honesty}}):
 \\begin{{itemize}}[noitemsep]
   \\item $\\gamma_{{\\mathrm{{comp}}}}$ (\\texttt{{governance\\_compliance\\_score}}) $={m.governance_compliance_score:.3f}$
         --- policy-aligned terminal states;

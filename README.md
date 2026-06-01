@@ -44,7 +44,6 @@ See [`artifact/INSTALL.md`](artifact/INSTALL.md) and [`artifact/REPRODUCE.md`](a
 | `docs/` | Architecture and developer documentation |
 | `experiments/` | Synthetic scenario configs and independent ground truth |
 | `results_reference/` | Pinned reference outputs for diff review |
-| `legacy_archive/` | Deprecated research extensions (not required for JSS validation) |
 
 ## Cite
 

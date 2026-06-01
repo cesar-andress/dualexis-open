@@ -407,8 +407,8 @@ def export_analysis_bundle(
 
     _try_generate_figures(rows, out_root)
 
-    (out_root / "narrative_eswa.md").write_text(
-        generate_eswa_narrative(summary, stability, paired_b5_b1, ranks),
+    (out_root / "narrative_validation.md").write_text(
+        generate_validation_narrative(summary, stability, paired_b5_b1, ranks),
         encoding="utf-8",
     )
     return out_root
@@ -727,7 +727,7 @@ def generate_multiseed_latex(
     return "\n".join(lines) + "\n"
 
 
-def generate_eswa_narrative(
+def generate_validation_narrative(
     summary: dict[str, object],
     stability: tuple[StabilityRow, ...],
     paired: tuple[PairedDeltaRow, ...],
@@ -1002,7 +1002,7 @@ __all__ = [
     "compute_paired_deltas",
     "compute_stability_table",
     "export_analysis_bundle",
-    "generate_eswa_narrative",
+    "generate_validation_narrative",
     "generate_multiseed_latex",
     "load_baseline_csv",
     "rank_stability_across_seeds",

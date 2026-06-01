@@ -1,0 +1,37 @@
+{
+  "trace_id": "8b21c033-2bdf-40d2-bab1-6614a8c9e78f",
+  "case_id": "sim-0044-44923a",
+  "scenario_id": "multimodal_conflict",
+  "zone_id": "zone-control",
+  "profile": "balanced",
+  "steps": [
+    {
+      "step_index": 0,
+      "from_state": "ai_recommendation",
+      "symbol": "issue",
+      "to_state": "human_review",
+      "timestamp": "2026-06-01T20:20:08.895978Z",
+      "micro_state": "pending_review",
+      "metadata": {
+        "ai_action": "monitor",
+        "severity": "low"
+      }
+    },
+    {
+      "step_index": 1,
+      "from_state": "human_review",
+      "symbol": "accept",
+      "to_state": "human_review",
+      "timestamp": "2026-06-01T20:21:22.088796Z",
+      "micro_state": "reviewed",
+      "metadata": {
+        "profile": "balanced"
+      }
+    }
+  ],
+  "terminal_macro_state": "human_review",
+  "ai_correct": false,
+  "requires_escalation": false,
+  "policy_compliant": false,
+  "trace_complete": true
+}

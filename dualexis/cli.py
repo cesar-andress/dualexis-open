@@ -1272,47 +1272,6 @@ def experiment_formal_governance_audit_cmd(
         typer.echo(f"{key}: {value}")
 
 
-@experiment_app.command("empirical-eswa", hidden=True)
-def experiment_empirical_eswa_cmd(
-    output: str = typer.Option(
-        "results/baseline_comparison",
-        "--baseline-output",
-        help="Directory for baseline CSV and summary.",
-    ),
-    privacy_output: str = typer.Option(
-        "results/privacy_fuzz",
-        "--privacy-output",
-        help="Directory for privacy fuzz CSV.",
-    ),
-    seeds: str = typer.Option(
-        ",".join(str(s) for s in range(1, 31)),
-        "--seeds",
-        help="Comma-separated seeds (default 1--30).",
-    ),
-    scenarios: str = typer.Option(
-        ",".join(
-            [
-                "normal_flow",
-                "exit_blockage",
-                "multimodal_conflict",
-                "evacuation_recommendation",
-                "crowd_acceleration",
-                "audio_stress_signal",
-            ]
-        ),
-        "--scenarios",
-        help="Comma-separated scenario identifiers.",
-    ),
-) -> None:
-    """Hidden legacy alias for ``validate-tsgg`` (backward compatibility only)."""
-    experiment_validate_tsgg_cmd(
-        output=output,
-        privacy_output=privacy_output,
-        seeds=seeds,
-        scenarios=scenarios,
-    )
-
-
 @experiment_app.command("validate-tsgg")
 def experiment_validate_tsgg_cmd(
     output: str = typer.Option(
@@ -1346,13 +1305,13 @@ def experiment_validate_tsgg_cmd(
     ),
 ) -> None:
     """Run TSGG/JSS validation package: multiseed diagnostics, fuzz exports, paper tables."""
-    from dualexis.experiments.empirical_battery import run_empirical_eswa_package
+    from dualexis.experiments.empirical_battery import run_validate_tsgg_package
     from dualexis.experiments.multiseed import parse_seed_list
 
     try:
         seed_list = parse_seed_list(seeds)
         scenario_list = tuple(s.strip() for s in scenarios.split(",") if s.strip())
-        summary = run_empirical_eswa_package(
+        summary = run_validate_tsgg_package(
             baseline_output=output,
             privacy_output=privacy_output,
             scenarios=scenario_list,
