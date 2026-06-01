@@ -1,0 +1,80 @@
+{
+  "subgraph_id": "ctx-8f3a2b1c",
+  "assembled_at": "2026-05-25T14:32:00Z",
+  "window_minutes": 5,
+  "location": {
+    "location_id": "site-north-hall",
+    "label": "North Building"
+  },
+  "zones": [
+    {
+      "zone_id": "z-hall-a",
+      "zone_label": "Hallway A",
+      "adjacent": ["z-cafeteria"],
+      "exits": ["exit-a-north"]
+    },
+    {
+      "zone_id": "z-cafeteria",
+      "zone_label": "Cafeteria",
+      "adjacent": ["z-hall-a", "z-exit-lobby"],
+      "risk_prior": 0.42
+    }
+  ],
+  "exits": [
+    {
+      "exit_id": "exit-a-north",
+      "exit_type": "emergency",
+      "connects_to": "exterior-north"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e-001",
+      "event_type": "acoustic_anomaly",
+      "severity": "medium",
+      "confidence": 0.71,
+      "zone_id": "z-hall-a",
+      "timestamp": "2026-05-25T14:30:12Z",
+      "explanation": "Sustained elevated sound level consistent with impact-like acoustic pattern.",
+      "descriptors": [
+        {
+          "category": "impact_like",
+          "description": "Short impulse followed by reverberation",
+          "confidence": 0.68,
+          "source_modalities": ["audio"]
+        }
+      ]
+    },
+    {
+      "event_id": "e-002",
+      "event_type": "crowd_activity",
+      "severity": "medium",
+      "confidence": 0.74,
+      "zone_id": "z-cafeteria",
+      "timestamp": "2026-05-25T14:30:45Z",
+      "explanation": "Aggregate density increase detected; no individual identification performed.",
+      "descriptors": [
+        {
+          "category": "density_elevated",
+          "description": "Occupancy band shifted from normal to elevated",
+          "confidence": 0.74,
+          "source_modalities": ["video"]
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    { "type": "FOLLOWED_BY", "from": "e-001", "to": "e-002", "delta_ms": 33000 },
+    { "type": "PROPAGATES_RISK_TO", "from": "e-001", "to": "z-cafeteria", "score": 0.42 },
+    { "type": "CORROBORATED_BY", "from": "e-001", "to": "e-002", "modality": "multimodal" }
+  ],
+  "recommendations": [
+    {
+      "recommendation_id": "rec-001",
+      "action": "request_review",
+      "explanation": "Correlated acoustic and crowd events across adjacent zones within 33s window.",
+      "requires_human_approval": true,
+      "advises_for": "z-cafeteria"
+    }
+  ]
+}

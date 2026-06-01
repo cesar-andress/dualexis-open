@@ -1,0 +1,13 @@
+scenario_id: normal_flow
+version: e2_rules_v1
+description: Independent GT rules for normal-flow zones (density threshold per zone).
+label_rules:
+  - semantic_label: normal_flow
+    zone_id: "*"
+    expected_event_type: normal_flow
+    min_tick: 0
+    conditions:
+      - metric: zone_density
+        zone: "*"
+        op: gte
+        value: 0.18

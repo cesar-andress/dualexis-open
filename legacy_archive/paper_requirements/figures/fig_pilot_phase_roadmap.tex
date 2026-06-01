@@ -1,0 +1,57 @@
+% Institutional diagram: pilot phase roadmap with governance gates
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[
+    phase/.style={
+      draw=black!75,
+      rounded corners=2pt,
+      minimum width=3.1cm,
+      minimum height=0.7cm,
+      align=center,
+      font=\small,
+      fill=black!5,
+    },
+    gate/.style={
+      draw=black!55,
+      rounded corners=1pt,
+      minimum width=2.9cm,
+      minimum height=0.55cm,
+      align=center,
+      font=\footnotesize,
+      fill=white,
+    },
+    arr/.style={-{Stealth[length=2mm]}, thick, draw=black!70},
+    node distance=0.38cm,
+  ]
+    \node[phase] (p0) {Phase 0\\Foundation};
+    \node[gate, below=of p0] (g0a) {Leadership authorization};
+    \node[gate, below=of g0a] (g0b) {Transparency plan};
+
+    \node[phase, right=1.35cm of p0] (p1) {Sandbox /\\Tabletop};
+    \node[gate, below=of p1] (g1a) {Protocol mapping};
+    \node[gate, below=of g1a] (g1b) {Staff training (awareness)};
+
+    \node[phase, right=1.35cm of p1] (p2) {MVP pilot};
+    \node[gate, below=of p2] (g2a) {DPIA initiated or completed};
+    \node[gate, below=of g2a] (g2b) {Ethics approval (if required)};
+
+    \node[phase, right=1.35cm of p2] (p3) {Recommended\\pilot};
+    \node[gate, below=of p3] (g3a) {Bounded live sensing};
+    \node[gate, below=of g3a] (g3b) {Calibration review};
+
+    \node[phase, right=1.35cm of p3] (p4) {Extended\\programme};
+    \node[gate, below=of p4] (g4a) {Multi-site governance};
+    \node[gate, below=of g4a] (g4b) {Consortium reporting (e.g.\ Horizon)};
+
+    \draw[arr] (p0.east) -- (p1.west);
+    \draw[arr] (p1.east) -- (p2.west);
+    \draw[arr] (p2.east) -- (p3.west);
+    \draw[arr] (p3.east) -- (p4.west);
+
+    \node[font=\footnotesize\itshape, text=black!55, below=0.95cm of g0b]
+      {Advance only when gates for the current phase are documented};
+  \end{tikzpicture}
+  \caption{Pilot phase roadmap with indicative governance gates. Timelines are
+  institution-specific; no phase should add live occupant sensing without prior approval.}
+  \label{fig:pilot-phase-roadmap}
+\end{figure}

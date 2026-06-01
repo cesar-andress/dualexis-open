@@ -1,0 +1,81 @@
+\section{Safety Use Cases and Protocol Mapping}
+\label{sec:safety-use-cases}
+
+\subsection{Design Principle}
+
+DUALEXIS outputs \textbf{advisory semantic events} and recommendations.
+Schools retain authority to activate lockdown, evacuation, or verification procedures through
+existing emergency systems.
+Semantic event types must be mapped to institutional protocols \emph{before} live sensing.
+
+\subsection{Priority Use Cases (Initial Pilot)}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Priority safety use cases and illustrative semantic event themes.}
+  \label{tab:use-cases}
+  \small
+  \begin{tabular}{@{}p{3.2cm}p{4.2cm}p{4.6cm}@{}}
+    \toprule
+    Use case & Scenario theme & Operator need \\
+    \midrule
+    Exit impairment &
+      Blocked or congested egress &
+      Identify affected zones/routes; advise verification. \\
+    Crowd stress &
+      Abnormal density or flow &
+      Early awareness before escalation. \\
+    Multimodal conflict &
+      Disagreement across audio/video/sensor cues &
+      Structured fusion summary for review. \\
+    Evacuation support &
+      Route availability, assembly context &
+      Zone-level guidance inputs (advisory). \\
+    Nominal monitoring &
+      Baseline flow patterns &
+      Reduce false alarms; calibration reference. \\
+    Audio stress indicator &
+      Non-speech acoustic stress proxies &
+      Zone-level indicator only; no speaker ID. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Explicitly Excluded Use Cases}
+
+\begin{itemize}[noitemsep]
+  \item student or staff identification and attendance tracking;
+  \item behavioral discipline scoring or predictive sanctioning;
+  \item forensic person search from stored video;
+  \item automated emergency service dispatch;
+  \item psychological or mental-health inference from sensor streams.
+\end{itemize}
+
+\subsection{Human-in-the-Loop Review}
+
+Events at medium severity and above default to \textbf{mandatory human review}.
+Review queues present:
+\begin{itemize}[noitemsep]
+  \item zone identifier and timestamp;
+  \item severity and confidence;
+  \item explanation text referencing structured evidence fields;
+  \item recommended advisory action (\emph{monitor}, \emph{notify staff}, \emph{request review},
+        \emph{escalate});
+  \item disposition state (pending, in progress, dismissed, escalated).
+\end{itemize}
+
+Staff disposition is logged for audit; external actions (PA announcements, calling emergency
+services) occur outside DUALEXIS.
+
+\subsection{Protocol Mapping Workshop (Required)}
+
+Before MVP go-live, conduct a facilitated workshop covering:
+\begin{enumerate}[noitemsep]
+  \item existing lockdown, evacuation, and shelter-in-place procedures;
+  \item mapping from semantic event types to protocol decision trees;
+  \item roles and escalation paths (on-site lead, administration, external services);
+  \item communication templates for staff and community transparency;
+  \item false-alarm handling and calibration review cadence.
+\end{enumerate}
+
+Deliverable: signed protocol mapping matrix stored with pilot governance records.

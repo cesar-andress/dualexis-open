@@ -1,0 +1,55 @@
+{
+  "leakage_score": 0.3,
+  "overlap": {
+    "shared_variables_ratio": 0.4286,
+    "shared_threshold_ratio": 0.3333,
+    "shared_logic_ratio": 0.0,
+    "variable_union_size": 7,
+    "threshold_union_size": 22,
+    "logic_union_size": 19
+  },
+  "independence": {
+    "procedural_independence": 1.0,
+    "semantic_independence": 0.7095,
+    "distributional_independence": 0.6977
+  },
+  "monte_carlo_iterations": 50,
+  "ground_truth_stability_mean": 0.4967,
+  "event_stability_mean": 1.0,
+  "agreement_drift_mean": 0.001,
+  "reviewer_statement": "This benchmark is procedurally independent but not distributionally independent.",
+  "dependency_graph_dot": "digraph E2Leakage {\n  rankdir=LR;\n  node [shape=box, style=rounded];\n  world_dynamics [label=\"world_dynamics\\n(shared dynamics)\"];\n  event_generator [label=\"event_generator\\n(emission)\"];\n  ground_truth_rules [label=\"ground_truth_rules\\n(labeling)\"];\n  independent_labeler [label=\"independent_labeler\", style=dashed];\n  ground_truth_rules -> independent_labeler [label=\"authoring\", style=dotted];\n  world_dynamics -> event_generator [label=\"feeds WorldState\"];\n  world_dynamics -> ground_truth_rules [label=\"feeds metrics\"];\n  world_dynamics -> event_generator [label=\"shared_world_variables: zone_activity, zone_audio, zone_density\"]; weight=3];\n  world_dynamics -> event_generator [label=\"threshold_align=0.56\", style=dashed];\n  world_dynamics -> ground_truth_rules [label=\"shared_world_metrics: elapsed_seconds, exit_throughput, tick\"]; weight=6];\n  world_dynamics -> ground_truth_rules [label=\"threshold_align=0.75\", style=dashed];\n  event_generator -> ground_truth_rules [label=\"shared_thresholds: zone_activity, zone_audio, zone_density\"]; weight=3];\n  event_generator -> ground_truth_rules [label=\"threshold_align=0.67\", style=dashed];\n}",
+  "per_scenario": {
+    "normal_flow": {
+      "ground_truth_stability": 0.5,
+      "event_stability": 1.0,
+      "agreement_drift": 0.0
+    },
+    "crowd_acceleration": {
+      "ground_truth_stability": 0.491,
+      "event_stability": 1.0,
+      "agreement_drift": 0.0
+    },
+    "exit_blockage": {
+      "ground_truth_stability": 0.4956,
+      "event_stability": 1.0,
+      "agreement_drift": 0.0057
+    },
+    "audio_stress_signal": {
+      "ground_truth_stability": 0.4938,
+      "event_stability": 1.0,
+      "agreement_drift": 0.0
+    },
+    "multimodal_conflict": {
+      "ground_truth_stability": 0.5,
+      "event_stability": 1.0,
+      "agreement_drift": 0.0
+    },
+    "evacuation_recommendation": {
+      "ground_truth_stability": 0.5,
+      "event_stability": 1.0,
+      "agreement_drift": 0.0
+    }
+  },
+  "generated_at": "2026-06-01T20:18:46.193588+00:00"
+}

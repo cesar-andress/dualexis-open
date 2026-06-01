@@ -1,0 +1,46 @@
+%% DUALEXIS human-in-the-loop orchestration flow (L5–L6).
+%%{init: {
+  'theme': 'neutral',
+  'themeVariables': {
+    'fontFamily': 'Helvetica, Arial, sans-serif',
+    'fontSize': '13px',
+    'primaryColor': '#f4f6f8',
+    'primaryBorderColor': '#2c3e50',
+    'lineColor': '#4a5568'
+  },
+  'flowchart': { 'curve': 'basis', 'padding': 12, 'nodeSpacing': 32, 'rankSpacing': 40 }
+}}%%
+flowchart TB
+  EV["SemanticEvent<br/>+ GraphContext"]
+  RS["L5 Local reasoning<br/><i>structured input only</i>"]
+  ORCH["L6 Orchestration<br/><i>OrchestrationRecommendation</i>"]
+  GATE{"Severity ≥ medium<br/>or policy rule?"}
+
+  REV["Human review queue<br/><i>requires_human_review</i>"]
+  STAFF["Licensed safety staff"]
+  DISP{"Disposition"}
+
+  DISM["Dismiss / monitor"]
+  ESC["Escalate / notify"]
+  ACT["External action<br/><i>outside DUALEXIS</i>"]
+
+  AUD["AuditEntry<br/>append-only log"]
+
+  EV --> RS --> ORCH --> GATE
+  GATE -->|yes| REV --> STAFF --> DISP
+  GATE -->|no| AUD
+  DISP --> DISM --> AUD
+  DISP --> ESC --> ACT --> AUD
+
+  NOTE["DUALEXIS does not autonomously enforce<br/>physical or punitive actions"]
+
+  ACT -.-> NOTE
+
+  classDef auto fill:#ebf5fb,stroke:#1f618d,stroke-width:1.5px
+  classDef human fill:#eafaf1,stroke:#1e8449,stroke-width:2px
+  classDef gate fill:#fdebd0,stroke:#b9770e,stroke-width:1.5px
+  classDef audit fill:#f4f6f7,stroke:#566573,stroke-width:1px
+  class EV,RS,ORCH auto
+  class REV,STAFF,DISP,ACT human
+  class GATE gate
+  class DISM,ESC,AUD audit

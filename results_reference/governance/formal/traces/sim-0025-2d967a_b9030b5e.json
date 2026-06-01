@@ -1,0 +1,48 @@
+{
+  "trace_id": "b9030b5e-af60-4dfa-be11-c9df4298ecf7",
+  "case_id": "sim-0025-2d967a",
+  "scenario_id": "evacuation_recommendation",
+  "zone_id": "hallway-a",
+  "profile": "balanced",
+  "steps": [
+    {
+      "step_index": 0,
+      "from_state": "ai_recommendation",
+      "symbol": "issue",
+      "to_state": "human_review",
+      "timestamp": "2026-01-01T12:00:03Z",
+      "micro_state": "pending_review",
+      "metadata": {
+        "ai_action": "no_action",
+        "severity": "high"
+      }
+    },
+    {
+      "step_index": 1,
+      "from_state": "human_review",
+      "symbol": "escalate",
+      "to_state": "institutional_escalation",
+      "timestamp": "2026-06-01T20:10:39.334186Z",
+      "micro_state": "escalated",
+      "metadata": {
+        "profile": "balanced"
+      }
+    },
+    {
+      "step_index": 2,
+      "from_state": "institutional_escalation",
+      "symbol": "close",
+      "to_state": "institutional_escalation",
+      "timestamp": "2026-06-01T20:10:40.334186Z",
+      "micro_state": "escalated",
+      "metadata": {
+        "institutional": "recorded"
+      }
+    }
+  ],
+  "terminal_macro_state": "institutional_escalation",
+  "ai_correct": false,
+  "requires_escalation": true,
+  "policy_compliant": true,
+  "trace_complete": true
+}

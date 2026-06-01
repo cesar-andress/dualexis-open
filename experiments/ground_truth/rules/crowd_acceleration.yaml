@@ -1,0 +1,13 @@
+scenario_id: crowd_acceleration
+version: e2_rules_v1
+description: Independent GT rules for cafeteria crowd-density elevation.
+label_rules:
+  - semantic_label: crowd_density_elevated
+    zone_id: cafeteria
+    expected_event_type: crowd_acceleration
+    min_tick: 2
+    conditions:
+      - metric: zone_density
+        zone: cafeteria
+        op: gte
+        value: 0.38

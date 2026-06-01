@@ -1,0 +1,71 @@
+{
+  "disclaimer": "Post-hoc analysis of existing multiseed CSV rows (synthetic, independent GT). Intervals describe seed replicates under the reference harness; not field inference.",
+  "n_rows": 900,
+  "n_seeds": 30,
+  "scenarios": [
+    "audio_stress_signal",
+    "crowd_acceleration",
+    "evacuation_recommendation",
+    "exit_blockage",
+    "multimodal_conflict",
+    "normal_flow"
+  ],
+  "baselines": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5"
+  ],
+  "key_findings": {
+    "detection_metrics_mostly_seed_stable": true,
+    "accuracy_groups_with_seed_variance": [
+      {
+        "scenario": "exit_blockage",
+        "baseline": "B2",
+        "mode_fraction": 0.8
+      }
+    ],
+    "latency_groups_with_cv_gt_5pct": 30,
+    "rank_agreement_per_scenario": {
+      "audio_stress_signal": 1.0,
+      "crowd_acceleration": 1.0,
+      "evacuation_recommendation": 1.0,
+      "exit_blockage": 1.0,
+      "multimodal_conflict": 1.0,
+      "normal_flow": 1.0
+    },
+    "paired_B5_minus_B1_accuracy": [
+      {
+        "scenario": "audio_stress_signal",
+        "mean_delta": 0.0,
+        "win_rate_B5": 0.0
+      },
+      {
+        "scenario": "crowd_acceleration",
+        "mean_delta": 0.0,
+        "win_rate_B5": 0.0
+      },
+      {
+        "scenario": "evacuation_recommendation",
+        "mean_delta": 0.0,
+        "win_rate_B5": 0.0
+      },
+      {
+        "scenario": "exit_blockage",
+        "mean_delta": 0.0,
+        "win_rate_B5": 0.0
+      },
+      {
+        "scenario": "multimodal_conflict",
+        "mean_delta": 0.0,
+        "win_rate_B5": 0.0
+      },
+      {
+        "scenario": "normal_flow",
+        "mean_delta": 0.0,
+        "win_rate_B5": 0.0
+      }
+    ]
+  }
+}

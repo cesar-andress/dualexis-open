@@ -1,0 +1,52 @@
+% Hardware summary in main body; full BOM in Appendix~\ref{app:hardware-bom}.
+
+\subsection{Hardware and infrastructure requirements (summary)}
+\label{sec:hardware-procurement}
+
+School IT, procurement committees, and Horizon Europe partners should use
+\textbf{Appendix~E --- Reference Hardware Bill of Materials} for indicative line items, unit pricing,
+and tier totals.
+This subsection states deployment principles only; it is not a purchase order.
+
+All tiers assume \textbf{school-controlled}, \textbf{local-first} processing without mandatory cloud
+services.
+Raw video and audio are \textbf{not retained by default}; edge nodes perform ephemeral processing;
+durable records are structured zone summaries and audit logs (Box~\ref{box:system-boundaries}).
+
+\subsubsection{Deployment tiers at a glance}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Hardware tiers --- summary (detail in Appendix~\ref{app:hardware-bom}).}
+  \label{tab:hw-tier-summary}
+  \small
+  \begin{tabular}{@{}p{2.0cm}p{2.0cm}p{2.0cm}p{4.8cm}@{}}
+    \toprule
+    Tier & Schools & Zones & Indicative CapEx (EUR) \\
+    \midrule
+    A --- Minimal & 1 & 2--6 & 8{,}000--20{,}000 \\
+    B --- Horizon & 1--3 & 10--20 & 25{,}000--90{,}000 \\
+    C --- Multi-site & 5--10 & 10--20 / site & 100{,}000--350{,}000 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\noindent CapEx ranges include hardware, cabling, installation, and spares variability.
+See Appendix~\ref{app:budget} for OpEx and Appendix~\ref{app:hardware-bom} for BOM tables,
+procurement strategy, and acceptance tests.
+
+\subsubsection{Operational deployment requirements}
+
+\begin{itemize}[noitemsep]
+  \item \textbf{No cloud dependency} for review queues or coordination in nominal mode.
+  \item \textbf{Local inference} on zone edge nodes; orchestrator aggregates summaries only.
+  \item \textbf{VLAN separation:} sensing, coordination, staff access, management (optional research).
+  \item \textbf{Physical security:} lockable cabinet; asset tags; tamper-evident labelling.
+  \item \textbf{UPS:} target 15--30\,min autonomy for edge and orchestrator hosts.
+  \item \textbf{Maintenance:} monthly health check; quarterly firmware review; DPIA review on scope change.
+  \item \textbf{Degraded mode:} manual SMS if systems unavailable; no automatic cloud video failover.
+\end{itemize}
+
+\noindent\textbf{Procurement note.}
+Start with Tier~A sandbox hardware; complete governance gates and acceptance tests
+(Appendix~\ref{app:hardware-bom}, Table~\ref{tab:acceptance-tests}) before live occupant sensing.

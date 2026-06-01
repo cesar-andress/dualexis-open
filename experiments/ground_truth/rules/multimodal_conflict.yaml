@@ -1,0 +1,17 @@
+scenario_id: multimodal_conflict
+version: e2_rules_v1
+description: Independent GT rules for cafeteria audio/activity conflict.
+label_rules:
+  - semantic_label: multimodal_conflict
+    zone_id: cafeteria
+    expected_event_type: multimodal_conflict
+    min_tick: 3
+    conditions:
+      - metric: zone_audio
+        zone: cafeteria
+        op: gte
+        value: 0.52
+      - metric: zone_activity
+        zone: cafeteria
+        op: lt
+        value: 0.28

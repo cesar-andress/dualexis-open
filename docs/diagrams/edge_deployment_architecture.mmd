@@ -1,0 +1,52 @@
+%% DUALEXIS edge deployment architecture (reference topology).
+%%{init: {
+  'theme': 'neutral',
+  'themeVariables': {
+    'fontFamily': 'Helvetica, Arial, sans-serif',
+    'fontSize': '13px',
+    'primaryColor': '#f4f6f8',
+    'primaryBorderColor': '#2c3e50',
+    'lineColor': '#4a5568'
+  },
+  'flowchart': { 'curve': 'basis', 'padding': 12, 'nodeSpacing': 32, 'rankSpacing': 44 }
+}}%%
+flowchart TB
+  subgraph SITE["Confined-space site (on-premises enclave)"]
+    subgraph EDGE["Edge nodes"]
+      EN1["Edge node A<br/>video / sensor"]
+      EN2["Edge node B<br/>audio"]
+    end
+
+    subgraph RUNTIME["Edge runtime (dualexis/edge_runtime)"]
+      CFG["EdgeNodeConfig<br/><i>strict-v1 policy</i>"]
+      L1E["L1 validate + egress"]
+      BUF["Ephemeral buffers<br/><i>no raw media store</i>"]
+    end
+
+    subgraph CORE["Local orchestrator"]
+      PIPE["Pipeline L2–L6"]
+      GRAPH["Temporal graph store"]
+    end
+
+    EN1 --> BUF
+    EN2 --> BUF
+    BUF --> L1E
+    CFG -. policy .-> L1E
+    L1E -->|"SemanticEvent"| PIPE
+    PIPE --> GRAPH
+  end
+
+  subgraph EXT["External (optional / future)"]
+    FED["Federated event bus<br/><i>structured events only</i>"]
+    REV["Staff review workflow<br/><i>human disposition</i>"]
+  end
+
+  PIPE -->|"TB5 allowlist"| FED
+  PIPE -->|"advisory recs"| REV
+
+  classDef edge fill:#ebf5fb,stroke:#1f618d,stroke-width:1.5px
+  classDef priv fill:#fdebd0,stroke:#b9770e,stroke-width:1.5px
+  classDef ext fill:#f5eef8,stroke:#6c3483,stroke-width:1.5px
+  class EN1,EN2,PIPE,GRAPH edge
+  class CFG,L1E,BUF priv
+  class FED,REV ext

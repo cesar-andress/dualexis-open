@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orchestrator-config
+  namespace: dualexis
+  labels:
+    app.kubernetes.io/name: orchestrator
+data:
+  DUALEXIS_SITE_ID: site-local
+  DUALEXIS_NATS_URL: nats://nats.dualexis.svc.cluster.local:4222
+  DUALEXIS_REASONING_ENABLED: "true"
+  DUALEXIS_RESEARCH_SERVER_URL: ""

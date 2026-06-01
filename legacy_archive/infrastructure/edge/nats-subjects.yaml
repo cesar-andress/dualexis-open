@@ -1,0 +1,45 @@
+# DUALEXIS NATS subject namespace
+# MQTT equivalents: replace '.' with '/' and use QoS 1, retained=false
+
+site_id_placeholder: "{site_id}"
+zone_id_placeholder: "{zone_id}"
+node_id_placeholder: "{node_id}"
+
+subjects:
+  semantic_events:
+    pattern: "dualexis.events.{site_id}.{zone_id}"
+    publisher: edge-node
+    consumer: orchestrator
+    payload: SemanticEvent
+    description: Primary semantic event stream (JSON only)
+
+  audit:
+    pattern: "dualexis.audit.{site_id}"
+    publisher: orchestrator
+    consumer: audit-sink
+    payload: AuditEntry
+    description: Redacted audit trail (no raw media)
+
+  health:
+    pattern: "dualexis.health.{node_id}"
+    publisher: edge-node
+    consumer: orchestrator
+    payload: HealthHeartbeat
+    description: Liveness and buffer TTL telemetry
+
+  recommendations:
+    pattern: "dualexis.recommendations.{site_id}"
+    publisher: orchestrator
+    consumer: api
+    payload: OrchestrationRecommendation
+    description: Human-review advisory outputs
+
+mqtt_topics:
+  semantic_events: "dualexis/events/{site_id}/{zone_id}"
+  audit: "dualexis/audit/{site_id}"
+  health: "dualexis/health/{node_id}"
+  recommendations: "dualexis/recommendations/{site_id}"
+
+queue_groups:
+  orchestrator_ingest: dualexis-orchestrator
+  api_fanout: dualexis-api

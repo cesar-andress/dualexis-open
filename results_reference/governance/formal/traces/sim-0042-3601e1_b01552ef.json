@@ -1,0 +1,37 @@
+{
+  "trace_id": "b01552ef-c92b-4673-a73f-95dcf47e1b21",
+  "case_id": "sim-0042-3601e1",
+  "scenario_id": "crowd_acceleration",
+  "zone_id": "zone-control",
+  "profile": "balanced",
+  "steps": [
+    {
+      "step_index": 0,
+      "from_state": "ai_recommendation",
+      "symbol": "issue",
+      "to_state": "human_review",
+      "timestamp": "2026-06-01T16:44:55.523884Z",
+      "micro_state": "pending_review",
+      "metadata": {
+        "ai_action": "monitor",
+        "severity": "low"
+      }
+    },
+    {
+      "step_index": 1,
+      "from_state": "human_review",
+      "symbol": "accept",
+      "to_state": "human_review",
+      "timestamp": "2026-06-01T16:46:21.092885Z",
+      "micro_state": "reviewed",
+      "metadata": {
+        "profile": "balanced"
+      }
+    }
+  ],
+  "terminal_macro_state": "human_review",
+  "ai_correct": false,
+  "requires_escalation": false,
+  "policy_compliant": false,
+  "trace_complete": true
+}

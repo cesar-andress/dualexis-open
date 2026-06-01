@@ -1,0 +1,37 @@
+{
+  "trace_id": "461d5839-ad9d-4131-8260-552804185209",
+  "case_id": "sim-0014-66cd75",
+  "scenario_id": "normal_flow",
+  "zone_id": "zone-control",
+  "profile": "balanced",
+  "steps": [
+    {
+      "step_index": 0,
+      "from_state": "ai_recommendation",
+      "symbol": "issue",
+      "to_state": "human_review",
+      "timestamp": "2026-06-01T18:56:07.845554Z",
+      "micro_state": "pending_review",
+      "metadata": {
+        "ai_action": "monitor",
+        "severity": "low"
+      }
+    },
+    {
+      "step_index": 1,
+      "from_state": "human_review",
+      "symbol": "override",
+      "to_state": "human_review",
+      "timestamp": "2026-06-01T18:56:52.536610Z",
+      "micro_state": "overridden",
+      "metadata": {
+        "profile": "balanced"
+      }
+    }
+  ],
+  "terminal_macro_state": "human_review",
+  "ai_correct": true,
+  "requires_escalation": false,
+  "policy_compliant": true,
+  "trace_complete": true
+}

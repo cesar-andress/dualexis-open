@@ -1,0 +1,2157 @@
+{
+  "audit_id": "d3770ec7-c8d9-4169-996c-d2dbf2583f1e",
+  "generated_at": "2026-06-01T20:18:46.611718Z",
+  "framework_title": "Formal Human-AI Governance State Machine for High-Risk Decision Support Systems",
+  "graph": {
+    "nodes": [
+      "ai_recommendation",
+      "human_review",
+      "institutional_escalation"
+    ],
+    "edges": [
+      {
+        "from_state": "ai_recommendation",
+        "to_state": "human_review",
+        "symbol": "issue",
+        "probability": 1.0,
+        "count": 50
+      },
+      {
+        "from_state": "human_review",
+        "to_state": "human_review",
+        "symbol": "accept",
+        "probability": 0.46,
+        "count": 23
+      },
+      {
+        "from_state": "human_review",
+        "to_state": "human_review",
+        "symbol": "dismiss",
+        "probability": 0.1,
+        "count": 5
+      },
+      {
+        "from_state": "human_review",
+        "to_state": "institutional_escalation",
+        "symbol": "escalate",
+        "probability": 0.34,
+        "count": 17
+      },
+      {
+        "from_state": "human_review",
+        "to_state": "human_review",
+        "symbol": "override",
+        "probability": 0.1,
+        "count": 5
+      },
+      {
+        "from_state": "institutional_escalation",
+        "to_state": "institutional_escalation",
+        "symbol": "close",
+        "probability": 1.0,
+        "count": 17
+      }
+    ],
+    "transition_matrix": {
+      "ai_recommendation": {
+        "issue": 1.0
+      },
+      "human_review": {
+        "accept": 0.46,
+        "override": 0.1,
+        "dismiss": 0.1,
+        "escalate": 0.34
+      },
+      "institutional_escalation": {
+        "close": 1.0
+      }
+    },
+    "transition_relation": [
+      {
+        "from_state": "ai_recommendation",
+        "symbol": "issue",
+        "to_state": "human_review",
+        "guard": "requires_human_review(s)"
+      },
+      {
+        "from_state": "human_review",
+        "symbol": "accept",
+        "to_state": "human_review",
+        "guard": "operator_accept(u)"
+      },
+      {
+        "from_state": "human_review",
+        "symbol": "override",
+        "to_state": "human_review",
+        "guard": "operator_override(u)"
+      },
+      {
+        "from_state": "human_review",
+        "symbol": "dismiss",
+        "to_state": "human_review",
+        "guard": "operator_dismiss(u)"
+      },
+      {
+        "from_state": "human_review",
+        "symbol": "escalate",
+        "to_state": "institutional_escalation",
+        "guard": "policy_escalation_required(s)"
+      },
+      {
+        "from_state": "institutional_escalation",
+        "symbol": "close",
+        "to_state": "institutional_escalation",
+        "guard": "institutional_ack(s)"
+      }
+    ],
+    "dot": "digraph FormalHumanAIGovernance {\n  rankdir=LR;\n  node [shape=box, style=\"rounded,filled\", fontname=\"Helvetica\"];\n  ai_recommendation [label=\"s^{AI}\\nAI recommendation\", fillcolor=\"#fff3cd\"];\n  human_review [label=\"s^{H}\\nHuman review\", fillcolor=\"#fdebd0\"];\n  institutional_escalation [label=\"s^{I}\\nInstitutional escalation\", fillcolor=\"#cce5ff\"];\n  ai_recommendation -> human_review [label=\"issue (p=1.00)\"];\n  human_review -> human_review [label=\"accept (p=0.46)\"];\n  human_review -> human_review [label=\"dismiss (p=0.10)\"];\n  human_review -> institutional_escalation [label=\"escalate (p=0.34)\"];\n  human_review -> human_review [label=\"override (p=0.10)\"];\n  institutional_escalation -> institutional_escalation [label=\"close (p=1.00)\"];\n}"
+  },
+  "metrics": {
+    "governance_compliance_score": 0.44,
+    "institutional_reliance_index": 0.5,
+    "human_override_resilience": 0.093,
+    "decision_traceability": 1.0
+  },
+  "traces": [
+    {
+      "trace_id": "aaeb9092-ea98-4585-8506-88793a3a310b",
+      "case_id": "sim-0000-6d622e",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:20:26.963674Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:20:27.963674Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "e80c46a2-3770-44df-b090-af338e2d94ad",
+      "case_id": "sim-0001-1c7c88",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "override",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:54.142983Z",
+          "micro_state": "overridden",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "6d0595b5-f77e-46ef-9ea7-b6fa4124a7b2",
+      "case_id": "sim-0002-b3d540",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:57.255130Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "bf73e17d-fd11-43db-8309-cc6720e89c09",
+      "case_id": "sim-0003-df6ffd",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:25.402845Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:26.402845Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "c307ce77-c0e5-4fe9-acbe-d7b7e416e384",
+      "case_id": "sim-0004-da0bb0",
+      "scenario_id": "audio_stress_signal",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:56.370524Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:57.370524Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "abd758aa-fae7-4d3a-9169-6f71587b400e",
+      "case_id": "sim-0005-2c46d1",
+      "scenario_id": "crowd_acceleration",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:43.589953Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:44.589953Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "6d50ef2d-5418-4b65-a4ec-8657ecd53b9b",
+      "case_id": "sim-0006-c7f361",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:48.396271Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:49.396271Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "e01d0419-da24-483d-8c5e-0ef1d1b96692",
+      "case_id": "sim-0007-b4ce64",
+      "scenario_id": "audio_stress_signal",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:22.933013Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "69f2fa98-0488-4854-955f-b3ac607c1476",
+      "case_id": "sim-0008-78ca32",
+      "scenario_id": "audio_stress_signal",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "dismiss",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:14.671788Z",
+          "micro_state": "dismissed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "c9b4a3e3-ba9a-4cb2-b618-40c67cd1c13c",
+      "case_id": "sim-0009-a3fa45",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:30.435066Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "63389849-d2ae-4343-af12-ac0ba0e175be",
+      "case_id": "sim-0010-5528c2",
+      "scenario_id": "crowd_acceleration",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:20.040444Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "539474f3-fea6-4800-b94b-caa06ea98ad2",
+      "case_id": "sim-0011-569c8d",
+      "scenario_id": "multimodal_conflict",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:20:08.302173Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "6bac18e8-234c-4713-bd38-94c1380f8d41",
+      "case_id": "sim-0012-26b316",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:18:51.731002Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:18:52.731002Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "8cf7372b-10eb-4b00-bcd0-2eb488c8aeca",
+      "case_id": "sim-0013-307535",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:42.095944Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "81949cae-97c6-4a2f-a378-1bd459627cca",
+      "case_id": "sim-0014-daf063",
+      "scenario_id": "normal_flow",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "override",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:31.301872Z",
+          "micro_state": "overridden",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": true,
+      "requires_escalation": false,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "1eb45ab7-71dd-46e4-ab42-ee3b35d50240",
+      "case_id": "sim-0015-434888",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:27.985966Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "d7949bdb-da46-44a3-8ab3-a4111e157159",
+      "case_id": "sim-0016-1db0c4",
+      "scenario_id": "normal_flow",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:48.489471Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": true,
+      "requires_escalation": false,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "8a1d4441-7ec5-4bf4-97ed-fb6eacf874ba",
+      "case_id": "sim-0017-b4aaa8",
+      "scenario_id": "crowd_acceleration",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "override",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:20:00.043623Z",
+          "micro_state": "overridden",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "2905e624-5c74-4c76-a47d-28658ae582bb",
+      "case_id": "sim-0018-e2d787",
+      "scenario_id": "normal_flow",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:22.907620Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": true,
+      "requires_escalation": false,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "ca7f2f1f-fe42-4111-abf8-c875e9cc8777",
+      "case_id": "sim-0019-fdee0d",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:59.606936Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "6d637bb4-e6df-405b-b245-186be8845788",
+      "case_id": "sim-0020-f46bc1",
+      "scenario_id": "audio_stress_signal",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:20:31.932009Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "e0b5b7ba-d38d-4c80-8391-425d55a3c65e",
+      "case_id": "sim-0021-f1f7db",
+      "scenario_id": "crowd_acceleration",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:56.010450Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "2ff05ab0-fefb-4e18-b7ac-0124d417eb5a",
+      "case_id": "sim-0022-c02d34",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:16.670988Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:17.670988Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "71483a59-6199-4d4e-a0c9-e9f1103bf940",
+      "case_id": "sim-0023-2156dc",
+      "scenario_id": "multimodal_conflict",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "dismiss",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:31.693433Z",
+          "micro_state": "dismissed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "88f2e663-edfd-4e17-bb00-646385607550",
+      "case_id": "sim-0024-abcdfe",
+      "scenario_id": "normal_flow",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:38.688403Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": true,
+      "requires_escalation": false,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "9ef017f5-a61d-4db5-93a8-1dd294a669e8",
+      "case_id": "sim-0025-371f5d",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:54.470098Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:55.470098Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "2528bc59-31a9-4bee-9a20-8513a1242e21",
+      "case_id": "sim-0026-0b7b91",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:20:09.893783Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:20:10.893783Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "c316f0af-0abe-451c-8c3f-f411063c26a5",
+      "case_id": "sim-0027-548c1e",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "override",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:58.124818Z",
+          "micro_state": "overridden",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "a7df8cf8-5783-40b9-8c34-f5c0ccdabfcc",
+      "case_id": "sim-0028-0de330",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:19.170597Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "d81800a6-705e-4682-9033-f11ca0dfed6c",
+      "case_id": "sim-0029-af59fb",
+      "scenario_id": "exit_blockage",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:25.056455Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "d748db1e-346e-4929-b8c4-e90388107704",
+      "case_id": "sim-0030-ff679c",
+      "scenario_id": "normal_flow",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:54.982986Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": true,
+      "requires_escalation": false,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "6c6054a7-798d-4ef1-8291-231c6b3a6f03",
+      "case_id": "sim-0031-45dff7",
+      "scenario_id": "normal_flow",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "dismiss",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:20:38.407784Z",
+          "micro_state": "dismissed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": true,
+      "requires_escalation": false,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "aa7fde3c-06e7-4bc3-969a-0c0b273016f0",
+      "case_id": "sim-0032-d63f4a",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:56.689010Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "9a1ca140-a5db-4073-9a4a-5a29c9c9e922",
+      "case_id": "sim-0033-e75f67",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:35.666904Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "1c8e110d-8f39-40c9-9266-edf9af4b9782",
+      "case_id": "sim-0034-1a36e3",
+      "scenario_id": "multimodal_conflict",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:51.594630Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:52.594630Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "7fa8405a-a821-46f7-ab05-cf4ccc1b2251",
+      "case_id": "sim-0035-013187",
+      "scenario_id": "audio_stress_signal",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "dismiss",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:20:03.848840Z",
+          "micro_state": "dismissed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "6c50d2e1-a609-434c-ade6-6c0d2a9a4156",
+      "case_id": "sim-0036-2ddf3b",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:39.493078Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:40.493078Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "3855f75f-3171-4310-924f-a2372b598653",
+      "case_id": "sim-0037-a4178b",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:40.305719Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:41.305719Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "b419540e-ddf3-44af-8be5-317d381f2ba4",
+      "case_id": "sim-0038-299343",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:20:03.351337Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "98edfb80-602d-4093-9536-41c56947ab61",
+      "case_id": "sim-0039-a56fb7",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:20:15.383343Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:20:16.383343Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "4eb50659-c5f2-43bb-97b0-271edd229d35",
+      "case_id": "sim-0040-8f9c0c",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:41.026220Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "eeaa069d-921e-4ccb-b547-e0a0170e0a61",
+      "case_id": "sim-0041-e6de0d",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "override",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:21.737211Z",
+          "micro_state": "overridden",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "2168675e-f20b-4eed-bc18-a9a82c725764",
+      "case_id": "sim-0042-cb0091",
+      "scenario_id": "crowd_acceleration",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:20:12.179835Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "958cfaaa-8134-42f1-9089-c9a349ddcc94",
+      "case_id": "sim-0043-32e393",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:50.491006Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:51.491006Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "f30638b4-3ceb-4109-a9df-9da1a5d7fed0",
+      "case_id": "sim-0044-0245f6",
+      "scenario_id": "multimodal_conflict",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:59.803639Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "393d8dd7-4917-4c5e-bfe7-b0c61b851748",
+      "case_id": "sim-0045-c09071",
+      "scenario_id": "normal_flow",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "accept",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:42.027665Z",
+          "micro_state": "reviewed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": true,
+      "requires_escalation": false,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "c55f382a-7369-4953-a36a-57e9e77ccd34",
+      "case_id": "sim-0046-87bf10",
+      "scenario_id": "exit_blockage",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:48.881933Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:49.881933Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "a4885b72-37c8-464f-93dc-e99bb8459a6e",
+      "case_id": "sim-0047-484f3f",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:24.810399Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:19:25.810399Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": false,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "8635e95a-d2e0-4a71-96bc-88fedaacea59",
+      "case_id": "sim-0048-bd1b2e",
+      "scenario_id": "evacuation_recommendation",
+      "zone_id": "hallway-a",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-01-01T12:00:03Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "no_action",
+            "severity": "high"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "escalate",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:20:01.404061Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "profile": "balanced"
+          }
+        },
+        {
+          "step_index": 2,
+          "from_state": "institutional_escalation",
+          "symbol": "close",
+          "to_state": "institutional_escalation",
+          "timestamp": "2026-06-01T20:20:02.404061Z",
+          "micro_state": "escalated",
+          "metadata": {
+            "institutional": "recorded"
+          }
+        }
+      ],
+      "terminal_macro_state": "institutional_escalation",
+      "ai_correct": false,
+      "requires_escalation": true,
+      "policy_compliant": true,
+      "trace_complete": true
+    },
+    {
+      "trace_id": "ca38d66a-95c3-40e1-9159-8b83789c6ec4",
+      "case_id": "sim-0049-de938b",
+      "scenario_id": "audio_stress_signal",
+      "zone_id": "zone-control",
+      "profile": "balanced",
+      "steps": [
+        {
+          "step_index": 0,
+          "from_state": "ai_recommendation",
+          "symbol": "issue",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:18:46.610826Z",
+          "micro_state": "pending_review",
+          "metadata": {
+            "ai_action": "monitor",
+            "severity": "low"
+          }
+        },
+        {
+          "step_index": 1,
+          "from_state": "human_review",
+          "symbol": "dismiss",
+          "to_state": "human_review",
+          "timestamp": "2026-06-01T20:19:39.539993Z",
+          "micro_state": "dismissed",
+          "metadata": {
+            "profile": "balanced"
+          }
+        }
+      ],
+      "terminal_macro_state": "human_review",
+      "ai_correct": false,
+      "requires_escalation": false,
+      "policy_compliant": true,
+      "trace_complete": true
+    }
+  ],
+  "trace_count": 50,
+  "simulation_iterations": 50,
+  "disclaimer": "Formal governance state-machine audit on simulated operator dispositions. Mathematical model documents δ: S×Σ→S; metrics are synthetic feasibility descriptors."
+}

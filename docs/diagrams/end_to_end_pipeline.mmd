@@ -1,0 +1,56 @@
+%% DUALEXIS end-to-end pipeline (L1–L6). Source of truth — copied to paper/figures/.
+%%{init: {
+  'theme': 'neutral',
+  'themeVariables': {
+    'fontFamily': 'Helvetica, Arial, sans-serif',
+    'fontSize': '13px',
+    'primaryColor': '#f4f6f8',
+    'primaryBorderColor': '#2c3e50',
+    'lineColor': '#4a5568'
+  },
+  'flowchart': { 'curve': 'basis', 'padding': 12, 'nodeSpacing': 36, 'rankSpacing': 44 }
+}}%%
+flowchart TB
+  subgraph IN["Inputs (synthetic v0.1)"]
+    SIG["Local signals<br/><i>PipelineInput</i>"]
+  end
+
+  subgraph L2["L2 Edge Perception"]
+    PERC["Zone descriptors<br/><i>PerceptionSignal</i>"]
+  end
+
+  subgraph L3["L3 Semantic Events"]
+    FUSE["Fusion & abstraction<br/><i>SemanticEvent</i>"]
+  end
+
+  subgraph L4["L4 Temporal Graph"]
+    GRAPH["Graph updates<br/><i>GraphContext</i>"]
+  end
+
+  subgraph L5["L5 Local Reasoning"]
+    LLM["Structured copilot<br/><i>ReasoningResponse</i>"]
+  end
+
+  subgraph L6["L6 Orchestration"]
+    REC["Advisory recommendations<br/><i>requires_human_review</i>"]
+  end
+
+  subgraph OUT["Outputs"]
+    EVAL["Evaluation metrics &amp; audit<br/><i>PrivacyReport</i>"]
+  end
+
+  L1["L1 Privacy Runtime<br/>TB1–TB5 cross-cutting gates"]
+
+  SIG --> PERC --> FUSE --> GRAPH --> LLM --> REC --> EVAL
+  L1 -. enforce .-> PERC
+  L1 -. enforce .-> FUSE
+  L1 -. enforce .-> LLM
+  L1 -. enforce .-> REC
+  L1 -. enforce .-> EVAL
+
+  classDef layer fill:#e8ecf0,stroke:#2c3e50,stroke-width:1.5px
+  classDef privacy fill:#fdebd0,stroke:#b9770e,stroke-width:2px
+  classDef io fill:#eafaf1,stroke:#1e8449,stroke-width:1.5px
+  class PERC,FUSE,GRAPH,LLM,REC layer
+  class L1 privacy
+  class SIG,EVAL io

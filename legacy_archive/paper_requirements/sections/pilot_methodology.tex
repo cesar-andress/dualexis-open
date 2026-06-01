@@ -1,0 +1,127 @@
+\section{Pilot Methodology and Phases}
+\label{sec:pilot-methodology}
+
+\subsection{Overview}
+
+The pilot follows a \textbf{gated, phased} methodology aligned with safety science and
+human-subjects research norms.
+No phase involving live occupant sensing begins without documented governance approval.
+
+\subsection{Phase 0: Requirements and Institutional Alignment (Current)}
+
+Activities:
+\begin{itemize}[noitemsep]
+  \item distribute this requirements document to stakeholders;
+  \item site walkthrough and zone mapping;
+  \item IT capacity assessment;
+  \item initiate DPIA and ethics review;
+  \item protocol mapping workshop (planned).
+\end{itemize}
+
+Exit criteria: signed intent to proceed; steering committee formed.
+
+\subsection{Phase 1: Sandbox and Tabletop (No Live Public Sensing)}
+
+Activities:
+\begin{itemize}[noitemsep]
+  \item deploy infrastructure on isolated VLAN with synthetic feeds;
+  \item train safety officers on dashboard;
+  \item tabletop exercises with scripted semantic events;
+  \item refine protocol mapping matrix.
+\end{itemize}
+
+Duration: 4--8 weeks (indicative).
+
+Exit criteria: training complete; tabletop debrief documented; DPIA draft reviewed.
+
+\subsection{Phase 2: Minimum Viable Pilot (MVP)}
+
+\textbf{Scale:} 1 school, 2--4 zones, 1--2 edge nodes, single orchestrator.
+
+Activities:
+\begin{itemize}[noitemsep]
+  \item limited live sensing in approved zones only;
+  \item staffed-hours monitoring with defined review SLAs;
+  \item collect evaluation metrics (Section~\ref{sec:evaluation-metrics});
+  \item weekly calibration and false-alarm review.
+\end{itemize}
+
+Duration: 8--16 weeks (indicative).
+
+Exit criteria: governance review; decision to expand, modify, or halt.
+
+\subsection{Phase 3: Recommended Pilot}
+
+\textbf{Scale:} 1--3 schools, 6--12 zones total, heterogeneous zone types (hallway, cafeteria, exit).
+
+Activities:
+\begin{itemize}[noitemsep]
+  \item cross-site comparison of operator workflows;
+  \item optional GPU video nodes at one site;
+  \item structured staff feedback (surveys/interviews with ethics approval);
+  \item prepare Horizon Europe or national funding evidence pack.
+\end{itemize}
+
+Duration: 6--12 months (indicative).
+
+\subsection{Phase 4: Extended Pilot}
+
+\textbf{Scale:} 5--10 schools.
+
+Activities:
+\begin{itemize}[noitemsep]
+  \item multi-site federation patterns;
+  \item hardened bus security (mTLS);
+  \item optional anonymized metrics export to research server;
+  \item pre-registered inferential evaluation if ethics-approved.
+\end{itemize}
+
+Duration: 12--24 months (indicative, funding dependent).
+
+\subsection{Minimum Viable Pilot Configuration}
+
+\begin{table}[htbp]
+  \centering
+  \caption{MVP minimum configuration.}
+  \label{tab:mvp-config}
+  \small
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    Element & MVP minimum \\
+    \midrule
+    Schools & 1 \\
+    Zones & 2--4 \\
+    Edge nodes & 1--2 (Edge-S or Edge-V) \\
+    Event bus & 1 NATS/MQTT broker \\
+    Orchestrator & 1 host (32 GB RAM) \\
+    Dashboard & 1 API + web UI \\
+    GPU & Optional (CPU-only acceptable for MVP) \\
+    Research server & Disabled \\
+    Staff FTE (school) & 0.2--0.5 safety officer; 0.1 IT \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Go / No-Go Gates}
+
+\begin{enumerate}[noitemsep]
+  \item Governance charter signed.
+  \item DPIA residual risk accepted by DPO and leadership.
+  \item Protocol mapping matrix approved.
+  \item Training completion $\geq$ 90\% of designated staff.
+  \item Tabletop exercises completed with documented remediations.
+  \item IT sign-off on VLAN and firewall rules.
+  \item Ethics approval for evaluation instruments (if applicable).
+\end{enumerate}
+
+\subsection{Stop Conditions}
+
+Immediate pause triggers:
+\begin{itemize}[noitemsep]
+  \item privacy policy violation or raw media egress detected;
+  \item unauthorized access to dashboard or audit logs;
+  \item stakeholder withdrawal or regulatory inquiry requiring halt;
+  \item unmitigated false-alarm rate exceeding pre-agreed pilot threshold.
+\end{itemize}
+
+Stop conditions invoke incident review before resumption.

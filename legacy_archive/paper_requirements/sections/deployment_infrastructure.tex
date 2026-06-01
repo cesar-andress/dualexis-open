@@ -1,0 +1,142 @@
+\section{Local Processing and Operational Layout}
+\label{sec:deployment-infrastructure}
+\label{sec:hardware-requirements}
+\label{sec:edge-infrastructure-req}
+\label{sec:network-requirements}
+
+\subsection{School-controlled operation (plain language)}
+
+Each participating site uses \textbf{school-controlled equipment and accounts}.
+Four operational roles apply:
+
+\begin{enumerate}[noitemsep]
+  \item \textbf{Zone equipment} --- approved sensors process information locally; raw video/audio
+        are not kept as recordings by default.
+  \item \textbf{Site coordination} --- combines zone summaries, maintains review queues, and stores
+        audit records (structured text only).
+  \item \textbf{Staff review screen} --- trained staff see advisories and record decisions;
+        \textbf{advisory only}.
+  \item \textbf{Optional research export} (off by default) --- anonymized metrics only; no operational control.
+\end{enumerate}
+
+\textbf{Critical rule:} persistent records are \textbf{structured zone summaries and audit logs}---not
+video or audio files.
+Technical detail for IT teams: Appendix~\ref{app:technical-architecture}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Who is accountable for what (MVP).}
+  \label{tab:deployment-roles}
+  \small
+  \begin{tabular}{@{}p{2.8cm}p{5.0cm}p{4.2cm}@{}}
+    \toprule
+    Role & Purpose & Must not \\
+    \midrule
+    Zone equipment &
+      Local processing $\rightarrow$ zone summaries &
+      Store recordings; trigger protocols \\
+    Site coordination &
+      Shared picture; review queue &
+      Call emergency services; lock down \\
+    Staff review screen &
+      Understand, decide, log &
+      Issue orders; show identity panels \\
+    Research export (opt.) &
+      Anonymized learning metrics &
+      Identity data; control operations \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Sensing scope (minimize, do not maximize)}
+
+Coverage follows the \textbf{co-designed zone list}---not ``camera everywhere'' deployment.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Planning tiers (illustrative; not a product catalogue).}
+  \label{tab:capability-tiers}
+  \small
+  \begin{tabular}{@{}p{2.6cm}p{4.2cm}p{4.8cm}@{}}
+    \toprule
+    Tier & Typical use & Note \\
+    \midrule
+    Light & Audio / environmental sensors & Small pilots \\
+    Standard & One approved stream per zone & Most MVP sites \\
+    Enhanced & Busy zones needing redundancy & Requires IT capacity review \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{itemize}[noitemsep]
+  \item sensors observe \textbf{spaces (zones)}, not named individuals;
+  \item signage and parent/staff notices align with the DPIA (Appendix~\ref{app:governance-templates});
+  \item coordination server stays on school premises with access controls and backup;
+  \item right-size to protocol needs agreed in the protocol-mapping workshop.
+\end{itemize}
+
+\subsection{Network and data-flow rules (sign-off summary)}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Network areas (map to school IT standards).}
+  \label{tab:trust-zones}
+  \small
+  \begin{tabular}{@{}p{2.4cm}p{3.6cm}p{4.8cm}@{}}
+    \toprule
+    Area & Contains & Intent \\
+    \midrule
+    Sensing & Cameras, mics, zone equipment & No public Internet; ephemeral processing \\
+    Coordination & Site service, audit store & Structured summaries only \\
+    Staff access & Review screen for safety staff & Authenticated staff only \\
+    Research (opt.) & Metrics collector & Anonymized egress if approved \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Data-flow rules for DPO and IT sign-off.}
+  \label{tab:data-flows}
+  \small
+  \begin{tabular}{@{}p{4.0cm}p{7.6cm}@{}}
+    \toprule
+    Flow & Rule \\
+    \midrule
+    Sensor $\rightarrow$ zone equipment & Permitted; no lasting recordings by default \\
+    Zone equipment $\rightarrow$ coordination & Structured zone summaries + health status only \\
+    Coordination $\rightarrow$ staff screen & Advisories, summaries, audit metadata \\
+    Any path $\rightarrow$ Internet (raw video/audio) & \textbf{Prohibited} \\
+    Coordination $\rightarrow$ research export & Optional; anonymized metrics; governance approval \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Staff review screen and audit (human-in-the-loop)}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Minimum staff-interface requirements.}
+  \label{tab:dashboard-req}
+  \small
+  \begin{tabular}{@{}p{2.8cm}p{8.2cm}@{}}
+    \toprule
+    Capability & Requirement \\
+    \midrule
+    Review queue & Pending advisories; staff accept, dismiss, or escalate (\textbf{advisory only}) \\
+    Zone timeline & Summaries by zone/severity; no person-tracking view \\
+    Prohibitions & No video playback by default; no biometric or identity panels \\
+    Access control & Role-based access; strong authentication for privileged roles \\
+    Audit & Searchable trail for administrators and DPO \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Retention periods (often 90--365 days for structured logs) are set in the site DPIA, not in this document.
+
+\input{sections/hardware_infrastructure_spec}
+
+\subsection{Degraded mode}
+
+If coordination services fail: safety lead and IT declare degraded mode; staff follow existing
+radio, PA, and emergency procedures; no cloud failover without steering-committee approval.

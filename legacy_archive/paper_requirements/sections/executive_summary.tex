@@ -1,0 +1,127 @@
+\section{Executive Summary}
+\label{sec:executive-summary}
+
+\subsection{Purpose and Audience}
+
+This document sets out \textbf{governed pilot deployment requirements} for DUALEXIS---a
+research-backed approach to \textbf{privacy-preserving situational awareness} and
+\textbf{emergency coordination} in schools and similar confined educational spaces.
+
+It is written for institutional decision-makers: university and school-group leadership,
+safety coordinators, data protection officers, ethics committees, and Horizon Europe
+consortium partners evaluating responsible innovation in educational safety.
+The text supports structured planning and approval conversations; it is not legal advice,
+regulatory certification, or evidence that a pilot will improve safety outcomes.
+
+\subsection{What DUALEXIS Offers---and What It Does Not}
+
+DUALEXIS is designed to help \textbf{licensed safety staff and administrators} build a
+shared, zone-level picture of developing conditions---for example crowding near exits,
+acoustic stress indicators, or conflicting signals in a hallway---and to receive
+\textbf{advisory} recommendations that always pass through \textbf{human review} before
+any institutional action.
+
+Processing occurs \textbf{on school-controlled systems}.
+Sensing is used only to produce short-lived, zone-scoped summaries; \textbf{video and
+audio are not retained by default}, and the architecture excludes \textbf{facial
+recognition, biometrics, and identity profiling}.
+
+\begin{center}
+\fbox{\parbox{0.92\textwidth}{\small
+\textbf{Institutional boundaries (non-negotiable in pilot design).}
+\begin{itemize}[noitemsep,leftmargin=*]
+  \item \textbf{Advisory only} --- the system supports comprehension; it does not issue
+        orders, trigger lockdowns, contact emergency services, or discipline students.
+  \item \textbf{Human authority} --- protocol activation, public-address and radio use,
+        parent communication, and escalation remain school responsibilities.
+  \item \textbf{Privacy by design} --- no biometrics; no default media archive; purpose
+        limited to safety coordination and accountable records.
+  \item \textbf{Local control} --- institutions choose scope, retention, training, and
+        whether any anonymized research export is enabled.
+\end{itemize}
+}}
+\end{center}
+
+DUALEXIS is \textbf{not} surveillance-as-usual, predictive policing, autonomous emergency
+response, or a substitute for existing safety management systems (see Section~\ref{sec:what-dualxis-is-not}).
+It does \textbf{not} imply GDPR compliance, EU AI Act conformity, or validated operational
+effectiveness without site-specific legal review and ethics-approved evaluation.
+
+\subsection{Why Institutions May Consider a Pilot}
+
+Schools face a difficult balance: staff need timely awareness during stressful events,
+yet communities rightly resist identity-centric monitoring and opaque automation.
+
+A governed DUALEXIS pilot offers a \textbf{careful, deployable path} to explore whether
+structured, privacy-preserving summaries can:
+
+\begin{itemize}[noitemsep]
+  \item strengthen \textbf{situational awareness} for safety teams without naming individuals;
+  \item align with existing \textbf{lockdown, evacuation, and verification} procedures;
+  \item document \textbf{accountability} through review queues and audit trails;
+  \item generate reproducible evidence for research partnerships (including Horizon Europe)
+        under explicit governance gates.
+\end{itemize}
+
+Success at this stage means \textbf{pilot readiness}: leadership authorization, DPIA
+progress, protocol mapping, staff training, and ethics approval where required---not
+proof that technology alone prevents harm.
+
+\subsection{Recommended Pilot Pathway}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Indicative pilot pathway (planning guidance only).}
+  \label{tab:pilot-tiers-summary}
+  \small
+  \begin{tabular}{@{}p{2.8cm}p{3.6cm}p{5.6cm}@{}}
+    \toprule
+    Phase & Scale & Institutional focus \\
+    \midrule
+    Foundation &
+      1 school, limited zones &
+      Governance charter, transparency plan, protocol mapping, tabletop exercises. \\
+    Recommended pilot &
+      1--3 schools &
+      Staff training, bounded live sensing during staffed hours, workflow evaluation. \\
+    Extended programme &
+      5--10 schools &
+      Multi-site learning, harmonized reporting, consortium replication (e.g.\ Horizon). \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Each phase should expand only after the prior governance gates are met.
+Technical implementation detail for IT teams is consolidated in
+Appendix~\ref{app:technical-architecture}; the main document emphasizes \textbf{roles,
+accountability, and data-flow rules} institutions must approve.
+
+\subsection{Governance Readiness Before Live Sensing}
+
+No operational monitoring of occupants should begin until the steering committee confirms:
+
+\begin{enumerate}[noitemsep]
+  \item \textbf{Authorization} --- leadership approves scope, zones, and community communication.
+  \item \textbf{Privacy and ethics} --- site-specific DPIA with qualified counsel; ethics
+        committee sign-off where human-subjects evaluation is planned.
+  \item \textbf{Protocol alignment} --- semantic event types mapped to the school's emergency
+        plan (Section~\ref{sec:operational-protocols}).
+  \item \textbf{Staff preparedness} --- training distinguishes \emph{advisory} system outputs
+        from authoritative protocol steps; degraded-mode procedures documented.
+  \item \textbf{Accountability} --- retention, access roles, false-alarm review, and pause/stop
+        criteria agreed with safety and IT leads.
+\end{enumerate}
+
+\subsection{How to Use This Document}
+
+The following sections translate these principles into objectives, school context, use cases,
+privacy and DPIA checklists, operational workflows, evaluation planning, risks, timelines,
+and indicative budgets.
+Together they provide a \textbf{governance-first baseline} that research partners (UCJC/CRIA-BDHS)
+and schools can adapt through controlled annexes---network plans, signed mappings, and
+DPIA records---without weakening the safeguards above.
+
+Institutions interested in pilot participation should begin with a steering-committee
+workshop and DPO engagement.
+Horizon partners should treat this document as a \textbf{responsible deployment template}:
+privacy-preserving, human-supervised, locally controlled, and explicitly bounded in claims.

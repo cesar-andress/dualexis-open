@@ -1,0 +1,60 @@
+# TSGG Reference Implementation
+
+**Trusted Safety State Governance Graph (TSGG)** — open-source trace architecture for auditable human–AI systems.
+
+This repository is the **reference implementation** supporting the *Journal of Systems and Software* manuscript. It is **not** the paper.
+
+## Trace chain
+
+```
+Evidence → Safety State → Causal Transition → Recommendation → Governance Decision → Audit Trace
+```
+
+## Capabilities
+
+- Privacy admissibility constraints (fail-closed ingress, fuzz regression)
+- Governance-aware decision traces (FSM macro-states, append-only audit)
+- Benchmark leakage auditing
+- Reproducible validation harnesses
+
+## Quick start
+
+```bash
+pip install -e ".[dev]"
+bash artifact/commands.sh
+```
+
+See [`artifact/INSTALL.md`](artifact/INSTALL.md) and [`artifact/REPRODUCE.md`](artifact/REPRODUCE.md).
+
+## Repository
+
+- **URL:** https://github.com/cesar-andress/dualexis-open
+- **Version:** v1.0.0
+- **License:** Apache-2.0
+- **Citation:** [`CITATION.cff`](CITATION.cff) · Zenodo DOI (assign at archival)
+
+## Layout
+
+| Path | Purpose |
+|------|---------|
+| `dualexis/` | Python reference implementation |
+| `artifact/` | Reproducibility documentation and commands |
+| `tests/` | Unit and integration tests |
+| `examples/` | Minimal usage examples |
+| `docs/` | Architecture and developer documentation |
+| `experiments/` | Synthetic scenario configs and independent ground truth |
+| `results_reference/` | Pinned reference outputs for diff review |
+| `legacy_archive/` | Deprecated research extensions (not required for JSS validation) |
+
+## Cite
+
+```bibtex
+@software{tsgg_reference_implementation_v1_0_0,
+  author  = {Moncunill, David Mart{\'i}n and S{\'a}nchez, C{\'e}sar Andr{\'e}s},
+  title   = {{TSGG} Reference Implementation},
+  year    = {2026},
+  version = {v1.0.0},
+  url     = {https://github.com/cesar-andress/dualexis-open},
+  doi     = {10.5281/zenodo.TBD}
+}
+```

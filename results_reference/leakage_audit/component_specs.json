@@ -1,0 +1,366 @@
+{
+  "world_dynamics": {
+    "component_id": "world_dynamics",
+    "variables": [
+      "elapsed_seconds",
+      "exit_throughput",
+      "tick",
+      "zone_activity",
+      "zone_audio",
+      "zone_density"
+    ],
+    "thresholds": [
+      {
+        "metric": "zone_density",
+        "zone": "*",
+        "operator": "ramp",
+        "value": 0.25,
+        "scenario_id": "",
+        "component": "world_dynamics",
+        "label": "normal_flow baseline density"
+      },
+      {
+        "metric": "zone_density",
+        "zone": "cafeteria",
+        "operator": "ramp",
+        "value": 0.06,
+        "scenario_id": "crowd_acceleration",
+        "component": "world_dynamics",
+        "label": "crowd density ramp per tick"
+      },
+      {
+        "metric": "exit_throughput",
+        "zone": "exit-main",
+        "operator": "decay",
+        "value": 0.12,
+        "scenario_id": "exit_blockage",
+        "component": "world_dynamics",
+        "label": "exit throughput decay per tick"
+      },
+      {
+        "metric": "zone_audio",
+        "zone": "hallway-a",
+        "operator": "ramp",
+        "value": 0.07,
+        "scenario_id": "audio_stress_signal",
+        "component": "world_dynamics",
+        "label": "audio stress ramp"
+      },
+      {
+        "metric": "zone_audio",
+        "zone": "cafeteria",
+        "operator": "ramp",
+        "value": 0.08,
+        "scenario_id": "multimodal_conflict",
+        "component": "world_dynamics",
+        "label": "cafeteria audio ramp"
+      },
+      {
+        "metric": "zone_density",
+        "zone": "*",
+        "operator": "ramp",
+        "value": 0.07,
+        "scenario_id": "evacuation_recommendation",
+        "component": "world_dynamics",
+        "label": "evacuation density ramp"
+      }
+    ],
+    "logic_predicates": [
+      {
+        "predicate_id": "wd-normal_flow",
+        "scenario_id": "normal_flow",
+        "component": "world_dynamics",
+        "expression": "advance_world_state branch:normal_flow"
+      },
+      {
+        "predicate_id": "wd-crowd_acceleration",
+        "scenario_id": "crowd_acceleration",
+        "component": "world_dynamics",
+        "expression": "advance_world_state branch:crowd_acceleration"
+      },
+      {
+        "predicate_id": "wd-exit_blockage",
+        "scenario_id": "exit_blockage",
+        "component": "world_dynamics",
+        "expression": "advance_world_state branch:exit_blockage"
+      },
+      {
+        "predicate_id": "wd-audio_stress_signal",
+        "scenario_id": "audio_stress_signal",
+        "component": "world_dynamics",
+        "expression": "advance_world_state branch:audio_stress_signal"
+      },
+      {
+        "predicate_id": "wd-multimodal_conflict",
+        "scenario_id": "multimodal_conflict",
+        "component": "world_dynamics",
+        "expression": "advance_world_state branch:multimodal_conflict"
+      },
+      {
+        "predicate_id": "wd-evacuation_recommendation",
+        "scenario_id": "evacuation_recommendation",
+        "component": "world_dynamics",
+        "expression": "advance_world_state branch:evacuation_recommendation"
+      }
+    ]
+  },
+  "event_generator": {
+    "component_id": "event_generator",
+    "variables": [
+      "zone_density",
+      "zone_activity",
+      "zone_audio",
+      "composite_score"
+    ],
+    "thresholds": [
+      {
+        "metric": "zone_density",
+        "zone": "cafeteria",
+        "operator": "gt",
+        "value": 0.45,
+        "scenario_id": "crowd_acceleration",
+        "component": "event_generator",
+        "label": ""
+      },
+      {
+        "metric": "zone_density",
+        "zone": "exit-lobby",
+        "operator": "gt",
+        "value": 0.5,
+        "scenario_id": "exit_blockage",
+        "component": "event_generator",
+        "label": ""
+      },
+      {
+        "metric": "zone_audio",
+        "zone": "hallway-a",
+        "operator": "gt",
+        "value": 0.55,
+        "scenario_id": "audio_stress_signal",
+        "component": "event_generator",
+        "label": ""
+      },
+      {
+        "metric": "zone_activity",
+        "zone": "cafeteria",
+        "operator": "lt",
+        "value": 0.3,
+        "scenario_id": "multimodal_conflict",
+        "component": "event_generator",
+        "label": ""
+      },
+      {
+        "metric": "zone_audio",
+        "zone": "cafeteria",
+        "operator": "gt",
+        "value": 0.6,
+        "scenario_id": "multimodal_conflict",
+        "component": "event_generator",
+        "label": ""
+      },
+      {
+        "metric": "zone_density",
+        "zone": "*",
+        "operator": "gt",
+        "value": 0.6,
+        "scenario_id": "evacuation_recommendation",
+        "component": "event_generator",
+        "label": ""
+      },
+      {
+        "metric": "zone_density",
+        "zone": "*",
+        "operator": "gt",
+        "value": 0.7,
+        "scenario_id": "*",
+        "component": "event_generator",
+        "label": "generic elevated density"
+      },
+      {
+        "metric": "zone_audio",
+        "zone": "*",
+        "operator": "gt",
+        "value": 0.75,
+        "scenario_id": "*",
+        "component": "event_generator",
+        "label": "generic elevated audio"
+      },
+      {
+        "metric": "composite_score",
+        "zone": "*",
+        "operator": "lt",
+        "value": 0.25,
+        "scenario_id": "*",
+        "component": "event_generator",
+        "label": "emit skip threshold"
+      }
+    ],
+    "logic_predicates": [
+      {
+        "predicate_id": "eg-normal_flow",
+        "scenario_id": "normal_flow",
+        "component": "event_generator",
+        "expression": "_classify_signal scenario==normal_flow"
+      },
+      {
+        "predicate_id": "eg-crowd_acceleration",
+        "scenario_id": "crowd_acceleration",
+        "component": "event_generator",
+        "expression": "_classify_signal scenario==crowd_acceleration"
+      },
+      {
+        "predicate_id": "eg-exit_blockage",
+        "scenario_id": "exit_blockage",
+        "component": "event_generator",
+        "expression": "_classify_signal scenario==exit_blockage"
+      },
+      {
+        "predicate_id": "eg-audio_stress_signal",
+        "scenario_id": "audio_stress_signal",
+        "component": "event_generator",
+        "expression": "_classify_signal scenario==audio_stress_signal"
+      },
+      {
+        "predicate_id": "eg-multimodal_conflict",
+        "scenario_id": "multimodal_conflict",
+        "component": "event_generator",
+        "expression": "_classify_signal scenario==multimodal_conflict"
+      },
+      {
+        "predicate_id": "eg-evacuation_recommendation",
+        "scenario_id": "evacuation_recommendation",
+        "component": "event_generator",
+        "expression": "_classify_signal scenario==evacuation_recommendation"
+      }
+    ]
+  },
+  "ground_truth_rules": {
+    "component_id": "ground_truth_rules",
+    "variables": [
+      "elapsed_seconds",
+      "exit_throughput",
+      "tick",
+      "zone_activity",
+      "zone_audio",
+      "zone_density"
+    ],
+    "thresholds": [
+      {
+        "metric": "zone_density",
+        "zone": "*",
+        "operator": "gte",
+        "value": 0.18,
+        "scenario_id": "normal_flow",
+        "component": "ground_truth_rules",
+        "label": "normal_flow"
+      },
+      {
+        "metric": "zone_density",
+        "zone": "cafeteria",
+        "operator": "gte",
+        "value": 0.38,
+        "scenario_id": "crowd_acceleration",
+        "component": "ground_truth_rules",
+        "label": "crowd_density_elevated"
+      },
+      {
+        "metric": "zone_density",
+        "zone": "exit-lobby",
+        "operator": "gte",
+        "value": 0.42,
+        "scenario_id": "exit_blockage",
+        "component": "ground_truth_rules",
+        "label": "exit_blockage"
+      },
+      {
+        "metric": "exit_throughput",
+        "zone": "exit-main",
+        "operator": "lt",
+        "value": 0.55,
+        "scenario_id": "exit_blockage",
+        "component": "ground_truth_rules",
+        "label": "exit_throughput_reduced"
+      },
+      {
+        "metric": "zone_audio",
+        "zone": "hallway-a",
+        "operator": "gte",
+        "value": 0.48,
+        "scenario_id": "audio_stress_signal",
+        "component": "ground_truth_rules",
+        "label": "acoustic_stress"
+      },
+      {
+        "metric": "zone_audio",
+        "zone": "cafeteria",
+        "operator": "gte",
+        "value": 0.52,
+        "scenario_id": "multimodal_conflict",
+        "component": "ground_truth_rules",
+        "label": "multimodal_conflict"
+      },
+      {
+        "metric": "zone_activity",
+        "zone": "cafeteria",
+        "operator": "lt",
+        "value": 0.28,
+        "scenario_id": "multimodal_conflict",
+        "component": "ground_truth_rules",
+        "label": "multimodal_conflict"
+      },
+      {
+        "metric": "zone_density",
+        "zone": "*",
+        "operator": "gte",
+        "value": 0.52,
+        "scenario_id": "evacuation_recommendation",
+        "component": "ground_truth_rules",
+        "label": "evacuation_stress_pattern"
+      }
+    ],
+    "logic_predicates": [
+      {
+        "predicate_id": "gt-normal_flow-normal_flow",
+        "scenario_id": "normal_flow",
+        "component": "ground_truth_rules",
+        "expression": "min_tick>=0 AND zone=* AND zone_density@* gte 0.18"
+      },
+      {
+        "predicate_id": "gt-crowd_acceleration-crowd_density_elevated",
+        "scenario_id": "crowd_acceleration",
+        "component": "ground_truth_rules",
+        "expression": "min_tick>=2 AND zone=cafeteria AND zone_density@cafeteria gte 0.38"
+      },
+      {
+        "predicate_id": "gt-exit_blockage-exit_blockage",
+        "scenario_id": "exit_blockage",
+        "component": "ground_truth_rules",
+        "expression": "min_tick>=2 AND zone=exit-lobby AND zone_density@exit-lobby gte 0.42"
+      },
+      {
+        "predicate_id": "gt-exit_blockage-exit_throughput_reduced",
+        "scenario_id": "exit_blockage",
+        "component": "ground_truth_rules",
+        "expression": "min_tick>=1 AND zone=exit-lobby AND exit_throughput@exit-main lt 0.55"
+      },
+      {
+        "predicate_id": "gt-audio_stress_signal-acoustic_stress",
+        "scenario_id": "audio_stress_signal",
+        "component": "ground_truth_rules",
+        "expression": "min_tick>=2 AND zone=hallway-a AND zone_audio@hallway-a gte 0.48"
+      },
+      {
+        "predicate_id": "gt-multimodal_conflict-multimodal_conflict",
+        "scenario_id": "multimodal_conflict",
+        "component": "ground_truth_rules",
+        "expression": "min_tick>=3 AND zone=cafeteria AND zone_audio@cafeteria gte 0.52 AND zone_activity@cafeteria lt 0.28"
+      },
+      {
+        "predicate_id": "gt-evacuation_recommendation-evacuation_stress_pattern",
+        "scenario_id": "evacuation_recommendation",
+        "component": "ground_truth_rules",
+        "expression": "min_tick>=3 AND zone=* AND zone_density@* gte 0.52"
+      }
+    ]
+  }
+}

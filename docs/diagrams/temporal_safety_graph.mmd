@@ -1,0 +1,52 @@
+%% DUALEXIS temporal safety graph (L4) — zone-centric, no identity vertices.
+%%{init: {
+  'theme': 'neutral',
+  'themeVariables': {
+    'fontFamily': 'Helvetica, Arial, sans-serif',
+    'fontSize': '13px',
+    'primaryColor': '#f4f6f8',
+    'primaryBorderColor': '#2c3e50',
+    'lineColor': '#4a5568'
+  },
+  'flowchart': { 'curve': 'basis', 'padding': 12, 'nodeSpacing': 28, 'rankSpacing': 36 }
+}}%%
+flowchart LR
+  subgraph ENT["Graph entities"]
+    Z["Zone"]
+    E["Exit"]
+    R["Route"]
+    SE["SemanticEventNode"]
+    RS["RiskState"]
+    RN["RecommendationNode"]
+  end
+
+  subgraph REL["Relations"]
+    direction TB
+    OI["OCCURRED_IN"]
+    CT["CONNECTS_TO"]
+    BL["BLOCKS"]
+    AF["AFFECTS"]
+    ES["ESCALATES / DEESCALATES"]
+    SP["SUPPORTS / CONTRADICTS"]
+    RC["RECOMMENDS"]
+  end
+
+  IN["Incoming SemanticEvent"] --> INGEST["InMemoryTemporalGraphService"]
+  INGEST --> SE
+  SE --> OI --> Z
+  Z --> CT --> R
+  E --> BL --> R
+  SE --> AF --> R
+  SE --> ES --> RS
+  SE --> SP --> SE
+  RN --> RC --> Z
+
+  INGEST --> CTX["GraphContext"]
+  CTX --> L5["L5 Local Reasoning"]
+
+  classDef entity fill:#e8f6f3,stroke:#117a65,stroke-width:1.5px
+  classDef rel fill:#fef9e7,stroke:#b7950b,stroke-width:1px
+  classDef svc fill:#ebf5fb,stroke:#1f618d,stroke-width:1.5px
+  class Z,E,R,SE,RS,RN entity
+  class OI,CT,BL,AF,ES,SP,RC rel
+  class IN,INGEST,CTX,L5 svc

@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=green!40!black,
+  urlcolor=blue!60!black,
+  pdftitle={DUALEXIS Deployment and Governance Requirements},
+}
+
+\title{\textbf{DUALEXIS School Safety Pilot}\\[0.35em]
+       \large Deployment and Governance Requirements --- Stakeholder Circulation Pack}
+
+\author{DUALEXIS Research Consortium\\
+        Camilo Jos\'e Cela University (UCJC) --- CRIA-BDHS\\[0.4em]
+        \parbox{0.88\textwidth}{\centering\itshape
+          Schools, DPOs, ethics committees, safety coordinators, and Horizon Europe partners}}
+
+\input{sections/document_control_macros}
+
+\date{Version \docversion\ --- \today}
+
+\begin{document}
+
+\maketitle
+\input{sections/document_control_box}
+
+\tableofcontents
+\newpage
+
+% --- Main body (deployment, privacy/DPIA, SOP, pilot programme) ---
+\input{sections/main_body_intro}
+\input{sections/box1_boundaries}
+\input{sections/school_context_compact}
+\input{sections/deployment_infrastructure}
+\input{sections/privacy_dpia_compliance}
+\input{sections/operational_protocols}
+\input{sections/pilot_programme_req}
+\input{sections/stakeholder_circulation_guide}
+\input{sections/evaluation_risk_summary}
+\input{sections/conclusion_compact}
+
+% --- Appendices ---
+\appendix
+\input{sections/appendix_governance_templates}
+\input{sections/appendix_budget}
+\input{sections/appendix_risk_register}
+\input{sections/appendix_technical_and_diagrams}
+\input{sections/appendix_hardware_bom}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

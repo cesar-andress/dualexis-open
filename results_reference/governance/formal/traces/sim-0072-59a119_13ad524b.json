@@ -1,0 +1,37 @@
+{
+  "trace_id": "13ad524b-6e2e-4592-b8b8-33840dc378b0",
+  "case_id": "sim-0072-59a119",
+  "scenario_id": "evacuation_recommendation",
+  "zone_id": "exit-lobby",
+  "profile": "balanced",
+  "steps": [
+    {
+      "step_index": 0,
+      "from_state": "ai_recommendation",
+      "symbol": "issue",
+      "to_state": "human_review",
+      "timestamp": "2026-01-01T12:00:03Z",
+      "micro_state": "pending_review",
+      "metadata": {
+        "ai_action": "no_action",
+        "severity": "high"
+      }
+    },
+    {
+      "step_index": 1,
+      "from_state": "human_review",
+      "symbol": "accept",
+      "to_state": "human_review",
+      "timestamp": "2026-06-01T16:46:00.602946Z",
+      "micro_state": "reviewed",
+      "metadata": {
+        "profile": "balanced"
+      }
+    }
+  ],
+  "terminal_macro_state": "human_review",
+  "ai_correct": false,
+  "requires_escalation": true,
+  "policy_compliant": false,
+  "trace_complete": true
+}

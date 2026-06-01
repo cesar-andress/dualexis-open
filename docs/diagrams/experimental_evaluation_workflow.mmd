@@ -1,0 +1,67 @@
+%% DUALEXIS experimental evaluation workflow (reproducible scaffold).
+%%{init: {
+  'theme': 'neutral',
+  'themeVariables': {
+    'fontFamily': 'Helvetica, Arial, sans-serif',
+    'fontSize': '13px',
+    'primaryColor': '#f4f6f8',
+    'primaryBorderColor': '#2c3e50',
+    'lineColor': '#4a5568'
+  },
+  'flowchart': { 'curve': 'basis', 'padding': 12, 'nodeSpacing': 32, 'rankSpacing': 40 }
+}}%%
+flowchart TB
+  subgraph SPEC["Pre-registered specification"]
+    PROTO["protocol.py / baselines"]
+    MET["metrics.py / measurement"]
+    YAML["experiments/configs/*.yaml"]
+  end
+
+  subgraph RUN["Deterministic execution"]
+    SIM["run_scenario(name, seed)"]
+    PIPE["run_pipeline / execute_protocol"]
+    BASE["comparable baselines C1–C4"]
+  end
+
+  subgraph COLLECT["Metric collection"]
+    LAT["Latency"]
+    PRIV["Privacy violations"]
+    ROB["Modality dropout"]
+    EXPL["Explanation completeness"]
+  end
+
+  subgraph ART["Artifacts (descriptive only)"]
+    JSON["JSON per run"]
+    MD["Markdown reports"]
+    TEX["LaTeX table scaffolds"]
+  end
+
+  subgraph CLI["CLI entry points"]
+    C1["experiment run / run-all"]
+    C2["experiment run-multiseed"]
+    C3["experiment compare"]
+  end
+
+  PROTO --> SIM
+  YAML --> PIPE
+  SIM --> PIPE
+  SIM --> BASE
+  PIPE --> COLLECT
+  BASE --> COLLECT
+  COLLECT --> ART
+  C1 --> RUN
+  C2 --> RUN
+  C3 --> BASE
+
+  DISC["No inferential field claims<br/>synthetic inputs only"]
+
+  ART -.-> DISC
+
+  classDef spec fill:#fef9e7,stroke:#b7950b,stroke-width:1.5px
+  classDef run fill:#ebf5fb,stroke:#1f618d,stroke-width:1.5px
+  classDef metric fill:#e8f6f3,stroke:#117a65,stroke-width:1.5px
+  classDef art fill:#f4f6f7,stroke:#566573,stroke-width:1.5px
+  class PROTO,MET,YAML spec
+  class SIM,PIPE,BASE run
+  class LAT,PRIV,ROB,EXPL metric
+  class JSON,MD,TEX art

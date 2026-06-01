@@ -1,0 +1,63 @@
+\section{School Context, Use Cases, and Objectives}
+\label{sec:school-context}
+\label{sec:safety-use-cases}
+\label{sec:objectives}
+
+\subsection{Target environments and stakeholders}
+
+Pilots target \textbf{confined educational spaces}: primary/secondary schools, multi-building
+campuses, indoor zones (hallways, stairwells, cafeterias, exits).
+Outdoor perimeters are out of scope unless explicitly approved with governance review.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Stakeholder responsibilities.}
+  \label{tab:stakeholders}
+  \small
+  \begin{tabular}{@{}p{2.6cm}p{8.4cm}@{}}
+    \toprule
+    Role & Responsibility \\
+    \midrule
+    School leadership & Authorize scope; align with SMS and emergency plans \\
+    Safety coordinators & Protocol mapping; tabletop; review workflows \\
+    IT & Segmentation, hosting, certificates, degraded mode \\
+    DPO & DPIA, lawful basis, retention, transparency \\
+    Ethics board & Human-subjects evaluation approval \\
+    Research (UCJC) & Training, sandbox support, evaluation protocol \\
+    Horizon partners (opt.) & Multi-site harmonization; anonymized reporting \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Priority use cases (advisory)}
+
+Semantic events map to institutional protocols \textbf{before} live sensing (workshop required).
+
+\begin{table}[htbp]
+  \centering
+  \caption{Initial pilot use cases (zone-level; human review).}
+  \label{tab:use-cases}
+  \small
+  \begin{tabular}{@{}p{2.6cm}p{3.4cm}p{4.0cm}@{}}
+    \toprule
+    Use case & Theme & Operator need \\
+    \midrule
+    Exit impairment & Congested egress & Verify routes; advise monitoring \\
+    Crowd stress & Density / flow & Early awareness \\
+    Multimodal conflict & Disagreeing cues & Structured summary for review \\
+    Evacuation support & Route context & Advisory inputs only \\
+    Audio stress (opt.) & Non-speech indicators & Zone-level only; no speaker ID \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Excluded: identification, discipline scoring, forensic person search, autonomous dispatch,
+mental-health inference (see Box~\ref{box:system-boundaries}).
+
+\subsection{Pilot objectives (planning level)}
+
+\textbf{Primary:} evaluate whether privacy-preserving zone summaries support safety staff
+decision support and SMS integration under ethics-approved conditions.
+
+\textbf{Success at this stage:} governance charter, protocol mapping, DPIA in progress, training
+plan, ethics approval where required---\textbf{not} proof that technology prevents harm.

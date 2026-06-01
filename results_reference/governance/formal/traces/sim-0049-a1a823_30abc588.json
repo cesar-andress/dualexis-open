@@ -1,0 +1,37 @@
+{
+  "trace_id": "30abc588-f74d-43b3-bdef-10c832cf5008",
+  "case_id": "sim-0049-a1a823",
+  "scenario_id": "audio_stress_signal",
+  "zone_id": "zone-control",
+  "profile": "balanced",
+  "steps": [
+    {
+      "step_index": 0,
+      "from_state": "ai_recommendation",
+      "symbol": "issue",
+      "to_state": "human_review",
+      "timestamp": "2026-06-01T19:28:55.306934Z",
+      "micro_state": "pending_review",
+      "metadata": {
+        "ai_action": "monitor",
+        "severity": "low"
+      }
+    },
+    {
+      "step_index": 1,
+      "from_state": "human_review",
+      "symbol": "dismiss",
+      "to_state": "human_review",
+      "timestamp": "2026-06-01T19:29:48.236099Z",
+      "micro_state": "dismissed",
+      "metadata": {
+        "profile": "balanced"
+      }
+    }
+  ],
+  "terminal_macro_state": "human_review",
+  "ai_correct": false,
+  "requires_escalation": false,
+  "policy_compliant": true,
+  "trace_complete": true
+}

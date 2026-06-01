@@ -1,0 +1,65 @@
+# DUALEXIS local development stack — cloud-independent by default.
+# Usage: docker compose up -d
+
+services:
+  nats:
+    image: nats:2.10-alpine
+    command: ["-js", "-m", "8222"]
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+
+  edge-node:
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/Dockerfile.edge
+    environment:
+      DUALEXIS_NATS_URL: nats://nats:4222
+      DUALEXIS_SITE_ID: ${DUALEXIS_SITE_ID:-site-local}
+      DUALEXIS_NODE_ID: ${DUALEXIS_NODE_ID:-edge-001}
+      DUALEXIS_EDGE_BUFFER_TTL_SECONDS: ${DUALEXIS_EDGE_BUFFER_TTL_SECONDS:-30}
+      DUALEXIS_ALLOW_PERSISTENT_MEDIA: "false"
+      DUALEXIS_ALLOW_BIOMETRIC_FEATURES: "false"
+    depends_on:
+      - nats
+    restart: unless-stopped
+
+  orchestrator:
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/Dockerfile.orchestrator
+    environment:
+      DUALEXIS_NATS_URL: nats://nats:4222
+      DUALEXIS_SITE_ID: ${DUALEXIS_SITE_ID:-site-local}
+      DUALEXIS_REASONING_ENABLED: ${DUALEXIS_REASONING_ENABLED:-true}
+      DUALEXIS_RESEARCH_SERVER_URL: ${DUALEXIS_RESEARCH_SERVER_URL:-}
+    depends_on:
+      - nats
+      - edge-node
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/Dockerfile.api
+    ports:
+      - "${DUALEXIS_API_PORT:-8000}:8000"
+    environment:
+      DUALEXIS_API_HOST: 0.0.0.0
+      DUALEXIS_API_PORT: 8000
+      DUALEXIS_NATS_URL: nats://nats:4222
+      DUALEXIS_SITE_ID: ${DUALEXIS_SITE_ID:-site-local}
+    depends_on:
+      - orchestrator
+    restart: unless-stopped
+
+  research-server:
+    profiles: ["research"]
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/Dockerfile.research-server
+    ports:
+      - "${DUALEXIS_RESEARCH_PORT:-8001}:8001"
+    environment:
+      DUALEXIS_ENVIRONMENT: ${DUALEXIS_ENVIRONMENT:-development}
+    restart: unless-stopped

@@ -1,0 +1,56 @@
+\subsection{Formal Human-AI Governance State Machine}
+\label{sec:formal-governance-model}
+
+\eswareponame{} positions human oversight as a \textbf{formal governance framework for high-risk
+decision support systems}, not an informal review flag. The macro-state space is
+\begin{equation*}
+  S = \{s^{AI}, s^{H}, s^{I}\}
+\end{equation*}
+corresponding to \emph{AI recommendation}, \emph{human review}, and
+\emph{institutional escalation} phases. The transition alphabet is
+$\Sigma = \{\mathrm{issue}, \mathrm{accept}, \mathrm{override}, \mathrm{dismiss},
+\mathrm{escalate}, \mathrm{close}\}$.
+
+\paragraph{Transition function.}
+The deterministic transition function $\delta: S \times \Sigma \rightarrow S$ is
+defined on the documented domain by:
+\begin{align*}
+  \delta(\mathit{ai_recommendation}, \mathit{issue}) &= \mathit{human_review} \\
+  \delta(\mathit{human_review}, \mathit{accept}) &= \mathit{human_review} \\
+  \delta(\mathit{human_review}, \mathit{override}) &= \mathit{human_review} \\
+  \delta(\mathit{human_review}, \mathit{dismiss}) &= \mathit{human_review} \\
+  \delta(\mathit{human_review}, \mathit{escalate}) &= \mathit{institutional_escalation} \\
+  \delta(\mathit{institutional_escalation}, \mathit{close}) &= \mathit{institutional_escalation}
+\end{align*}
+High-severity recommendations initialise at $s^{AI}$.
+Transition $\tau_{\mathrm{issue}}$ moves the artefact to $s^{H}$ when
+$\mathrm{requires\_human\_review}(s)$ holds.
+Escalation $\sigma=\mathrm{escalate}$ maps to $s^{I}$ for institutional disposition.
+
+\paragraph{Governance graph.}
+The empirical \texttt{GovernanceGraph} $G=(V,E)$ aggregates simulated traces:
+$|V|=3$ macro states, weighted edges $(s,\sigma,s')$ with estimated
+$\hat{P}(s' \mid s,\sigma)$ from $N=50$ balanced-profile decisions.
+The Graphviz artefact \path{results/governance/formal/formal_governance_graph.dot}
+visualises the machine.
+
+\paragraph{Formal audit metrics.}
+The \texttt{GovernanceAuditReport} bundles (same values as
+$\gamma_{\mathrm{comp}}$ and $\tau_{\mathrm{trace}}$ in
+Table~\ref{tab:tsgg-unified-metrics}):
+\begin{itemize}[noitemsep]
+  \item $\gamma_{\mathrm{comp}}$ (\texttt{governance\_compliance\_score}) $=0.440$
+        --- policy-aligned terminal states;
+  \item \textbf{institutional\_reliance\_index} $=0.500$
+        --- appropriate escalation when required;
+  \item \textbf{human\_override\_resilience} $=0.093$
+        --- corrective overrides when AI advice is incorrect;
+  \item $\tau_{\mathrm{trace}}$ (\texttt{decision\_traceability}) $=1.000$
+        --- complete $(s^{AI} \rightarrow s^{H} \rightarrow s^{\cdot})$ audit chains.
+\end{itemize}
+
+\paragraph{Positioning.}
+This FSM separates \emph{advisory automation} (L4--L5) from \emph{accountable disposition}
+(L6), enabling institutions to audit compliance, escalation discipline, and trace completeness
+before pilot deployment. Metrics are synthetic; the contribution is the \textbf{explicit
+governance state machine} and trace schema, not field outcome claims.

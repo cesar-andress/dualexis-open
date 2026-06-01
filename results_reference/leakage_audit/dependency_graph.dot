@@ -1,0 +1,17 @@
+digraph E2Leakage {
+  rankdir=LR;
+  node [shape=box, style=rounded];
+  world_dynamics [label="world_dynamics\n(shared dynamics)"];
+  event_generator [label="event_generator\n(emission)"];
+  ground_truth_rules [label="ground_truth_rules\n(labeling)"];
+  independent_labeler [label="independent_labeler", style=dashed];
+  ground_truth_rules -> independent_labeler [label="authoring", style=dotted];
+  world_dynamics -> event_generator [label="feeds WorldState"];
+  world_dynamics -> ground_truth_rules [label="feeds metrics"];
+  world_dynamics -> event_generator [label="shared_world_variables: zone_activity, zone_audio, zone_density"]; weight=3];
+  world_dynamics -> event_generator [label="threshold_align=0.56", style=dashed];
+  world_dynamics -> ground_truth_rules [label="shared_world_metrics: elapsed_seconds, exit_throughput, tick"]; weight=6];
+  world_dynamics -> ground_truth_rules [label="threshold_align=0.75", style=dashed];
+  event_generator -> ground_truth_rules [label="shared_thresholds: zone_activity, zone_audio, zone_density"]; weight=3];
+  event_generator -> ground_truth_rules [label="threshold_align=0.67", style=dashed];
+}

@@ -1,0 +1,22 @@
+scenario_id: exit_blockage
+version: e2_rules_v1
+description: Independent GT rules for exit blockage and throughput reduction.
+label_rules:
+  - semantic_label: exit_blockage
+    zone_id: exit-lobby
+    expected_event_type: exit_blockage
+    min_tick: 2
+    conditions:
+      - metric: zone_density
+        zone: exit-lobby
+        op: gte
+        value: 0.42
+  - semantic_label: exit_throughput_reduced
+    zone_id: exit-lobby
+    expected_event_type: exit_blockage
+    min_tick: 1
+    conditions:
+      - metric: exit_throughput
+        zone: exit-main
+        op: lt
+        value: 0.55

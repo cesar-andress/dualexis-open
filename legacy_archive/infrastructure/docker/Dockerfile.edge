@@ -1,0 +1,21 @@
+# Edge Node — L1 privacy runtime + L2 perception; publishes SemanticEvent JSON only.
+FROM python:3.12-slim-bookworm
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1 \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY pyproject.toml uv.lock README.md ./
+COPY dualexis ./dualexis
+COPY apps ./apps
+
+RUN pip install --no-cache-dir uv && uv sync --frozen --no-dev
+
+ENV DUALEXIS_ENVIRONMENT=production
+ENV PYTHONUNBUFFERED=1
+
+# Default: run edge node process (perception + privacy + NATS publish)
+CMD ["uv", "run", "python", "-m", "apps.edge_node.main"]

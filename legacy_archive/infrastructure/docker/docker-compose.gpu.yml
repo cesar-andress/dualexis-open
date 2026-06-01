@@ -1,0 +1,15 @@
+# GPU overlay for edge-node — merge with docker-compose.yml
+# Usage: docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d edge-node
+
+services:
+  edge-node:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: ${NVIDIA_DEVICE_COUNT:-1}
+              capabilities: [gpu]
+    environment:
+      NVIDIA_VISIBLE_DEVICES: ${NVIDIA_VISIBLE_DEVICES:-all}
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,video

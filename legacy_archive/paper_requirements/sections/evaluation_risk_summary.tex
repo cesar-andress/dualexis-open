@@ -1,0 +1,68 @@
+\section{Evaluation Summary and Key Risks}
+\label{sec:evaluation-summary}
+\label{sec:evaluation-metrics}
+
+\subsection{Evaluation stance}
+
+Pilot evaluation assesses \textbf{governance feasibility}, \textbf{operator workflow utility}, and
+\textbf{privacy posture}---not validated harm reduction unless separately approved and powered.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Evaluation metric categories (governed pilots).}
+  \label{tab:eval-metrics}
+  \small
+  \begin{tabular}{@{}p{2.4cm}p{3.8cm}p{4.8cm}@{}}
+    \toprule
+    Category & Examples & Method \\
+    \midrule
+    Situational awareness & Comprehension probes & Tabletop + live exercises \\
+    Operator workflow & Time-to-review, overrides & Dashboard logs \\
+    Risk communication & Explanation clarity & Staff surveys (ethics approved) \\
+    Privacy & Retention audits, egress tests & Technical + DPO audit \\
+    Protocol alignment & Mapping correctness & Structured debrief \\
+    Workload & Queue depth, alert fatigue & Logs + interviews \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Data minimization: no student-identifiable evaluation corpora; separate operational and research
+datasets; retention approved by DPO.
+Horizon partners may harmonize metric definitions and anonymized cross-site templates.
+Full metric definitions: companion research publications and repository documentation.
+
+\subsection{Top risks (steering summary)}
+
+Residual risks require explicit acceptance by leadership and DPO.
+Full register: Appendix~\ref{app:risk-register}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Priority risks for stakeholder review.}
+  \label{tab:top-risks}
+  \small
+  \begin{tabular}{@{}clp{6.8cm}@{}}
+    \toprule
+    ID & Level & Risk / mitigation theme \\
+    \midrule
+    R1 & High &
+      Misread as surveillance $\rightarrow$ transparency, no biometrics, training. \\
+    R4 & High &
+      Raw-media retention failure $\rightarrow$ TTL audits, forbidden egress. \\
+    R6 & High &
+      Integrator adds facial recognition $\rightarrow$ contracts, acceptance tests. \\
+    R7 & High &
+      Autonomous actuation $\rightarrow$ no actuation APIs; SOP; inspection. \\
+    R10 & High &
+      Children's data sensitivity $\rightarrow$ DPIA, DPO oversight, minimization. \\
+    R2 & Med &
+      False positives $\rightarrow$ calibration, human review, tabletop tuning. \\
+    R12 & Med &
+      Misleading advisory text $\rightarrow$ grounding, mandatory review, UI disclaimers. \\
+    R15 & Med &
+      Community opposition $\rightarrow$ co-design, early ethics consultation, opt-out. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Review monthly at steering meetings and after any incident.

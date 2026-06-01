@@ -1,0 +1,11 @@
+case_id,category,description,expect_rejection,rejected,pass,violation_type,strip_removed_media
+identity_student_id,identity,Forbidden identity field student_id,True,True,True,Forbidden identity field 'student_id' at boundary unspecified,False
+identity_person_name,identity,Forbidden identity field name,True,True,True,Forbidden identity field 'name' at boundary unspecified,False
+biometric_face_embedding,biometric,Forbidden face_embedding field,True,True,True,Forbidden biometric field 'face_embedding' at boundary unspecified,False
+biometric_facial_embedding,biometric,Forbidden facial_embedding alias,True,True,True,Forbidden biometric field 'facial_embedding' at boundary unspecified,False
+raw_media_paths,media,Raw video/audio paths in payload,True,True,True,Forbidden media field 'raw_video_path' at boundary unspecified,True
+nested_metadata_identity,nested,Nested metadata injection with person_id,True,True,True,Forbidden identity field 'person_id' at boundary unspecified,False
+obfuscated_student_substring_key,obfuscation,Key containing forbidden substring student,True,True,True,Forbidden identity field 'campus_student_ref' at boundary unspecified,False
+obfuscated_face_key,obfuscation,Key containing forbidden substring face,True,True,True,Forbidden biometric field 'zone_face_probe' at boundary unspecified,False
+control_zone_only,control,Benign zone-level payload,False,False,True,,False
+frame_persistent_media,media,Persistent payload_ref on PerceptionFrame,True,True,True,Persistent media paths are prohibited by default policy,False

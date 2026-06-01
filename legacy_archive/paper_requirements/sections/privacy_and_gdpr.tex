@@ -1,0 +1,98 @@
+\section{Privacy, GDPR, and AI Governance}
+\label{sec:privacy-gdpr}
+
+\subsection{Privacy-by-Design Commitments}
+
+DUALEXIS pilot deployments adopt the following \textbf{non-negotiable} constraints:
+
+\begin{itemize}[noitemsep]
+  \item \textbf{No facial recognition} and \textbf{no biometric processing};
+  \item \textbf{No raw video or raw audio storage by default} (ephemeral buffers with TTL);
+  \item \textbf{Zone-level semantic events} as the primary operational artifact;
+  \item \textbf{Local processing} on school-controlled infrastructure;
+  \item \textbf{Human-in-the-loop} review for elevated severities;
+  \item \textbf{Purpose limitation} to safety and emergency coordination only.
+\end{itemize}
+
+These are engineering invariants in the reference architecture; they do \textbf{not}
+automatically satisfy GDPR or AI Act obligations without institution-specific legal analysis.
+
+\subsection{GDPR Mapping (High-Level Planning Aid)}
+
+\begin{table}[htbp]
+  \centering
+  \caption{GDPR planning topics (not legal compliance certification).}
+  \label{tab:gdpr-topics}
+  \small
+  \begin{tabular}{@{}p{3.4cm}p{8.6cm}@{}}
+    \toprule
+    Topic & Pilot planning consideration \\
+    \midrule
+    Lawful basis &
+      Document legitimate interest or public task analysis with DPO; children's data heightened care. \\
+    Data minimization &
+      Semantic abstraction; no persistent media; retention tags on events. \\
+    Purpose limitation &
+      Safety coordination only; prohibit secondary analytics. \\
+    Storage limitation &
+      TTL on buffers; event retention schedule in DPIA. \\
+    Integrity \& confidentiality &
+      Segmentation, TLS, RBAC, encryption at rest (recommended). \\
+    Accountability &
+      Audit logs, policy versioning, training records. \\
+    DPIA &
+      Required for high-risk processing; see Section~\ref{sec:dpia}. \\
+    Rights of data subjects &
+      Procedures for access/erasure requests via school DPO. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Legal interpretation must be performed by qualified counsel and the institution's DPO.
+This document does not constitute legal advice.
+
+\subsection{EU AI Act Considerations (Planning)}
+
+Depending on deployment context, schools may need to assess:
+\begin{itemize}[noitemsep]
+  \item whether components qualify as high-risk AI systems in safety-related contexts;
+  \item transparency obligations for staff-facing decision support tools;
+  \item human oversight measures aligned with L6 review semantics;
+  \item documentation and logging for conformity assessment if applicable.
+\end{itemize}
+
+Conformity assessment is \textbf{not} claimed in this requirements document.
+
+\subsection{Children and Educational Context}
+
+Processing in schools involving minors requires heightened safeguards~\cite{gdpr2016,mittelstadt2016ethics}:
+\begin{itemize}[noitemsep]
+  \item transparent communication to guardians and age-appropriate notices where required;
+  \item prohibition on profiling and marketing reuse of semantic events;
+  \item restricted access roles and periodic access reviews;
+  \item evaluation datasets anonymized or synthetic unless explicitly approved.
+\end{itemize}
+
+\subsection{Consent and Transparency Requirements}
+
+\begin{enumerate}[noitemsep]
+  \item Publish plain-language description of \emph{what is monitored} (zones, not individuals),
+        \emph{what is not done} (no facial recognition), and \emph{who can access} outputs.
+  \item Display signage at monitored zone entrances where legally required.
+  \item Provide contact point for questions (school DPO or designated officer).
+  \item Document staff training completion before operational go-live.
+  \item Maintain versioned transparency materials aligned with policy changes.
+\end{enumerate}
+
+Consent models vary by jurisdiction and lawful basis; schools must select appropriate
+legal grounds with counsel---this document does not prescribe a single consent template.
+
+\subsection{Data Processing Agreements}
+
+Where UCJC, SEK, or Horizon partners process data on behalf of schools:
+\begin{itemize}[noitemsep]
+  \item execute DPAs defining roles (controller/processor/joint controller);
+  \item specify subprocessors (hosting, maintenance vendors);
+  \item define breach notification timelines and audit rights;
+  \item limit cross-border transfers with appropriate safeguards if applicable.
+\end{itemize}

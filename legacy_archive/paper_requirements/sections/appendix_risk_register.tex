@@ -1,0 +1,47 @@
+\section{Full Risk Register}
+\label{app:risk-register}
+\label{sec:risk-register}
+
+Supports DPIA item~7 and steering-committee review.
+Residual risks require explicit acceptance by leadership and DPO.
+
+\begin{longtable}{@{}p{0.9cm}p{3.0cm}p{1.8cm}p{1.6cm}p{4.6cm}@{}}
+\toprule
+ID & Risk & Impact & Level & Mitigation \\
+\midrule
+\endhead
+R1 & Misinterpretation as surveillance & Trust loss & High &
+  Transparency; no biometrics; signage; training. \\
+R2 & False positive alerts & Alert fatigue & Med &
+  Calibration; human review; tabletop tuning. \\
+R3 & False negative (missed stress) & Safety gap & Med &
+  Multimodal fusion; manual protocol backstop. \\
+R4 & Raw media retention failure & Privacy breach & High &
+  TTL enforcement; storage audits; forbidden egress. \\
+R5 & Unauthorized dashboard access & Exposure & Med &
+  RBAC, MFA, SSO, audit logging. \\
+R6 & Integrator adds facial recognition & Scope creep & High &
+  Architecture review; contract clauses; acceptance tests. \\
+R7 & Autonomous actuation wired & Governance violation & High &
+  No actuation APIs; SOP; technical inspection. \\
+R8 & Coordination service outage & Awareness loss & Med &
+  Degraded mode SOP; UPS; monitoring. \\
+R9 & Hardware supply / thermal delay & Schedule & Low &
+  CPU fallback; vendor SLA. \\
+R10 & Children's data sensitivity & Regulatory scrutiny & High &
+  DPIA; DPO oversight; minimization. \\
+R11 & Cross-border transfer & Legal risk & Med &
+  On-prem default; DPAs; transfer assessment. \\
+R12 & Misleading advisory explanations & Staff confusion & Med &
+  Grounding checks; mandatory review; UI disclaimers. \\
+R13 & Consortium scope drift & Governance conflict & Med &
+  Consortium charter; change control. \\
+R14 & Insufficient training & Misuse & Med &
+  Mandatory training gates before go-live. \\
+R15 & Community opposition & Pilot halt & Med &
+  Co-design; early ethics consultation; opt-out. \\
+\bottomrule
+\end{longtable}
+
+Review monthly and after any incident.
+Escalate High residual risks before phase transitions.

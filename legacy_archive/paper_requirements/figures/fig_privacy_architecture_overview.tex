@@ -1,0 +1,60 @@
+% Institutional diagram: privacy-preserving architecture overview
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[
+    node distance=0.42cm and 0.5cm,
+    site/.style={
+      draw=black!75,
+      rounded corners=3pt,
+      minimum width=11.2cm,
+      minimum height=5.6cm,
+      inner sep=0.45cm,
+    },
+    box/.style={
+      draw=black!70,
+      rounded corners=2pt,
+      minimum height=0.75cm,
+      align=center,
+      font=\small,
+      fill=white,
+    },
+    edge/.style={box, fill=black!4, minimum width=2.5cm},
+    core/.style={box, fill=black!7, minimum width=2.7cm},
+    dashbox/.style={
+      draw=black!40,
+      dashed,
+      rounded corners=2pt,
+      inner sep=0.35cm,
+    },
+    tag/.style={font=\footnotesize, text=black!60},
+    arr/.style={-{Stealth[length=2mm]}, thick, draw=black!65},
+  ]
+    \node[site, label={[font=\footnotesize\bfseries]above:School-controlled infrastructure}] (site) {};
+    \node[edge] at ([xshift=-3.6cm, yshift=0.9cm]site.center) (edge) {Zone processing\\{\footnotesize ephemeral sensing}};
+    \node[core] at ([yshift=0.9cm]site.center) (orch) {Site coordination\\{\footnotesize context + advisories}};
+    \node[box, minimum width=2.5cm] at ([xshift=3.6cm, yshift=0.9cm]site.center) (dash) {Staff\\dashboard};
+
+    \node[dashbox, fit=(edge)(orch)(dash), inner sep=0.5cm] {};
+    \node[tag, below=0.05cm of edge] {semantic events only};
+    \node[tag, below=0.05cm of orch] {human review queue};
+
+    \node[box, minimum width=4.2cm] at ([yshift=-1.35cm]site.center) (inv) {%
+      \textbf{Design invariants:} local processing only $\cdot$ no raw media storage
+      $\cdot$ no biometric processing};
+
+    \node[box, draw=black!45, dashed, minimum width=2.6cm]
+      at ([xshift=4.1cm, yshift=-1.35cm]site.center) (res) {Optional\\research metrics\\{\footnotesize anonymized}};
+
+    \draw[arr] (edge.east) -- (orch.west);
+    \draw[arr] (orch.east) -- (dash.west);
+    \draw[arr, dashed] (orch.south) -- ++(0,-0.25) -| (res.north);
+
+    \node[font=\footnotesize, align=left, text=black!55]
+      at ([xshift=-5.4cm, yshift=-2.35cm]site.center) {No cloud raw-video archive};
+    \node[font=\footnotesize, align=right, text=black!55]
+      at ([xshift=5.4cm, yshift=-2.35cm]site.center) {Disabled by default};
+  \end{tikzpicture}
+  \caption{Privacy-preserving architecture overview (institutional view). Technical
+  implementation options appear in Appendix~\ref{app:technical-architecture}.}
+  \label{fig:privacy-architecture-overview}
+\end{figure}

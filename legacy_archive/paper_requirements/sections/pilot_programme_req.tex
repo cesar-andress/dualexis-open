@@ -1,0 +1,134 @@
+\section{Pilot Programme, Timeline, and Governance Gates}
+\label{sec:pilot-programme}
+\label{sec:pilot-methodology}
+\label{sec:implementation-plan}
+
+\subsection{Phased participation (gated)}
+
+No live occupant sensing until documented governance approval.
+Phases expand only after prior gates are met.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Pilot phases and institutional focus.}
+  \label{tab:pilot-phases}
+  \small
+  \begin{tabular}{@{}p{1.2cm}p{2.0cm}p{5.8cm}@{}}
+    \toprule
+    Phase & Scale & Focus \\
+    \midrule
+    0 & Requirements &
+      Stakeholder alignment; zone mapping; DPIA initiation; co-design workshop. \\
+    1 & Sandbox &
+      Isolated network; synthetic feeds; training; \textbf{two tabletop exercises}; no live public sensing. \\
+    2 & MVP &
+      1 school, 2--4 zones; staffed-hours review; weekly calibration. \\
+    3 & Recommended &
+      1--3 schools; ethics-approved staff feedback; consortium learning report (anonymized). \\
+    4 & Extended &
+      5--10 schools; harmonized reporting; optional anonymized cross-site metrics. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Co-design, opt-out, and community participation}
+
+\textbf{Co-design.} Schools co-define monitored zones with safety staff, leadership, and---where
+required---parent or student representatives.
+Zone lists are reviewed before each phase; cafeterias and sensitive areas require explicit approval.
+
+\textbf{Phased participation.} Institutions may pause at Phase~1 indefinitely; Phase~2+ requires
+completed tabletop exercises and steering-committee authorization.
+
+\textbf{Opt-out and scope reduction.} Any zone may be excluded or sensing paused without ending the
+whole programme, subject to steering-committee and DPO review.
+Stakeholder withdrawal or regulatory inquiry triggers stop conditions below.
+
+\subsection{MVP configuration (institutional summary)}
+
+\begin{table}[htbp]
+  \centering
+  \caption{MVP minimum (planning).}
+  \label{tab:mvp-config}
+  \small
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    Element & MVP minimum \\
+    \midrule
+    Schools & 1 \\
+    Zones & 2--4 \\
+    Zone processing units & 1--2 \\
+    Site coordination & 1 on-premises host \\
+    Staff dashboard & 1 interface \\
+    Research export & Disabled \\
+    Incremental staff effort & 0.2--0.5 safety FTE; 0.1 IT FTE (indicative) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Indicative timeline (single school)}
+
+\begin{table}[htbp]
+  \centering
+  \caption{MVP implementation timeline (planning estimates).}
+  \label{tab:timeline}
+  \small
+  \begin{tabular}{@{}p{2.2cm}p{5.4cm}p{3.4cm}@{}}
+    \toprule
+    Period & Activities & Lead \\
+    \midrule
+    Wks 1--4 & Workshops; zone mapping; IT survey & Leadership + research \\
+    Wks 5--8 & DPIA; ethics; protocol mapping & DPO + safety \\
+    Wks 9--12 & Procurement; network segmentation; install & School IT \\
+    Wks 13--16 & Sandbox; synthetic feeds & IT + research \\
+    Wks 17--20 & Training; \textbf{tabletop exercises} & Safety + research \\
+    Wks 21--36 & MVP live sensing (staffed hours) & Safety + steering \\
+    Wk 37+ & Expand / modify / halt decision & Steering committee \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Work packages and RACI}
+
+\begin{table}[htbp]
+  \centering
+  \caption{RACI summary (R=Responsible, A=Accountable, C=Consulted, I=Informed).}
+  \label{tab:raci}
+  \footnotesize
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    Package & School & IT & DPO & UCJC research \\
+    \midrule
+    Governance & A & C & R & C \\
+    Network / data flows & C & R/A & C & C \\
+    Infrastructure & C & R & I & C \\
+    Software / dashboard & I & R & C & R \\
+    Operations / SOP & R/A & C & C & C \\
+    Evaluation & C & I & C & R \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Go / no-go gates (before live sensing)}
+
+\begin{enumerate}[noitemsep]
+  \item governance charter signed (Appendix~\ref{app:governance-templates});
+  \item DPIA residual risk accepted by DPO and leadership;
+  \item protocol mapping matrix approved;
+  \item training completion $\geq$ 90\% of designated staff;
+  \item \textbf{two tabletop exercises} completed with documented remediations;
+  \item IT sign-off on trust zones and data-flow rules;
+  \item ethics approval for evaluation instruments (if applicable).
+\end{enumerate}
+
+\subsection{Stop conditions (immediate pause)}
+
+\begin{itemize}[noitemsep]
+  \item privacy-policy violation or raw-media egress detected;
+  \item unauthorized access to dashboard or audit logs;
+  \item stakeholder withdrawal or regulatory inquiry requiring halt;
+  \item false-alarm rate above pre-agreed threshold;
+  \item failure to maintain advisory-only use (autonomous actuation attempted).
+\end{itemize}
+
+Resumption requires incident review and steering-committee approval.

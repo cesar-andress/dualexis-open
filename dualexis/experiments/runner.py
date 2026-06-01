@@ -1,0 +1,197 @@
+"""Batch execution and report generation for the experimental battery."""
+
+from __future__ import annotations
+
+import json
+from datetime import UTC, datetime
+from pathlib import Path
+
+from dualexis.experiments.battery import BATTERY_DISCLAIMER, BatteryResult, run_battery
+from dualexis.experiments.config import (
+    list_experiment_configs,
+    load_experiment_config,
+)
+
+
+def write_battery_json(result: BatteryResult, path: Path) -> Path:
+    """Write a single battery result as JSON."""
+    target = path.resolve()
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(
+        json.dumps(result.model_dump(mode="json"), indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return target
+
+
+def run_battery_from_config(config_path: str | Path) -> BatteryResult:
+    """Load a YAML config and execute the battery."""
+    path = Path(config_path).resolve()
+    config = load_experiment_config(path)
+    return run_battery(config, config_path=str(path))
+
+
+def run_all_batteries(
+    output_dir: str | Path,
+    *,
+    config_dir: Path | None = None,
+) -> tuple[BatteryResult, ...]:
+    """Run every YAML config in ``experiments/configs/`` and write JSON outputs."""
+    out_root = Path(output_dir).resolve()
+    out_root.mkdir(parents=True, exist_ok=True)
+
+    results: list[BatteryResult] = []
+    for config_path in list_experiment_configs(config_dir):
+        result = run_battery_from_config(config_path)
+        write_battery_json(result, out_root / f"{result.experiment_id}.json")
+        results.append(result)
+
+    summary_path = out_root / "battery_summary.json"
+    summary_path.write_text(
+        json.dumps(
+            {
+                "disclaimer": BATTERY_DISCLAIMER,
+                "generated_at": datetime.now(tz=UTC).isoformat(),
+                "experiment_count": len(results),
+                "experiments": [result.model_dump(mode="json") for result in results],
+            },
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    return tuple(results)
+
+
+def load_battery_results(input_dir: str | Path) -> tuple[BatteryResult, ...]:
+    """Load individual battery JSON files from a results directory."""
+    root = Path(input_dir).resolve()
+    if not root.is_dir():
+        msg = f"Battery results directory not found: {root}"
+        raise FileNotFoundError(msg)
+
+    results: list[BatteryResult] = []
+    for path in sorted(root.glob("*.json")):
+        if path.name == "battery_summary.json":
+            continue
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        results.append(BatteryResult.model_validate(payload))
+    return tuple(results)
+
+
+def generate_markdown_report(
+    results: tuple[BatteryResult, ...],
+    *,
+    output_path: Path | None = None,
+) -> str:
+    """Generate a Markdown report with measured values only."""
+    lines = [
+        "# DUALEXIS Experimental Battery Report",
+        "",
+        f"> {BATTERY_DISCLAIMER}",
+        "",
+        f"Generated at: {datetime.now(tz=UTC).isoformat()}",
+        "",
+        "## Measured runs",
+        "",
+        "| Experiment | Scenario | Seed | Sim events | Pipeline events | "
+        "E2E latency (ms) | Privacy violations | Modality drop tolerance | "
+        "Reproducibility | Privacy validation |",
+        "| ---------- | -------- | ---- | ---------- | --------------- | "
+        "---------------- | ------------------ | ----------------------- | "
+        "--------------- | ------------------ |",
+    ]
+
+    for result in results:
+        metrics = result.measurement_metrics
+        exp = result.experiment_metrics
+        lines.append(
+            f"| {result.experiment_id} | {result.scenario} | {result.seed} | "
+            f"{result.simulation_event_count} | {result.pipeline_event_count} | "
+            f"{metrics.end_to_end_latency_ms:.2f} | {exp.privacy_violation_count} | "
+            f"{result.robustness_modality_drop_tolerance:.4f} | "
+            f"{result.deterministic_reproducibility_score:.4f} | "
+            f"{'pass' if result.privacy_validation_passed else 'fail'} |"
+        )
+
+    lines.extend(
+        [
+            "",
+            "## Notes",
+            "",
+            "- Values are measured from synthetic simulation and scaffold executors.",
+            "- No statistical comparisons or empirical conclusions are reported.",
+            "- See `docs/evaluation.md` for pre-registered protocol definitions.",
+            "",
+        ]
+    )
+
+    content = "\n".join(lines)
+    if output_path is not None:
+        target = output_path.resolve()
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(content + "\n", encoding="utf-8")
+    return content
+
+
+def generate_latex_table(
+    results: tuple[BatteryResult, ...],
+    *,
+    output_path: Path | None = None,
+) -> str:
+    """Generate a LaTeX table placeholder populated with measured scaffold values."""
+    lines = [
+        "% Auto-generated by `dualexis experiment paper-table`.",
+        "% Measured scaffold values only — no empirical conclusions.",
+        "% Replace or extend after ethics-approved data collection.",
+        "",
+        "\\begin{table}[htbp]",
+        "  \\centering",
+        "  \\caption{Experimental battery scaffold measurements (synthetic inputs). "
+        "Values are reproducible pipeline outputs; statistical claims are \\textbf{not} implied.}",
+        "  \\label{tab:experimental-battery-scaffold}",
+        "  \\small",
+        "  \\begin{tabular}{@{}lrrrrrr@{}}",
+        "    \\toprule",
+        "    Experiment & Seed & Events & Recs. & "
+        "$L_{\\mathrm{e2e}}$ (ms) & $N_{\\mathrm{priv}}$ & $T_{\\mathrm{drop}}$ \\\\",
+        "    \\midrule",
+    ]
+
+    for result in results:
+        metrics = result.measurement_metrics
+        lines.append(
+            f"    {result.experiment_id.replace('_', '\\_')} & "
+            f"{result.seed} & "
+            f"{result.pipeline_event_count} & "
+            f"{result.pipeline_recommendation_count} & "
+            f"{metrics.end_to_end_latency_ms:.1f} & "
+            f"{result.experiment_metrics.privacy_violation_count} & "
+            f"{result.robustness_modality_drop_tolerance:.2f} \\\\"
+        )
+
+    lines.extend(
+        [
+            "    \\bottomrule",
+            "  \\end{tabular}",
+            "\\end{table}",
+            "",
+        ]
+    )
+
+    content = "\n".join(lines)
+    if output_path is not None:
+        target = output_path.resolve()
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(content, encoding="utf-8")
+    return content
+
+
+__all__ = [
+    "generate_latex_table",
+    "generate_markdown_report",
+    "load_battery_results",
+    "run_all_batteries",
+    "run_battery_from_config",
+    "write_battery_json",
+]

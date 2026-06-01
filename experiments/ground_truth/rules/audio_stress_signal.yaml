@@ -1,0 +1,13 @@
+scenario_id: audio_stress_signal
+version: e2_rules_v1
+description: Independent GT rules for hallway acoustic stress.
+label_rules:
+  - semantic_label: acoustic_stress
+    zone_id: hallway-a
+    expected_event_type: audio_stress_signal
+    min_tick: 2
+    conditions:
+      - metric: zone_audio
+        zone: hallway-a
+        op: gte
+        value: 0.48

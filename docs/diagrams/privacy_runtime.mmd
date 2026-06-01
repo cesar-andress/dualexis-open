@@ -1,0 +1,34 @@
+%% DUALEXIS privacy runtime — trust boundaries TB1–TB5.
+%%{init: {
+  'theme': 'neutral',
+  'themeVariables': {
+    'fontFamily': 'Helvetica, Arial, sans-serif',
+    'fontSize': '13px',
+    'primaryColor': '#f4f6f8',
+    'primaryBorderColor': '#2c3e50',
+    'lineColor': '#4a5568'
+  },
+  'flowchart': { 'curve': 'basis', 'padding': 12, 'nodeSpacing': 32, 'rankSpacing': 40 }
+}}%%
+flowchart TB
+  RAW["Ephemeral buffer<br/><i>PerceptionFrame</i>"]
+
+  TB1{{"TB1<br/>TTL &amp; no persistent media"}}
+  SIG["PerceptionSignal<br/>zone descriptors only"]
+  TB2{{"TB2<br/>Schema &amp; payload validation"}}
+  EVT["SemanticEvent<br/>retention tags"]
+  TB3{{"TB3<br/>Publication &amp; audit gates"}}
+  COP["Local reasoning I/O<br/>structured events only"]
+  TB4{{"TB4<br/>LLM serializer &amp; filter"}}
+  PUB["Publication bus"]
+  TB5{{"TB5<br/>Egress allowlist"}}
+  OUT["Structured events + PrivacyReport<br/><b>no raw media</b>"]
+
+  RAW --> TB1 --> SIG --> TB2 --> EVT --> TB3 --> COP --> TB4 --> PUB --> TB5 --> OUT
+
+  classDef gate fill:#fadbd8,stroke:#922b21,stroke-width:2px
+  classDef proc fill:#ebf5fb,stroke:#1f618d,stroke-width:1.5px
+  classDef out fill:#eafaf1,stroke:#1e8449,stroke-width:1.5px
+  class TB1,TB2,TB3,TB4,TB5 gate
+  class RAW,SIG,EVT,COP,PUB proc
+  class OUT out

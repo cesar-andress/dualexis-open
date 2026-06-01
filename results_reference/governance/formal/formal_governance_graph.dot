@@ -1,0 +1,13 @@
+digraph FormalHumanAIGovernance {
+  rankdir=LR;
+  node [shape=box, style="rounded,filled", fontname="Helvetica"];
+  ai_recommendation [label="s^{AI}\nAI recommendation", fillcolor="#fff3cd"];
+  human_review [label="s^{H}\nHuman review", fillcolor="#fdebd0"];
+  institutional_escalation [label="s^{I}\nInstitutional escalation", fillcolor="#cce5ff"];
+  ai_recommendation -> human_review [label="issue (p=1.00)"];
+  human_review -> human_review [label="accept (p=0.46)"];
+  human_review -> human_review [label="dismiss (p=0.10)"];
+  human_review -> institutional_escalation [label="escalate (p=0.34)"];
+  human_review -> human_review [label="override (p=0.10)"];
+  institutional_escalation -> institutional_escalation [label="close (p=1.00)"];
+}
