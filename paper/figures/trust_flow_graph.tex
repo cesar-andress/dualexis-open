@@ -1,0 +1,24 @@
+\documentclass[border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\begin{document}
+\begin{tikzpicture}[
+  stage/.style={draw, rounded corners=3pt, minimum width=1.7cm, minimum height=0.9cm,
+                align=center, font=\footnotesize\bfseries, fill=blue!12},
+  flow/.style={-{Stealth[length=2mm]}, thick, draw=blue!55!black},
+]
+\node[font=\scriptsize] at (5.5,1.1) {$\pi_0=0.59$};
+\node[stage] (n0) at (0.0,0) {Evidence\\$T=0.00$};
+\node[stage] (n1) at (2.2,0) {Safety\\$T=0.00$};
+\node[stage] (n2) at (4.4,0) {Causal\\$T=0.00$};
+\node[stage] (n3) at (6.6000000000000005,0) {Recom.\\$T=0.00$};
+\node[stage] (n4) at (8.8,0) {Govern.\\$T=0.00$};
+\node[stage] (n5) at (11.0,0) {Audit\\$T=0.00$};
+\draw[flow] (n0) -- (n1) node[midway,above,font=\scriptsize] {$\downarrow0.00$};
+\draw[flow] (n1) -- (n2) node[midway,above,font=\scriptsize] {$\downarrow0.00$};
+\draw[flow] (n2) -- (n3) node[midway,above,font=\scriptsize] {$\downarrow0.00$};
+\draw[flow] (n3) -- (n4) node[midway,above,font=\scriptsize] {$\downarrow0.00$};
+\draw[flow] (n4) -- (n5) node[midway,above,font=\scriptsize] {$\downarrow0.00$};
+\node[font=\small\bfseries] at (5.5,-1.2) {Trust-aware TSGG propagation};
+\end{tikzpicture}
+\end{document}

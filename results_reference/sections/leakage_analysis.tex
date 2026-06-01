@@ -1,0 +1,48 @@
+\subsection{E2 Leakage Audit Methodology}
+\label{sec:leakage-analysis}
+
+Independent ground truth (E2) is evaluated with a \textbf{leakage audit framework} that quantifies
+coupling among \texttt{world\_dynamics}, \texttt{event\_generator}, and
+\texttt{ground\_truth\_rules}. The audit does not replace field validation; it documents
+\emph{where} benchmark conclusions may inherit synthetic coupling.
+
+\paragraph{Structural overlap.}
+We extract canonical variables (zone density, activity, audio, exit throughput), threshold
+predicates, and scenario guards from each component. Table~\ref{tab:leakage-audit} reports:
+\textbf{shared\_variables\_ratio} (Jaccard on variable sets),
+\textbf{shared\_threshold\_ratio} (bucket alignment plus generator--rules semantic match),
+and \textbf{shared\_logic\_ratio} (Jaccard on normalized logic predicates).
+The composite \textbf{leakage score} $L_S \in [0,1]$ combines these overlaps (higher indicates
+greater shared coupling).
+
+\paragraph{Independence layers.}
+\begin{itemize}[noitemsep]
+  \item \textbf{Procedural independence} --- AST-confirmed absence of
+        \texttt{event\_generator} imports in \texttt{independent\_labeler} (score=
+        1.00).
+  \item \textbf{Semantic independence} --- $1 - $ mean structural overlap (score=
+        0.71).
+  \item \textbf{Distributional independence} --- Monte Carlo stability of labels and
+        agreement under random threshold perturbations (score=
+        0.70).
+\end{itemize}
+
+\paragraph{Monte Carlo sensitivity.}
+We draw $N_{\mathrm{MC}}=50$ perturbations scaling each GT rule
+threshold by $U(0.88, 1.12)$ and measure:
+(i)~\emph{ground-truth stability} (label multiset overlap),
+(ii)~\emph{event stability} (generator outputs under fixed seed; expected $\approx 1.0$ when
+only GT rules move),
+(iii)~\emph{agreement drift} (change in event--GT agreement).
+Scenario-level results appear in Table~\ref{tab:leakage-mc-by-scenario}.
+
+\paragraph{Dependency graph.}
+A Graphviz dependency graph (\texttt{results/leakage\_audit/dependency\_graph.dot}) links
+components by shared metrics and threshold alignment edges.
+
+\paragraph{Reviewer-facing statement.}
+\begin{quote}
+\textbf{This benchmark is procedurally independent but not distributionally independent.}
+\end{quote}
+
+\input{tables/leakage_audit}
