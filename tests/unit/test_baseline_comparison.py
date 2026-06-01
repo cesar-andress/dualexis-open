@@ -127,7 +127,7 @@ def test_comparison_summary_json_structure(tmp_path: Path) -> None:
     assert payload["scenario"] == "exit_blockage"
     assert payload["seeds"] == [42]
     assert len(payload["runs"]) == 5
-    assert len(payload["aggregates"]) == 4
+    assert len(payload["aggregates"]) == 5
     assert "disclaimer" in payload
 
 
