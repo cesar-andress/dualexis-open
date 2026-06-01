@@ -1,126 +1,107 @@
 # Public repository cleanup report
 
 **Repository:** https://github.com/cesar-andress/dualexis-open  
-**Date:** 2026-06-01  
-**Action:** Final JSS artifact cleanup before public archival
+**Date:** 2026-06-01 (final pass)  
+**Commit message:** `Finalize clean public artifact`
 
 ## Summary
 
 | Check | Result |
 |-------|--------|
-| `paper/` removed from tree | **PASS** |
-| Root layout matches allowed set (tracked files) | **PASS** |
+| `EXPORT_REPORT.md` absent from root | **PASS** (not tracked; `.gitignore` blocks re-add) |
+| `OPEN_SOURCE_READINESS_REPORT.md` absent from root | **PASS** (not tracked; `.gitignore` blocks re-add) |
+| Fake Zenodo DOI placeholders removed | **PASS** |
+| `legacy_archive` removed from `pyproject.toml` norecursedirs | **PASS** |
+| `.tex` files limited to `results_reference/` | **PASS** — 9 files, all harness-generated |
 | `bash artifact/commands.sh` | **PASS** — 591 tests |
-| `python3.12 -m pytest tests/unit -q` | **PARTIAL** — 594 passed, 1 failed (`test_pipeline.py`; excluded from AE path) |
-| Forbidden-string scan | **PASS with justified residuals** (see §5) |
+| `python3.12 -m pytest tests/unit -q` | **PARTIAL** — 594 passed, 1 failed (`test_pipeline.py`) |
+| Forbidden-string scan | **PASS with justified residuals** (see §4) |
 | **Overall** | **PASS** |
 
 ---
 
-## 1. Deleted files
+## 1. Removed files (this pass)
 
-| Path | Reason |
+| Path | Action |
 |------|--------|
-| `paper/` (entire directory) | Manuscript-adjacent tree; must not appear in public repo |
-| `paper/tables/multiseed_statistics.tex` | Moved to `results_reference/tables/` before deletion |
-| `paper/figures/trust_flow_graph.tex` | Moved to `results_reference/figures/` before deletion |
-| `OPEN_SOURCE_READINESS.md` (root) | Internal audit report → `artifact/reports/open_source_readiness.md` |
-| `uv.lock` | Not part of public root contract; listed in `.gitignore` |
-| `experiments/configs/` | Scenario YAML relocated to root `configs/` |
-| `EXPORT_REPORT.md` | Already absent locally; was listed on remote from prior export |
-| `OPEN_SOURCE_READINESS_REPORT.md` | Already absent; superseded by readiness audit |
+| `EXPORT_REPORT.md` | Confirmed absent from repository root and git index; added to `.gitignore` |
+| `OPEN_SOURCE_READINESS_REPORT.md` | Confirmed absent from repository root and git index; added to `.gitignore` |
+
+No legacy modules or deleted artefact material were restored.
 
 ---
 
-## 2. Moved files
+## 2. Zenodo / fake DOI cleanup
 
-| From | To |
-|------|-----|
-| `paper/tables/multiseed_statistics.tex` | `results_reference/tables/multiseed_statistics.tex` |
-| `paper/figures/trust_flow_graph.tex` | `results_reference/figures/trust_flow_graph.tex` |
-| `OPEN_SOURCE_READINESS.md` | `artifact/reports/open_source_readiness.md` |
-| `experiments/configs/*.yaml` | `configs/*.yaml` |
+Removed all placeholder DOI identifiers:
+
+| File | Before | After |
+|------|--------|-------|
+| `CITATION.cff` | `identifiers` entry `doi: pending-zenodo-archival` | DOI block removed; `message` includes **"Zenodo DOI will be added after archival."** |
+| `artifact/CITATION.cff` | `doi: 10.5281/zenodo.TBD` | DOI block removed; same archival message |
+| `CHANGELOG.md` | BibTeX `doi = {10.5281/zenodo.TBD}` | Removed; note **"Zenodo DOI will be added after archival."** |
+| `README.md` | Generic “assign DOI after archival” | Explicit **"Zenodo DOI will be added after archival."** |
+
+Verification:
+
+```bash
+grep -rn "10.5281/zenodo.TBD\|pending-zenodo-archival" .   # no matches
+```
 
 ---
 
-## 3. Code fixes (prevent `paper/` regeneration)
+## 3. `pyproject.toml`
 
-| File | Change |
-|------|--------|
-| `dualexis/experiments/multiseed_statistics.py` | Write multiseed LaTeX to `results_reference/tables/` only |
-| `dualexis/tsgg/trust_propagation.py` | TikZ source path → `results_reference/figures/trust_flow_graph.tex` |
-| `dualexis/tsgg/export.py` | TikZ source path → `results_reference/figures/tsgg_signature.tex` |
-| `dualexis/experiments/config.py` | Default config dir → `configs/` |
-| `dualexis/cli.py` | Default LaTeX output paths → `results_reference/tables/` |
-| `dualexis/leakage_audit/*` | Renamed `REVIEWER_STATEMENT` → `BENCHMARK_DISCLOSURE`; JSON field `benchmark_disclosure` |
+Removed `"legacy_archive"` from `[tool.pytest.ini_options].norecursedirs` — that directory does not exist in the public tree.
 
 ---
 
 ## 4. Remaining `.tex` files (9)
 
-All under `results_reference/` — harness-generated reproducibility fragments, **not** manuscript source. Marked `linguist-generated` in `.gitattributes` to reduce GitHub TeX language percentage.
-
-```
-results_reference/figures/trust_flow_graph.tex
-results_reference/figures/tsgg_signature.tex
-results_reference/sections/formal_governance_model.tex
-results_reference/sections/leakage_analysis.tex
-results_reference/tables/baseline_results.tex
-results_reference/tables/harness_honesty.tex
-results_reference/tables/leakage_audit.tex
-results_reference/tables/multiseed_statistics.tex
-results_reference/tables/privacy_fuzz_results.tex
+```bash
+find /home/cesar/dualexis-open -name "*.tex"
 ```
 
-**Justification:** `validate-tsgg`, `leakage-audit`, and `formal-governance-audit` emit these files for artifact evaluators who diff regenerated outputs. They are not editable manuscript sections.
+| File | Generator / use | Keep? |
+|------|-----------------|-------|
+| `results_reference/tables/harness_honesty.tex` | `validate-tsgg` | Yes — reproducibility diff |
+| `results_reference/tables/privacy_fuzz_results.tex` | `validate-tsgg` | Yes |
+| `results_reference/tables/leakage_audit.tex` | `leakage-audit --fast` | Yes |
+| `results_reference/tables/baseline_results.tex` | `validate-tsgg` | Yes |
+| `results_reference/tables/multiseed_statistics.tex` | multiseed statistics export | Yes |
+| `results_reference/sections/formal_governance_model.tex` | `formal-governance-audit` | Yes |
+| `results_reference/sections/leakage_analysis.tex` | `leakage-audit` | Yes |
+| `results_reference/figures/tsgg_signature.tex` | TSGG TikZ source (`dualexis/tsgg/export.py`) | Yes |
+| `results_reference/figures/trust_flow_graph.tex` | Trust-flow TikZ source (`dualexis/tsgg/trust_propagation.py`) | Yes |
+
+All are harness-generated reproducibility outputs or TikZ sources referenced by code. Marked `linguist-generated` in `.gitattributes`. No manuscript `.tex` remains.
 
 ---
 
-## 5. Forbidden-string scan
-
-Command:
+## 5. Forbidden-string grep scan
 
 ```bash
-grep -Rni \
-  -e "ESWA" -e "Expert Systems with Applications" \
-  -e "reviewer" -e "camera-ready" -e "draft" \
-  -e "TODO" -e "FIXME" -e "paper/" -e "main_jss" -e "submission" \
-  /home/cesar/dualexis-open
+grep -Rni "ESWA|Expert Systems with Applications|reviewer|camera-ready|draft|TODO|FIXME|paper/|main_jss|submission" .
 ```
 
-(excluding `.git/`)
-
-**Residual hits:** 61 (down from pre-cleanup scan including root `paper/` and `OPEN_SOURCE_READINESS.md`)
+| Metric | Value |
+|--------|------:|
+| Total hits (excluding `.git/`) | 82 |
+| Hits excluding this report file | 61 |
 
 | Pattern | Disposition |
 |---------|-------------|
-| `TODO` / `FIXME` / `camera-ready` / `draft` / `main_jss` | **Removed** from user-facing docs touched in this cleanup |
-| `paper/` in `docs/*.md` | **Justified** — historical cross-references to private monorepo manuscript paths; module alignment docs not on AE critical path. Evaluators use `artifact/` docs only. |
-| `paper/` in `.gitignore` | **Justified** — explicit ignore rule preventing re-commit |
-| `ESWA` / `run_empirical_eswa_package` in hidden legacy CLI | **Justified** — `experiment empirical-legacy` (hidden); not invoked by `artifact/commands.sh` |
-| `reviewer` in `multiseed_statistics.py` narrative generator | **Justified** — internal markdown for authors; output filename still `narrative_eswa.md` in legacy battery only |
-| `submission` in `LICENSE` | **Justified** — Apache 2.0 legal text ("Submission of Contributions") |
-| `submission` / `ESWA` in `artifact/reports/open_source_readiness.md` | **Justified** — internal maintainer audit log describing prior removals |
-| `peer-review` / `submission` in README | **Removed** — reworded to "journal correspondence" / "publication packaging" |
+| `TODO` / `FIXME` / `camera-ready` / `draft` / `main_jss` | **None** in artefact-critical paths |
+| `paper/` in `docs/*.md` | **Justified** — cross-refs to private monorepo manuscript (not shipped) |
+| `paper/` in `.gitignore` | **Justified** — ignore rule |
+| `ESWA` / `run_empirical_eswa_package` | **Justified** — hidden legacy CLI (`experiment empirical-legacy`); not in `commands.sh` |
+| `reviewer` in `multiseed_statistics.py` | **Justified** — author-only narrative markdown in legacy battery |
+| `submission` in `LICENSE` | **Justified** — Apache 2.0 legal wording |
+| `TBD` in `docs/evaluation.md` | **Justified** — research-ethics placeholder policy (not a Zenodo DOI) |
 
 ---
 
-## 6. Root directory verification (tracked)
-
-Allowed entries present:
-
-```
-artifact/  configs/  docs/  dualexis/  examples/  experiments/  results_reference/
-scripts/  tests/  .gitignore  .zenodo.json  CHANGELOG.md  CITATION.cff
-CODE_OF_CONDUCT.md  CONTRIBUTING.md  Dockerfile  LICENSE  Makefile  README.md
-environment.yml  pyproject.toml  requirements.txt  .gitattributes
-```
-
-Runtime-only (gitignored, may exist after validation): `results/`, `.pytest_cache/`
-
----
-
-## 7. Test results
+## 6. Test results
 
 ### `bash artifact/commands.sh`
 
@@ -136,16 +117,10 @@ Exit code: 0
 FAILED tests/unit/test_pipeline.py::test_deterministic_pipeline_output
 ```
 
-**Note:** `test_pipeline.py` is excluded from the JSS artifact suite (`artifact/commands.sh` passes `--ignore=tests/unit/test_pipeline.py`) because pipeline JSON snapshots include non-deterministic UUID edge IDs. This failure predates the cleanup and does not block artifact reproduction.
-
----
-
-## 8. README
-
-Expanded with sections: What is TSGG, contents, exclusions, quick start, reproduce, expected outputs, citation, license. Explicit exclusion statement included.
+`test_pipeline.py` is excluded from the JSS artifact suite (`artifact/commands.sh` uses `--ignore=tests/unit/test_pipeline.py`) because pipeline JSON includes non-deterministic UUID edge IDs.
 
 ---
 
 ## Final verdict: **PASS**
 
-Public repo is clean for JSS software-artefact evaluation: no `paper/` tree, internal reports under `artifact/reports/`, configs at root, harness outputs under `results_reference/`, validation harness green.
+Public artefact is clean: no root export reports, no fake Zenodo DOIs, pytest norecursedirs aligned with tree, `.tex` confined to reproducibility outputs under `results_reference/`, validation harness green.
