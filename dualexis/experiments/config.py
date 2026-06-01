@@ -41,12 +41,12 @@ def load_experiment_config(path: str | Path) -> ExperimentConfig:
 
 
 def default_config_dir() -> Path:
-    """Return the repository ``experiments/configs/`` directory."""
-    return Path(__file__).resolve().parent.parent.parent / "experiments" / "configs"
+    """Return the repository ``configs/`` directory."""
+    return Path(__file__).resolve().parent.parent.parent / "configs"
 
 
 def list_experiment_configs(config_dir: Path | None = None) -> tuple[Path, ...]:
-    """Return sorted YAML config paths under ``experiments/configs/``."""
+    """Return sorted YAML config paths under ``configs/``."""
     root = config_dir or default_config_dir()
     if not root.is_dir():
         msg = f"Experiment config directory not found: {root}"

@@ -13,7 +13,7 @@ from dualexis.leakage_audit.models import LeakageAuditReport
 from dualexis.leakage_audit.monte_carlo import run_monte_carlo_battery
 from dualexis.leakage_audit.overlap import compute_overlap_report
 from dualexis.leakage_audit.scoring import (
-    REVIEWER_STATEMENT,
+    BENCHMARK_DISCLOSURE,
     build_independence_estimates,
     compute_leakage_score,
 )
@@ -80,7 +80,7 @@ def run_leakage_audit(
         ground_truth_stability_mean=round(gt_stab, 4),
         event_stability_mean=round(ev_stab, 4),
         agreement_drift_mean=round(agr_drift, 4),
-        reviewer_statement=REVIEWER_STATEMENT,
+        benchmark_disclosure=BENCHMARK_DISCLOSURE,
         dependency_graph_dot=dot,
         per_scenario=per_scenario,
     )

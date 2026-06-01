@@ -54,7 +54,7 @@ def test_unified_metrics_use_formal_governance_audit() -> None:
         ground_truth_stability_mean=1.0,
         event_stability_mean=1.0,
         agreement_drift_mean=0.0,
-        reviewer_statement="test",
+        benchmark_disclosure="test",
         dependency_graph_dot="digraph {}",
         per_scenario={},
     )
@@ -88,7 +88,7 @@ def test_unified_metrics_bounds() -> None:
         ground_truth_stability_mean=1.0,
         event_stability_mean=1.0,
         agreement_drift_mean=0.0,
-        reviewer_statement="test",
+        benchmark_disclosure="test",
         dependency_graph_dot="digraph {}",
         per_scenario={},
     )

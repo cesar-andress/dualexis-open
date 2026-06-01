@@ -1,53 +1,79 @@
 # TSGG Reference Implementation
 
-**Trusted Safety State Governance Graph (TSGG)** — open-source trace architecture for auditable human–AI systems.
+Open-source reference code and validation harness for **Trusted Safety State Governance Graph (TSGG)** — a software trace architecture for auditable human–AI systems.
 
-This repository is the **reference implementation** supporting the *Journal of Systems and Software* manuscript. It is **not** the paper.
+**Repository:** https://github.com/cesar-andress/dualexis-open  
+**Version:** v1.0.0 · **License:** Apache-2.0
 
-## Trace chain
+This repository does not contain the manuscript, peer-review material, editorial reports, or submission packages.
+
+## What is TSGG?
+
+TSGG specifies a typed trace pipeline for systems that must export privacy-bounded evidence, state evolution, recommendations, governance disposition, and append-only audit in one inspectable artefact:
 
 ```
 Evidence → Safety State → Causal Transition → Recommendation → Governance Decision → Audit Trace
 ```
 
-## Capabilities
+The reference implementation covers fail-closed privacy ingress (A1), governance FSM semantics (A4), append-only audit (A5), benchmark leakage auditing, and scripted synthetic validation.
 
-- Privacy admissibility constraints (fail-closed ingress, fuzz regression)
-- Governance-aware decision traces (FSM macro-states, append-only audit)
-- Benchmark leakage auditing
-- Reproducible validation harnesses
+## What this repository contains
+
+| Path | Purpose |
+|------|---------|
+| `dualexis/` | Python reference implementation and CLI |
+| `artifact/` | Install, reproduce, and artifact-evaluation documentation |
+| `tests/` | Unit and artifact smoke tests |
+| `configs/` | Pre-registered synthetic scenario YAML configs |
+| `experiments/` | Ground-truth definitions for bundled scenarios |
+| `results_reference/` | Pinned reference outputs (CSV, JSON, regenerated LaTeX fragments) |
+| `examples/` | Minimal usage examples |
+| `docs/` | Architecture and developer documentation |
+| `scripts/` | Helper scripts (`reproduce.sh`) |
+
+## What this repository does not contain
+
+- Manuscript LaTeX, figures, or peer-review correspondence
+- Editorial or internal readiness reports (see `artifact/reports/` for maintainer audit notes only)
+- Field-deployment datasets or production system claims
+- Legacy deprecated experiment batteries
 
 ## Quick start
 
 ```bash
-pip install -e ".[dev]"
+python3.12 -m pip install -e ".[dev]"
+python3.12 -m dualexis.cli --help
+```
+
+## Reproduce validation artefacts
+
+From the repository root:
+
+```bash
 bash artifact/commands.sh
 ```
 
-See [`artifact/INSTALL.md`](artifact/INSTALL.md) and [`artifact/REPRODUCE.md`](artifact/REPRODUCE.md).
+This cleans regeneratable outputs, installs the package, runs `validate-tsgg`, `leakage-audit --fast`, `formal-governance-audit`, and the JSS artifact test suite.
 
-## Repository
+See [`artifact/INSTALL.md`](artifact/INSTALL.md) and [`artifact/REPRODUCE.md`](artifact/REPRODUCE.md) for alternatives (conda, Docker).
 
-- **URL:** https://github.com/cesar-andress/dualexis-open
-- **Version:** v1.0.0
-- **License:** Apache-2.0
-- **Citation:** [`CITATION.cff`](CITATION.cff) · Zenodo DOI (assign at archival)
+## Expected outputs
 
-## Layout
+After `artifact/commands.sh`:
 
-| Path | Purpose |
-|------|---------|
-| `dualexis/` | Python reference implementation |
-| `artifact/` | Reproducibility documentation and commands |
-| `tests/` | Unit and integration tests |
-| `examples/` | Minimal usage examples |
-| `docs/` | Architecture and developer documentation |
-| `experiments/` | Synthetic scenario configs and independent ground truth |
-| `results_reference/` | Pinned reference outputs for diff review |
+| Output | Command |
+|--------|---------|
+| `results_reference/tables/harness_honesty.tex` | `validate-tsgg` |
+| `results_reference/tables/privacy_fuzz_results.tex` | `validate-tsgg` |
+| `results_reference/tables/leakage_audit.tex` | `leakage-audit --fast` |
+| `results/governance/formal/governance_audit_report.json` | `formal-governance-audit` |
+| `results/privacy_fuzz/results.csv` | `validate-tsgg` |
 
-Open-source readiness: [`OPEN_SOURCE_READINESS.md`](OPEN_SOURCE_READINESS.md)
+Regeneratable runtime outputs under `results/` are gitignored. Pinned snapshots for diff review live under `results_reference/`. Details: [`artifact/expected_outputs.md`](artifact/expected_outputs.md).
 
-## Cite
+## Citation
+
+Machine-readable metadata: [`CITATION.cff`](CITATION.cff)
 
 ```bibtex
 @software{tsgg_reference_implementation_v1_0_0,
@@ -55,7 +81,12 @@ Open-source readiness: [`OPEN_SOURCE_READINESS.md`](OPEN_SOURCE_READINESS.md)
   title   = {{TSGG} Reference Implementation},
   year    = {2026},
   version = {v1.0.0},
-  url     = {https://github.com/cesar-andress/dualexis-open},
   url     = {https://github.com/cesar-andress/dualexis-open}
 }
 ```
+
+Assign the Zenodo DOI from `CITATION.cff` after archival.
+
+## License
+
+Apache License 2.0 — see [`LICENSE`](LICENSE).

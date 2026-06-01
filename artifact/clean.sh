@@ -12,11 +12,6 @@ find "$ROOT/dualexis" "$ROOT/tests" -type d -name __pycache__ -print0 2>/dev/nul
   | xargs -0 rm -rf 2>/dev/null || true
 rm -rf "$ROOT/.pytest_cache" "$ROOT/.ruff_cache" "$ROOT/.mypy_cache" 2>/dev/null || true
 
-echo "==> LaTeX intermediates (paper JSS)"
-if [[ -x "$(command -v python3.12)" ]]; then
-  python3.12 "$ROOT/scripts/build_jss_submission.py" --clean-only >/dev/null 2>&1 || true
-fi
-
 if [[ "$MODE" == "full" ]]; then
   echo "==> Legacy experiment outputs (not in JSS AE path)"
   LEGACY_RESULTS=(
@@ -48,8 +43,8 @@ rm -rf \
   "$ROOT/results/governance/formal"
 
 if [[ "$MODE" == "full" ]]; then
-  echo "==> Regenerable submission package"
-  rm -rf "$ROOT/dist/jss_submission_package"
+  echo "==> Regenerable distribution bundles"
+  rm -rf "$ROOT/dist"
 fi
 
 echo "Clean complete ($MODE)."

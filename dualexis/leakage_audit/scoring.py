@@ -5,7 +5,7 @@ from __future__ import annotations
 from dualexis.leakage_audit.models import IndependenceEstimates, OverlapReport
 from dualexis.leakage_audit.spec_extraction import independent_labeler_imports_event_generator
 
-REVIEWER_STATEMENT = (
+BENCHMARK_DISCLOSURE = (
     "This benchmark is procedurally independent but not distributionally independent."
 )
 
@@ -67,7 +67,7 @@ def build_independence_estimates(
 
 
 __all__ = [
-    "REVIEWER_STATEMENT",
+    "BENCHMARK_DISCLOSURE",
     "build_independence_estimates",
     "compute_leakage_score",
     "estimate_distributional_independence",

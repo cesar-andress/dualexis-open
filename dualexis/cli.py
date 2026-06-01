@@ -344,7 +344,7 @@ def experiment_run_all_cmd(
         help="Directory for JSON battery outputs.",
     ),
 ) -> None:
-    """Run all YAML configs under experiments/configs/."""
+    """Run all YAML configs under configs/."""
     try:
         results = run_all_batteries(output)
     except FileNotFoundError as exc:
@@ -357,7 +357,7 @@ def experiment_run_all_cmd(
 @experiment_app.command("run-multiseed")
 def experiment_run_multiseed_cmd(
     config_dir: str = typer.Option(
-        "experiments/configs",
+        "configs",
         "--config-dir",
         help="Directory containing YAML experiment configs.",
     ),
@@ -437,7 +437,7 @@ def experiment_paper_table_cmd(
         help="Directory containing battery JSON results.",
     ),
     output: str = typer.Option(
-        "paper/tables/results.tex",
+        "results_reference/tables/results.tex",
         "--output",
         "-o",
         help="LaTeX table output path.",
@@ -885,7 +885,7 @@ def experiment_leakage_audit_cmd(
     typer.echo(f"Procedural independence={report.independence.procedural_independence}")
     typer.echo(f"Semantic independence={report.independence.semantic_independence}")
     typer.echo(f"Distributional independence={report.independence.distributional_independence}")
-    typer.echo(report.reviewer_statement)
+    typer.echo(report.benchmark_disclosure)
     typer.echo(f"Wrote {output}/")
 
 
@@ -1272,8 +1272,8 @@ def experiment_formal_governance_audit_cmd(
         typer.echo(f"{key}: {value}")
 
 
-@experiment_app.command("empirical-eswa", hidden=True)
-def experiment_empirical_eswa_cmd(
+@experiment_app.command("empirical-legacy", hidden=True)
+def experiment_empirical_legacy_cmd(
     output: str = typer.Option(
         "results/baseline_comparison",
         "--baseline-output",
@@ -1403,7 +1403,7 @@ def experiment_analyze_multiseed_cmd(
 
     typer.echo(f"Analysis written to {out_path}")
     typer.echo(f"LaTeX: {out_path / 'multiseed_statistics.tex'}")
-    typer.echo(f"Narrative: {out_path / 'narrative_eswa.md'}")
+    typer.echo(f"Narrative: {out_path / 'narrative_multiseed.md'}")
 
 
 @experiment_app.command("validate-s2a")
@@ -1430,7 +1430,7 @@ def experiment_validate_s2a_cmd(
         help="Run only C1--C4 (skip L1/L4/L5 ablations).",
     ),
     paper_tables: str = typer.Option(
-        "paper/tables/results.tex",
+        "results_reference/tables/results.tex",
         "--paper-tables",
         help="LaTeX file to update with validation tables.",
     ),

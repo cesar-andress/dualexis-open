@@ -9,16 +9,9 @@ import pytest
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def _table_path(name: str) -> Path:
-    reference = ROOT / "results_reference/tables" / name
-    if reference.is_file():
-        return reference
-    return ROOT / "paper/tables" / name
-
-
 @pytest.mark.unit
 def test_harness_honesty_table_present() -> None:
-    path = _table_path("harness_honesty.tex")
+    path = ROOT / "results_reference/tables/harness_honesty.tex"
     assert path.is_file()
     text = path.read_text(encoding="utf-8")
     assert "tab:harness-honesty" in text
@@ -26,7 +19,7 @@ def test_harness_honesty_table_present() -> None:
 
 @pytest.mark.unit
 def test_privacy_fuzz_table_present() -> None:
-    path = _table_path("privacy_fuzz_results.tex")
+    path = ROOT / "results_reference/tables/privacy_fuzz_results.tex"
     assert path.is_file()
     text = path.read_text(encoding="utf-8")
     assert "tab:privacy-fuzz" in text
@@ -34,7 +27,7 @@ def test_privacy_fuzz_table_present() -> None:
 
 @pytest.mark.unit
 def test_leakage_audit_table_present() -> None:
-    path = _table_path("leakage_audit.tex")
+    path = ROOT / "results_reference/tables/leakage_audit.tex"
     assert path.is_file()
     text = path.read_text(encoding="utf-8")
     assert "tab:leakage-audit" in text
