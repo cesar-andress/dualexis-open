@@ -22,7 +22,7 @@ apps/               # Runnable applications
 tests/              # Unit and integration tests
 docs/               # Documentation
 examples/           # Usage examples
-paper/              # LaTeX research paper
+results_reference/  # pinned validation exports
 ```
 
 ## Common Commands

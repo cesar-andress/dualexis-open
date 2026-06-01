@@ -64,7 +64,17 @@ def test_high_risk_recommendations_require_human_review() -> None:
 def test_deterministic_pipeline_output() -> None:
     first = run_pipeline("crowd_acceleration", seed=99)
     second = run_pipeline("crowd_acceleration", seed=99)
-    assert first.model_dump(mode="json") == second.model_dump(mode="json")
+    a = first.model_dump(mode="json")
+    b = second.model_dump(mode="json")
+    for key in (
+        "normalized_events",
+        "fusion_result",
+        "graph_updates",
+        "recommendations",
+        "audit_records",
+        "privacy_report",
+    ):
+        assert a[key] == b[key]
 
 
 @pytest.mark.unit

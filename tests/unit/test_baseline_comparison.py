@@ -52,7 +52,7 @@ def test_all_baselines_run_on_same_scenario_and_seed() -> None:
     scenario = "exit_blockage"
     seed = 42
     results = run_all_comparable_baselines(scenario, seed=seed)
-    assert len(results) == 4
+    assert len(results) == 5
     for result in results:
         assert result.scenario == scenario
         assert result.seed == seed
@@ -82,7 +82,7 @@ def test_reproducibility_score_is_perfect_for_deterministic_baselines() -> None:
 def test_compute_baseline_aggregates_groups_by_baseline() -> None:
     runs = run_all_comparable_baselines("exit_blockage", seed=5)
     aggregates = compute_baseline_aggregates(runs)
-    assert len(aggregates) == 4
+    assert len(aggregates) == 5
     assert all(item.end_to_end_latency_ms.count >= 1 for item in aggregates)
 
 
@@ -94,7 +94,7 @@ def test_run_baseline_comparison_writes_artifacts(tmp_path: Path) -> None:
     )
     assert report.scenario == "exit_blockage"
     assert report.seeds == (1, 2)
-    assert len(report.runs) == 8
+    assert len(report.runs) == 10
     assert (tmp_path / "comparison_summary.json").is_file()
     assert (tmp_path / "comparison_report.md").is_file()
     assert (tmp_path / "comparison_results.tex").is_file()
@@ -126,7 +126,7 @@ def test_comparison_summary_json_structure(tmp_path: Path) -> None:
     payload = json.loads((tmp_path / "comparison_summary.json").read_text(encoding="utf-8"))
     assert payload["scenario"] == "exit_blockage"
     assert payload["seeds"] == [42]
-    assert len(payload["runs"]) == 4
+    assert len(payload["runs"]) == 5
     assert len(payload["aggregates"]) == 4
     assert "disclaimer" in payload
 

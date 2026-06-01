@@ -401,9 +401,9 @@ def export_analysis_bundle(
     (out_root / "multiseed_statistics.tex").write_text(tex, encoding="utf-8")
 
     repo_root = Path(csv_path).resolve().parent.parent.parent
-    paper_tables = repo_root / "paper" / "tables"
-    paper_tables.mkdir(parents=True, exist_ok=True)
-    (paper_tables / "multiseed_statistics.tex").write_text(tex, encoding="utf-8")
+    ref_tables = repo_root / "results_reference" / "tables"
+    ref_tables.mkdir(parents=True, exist_ok=True)
+    (ref_tables / "multiseed_statistics.tex").write_text(tex, encoding="utf-8")
 
     _try_generate_figures(rows, out_root)
 
