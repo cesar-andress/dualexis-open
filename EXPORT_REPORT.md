@@ -1,6 +1,6 @@
 # Export report — dualexis-open
 
-Generated: 2026-06-01
+Generated: 2026-06-01 (synchronized from `/home/cesar/dualexis`, read-only)
 Source monorepo: `/home/cesar/dualexis` (read-only)
 
 ## Removed (high level)
