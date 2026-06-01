@@ -8,7 +8,7 @@ import pytest
 
 from dualexis.leakage_audit.audit import run_leakage_audit
 from dualexis.leakage_audit.monte_carlo import run_monte_carlo_scenario
-from dualexis.leakage_audit.scoring import REVIEWER_STATEMENT, compute_leakage_score
+from dualexis.leakage_audit.scoring import INDEPENDENCE_DISCLOSURE, compute_leakage_score
 from dualexis.leakage_audit.spec_extraction import (
     extract_all_specs,
     independent_labeler_imports_event_generator,
@@ -55,7 +55,7 @@ def test_run_leakage_audit_exports(tmp_path: Path) -> None:
         monte_carlo_iterations=10,
         fast=True,
     )
-    assert REVIEWER_STATEMENT in report.reviewer_statement
+    assert INDEPENDENCE_DISCLOSURE in report.independence_disclosure
     assert (tmp_path / "audit" / "leakage_audit_report.json").is_file()
     assert (tmp_path / "tables" / "leakage_audit.tex").is_file()
     assert (tmp_path / "sections" / "leakage_analysis.tex").is_file()

@@ -6,7 +6,7 @@ import importlib
 
 import pytest
 
-from apps.services import build_safety_orchestrator
+from dualexis.runtime.in_memory import build_safety_orchestrator
 
 
 @pytest.mark.unit

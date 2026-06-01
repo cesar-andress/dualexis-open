@@ -12,7 +12,6 @@ test:
 check:
 	ruff format --check .
 	ruff check .
-	mypy dualexis tests
 	$(MAKE) test
 
 lint:

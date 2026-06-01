@@ -28,8 +28,8 @@ flowchart TB
     SR --> PIPE["DUALEXIS full pipeline B5"]
     PIPE --> MET
     MET --> CSV["results/e2_independent_gt/results.csv"]
-    MET --> TEX["paper/tables/e2_independent_gt.tex"]
-    TEX --> RT["paper/sections/results.tex auto-sync"]
+    MET --> TEX["results_reference/tables/e2_independent_gt.tex"]
+    TEX --> RT["results_reference/sections/results.tex auto-sync"]
   end
 ```
 
@@ -54,7 +54,7 @@ flowchart TB
 | `dualexis/experiments/e2_independent_gt.py` | E2 multiseed battery + exports |
 | `scripts/generate_independent_ground_truth.py` | Regenerate YAML from rules |
 | `results/e2_independent_gt/results.csv` | Per seed × scenario metrics |
-| `paper/tables/e2_independent_gt.tex` | LaTeX table (`tab:e2-independent-gt`) |
+| `results_reference/tables/e2_independent_gt.tex` | LaTeX table (`tab:e2-independent-gt`) |
 
 ## 3. Evaluation commands
 
@@ -76,8 +76,8 @@ Options:
 ```bash
 python3.12 -m dualexis.cli experiment e2 \
   --output results/e2_independent_gt \
-  --paper-tex paper/tables/e2_independent_gt.tex \
-  --results-tex paper/sections/results.tex \
+  --paper-tex results_reference/tables/e2_independent_gt.tex \
+  --results-tex results_reference/sections/results.tex \
   --seeds 1,2,3,...,30 \
   --skip-regenerate-yaml
 ```
@@ -87,8 +87,8 @@ python3.12 -m dualexis.cli experiment e2 \
 After `experiment e2`:
 
 - **CSV:** `results/e2_independent_gt/results.csv` — columns: scenario, seed, GT label count, detection accuracy, FPR, FNR, explanation completeness, privacy violations.
-- **LaTeX:** `paper/tables/e2_independent_gt.tex` — Table~\ref{tab:e2-independent-gt} (mean Acc./FPR/FNR/$S_{\mathrm{expl}}$ per scenario).
-- **Manuscript hook:** `paper/sections/results.tex` block between `% <e2-auto-tables>` … `% </e2-auto-tables>` (auto-updated; narrative paragraphs unchanged).
+- **LaTeX:** `results_reference/tables/e2_independent_gt.tex` — Table~\ref{tab:e2-independent-gt} (mean Acc./FPR/FNR/$S_{\mathrm{expl}}$ per scenario).
+- **Manuscript hook:** `results_reference/sections/results.tex` block between `% <e2-auto-tables>` … `% </e2-auto-tables>` (auto-updated; narrative paragraphs unchanged).
 
 ## 5. Limitations
 

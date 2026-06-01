@@ -286,4 +286,4 @@ See `infrastructure/k3s/README.md`.
 | Docker Compose stack | `infrastructure/docker/` |
 | Edge node config | `infrastructure/edge/` |
 | K3s manifests | `infrastructure/k3s/` |
-| Paper section | `paper/sections/edge_infrastructure.tex` |
+| Paper section | `results_reference/sections/edge_infrastructure.tex` |

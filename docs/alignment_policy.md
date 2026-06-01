@@ -6,7 +6,7 @@ across four artifacts:
 1. **Python implementation** — package under `dualexis/<module>/`
 2. **Automated tests** — at least one file under `tests/`
 3. **Documentation** — module `README.md` and/or a dedicated `docs/*.md` section
-4. **LaTeX paper** — a related section under `paper/sections/` when the module
+4. **LaTeX paper** — a related section under `results_reference/sections/` when the module
    contributes to the research framework
 
 The goal is to prevent undocumented architectural drift: every core layer must remain
@@ -87,5 +87,5 @@ uv run pytest tests/test_documentation_alignment.py
 This test is included in the default CI test suite. Failures block merge until the
 missing artifact (doc, test, or paper section) is restored.
 
-See also `paper/sections/reproducibility.tex` for the research-facing statement of
+See also `results_reference/sections/reproducibility.tex` for the research-facing statement of
 this policy.

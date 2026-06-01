@@ -2,8 +2,8 @@
 
 This document specifies the **Q1-oriented evaluation methodology** for DUALEXIS. It defines metrics, experimental protocols, baselines, experimental setup, and execution phases. **No results are reported here** — only pre-registered definitions and the reproducible evaluation scaffold.
 
-Formal LaTeX definitions: `paper/sections/metrics.tex` and `paper/sections/evaluation_plan.tex`.
-Threat model: `docs/threat_model.md` and `paper/sections/privacy_threats_governance.tex`.
+Formal LaTeX definitions: `results_reference/sections/metrics.tex` and `results_reference/sections/evaluation_plan.tex`.
+Threat model: `docs/threat_model.md` and `results_reference/sections/privacy_threats_governance.tex`.
 
 Publication diagram: [experimental evaluation workflow](diagrams/experimental_evaluation_workflow.mmd) · [Markdown embed](diagrams/embeds.md#6-experimental-evaluation-workflow) · rendered [SVG](diagrams/experimental_evaluation_workflow.svg)
 
@@ -35,7 +35,7 @@ dualexis experiment run --config experiments/configs/exit_blockage.yaml
 dualexis experiment run-all --output results/experiments/
 dualexis experiment run-multiseed --config-dir experiments/configs/ --seeds 1,2,3,4,5,10,20,42,100,500 --output results/experiments_multiseed/
 dualexis experiment report --input results/experiments/ --format markdown
-dualexis experiment paper-table --input results/experiments/ --output paper/tables/results.tex
+dualexis experiment paper-table --input results/experiments/ --output results_reference/tables/results.tex
 ```
 
 Batch script:
@@ -69,7 +69,7 @@ Outputs under `results/experiments_multiseed/`:
 | `multiseed_report.md` | Markdown summary |
 | `multiseed_results.tex` | LaTeX table scaffold |
 
-See `paper/sections/results_scaffold.tex` for interpretation guardrails.
+See `results_reference/sections/results_scaffold.tex` for interpretation guardrails.
 
 Legacy single-protocol CLI:
 
@@ -226,7 +226,7 @@ Run protocols via `dualexis experiment` or `run_experiment()`.
 | Battery runner | `dualexis/experiments/` |
 | JSON results | `results/experiments/` |
 | Markdown reports | `results/reports/` |
-| LaTeX table scaffold | `paper/tables/results.tex` |
+| LaTeX table scaffold | `results_reference/tables/results.tex` |
 | Protocol definitions | `dualexis/evaluation/protocol.py` |
 | Experiment runner | `dualexis/evaluation/experiment.py` |
 | Metric computations | `dualexis/evaluation/metrics.py` |

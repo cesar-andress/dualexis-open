@@ -2,6 +2,6 @@
 
 from dualexis.leakage_audit.audit import run_leakage_audit
 from dualexis.leakage_audit.models import LeakageAuditReport
-from dualexis.leakage_audit.scoring import REVIEWER_STATEMENT
+from dualexis.leakage_audit.scoring import INDEPENDENCE_DISCLOSURE
 
-__all__ = ["LeakageAuditReport", "REVIEWER_STATEMENT", "run_leakage_audit"]
+__all__ = ["LeakageAuditReport", "INDEPENDENCE_DISCLOSURE", "run_leakage_audit"]

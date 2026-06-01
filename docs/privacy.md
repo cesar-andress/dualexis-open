@@ -139,4 +139,4 @@ flowchart TD
 - [Framework](framework.md)
 - [Pipeline](pipeline.md)
 - [Threat Model](threat_model.md)
-- LaTeX: `paper/sections/privacy_threats_governance.tex`
+- LaTeX: `results_reference/sections/privacy_threats_governance.tex`

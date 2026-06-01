@@ -43,7 +43,7 @@ Compose L1â€“L5 into a single **human-in-the-loop** workflow: ephemeral frames â
 ## Usage
 
 ```python
-from apps.services import build_safety_orchestrator
+from dualexis.runtime.in_memory import build_safety_orchestrator
 
 orchestrator = build_safety_orchestrator("edge-001", pipelines)
 event = await orchestrator.process_frames(frames, zone_id="hall-a")

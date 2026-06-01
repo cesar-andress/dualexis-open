@@ -437,7 +437,7 @@ def experiment_paper_table_cmd(
         help="Directory containing battery JSON results.",
     ),
     output: str = typer.Option(
-        "paper/tables/results.tex",
+        "results_reference/tables/results.tex",
         "--output",
         "-o",
         help="LaTeX table output path.",
@@ -885,7 +885,7 @@ def experiment_leakage_audit_cmd(
     typer.echo(f"Procedural independence={report.independence.procedural_independence}")
     typer.echo(f"Semantic independence={report.independence.semantic_independence}")
     typer.echo(f"Distributional independence={report.independence.distributional_independence}")
-    typer.echo(report.reviewer_statement)
+    typer.echo(report.independence_disclosure)
     typer.echo(f"Wrote {output}/")
 
 
@@ -1362,7 +1362,7 @@ def experiment_analyze_multiseed_cmd(
 
     typer.echo(f"Analysis written to {out_path}")
     typer.echo(f"LaTeX: {out_path / 'multiseed_statistics.tex'}")
-    typer.echo(f"Narrative: {out_path / 'narrative_eswa.md'}")
+    typer.echo(f"Narrative: {out_path / 'narrative_validation.md'}")
 
 
 @experiment_app.command("validate-s2a")
@@ -1389,7 +1389,7 @@ def experiment_validate_s2a_cmd(
         help="Run only C1--C4 (skip L1/L4/L5 ablations).",
     ),
     paper_tables: str = typer.Option(
-        "paper/tables/results.tex",
+        "results_reference/tables/results.tex",
         "--paper-tables",
         help="LaTeX file to update with validation tables.",
     ),

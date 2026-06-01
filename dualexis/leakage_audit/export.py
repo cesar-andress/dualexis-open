@@ -108,7 +108,7 @@ components by shared metrics and threshold alignment edges.
 
 \\paragraph{{Reviewer-facing statement.}}
 \\begin{{quote}}
-\\textbf{{{report.reviewer_statement}}}
+\\textbf{{{report.independence_disclosure}}}
 \\end{{quote}}
 
 \\input{{tables/leakage_audit}}

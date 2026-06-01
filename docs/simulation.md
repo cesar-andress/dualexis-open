@@ -68,7 +68,7 @@ The simulator:
 
 ## Integration with evaluation
 
-Phase 2 benchmarks (see `paper/sections/evaluation_plan.tex`) will consume:
+Phase 2 benchmarks (see `results_reference/sections/evaluation_plan.tex`) will consume:
 
 1. Synthetic `SemanticEvent` streams from `run_scenario(name, seed=...)`
 2. `ScenarioGroundTruth` labels for fusion precision/recall

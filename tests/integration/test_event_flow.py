@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from apps.services import build_safety_orchestrator
+from dualexis.runtime.in_memory import build_safety_orchestrator
 from dualexis.audit.logger import InMemoryAuditLogger
 from dualexis.orchestration.service import SafetyOrchestrator
 from dualexis.perception.audio.pipeline import AudioPerceptionPipeline

@@ -733,7 +733,7 @@ def generate_validation_narrative(
     paired: tuple[PairedDeltaRow, ...],
     ranks: list[dict[str, object]],
 ) -> str:
-    """ESWA-style markdown narrative (for authors; not necessarily in PDF)."""
+    """Validation markdown narrative (for authors; not necessarily in PDF)."""
     acc_variable = [
         s
         for s in stability
@@ -744,7 +744,7 @@ def generate_validation_narrative(
         for s in stability
         if s.metric == "false_positive_rate" and s.unique_values > 1
     ]
-    return f"""# Multiseed statistical analysis narrative (ESWA)
+    return f"""# Multiseed statistical analysis narrative
 
 {MULTISEED_STATS_DISCLAIMER}
 
@@ -765,7 +765,7 @@ Detection accuracy and explanation completeness are **seed-invariant** for almos
 False-positive rate shows **discrete seed mixing** only on **exit\\_blockage** for B1, B3, B5
 (e.g. B5: FPR $0.375$ on 22 seeds, $0.4118$ on 8 seeds).
 
-**Interpretation for reviewers:** Multiseed replication here primarily certifies
+**Interpretation for validation readers:** Multiseed replication here primarily certifies
 **reproducibility of deterministic discrete outcomes**, not Gaussian sampling variability
 for detection accuracy.
 

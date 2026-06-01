@@ -558,7 +558,7 @@ def create_default_pipeline_service(
     run_config: PipelineRunConfig | None = None,
 ) -> DefaultPipelineService:
     """Construct a pipeline wired with default L1--L6 placeholder services."""
-    from apps.services import InMemoryEventPublisher
+    from dualexis.runtime.in_memory import InMemoryEventPublisher
     from dualexis.local_reasoning.service import PlaceholderLocalReasoningService
     from dualexis.perception.audio.pipeline import AudioPerceptionPipeline
     from dualexis.perception.sensors.pipeline import SensorPerceptionPipeline

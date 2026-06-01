@@ -6,8 +6,8 @@ confined spaces.
 
 It complements:
 
-- `docs/privacy.md` and `paper/sections/privacy_threats_governance.tex` (privacy, threats, governance; TB1–TB5)
-- `paper/sections/threats_to_validity.tex` (evaluation validity, not operational security)
+- `docs/privacy.md` and `results_reference/sections/privacy_threats_governance.tex` (privacy, threats, governance; TB1–TB5)
+- `results_reference/sections/threats_to_validity.tex` (evaluation validity, not operational security)
 
 The threat model is **normative** for the reference architecture. It does **not**
 claim field-validated security or safety effectiveness.
@@ -61,7 +61,7 @@ Schema validators and fail-closed privacy checks mitigate **accidental** misconf
 
 ## 3. Trust boundaries
 
-Trust boundaries TB1–TB5 structure transitions from ephemeral input to auditable semantic publication (`paper/sections/privacy_threats_governance.tex`):
+Trust boundaries TB1–TB5 structure transitions from ephemeral input to auditable semantic publication (`results_reference/sections/privacy_threats_governance.tex`):
 
 | Boundary | Control |
 | -------- | ------- |
@@ -182,6 +182,6 @@ Failure of H1–H5 shifts residual risk to organizational process.
 ## Related evaluation
 
 Threat categories inform metrics in `docs/evaluation.md` and the pre-registered
-protocol in `paper/sections/evaluation_plan.tex`. Empirical validation of
+protocol in `results_reference/sections/evaluation_plan.tex`. Empirical validation of
 mitigations under adversarial and field conditions remains future work
-(`paper/sections/future_work.tex`).
+(`results_reference/sections/future_work.tex`).

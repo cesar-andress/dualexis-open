@@ -43,7 +43,7 @@ METRIC_KEYS = (
 
 def test_list_comparable_baselines_registers_four() -> None:
     baselines = list_comparable_baselines()
-    assert len(baselines) == 4
+    assert len(baselines) == 5
     assert ComparableBaselineId.SINGLE_MODALITY_ALERT in baselines
     assert ComparableBaselineId.DUALEXIS_FULL_PIPELINE in baselines
 
