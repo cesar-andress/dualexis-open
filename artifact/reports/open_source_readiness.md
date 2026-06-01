@@ -24,7 +24,7 @@ Audit date: 2026-06-01
 
 ## Missing metadata
 
-- Zenodo DOI marked `pending-zenodo-archival` until archival (see `CITATION.cff`).
+- Zenodo DOI not yet minted; see `CITATION.cff` message: "Zenodo DOI will be added after archival."
 
 ## Licensing issues
 

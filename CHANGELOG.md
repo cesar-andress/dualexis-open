@@ -49,12 +49,11 @@ Expected outputs are documented in `artifact/expected_outputs.md`.
   title        = {{TSGG} Reference Implementation},
   year         = {2026},
   version      = {v1.0.0},
-  url          = {https://github.com/cesar-andress/dualexis-open},
-  doi          = {10.5281/zenodo.TBD}
+  url          = {https://github.com/cesar-andress/dualexis-open}
 }
 ```
 
-Replace `10.5281/zenodo.TBD` with the Zenodo DOI after archival.
+Zenodo DOI will be added after archival.
 
 **Paper (when published):**
 

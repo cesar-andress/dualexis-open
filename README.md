@@ -85,7 +85,7 @@ Machine-readable metadata: [`CITATION.cff`](CITATION.cff)
 }
 ```
 
-Assign the Zenodo DOI from `CITATION.cff` after archival.
+Zenodo DOI will be added after archival.
 
 ## License
 
