@@ -1,1 +1,1 @@
-"""In-memory runtime helpers for tests and pipeline defaults."""
+"""Runtime helpers for tests and examples."""

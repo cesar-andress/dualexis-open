@@ -437,7 +437,7 @@ def experiment_paper_table_cmd(
         help="Directory containing battery JSON results.",
     ),
     output: str = typer.Option(
-        "results_reference/tables/results.tex",
+        "paper/tables/results.tex",
         "--output",
         "-o",
         help="LaTeX table output path.",
@@ -885,7 +885,7 @@ def experiment_leakage_audit_cmd(
     typer.echo(f"Procedural independence={report.independence.procedural_independence}")
     typer.echo(f"Semantic independence={report.independence.semantic_independence}")
     typer.echo(f"Distributional independence={report.independence.distributional_independence}")
-    typer.echo(report.independence_disclosure)
+    typer.echo(report.reviewer_statement)
     typer.echo(f"Wrote {output}/")
 
 
@@ -1272,6 +1272,47 @@ def experiment_formal_governance_audit_cmd(
         typer.echo(f"{key}: {value}")
 
 
+@experiment_app.command("empirical-eswa", hidden=True)
+def experiment_empirical_eswa_cmd(
+    output: str = typer.Option(
+        "results/baseline_comparison",
+        "--baseline-output",
+        help="Directory for baseline CSV and summary.",
+    ),
+    privacy_output: str = typer.Option(
+        "results/privacy_fuzz",
+        "--privacy-output",
+        help="Directory for privacy fuzz CSV.",
+    ),
+    seeds: str = typer.Option(
+        ",".join(str(s) for s in range(1, 31)),
+        "--seeds",
+        help="Comma-separated seeds (default 1--30).",
+    ),
+    scenarios: str = typer.Option(
+        ",".join(
+            [
+                "normal_flow",
+                "exit_blockage",
+                "multimodal_conflict",
+                "evacuation_recommendation",
+                "crowd_acceleration",
+                "audio_stress_signal",
+            ]
+        ),
+        "--scenarios",
+        help="Comma-separated scenario identifiers.",
+    ),
+) -> None:
+    """Hidden legacy alias for ``validate-tsgg`` (backward compatibility only)."""
+    experiment_validate_tsgg_cmd(
+        output=output,
+        privacy_output=privacy_output,
+        seeds=seeds,
+        scenarios=scenarios,
+    )
+
+
 @experiment_app.command("validate-tsgg")
 def experiment_validate_tsgg_cmd(
     output: str = typer.Option(
@@ -1305,13 +1346,13 @@ def experiment_validate_tsgg_cmd(
     ),
 ) -> None:
     """Run TSGG/JSS validation package: multiseed diagnostics, fuzz exports, paper tables."""
-    from dualexis.experiments.empirical_battery import run_validate_tsgg_package
+    from dualexis.experiments.empirical_battery import run_empirical_eswa_package
     from dualexis.experiments.multiseed import parse_seed_list
 
     try:
         seed_list = parse_seed_list(seeds)
         scenario_list = tuple(s.strip() for s in scenarios.split(",") if s.strip())
-        summary = run_validate_tsgg_package(
+        summary = run_empirical_eswa_package(
             baseline_output=output,
             privacy_output=privacy_output,
             scenarios=scenario_list,
@@ -1362,7 +1403,7 @@ def experiment_analyze_multiseed_cmd(
 
     typer.echo(f"Analysis written to {out_path}")
     typer.echo(f"LaTeX: {out_path / 'multiseed_statistics.tex'}")
-    typer.echo(f"Narrative: {out_path / 'narrative_validation.md'}")
+    typer.echo(f"Narrative: {out_path / 'narrative_eswa.md'}")
 
 
 @experiment_app.command("validate-s2a")
@@ -1389,7 +1430,7 @@ def experiment_validate_s2a_cmd(
         help="Run only C1--C4 (skip L1/L4/L5 ablations).",
     ),
     paper_tables: str = typer.Option(
-        "results_reference/tables/results.tex",
+        "paper/tables/results.tex",
         "--paper-tables",
         help="LaTeX file to update with validation tables.",
     ),

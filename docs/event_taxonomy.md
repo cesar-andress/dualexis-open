@@ -218,4 +218,4 @@ benchmark design and paper pre-registration.
 - [Framework](framework.md)
 - [Simulation](simulation.md)
 - [Evaluation](evaluation.md)
-- LaTeX: `results_reference/sections/event_taxonomy.tex`
+- LaTeX: `paper/sections/event_taxonomy.tex`

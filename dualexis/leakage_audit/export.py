@@ -106,9 +106,9 @@ Scenario-level results appear in Table~\\ref{{tab:leakage-mc-by-scenario}}.
 A Graphviz dependency graph (\\texttt{{results/leakage\\_audit/dependency\\_graph.dot}}) links
 components by shared metrics and threshold alignment edges.
 
-\\paragraph{{Independence disclosure.}}
+\\paragraph{{Reviewer-facing statement.}}
 \\begin{{quote}}
-\\textbf{{{report.independence_disclosure}}}
+\\textbf{{{report.reviewer_statement}}}
 \\end{{quote}}
 
 \\input{{tables/leakage_audit}}

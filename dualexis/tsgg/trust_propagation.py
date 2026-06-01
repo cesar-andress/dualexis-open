@@ -619,7 +619,7 @@ def generate_trust_flow_graph_pdf(path: Path, report: TrustPropagationReport) ->
     """Compile TikZ trust-flow figure with stage mean trust."""
     path.parent.mkdir(parents=True, exist_ok=True)
     repo_root = Path(__file__).resolve().parents[2]
-    tex_source = Path(__file__).resolve().parent / "assets" / "trust_flow_graph.tex"
+    tex_source = repo_root / "paper" / "figures" / "trust_flow_graph.tex"
     if not tex_source.is_file():
         _write_trust_flow_tikz_source(tex_source, report)
 

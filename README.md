@@ -2,13 +2,20 @@
 
 **Trusted Safety State Governance Graph (TSGG)** — open-source trace architecture for auditable human–AI systems.
 
-This repository is the **reference implementation** supporting the *Journal of Systems and Software* manuscript. It is **not** the manuscript.
+This repository is the **reference implementation** supporting the *Journal of Systems and Software* manuscript. It is **not** the paper.
 
 ## Trace chain
 
 ```
 Evidence → Safety State → Causal Transition → Recommendation → Governance Decision → Audit Trace
 ```
+
+## Capabilities
+
+- Privacy admissibility constraints (fail-closed ingress, fuzz regression)
+- Governance-aware decision traces (FSM macro-states, append-only audit)
+- Benchmark leakage auditing
+- Reproducible validation harnesses
 
 ## Quick start
 
@@ -24,7 +31,7 @@ See [`artifact/INSTALL.md`](artifact/INSTALL.md) and [`artifact/REPRODUCE.md`](a
 - **URL:** https://github.com/cesar-andress/dualexis-open
 - **Version:** v1.0.0
 - **License:** Apache-2.0
-- **Citation:** [`CITATION.cff`](CITATION.cff)
+- **Citation:** [`CITATION.cff`](CITATION.cff) · Zenodo DOI (assign at archival)
 
 ## Layout
 
@@ -35,6 +42,20 @@ See [`artifact/INSTALL.md`](artifact/INSTALL.md) and [`artifact/REPRODUCE.md`](a
 | `tests/` | Unit and integration tests |
 | `examples/` | Minimal usage examples |
 | `docs/` | Architecture and developer documentation |
-| `configs/` | Synthetic scenario configuration |
-| `experiments/` | Independent ground truth fixtures |
-| `results_reference/` | Pinned validation table exports |
+| `experiments/` | Synthetic scenario configs and independent ground truth |
+| `results_reference/` | Pinned reference outputs for diff review |
+
+Open-source readiness: [`OPEN_SOURCE_READINESS.md`](OPEN_SOURCE_READINESS.md)
+
+## Cite
+
+```bibtex
+@software{tsgg_reference_implementation_v1_0_0,
+  author  = {Moncunill, David Mart{\'i}n and S{\'a}nchez, C{\'e}sar Andr{\'e}s},
+  title   = {{TSGG} Reference Implementation},
+  year    = {2026},
+  version = {v1.0.0},
+  url     = {https://github.com/cesar-andress/dualexis-open},
+  url     = {https://github.com/cesar-andress/dualexis-open}
+}
+```

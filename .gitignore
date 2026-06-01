@@ -1,14 +1,162 @@
-.venv/
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.coverage
-htmlcov/
-dist/
+*$py.class
+
+# Distribution / packaging
+.Python
 build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
 *.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.python-version
+
+# uv
+.uv/
+uv.lock.bak
+
+# IDE / editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+*.sublime-project
+*.sublime-workspace
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Type checking / lint
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# LaTeX build artifacts
 results/
+# paper/ excluded from open repo
+*.aux
+results/
+# paper/ excluded from open repo
+*.bbl
+results/
+# paper/ excluded from open repo
+*.blg
+results/
+# paper/ excluded from open repo
+*.fdb_latexmk
+results/
+# paper/ excluded from open repo
+*.fls
+results/
+# paper/ excluded from open repo
+*.log
+results/
+# paper/ excluded from open repo
+*.out
+results/
+# paper/ excluded from open repo
+*.pdf
+results/
+# paper/ excluded from open repo
+*.synctex.gz
+results/
+# paper/ excluded from open repo
+*.toc
+results/
+# paper/ excluded from open repo
+*.lof
+results/
+# paper/ excluded from open repo
+*.lot
+results/
+# paper/ excluded from open repo
+*.nav
+results/
+# paper/ excluded from open repo
+*.snm
+results/
+# paper/ excluded from open repo
+*.vrb
+results/
+# paper/ excluded from open repo
+*.xdv
+
+# Local datasets and artifacts (never commit raw occupant media)
+data/
+datasets/
+raw/
+samples/private/
+
+# Model weights / checkpoints
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.bin
+*.ckpt
+models/
+checkpoints/
+weights/
+
+# Logs and runtime
+logs/
+*.log
 tmp/
-scratch/
+temp/
+*.db
+*.sqlite3
+
+# Edge node ephemeral buffers (never persisted by design)
+.edge_buffer/
+
+# Simulation / evaluation outputs
+examples/simulation_basic/output.json
+examples/evaluation/output/
+results/
+!results/**/.gitkeep
+
+# Jupyter
+.ipynb_checkpoints/

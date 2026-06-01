@@ -1,4 +1,4 @@
-"""Shared in-memory services and orchestrator factory for apps."""
+"""Shared in-memory services and orchestrator factory."""
 
 from __future__ import annotations
 

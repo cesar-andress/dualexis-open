@@ -43,7 +43,9 @@ docker run --rm tsgg-jss
 
 ```bash
 python3.12 -m dualexis.cli --help
-python3.12 -m pytest tests/unit -q
+python3.12 -m pytest tests/artifact -q
 ```
 
-Expected: CLI help prints; unit tests pass.
+Expected: CLI help prints; artifact smoke tests pass.
+
+For the full JSS artifact evaluation checklist, see **`ARTIFACT_EVALUATION.md`**.

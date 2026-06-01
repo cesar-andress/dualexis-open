@@ -41,7 +41,7 @@ METRIC_KEYS = (
 )
 
 
-def test_list_comparable_baselines_registers_four() -> None:
+def test_list_comparable_baselines_registers_five() -> None:
     baselines = list_comparable_baselines()
     assert len(baselines) == 5
     assert ComparableBaselineId.SINGLE_MODALITY_ALERT in baselines

@@ -46,7 +46,7 @@ class PrivacyFuzzResult:
 
 
 def default_fuzz_cases() -> tuple[PrivacyFuzzCase, ...]:
-    """Representative probes requested for validation harness defensibility."""
+    """Representative probes requested for ESWA empirical defensibility."""
     return (
         PrivacyFuzzCase(
             "identity_student_id",

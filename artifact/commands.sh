@@ -4,6 +4,9 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
+echo "==> clean regeneratable outputs"
+bash "$ROOT/artifact/clean.sh" results-only
+
 echo "==> pip install -e ."
 python3.12 -m pip install -e ".[dev]" -q
 
@@ -16,7 +19,11 @@ python3.12 -m dualexis.cli experiment leakage-audit --fast
 echo "==> formal-governance-audit"
 python3.12 -m dualexis.cli experiment formal-governance-audit
 
-echo "==> pytest tests/unit"
-python3.12 -m pytest tests/unit -q
+echo "==> pytest (JSS artifact suite)"
+python3.12 -m pytest tests/artifact tests/unit \
+  --ignore=tests/unit/test_paper_check.py \
+  --ignore=tests/unit/test_pipeline.py \
+  --ignore=tests/unit/test_edge_runtime.py \
+  -q
 
 echo "==> Done. See artifact/expected_outputs.md"

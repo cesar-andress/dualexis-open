@@ -1,6 +1,6 @@
 """Evaluation metric computations for DUALEXIS benchmarks.
 
-Operational definitions aligned with ``results_reference/sections/metrics.tex``.
+Operational definitions aligned with ``paper/sections/metrics.tex``.
 This module computes scaffold values only; no experimental conclusions are implied.
 """
 

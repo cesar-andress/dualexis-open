@@ -2,7 +2,7 @@
 
 > Synthetic empirical battery with independent ground-truth YAML labels. Descriptive statistics over matched seeds; no field deployment, legal compliance, or superiority claims.
 
-Generated: 2026-06-01T20:22:34.388122+00:00
+Generated: 2026-06-01T21:01:48.304853+00:00
 Seeds: 30 (1--30)
 
 ## B1--B5 aggregates (mean detection accuracy)

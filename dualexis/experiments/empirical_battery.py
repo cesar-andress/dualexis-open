@@ -332,7 +332,7 @@ def generate_baseline_results_latex(
     return "\n".join(lines)
 
 
-def run_validate_tsgg_package(
+def run_empirical_eswa_package(
     *,
     baseline_output: str | Path = "results/baseline_comparison",
     privacy_output: str | Path = "results/privacy_fuzz",
@@ -407,5 +407,5 @@ __all__ = [
     "DEFAULT_SEEDS",
     "EMPIRICAL_DISCLAIMER",
     "PAPER_SCENARIOS",
-    "run_validate_tsgg_package",
+    "run_empirical_eswa_package",
 ]

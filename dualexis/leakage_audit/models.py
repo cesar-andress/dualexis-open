@@ -76,7 +76,7 @@ class LeakageAuditReport(BaseModel):
     ground_truth_stability_mean: float = Field(ge=0.0, le=1.0)
     event_stability_mean: float = Field(ge=0.0, le=1.0)
     agreement_drift_mean: float = Field(ge=0.0, le=1.0)
-    independence_disclosure: str = Field(min_length=1)
+    reviewer_statement: str = Field(min_length=1)
     dependency_graph_dot: str = ""
     per_scenario: dict[str, dict[str, float]] = Field(default_factory=dict)
 

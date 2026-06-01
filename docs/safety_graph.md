@@ -369,4 +369,4 @@ Tasks:
 
 - [Architecture](architecture.md)
 - [Privacy Model](privacy.md)
-- [Event Model (paper)](results_reference/sections/event_model.tex)
+- [Event Model (paper)](../paper/sections/event_model.tex)

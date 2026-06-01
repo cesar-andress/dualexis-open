@@ -100,4 +100,4 @@ Legacy methods remain supported for pipeline and orchestrator integration:
 
 - [Framework](framework.md)
 - [Pipeline](pipeline.md)
-- LaTeX: `results_reference/sections/temporal_graph.tex`
+- LaTeX: `paper/sections/temporal_graph.tex`

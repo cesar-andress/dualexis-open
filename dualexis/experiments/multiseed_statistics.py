@@ -401,14 +401,14 @@ def export_analysis_bundle(
     (out_root / "multiseed_statistics.tex").write_text(tex, encoding="utf-8")
 
     repo_root = Path(csv_path).resolve().parent.parent.parent
-    ref_tables = repo_root / "results_reference" / "tables"
-    ref_tables.mkdir(parents=True, exist_ok=True)
-    (ref_tables / "multiseed_statistics.tex").write_text(tex, encoding="utf-8")
+    paper_tables = repo_root / "paper" / "tables"
+    paper_tables.mkdir(parents=True, exist_ok=True)
+    (paper_tables / "multiseed_statistics.tex").write_text(tex, encoding="utf-8")
 
     _try_generate_figures(rows, out_root)
 
-    (out_root / "narrative_validation.md").write_text(
-        generate_validation_narrative(summary, stability, paired_b5_b1, ranks),
+    (out_root / "narrative_eswa.md").write_text(
+        generate_eswa_narrative(summary, stability, paired_b5_b1, ranks),
         encoding="utf-8",
     )
     return out_root
@@ -727,13 +727,13 @@ def generate_multiseed_latex(
     return "\n".join(lines) + "\n"
 
 
-def generate_validation_narrative(
+def generate_eswa_narrative(
     summary: dict[str, object],
     stability: tuple[StabilityRow, ...],
     paired: tuple[PairedDeltaRow, ...],
     ranks: list[dict[str, object]],
 ) -> str:
-    """Validation markdown narrative (for authors; not necessarily in PDF)."""
+    """ESWA-style markdown narrative (for authors; not necessarily in PDF)."""
     acc_variable = [
         s
         for s in stability
@@ -744,7 +744,7 @@ def generate_validation_narrative(
         for s in stability
         if s.metric == "false_positive_rate" and s.unique_values > 1
     ]
-    return f"""# Multiseed statistical analysis narrative
+    return f"""# Multiseed statistical analysis narrative (ESWA)
 
 {MULTISEED_STATS_DISCLAIMER}
 
@@ -765,7 +765,7 @@ Detection accuracy and explanation completeness are **seed-invariant** for almos
 False-positive rate shows **discrete seed mixing** only on **exit\\_blockage** for B1, B3, B5
 (e.g. B5: FPR $0.375$ on 22 seeds, $0.4118$ on 8 seeds).
 
-**Interpretation for validation readers:** Multiseed replication here primarily certifies
+**Interpretation for reviewers:** Multiseed replication here primarily certifies
 **reproducibility of deterministic discrete outcomes**, not Gaussian sampling variability
 for detection accuracy.
 
@@ -1002,7 +1002,7 @@ __all__ = [
     "compute_paired_deltas",
     "compute_stability_table",
     "export_analysis_bundle",
-    "generate_validation_narrative",
+    "generate_eswa_narrative",
     "generate_multiseed_latex",
     "load_baseline_csv",
     "rank_stability_across_seeds",

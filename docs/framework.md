@@ -2,7 +2,7 @@
 
 This document specifies the six-layer DUALEXIS research framework for
 privacy-first safety orchestration in confined public spaces.
-It complements the LaTeX paper (`results_reference/sections/framework.tex`) and maps directly
+It complements the LaTeX paper (`paper/sections/framework.tex`) and maps directly
 to the open-source implementation.
 
 ## Scope Exclusions
@@ -26,7 +26,7 @@ Runtime Layer (L1).
 > approaches.
 
 This hypothesis is **not empirically validated** in the current release; see
-`results_reference/sections/hypotheses.tex` and `results_reference/sections/methodology.tex`.
+`paper/sections/hypotheses.tex` and `paper/sections/methodology.tex`.
 
 ## Framework Overview
 
@@ -173,7 +173,7 @@ Publication diagram: [HITL orchestration flow](diagrams/hitl_orchestration_flow.
 | RQ7 | Staff workflow with advisory recommendations |
 | RQ8 | Federated coordination without raw media |
 
-Full definitions: `results_reference/sections/research_questions.tex`
+Full definitions: `paper/sections/research_questions.tex`
 
 ## Subsidiary Hypotheses
 
@@ -184,7 +184,7 @@ Full definitions: `results_reference/sections/research_questions.tex`
 | H4 | Structured subgraph LLM beats unstructured scene-text prompts on grounding |
 | H5 | L1 rejects 100% adversarial biometric/media injections; zero post-TTL media |
 
-Full definitions: `results_reference/sections/hypotheses.tex`
+Full definitions: `paper/sections/hypotheses.tex`
 
 ## Methodology Phases
 
@@ -281,8 +281,8 @@ Advisory output with human-in-the-loop gates:
 
 | Topic | LaTeX section |
 | ----- | ------------- |
-| Problem formulation | `results_reference/sections/problem_formulation.tex` |
-| Framework | `results_reference/sections/framework.tex` |
-| Research questions | `results_reference/sections/research_questions.tex` |
-| Hypotheses | `results_reference/sections/hypotheses.tex` |
-| Methodology | `results_reference/sections/methodology.tex` |
+| Problem formulation | `paper/sections/problem_formulation.tex` |
+| Framework | `paper/sections/framework.tex` |
+| Research questions | `paper/sections/research_questions.tex` |
+| Hypotheses | `paper/sections/hypotheses.tex` |
+| Methodology | `paper/sections/methodology.tex` |

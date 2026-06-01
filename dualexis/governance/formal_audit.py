@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import json
 import random
+import shutil
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -91,7 +92,9 @@ def export_governance_audit_report(
     )
 
     traces_dir = output_dir / "traces"
-    traces_dir.mkdir(exist_ok=True)
+    if traces_dir.exists():
+        shutil.rmtree(traces_dir)
+    traces_dir.mkdir(parents=True)
     for trace in report.traces[:100]:
         path = traces_dir / f"{trace.case_id}_{trace.trace_id.hex[:8]}.json"
         path.write_text(trace.model_dump_json(indent=2), encoding="utf-8")

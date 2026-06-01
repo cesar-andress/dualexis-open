@@ -128,9 +128,11 @@ def generate_tsgg_framework_pdf(path: Path) -> None:
     """Compile standalone TikZ figure for TSGG."""
     path.parent.mkdir(parents=True, exist_ok=True)
     repo_root = Path(__file__).resolve().parents[2]
-    tex_source = Path(__file__).resolve().parent / "assets" / "tsgg_framework.tex"
+    tex_source = repo_root / "paper" / "figures" / "tsgg_framework.tex"
     if not tex_source.is_file():
-        msg = f"Missing TikZ source: {tex_source}"
+        tex_source = repo_root / "results_reference/figures/tsgg_signature.tex"
+    if not tex_source.is_file():
+        msg = f"Missing TikZ source under {repo_root / 'paper' / 'figures'}"
         raise FileNotFoundError(msg)
 
     work_dir = path.parent
