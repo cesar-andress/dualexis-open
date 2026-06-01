@@ -1,7 +1,7 @@
 # DUALEXIS publication diagrams
 
-Publication-quality Mermaid sources for the paper and documentation.
-Sources live in this directory; mirrored copies are kept in `paper/figures/`.
+Publication-quality Mermaid sources for architecture documentation.
+Sources live in this directory; PDF/SVG exports are optional for local docs.
 
 ## Build (PDF / SVG for LaTeX)
 
@@ -21,23 +21,6 @@ Requires Node.js (`npx @mermaid-js/mermaid-cli`). Outputs:
 | Edge deployment | `edge_deployment_architecture` |
 | Human-in-the-loop flow | `hitl_orchestration_flow` |
 | Evaluation workflow | `experimental_evaluation_workflow` |
-
-## LaTeX includes
-
-Individual figure wrappers are in `paper/figures/fig_*.tex`.
-Include in a section file, for example:
-
-```latex
-\input{figures/fig_end_to_end_pipeline}
-```
-
-Or include all figures (draft builds):
-
-```latex
-\input{figures/includes}
-```
-
-Compile the paper from `paper/` after rendering PDFs.
 
 ## Markdown embeds
 
