@@ -36,7 +36,7 @@ def run_all_batteries(
     *,
     config_dir: Path | None = None,
 ) -> tuple[BatteryResult, ...]:
-    """Run every YAML config in ``experiments/configs/`` and write JSON outputs."""
+    """Run every YAML config in ``configs/`` and write JSON outputs."""
     out_root = Path(output_dir).resolve()
     out_root.mkdir(parents=True, exist_ok=True)
 

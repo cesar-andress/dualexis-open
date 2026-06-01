@@ -17,7 +17,7 @@ Publication diagram: [experimental evaluation workflow](diagrams/experimental_ev
 ## Experimental battery (implemented)
 
 A reproducible **experimental battery** runs the full scaffold pipeline for
-pre-registered YAML configs under `experiments/configs/`:
+pre-registered YAML configs under `configs/`:
 
 | Stage | Module |
 | ----- | ------ |
@@ -31,9 +31,9 @@ pre-registered YAML configs under `experiments/configs/`:
 CLI:
 
 ```bash
-dualexis experiment run --config experiments/configs/exit_blockage.yaml
+dualexis experiment run --config configs/exit_blockage.yaml
 dualexis experiment run-all --output results/experiments/
-dualexis experiment run-multiseed --config-dir experiments/configs/ --seeds 1,2,3,4,5,10,20,42,100,500 --output results/experiments_multiseed/
+dualexis experiment run-multiseed --config-dir configs/ --seeds 1,2,3,4,5,10,20,42,100,500 --output results/experiments_multiseed/
 dualexis experiment report --input results/experiments/ --format markdown
 dualexis experiment paper-table --input results/experiments/ --output paper/tables/results.tex
 ```
@@ -54,7 +54,7 @@ standard deviation, min, max). **No automatic significance testing** is performe
 
 ```bash
 dualexis experiment run-multiseed \
-  --config-dir experiments/configs/ \
+  --config-dir configs/ \
   --seeds 1,2,3,4,5,10,20,42,100,500 \
   --output results/experiments_multiseed/
 ```
@@ -222,7 +222,7 @@ Run protocols via `dualexis experiment` or `run_experiment()`.
 
 | Artifact | Location |
 | -------- | -------- |
-| Battery configs | `experiments/configs/*.yaml` |
+| Battery configs | `configs/*.yaml` |
 | Battery runner | `dualexis/experiments/` |
 | JSON results | `results/experiments/` |
 | Markdown reports | `results/reports/` |

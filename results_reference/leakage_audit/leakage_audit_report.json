@@ -17,7 +17,7 @@
   "ground_truth_stability_mean": 0.4967,
   "event_stability_mean": 1.0,
   "agreement_drift_mean": 0.001,
-  "reviewer_statement": "This benchmark is procedurally independent but not distributionally independent.",
+  "benchmark_disclosure": "This benchmark is procedurally independent but not distributionally independent.",
   "dependency_graph_dot": "digraph E2Leakage {\n  rankdir=LR;\n  node [shape=box, style=rounded];\n  world_dynamics [label=\"world_dynamics\\n(shared dynamics)\"];\n  event_generator [label=\"event_generator\\n(emission)\"];\n  ground_truth_rules [label=\"ground_truth_rules\\n(labeling)\"];\n  independent_labeler [label=\"independent_labeler\", style=dashed];\n  ground_truth_rules -> independent_labeler [label=\"authoring\", style=dotted];\n  world_dynamics -> event_generator [label=\"feeds WorldState\"];\n  world_dynamics -> ground_truth_rules [label=\"feeds metrics\"];\n  world_dynamics -> event_generator [label=\"shared_world_variables: zone_activity, zone_audio, zone_density\"]; weight=3];\n  world_dynamics -> event_generator [label=\"threshold_align=0.56\", style=dashed];\n  world_dynamics -> ground_truth_rules [label=\"shared_world_metrics: elapsed_seconds, exit_throughput, tick\"]; weight=6];\n  world_dynamics -> ground_truth_rules [label=\"threshold_align=0.75\", style=dashed];\n  event_generator -> ground_truth_rules [label=\"shared_thresholds: zone_activity, zone_audio, zone_density\"]; weight=3];\n  event_generator -> ground_truth_rules [label=\"threshold_align=0.67\", style=dashed];\n}",
   "per_scenario": {
     "normal_flow": {

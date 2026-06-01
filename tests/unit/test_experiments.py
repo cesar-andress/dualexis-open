@@ -19,7 +19,7 @@ from dualexis.experiments import (
 )
 
 runner = CliRunner()
-CONFIG_DIR = Path(__file__).resolve().parent.parent.parent / "experiments" / "configs"
+CONFIG_DIR = Path(__file__).resolve().parent.parent.parent / "configs"
 
 
 @pytest.mark.unit

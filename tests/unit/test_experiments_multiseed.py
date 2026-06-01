@@ -15,7 +15,7 @@ from dualexis.experiments import (
     run_multiseed_batteries,
 )
 
-CONFIG_DIR = Path(__file__).resolve().parent.parent.parent / "experiments" / "configs"
+CONFIG_DIR = Path(__file__).resolve().parent.parent.parent / "configs"
 
 
 @pytest.mark.unit

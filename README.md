@@ -5,7 +5,7 @@ Open-source reference code and validation harness for **Trusted Safety State Gov
 **Repository:** https://github.com/cesar-andress/dualexis-open  
 **Version:** v1.0.0 · **License:** Apache-2.0
 
-This repository does not contain the manuscript, peer-review material, editorial reports, or submission packages.
+This repository does not contain the manuscript, journal correspondence, editorial reports, or publication packaging.
 
 ## What is TSGG?
 
