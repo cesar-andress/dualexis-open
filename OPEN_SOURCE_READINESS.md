@@ -101,3 +101,12 @@ Audit date: 2026-06-01
 
 ## Overall: **PASS**
 
+## Audit actions (2026-06-01)
+
+- Synchronized public tree from monorepo via `scripts/build_dualexis_open.py`.
+- Removed legacy extension modules, ESWA docs, and app-layer integration tests/examples.
+- Completed `artifact/` bundle: `INSTALL.md`, `REPRODUCE.md`, `commands.sh`, `clean.sh`, `expected_outputs.md`, `ARTIFACT_EVALUATION.md`, `environment.yml`, `LICENSE`, `Dockerfile`, `requirements.txt`.
+- Deleted internal reports: `EXPORT_REPORT.md`, `OPEN_SOURCE_READINESS_REPORT.md` (superseded by this file).
+- Purged caches and regeneratable `results/` before verification (`artifact/clean.sh full`).
+- Verified: `591 passed` in JSS artifact pytest suite; `artifact/commands.sh` exit code 0.
+
