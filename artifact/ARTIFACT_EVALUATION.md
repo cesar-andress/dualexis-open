@@ -102,7 +102,7 @@ Measured on a clean virtual environment (Linux, Python 3.12, laptop-class CPU, 2
 | `formal-governance-audit` | 2–5 s |
 | `tsgg-trust-propagation --fast` | 5–15 s |
 | `export-harness-honesty` + `export-harness-b5-labels` | < 1 s |
-| Pytest (JSS AE suite, 617 tests) | 12–18 s |
+| Pytest (JSS AE suite) | 12–20 s |
 | **Total `commands.sh`** | **~1–2 min** (after install) |
 
 Full multiseed validation without `--fast` flags can take several minutes; the JSS paper uses pre-registered fast modes for leakage Monte Carlo where noted.
@@ -167,9 +167,9 @@ Values below are from a verified clean run (seed 42, default iterations). Small 
 | Procedural independence | 1.00 |
 | Semantic independence | ~0.71 |
 | Distributional independence | ~0.70 |
-| `governance_compliance_score` | ~0.435 |
-| `institutional_reliance_index` | ~0.465 |
-| `human_override_resilience` | ~0.103 |
+| `governance_compliance_score` | 0.435 |
+| `institutional_reliance_index` | 0.465 |
+| `human_override_resilience` | 0.103 |
 | `decision_traceability` | **1.00** |
 | Mean path trust \(\bar{T}_\pi\) | ~0.06 |
 | Governance trace JSON count | **100** |
@@ -180,8 +180,21 @@ Values below are from a verified clean run (seed 42, default iterations). Small 
 
 | Suite | Command | Expected |
 | --- | --- | --- |
-| Artifact smoke | `pytest tests/artifact -q` | 14 passed |
-| Full JSS AE suite | as in `commands.sh` | 617 passed |
+| Artifact smoke | `pytest tests/artifact -q` | all passed |
+| Full JSS AE suite | as in `commands.sh` | all passed |
+
+### 6.5 Optional: six-scenario TSGG JSON export
+
+The one-shot `commands.sh` workflow does **not** run `experiment tsgg-framework`.
+That optional command exports per-scenario trace JSON under `results/tsgg/traces/`
+for all six bundled scenarios. The manuscript claim “JSON export on six scenarios”
+refers to this optional step, not to `validate-tsgg` alone.
+
+```bash
+python3.12 -m dualexis.cli experiment tsgg-framework --fast --seeds 1
+```
+
+Automated coverage: `tests/artifact/test_tsgg_json_export_coverage.py`.
 
 Legacy tests excluded from AE path:
 

@@ -76,13 +76,14 @@ Regeneratable runtime outputs under `results/` are gitignored. Pinned snapshots 
 ## Citation
 
 ```bibtex
-@software{sanchez2026tsggsoftware,
-  author  = {S{\'a}nchez, C{\'e}sar Andr{\'e}s and Mart{\'i}n Moncunill, David},
-  title   = {Trusted Safety State Governance Graph ({TSGG}) Reference Implementation},
-  year    = {2026},
-  version = {1.0.3},
-  doi     = {10.5281/zenodo.20499184},
-  url     = {https://github.com/cesar-andress/dualexis-open}
+@misc{sanchez2026tsggsoftware,
+  author       = {Andr{\'e}s, C{\'e}sar and Mart{\'i}n Moncunill, David},
+  title        = {Trusted Safety State Governance Graph ({TSGG}) Reference Implementation},
+  year         = {2026},
+  version      = {1.0.3},
+  howpublished = {Zenodo},
+  doi          = {10.5281/zenodo.20499184},
+  url          = {https://doi.org/10.5281/zenodo.20499184}
 }
 ```
 
