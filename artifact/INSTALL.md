@@ -1,5 +1,7 @@
 # Installation
 
+**Release:** v1.0.3 · **GitHub:** https://github.com/cesar-andress/dualexis-open · **Zenodo:** https://doi.org/10.5281/zenodo.20499184
+
 ## Requirements
 
 - Python **3.12+**

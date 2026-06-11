@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+from uuid import NAMESPACE_URL, UUID, uuid5
 
 from dualexis.semantic_events.models import SemanticEvent
 from dualexis.simulation.scenario import ScenarioId
@@ -28,6 +29,11 @@ from dualexis.sssg.models import (
 from dualexis.sssg.transitions import resolve_transition
 
 
+def _stable_sssg_uuid(seed: int, scenario_id: str, label: str, index: int) -> UUID:
+    """Derive a deterministic UUID for reproducible SSSG traces."""
+    return uuid5(NAMESPACE_URL, f"dualexis-sssg:{scenario_id}:{seed}:{label}:{index}")
+
+
 class SemanticSafetyStateGraphService:
     """Maintains zone safety states and records transitions with typed edges."""
 
@@ -38,6 +44,7 @@ class SemanticSafetyStateGraphService:
         seed: int = 0,
     ) -> None:
         self._graph = SemanticSafetyStateGraph(scenario_id=scenario_id, seed=seed)
+        self._id_seq = 0
         self._scenario_enum: ScenarioId | None = None
         try:
             self._scenario_enum = ScenarioId(scenario_id)
@@ -48,10 +55,21 @@ class SemanticSafetyStateGraphService:
     def graph(self) -> SemanticSafetyStateGraph:
         return self._graph
 
+    def _next_id(self, label: str) -> UUID:
+        stable = _stable_sssg_uuid(
+            self._graph.seed,
+            self._graph.scenario_id,
+            label,
+            self._id_seq,
+        )
+        self._id_seq += 1
+        return stable
+
     def bootstrap_zone(self, zone_id: str, *, tick: int, timestamp: datetime) -> None:
         if zone_id in self._graph.current_by_zone:
             return
         snapshot = StateSnapshotNode(
+            snapshot_id=self._next_id(f"snapshot-{zone_id}-bootstrap"),
             zone_id=zone_id,
             state=SafetyState.NORMAL,
             tick=tick,
@@ -130,6 +148,7 @@ class SemanticSafetyStateGraphService:
 
         prev_id = self._graph.last_snapshot_by_zone[zone_id]
         target_snapshot = StateSnapshotNode(
+            snapshot_id=self._next_id(f"snapshot-{zone_id}-{tick}-{target.value}"),
             zone_id=zone_id,
             state=target,
             tick=tick,
@@ -137,6 +156,7 @@ class SemanticSafetyStateGraphService:
         )
         self._graph.snapshots.append(target_snapshot)
         temporal_edge = StateTransitionEdge(
+            edge_id=self._next_id(f"edge-temporal-{zone_id}-{tick}"),
             source_snapshot_id=prev_id,
             target_snapshot_id=target_snapshot.snapshot_id,
             kind=TransitionEdgeKind.TEMPORAL,
@@ -148,6 +168,9 @@ class SemanticSafetyStateGraphService:
         causal_edges: list[StateTransitionEdge] = []
         for record in evidence:
             causal = StateTransitionEdge(
+                edge_id=self._next_id(
+                    f"edge-causal-{zone_id}-{tick}-{record.evidence_id}",
+                ),
                 source_snapshot_id=prev_id,
                 target_snapshot_id=target_snapshot.snapshot_id,
                 kind=TransitionEdgeKind.CAUSAL,
@@ -160,6 +183,7 @@ class SemanticSafetyStateGraphService:
         corroborative_ids: list = []
         if peer_notes:
             corr = StateTransitionEdge(
+                edge_id=self._next_id(f"edge-corroborative-{zone_id}-{tick}"),
                 source_snapshot_id=prev_id,
                 target_snapshot_id=target_snapshot.snapshot_id,
                 kind=TransitionEdgeKind.CORROBORATIVE,
@@ -183,6 +207,7 @@ class SemanticSafetyStateGraphService:
             peer_zone_notes=tuple(peer_notes),
         )
         transition = StateTransition(
+            transition_id=self._next_id(f"transition-{zone_id}-{tick}-{target.value}"),
             zone_id=zone_id,
             tick=tick,
             timestamp=timestamp,

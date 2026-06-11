@@ -1,0 +1,65 @@
+\section{Trust propagation on TSGG}
+\label{sec:trust-propagation}
+
+TSGG is positioned as a \textbf{trust-aware reasoning graph}: every vertex $v$ carries
+a trust label $T(v)\in[0,1]$, propagated along the pipeline by stage-specific update
+operators rather than a single post-hoc composite score.
+
+\paragraph{Trust labels.}
+Let $G=(V,E)$ be the TSGG instance for scenario $\xi$ and seed $\zeta$.
+For $v\in V$,
+\begin{equation}
+  \label{eq:tsgg-trust-node}
+  T(v) \in [0,1], \qquad T(v_0) = \pi_0,
+\end{equation}
+where $\pi_0$ is the \emph{benchmark trust prior} from leakage independence
+($\pi_0=0.594$ in the current harness).
+
+\paragraph{Update operators.}
+Multiplicative propagation composes parent trust with local confidence $\phi$:
+\begin{equation}
+  \label{eq:tsgg-trust-compose}
+  T(v) = \Psi\bigl(T(\mathrm{pa}(v)),\,\phi(v)\bigr)
+  = T(\mathrm{pa}(v))\cdot \phi(v),
+\end{equation}
+with operators:
+$\rho$ \emph{evidence reliability},
+$\sigma$ \emph{safety-state confidence},
+$\kappa$ \emph{causal confidence},
+$\omega$ \emph{recommendation confidence},
+$\delta$ \emph{governance confidence}, and
+$\alpha$ \emph{audit confidence}.
+
+\paragraph{Path trust.}
+For a directed path $\pi=(v_1,\ldots,v_k)$ with composed vertex trust as in
+Equation~\eqref{eq:tsgg-trust-compose}, path trust is the terminal label
+\begin{equation}
+  \label{eq:tsgg-path-trust}
+  T(\pi) = T(v_k).
+\end{equation}
+(Local factors $\phi(v_i)$ satisfy $T(v_i)=T(v_{i-1})\cdot\phi(v_i)$ along $\pi$.)
+Recommendation trust is $T(r)=T(\pi_r)$ for the path $\pi_r$ terminating at recommendation
+vertex $r$ (mean $\bar{T}_r=0.105$ over the audit sample).
+
+\paragraph{Trust-theoretic metrics.}
+\begin{itemize}[noitemsep]
+  \item \textbf{trust\_consistency} $=0.522$ --- low dispersion of
+        mean stage trust (stable propagation profile);
+  \item \textbf{trust\_decay} $=0.971$ --- average relative loss
+        $1-T(v_k)/T(v_1)$ along audit paths;
+  \item \textbf{trust\_recovery} $=0.017$ --- governance-stage uplift
+        when $T(g)>T(r)$ after low recommendation trust.
+\end{itemize}
+Mean node trust $\bar{T}_V=0.127$;
+mean path trust $\bar{T}_\pi=0.060$.
+
+\input{sections/trust_flow_figure}
+\input{tables/trust_propagation_metrics}
+
+\paragraph{Relation to $\mathcal{I}_{\mathrm{TSGG}}$.}
+The composite index in Equation~\eqref{eq:tsgg-trust} summarises macro families for
+reporting; trust propagation supplies a \emph{vertex-level theory} with auditable
+$T(v)$ and $T(\pi)$ for institutional review.
+
+\paragraph{Disclaimer.}
+Trust propagation on synthetic TSGG traces. Operators define a compositional trust theory; values are feasibility descriptors, not calibrated field probabilities.
