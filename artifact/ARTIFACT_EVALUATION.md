@@ -2,6 +2,8 @@
 
 This document supports **Journal of Systems and Software** artifact evaluation for the TSGG reference implementation. It describes what the repository contains, how to install and run it, what to expect, and what reproducibility guarantees apply.
 
+**Release:** v1.0.3 · **GitHub:** https://github.com/cesar-andress/dualexis-open · **Zenodo:** https://doi.org/10.5281/zenodo.20499184
+
 **Canonical entry point:** `bash artifact/commands.sh`  
 **Full clean before evaluation:** `bash artifact/clean.sh full`
 
@@ -129,7 +131,7 @@ python3.12 -m pytest tests/artifact -q
 
 | File | Generator |
 | --- | --- |
-| `results_reference/tables/harness_honesty.tex` | `validate-tsgg` |
+| `results_reference/tables/harness_honesty.tex` | `export-harness-honesty` |
 | `results_reference/tables/privacy_fuzz_results.tex` | `validate-tsgg` |
 | `results_reference/tables/leakage_audit.tex` | `leakage-audit --fast` |
 | `results_reference/tables/baseline_results.tex` | `validate-tsgg` (supplementary) |
@@ -145,6 +147,7 @@ python3.12 -m pytest tests/artifact -q
 | `results/governance/formal/formal_governance_metrics.csv` | FSM compliance metrics |
 | `results/governance/formal/governance_audit_report.json` | Full audit report |
 | `results/governance/formal/traces/*.json` | **Exactly 100** sample governance traces |
+| `results/tsgg/trust/trust_propagation_report.json` | Trust propagation metrics (`mean_path_trust`) |
 
 ### 6.3 Reference metric values (sanity checks)
 
@@ -161,6 +164,7 @@ Values below are from a verified clean run (seed 42, default iterations). Small 
 | `institutional_reliance_index` | ~0.47 |
 | `human_override_resilience` | ~0.10 |
 | `decision_traceability` | **1.00** |
+| Mean path trust \(\bar{T}_\pi\) | ~0.06 |
 | Governance trace JSON count | **100** |
 | Pytest | **640 passed**, 0 failed |
 

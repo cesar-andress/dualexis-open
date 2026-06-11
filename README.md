@@ -3,7 +3,7 @@
 Open-source reference code and validation harness for **Trusted Safety State Governance Graph (TSGG)** — a software trace architecture for auditable human–AI systems.
 
 **Repository:** https://github.com/cesar-andress/dualexis-open  
-**Version:** v1.0.0 · **License:** Apache-2.0
+**Version:** v1.0.3 · **Zenodo:** https://doi.org/10.5281/zenodo.20499184 · **License:** Apache-2.0
 
 This repository does not contain the manuscript, journal correspondence, editorial reports, or publication packaging.
 
@@ -53,7 +53,7 @@ From the repository root:
 bash artifact/commands.sh
 ```
 
-This cleans regeneratable outputs, installs the package, runs `validate-tsgg`, `leakage-audit --fast`, `formal-governance-audit`, and the JSS artifact test suite.
+This cleans regeneratable outputs, installs the package, runs `validate-tsgg`, `leakage-audit --fast`, `formal-governance-audit`, `tsgg-trust-propagation --fast`, `export-harness-honesty`, and the JSS artifact test suite.
 
 See [`artifact/INSTALL.md`](artifact/INSTALL.md) and [`artifact/REPRODUCE.md`](artifact/REPRODUCE.md) for alternatives (conda, Docker).
 
@@ -63,7 +63,8 @@ After `artifact/commands.sh`:
 
 | Output | Command |
 |--------|---------|
-| `results_reference/tables/harness_honesty.tex` | `validate-tsgg` |
+| `results_reference/tables/harness_honesty.tex` | `export-harness-honesty` |
+| `results/tsgg/trust/trust_propagation_report.json` | `tsgg-trust-propagation --fast` |
 | `results_reference/tables/privacy_fuzz_results.tex` | `validate-tsgg` |
 | `results_reference/tables/leakage_audit.tex` | `leakage-audit --fast` |
 | `results/governance/formal/governance_audit_report.json` | `formal-governance-audit` |
@@ -73,19 +74,18 @@ Regeneratable runtime outputs under `results/` are gitignored. Pinned snapshots 
 
 ## Citation
 
-Machine-readable metadata: [`CITATION.cff`](CITATION.cff)
-
 ```bibtex
-@software{tsgg_reference_implementation_v1_0_0,
-  author  = {Moncunill, David Mart{\'i}n and S{\'a}nchez, C{\'e}sar Andr{\'e}s},
-  title   = {{TSGG} Reference Implementation},
+@software{sanchez2026tsggsoftware,
+  author  = {S{\'a}nchez, C{\'e}sar Andr{\'e}s and Mart{\'i}n Moncunill, David},
+  title   = {Trusted Safety State Governance Graph ({TSGG}) Reference Implementation},
   year    = {2026},
-  version = {v1.0.0},
+  version = {1.0.3},
+  doi     = {10.5281/zenodo.20499184},
   url     = {https://github.com/cesar-andress/dualexis-open}
 }
 ```
 
-Zenodo DOI will be added after archival.
+Machine-readable metadata: [`CITATION.cff`](CITATION.cff) · Zenodo: https://doi.org/10.5281/zenodo.20499184
 
 ## License
 

@@ -19,6 +19,12 @@ python3.12 -m dualexis.cli experiment leakage-audit --fast
 echo "==> formal-governance-audit"
 python3.12 -m dualexis.cli experiment formal-governance-audit
 
+echo "==> tsgg-trust-propagation --fast"
+python3.12 -m dualexis.cli experiment tsgg-trust-propagation --fast --seeds 1,2,3
+
+echo "==> export-harness-honesty"
+python3.12 -m dualexis.cli experiment export-harness-honesty
+
 echo "==> pytest (JSS artifact suite)"
 python3.12 -m pytest tests/artifact tests/unit \
   --ignore=tests/unit/test_paper_check.py \

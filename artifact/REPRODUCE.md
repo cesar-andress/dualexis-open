@@ -1,5 +1,7 @@
 # Reproduce JSS validation results
 
+**Release:** v1.0.3 · **GitHub:** https://github.com/cesar-andress/dualexis-open · **Zenodo:** https://doi.org/10.5281/zenodo.20499184
+
 These commands regenerate the tables and audit artefacts referenced in `results_reference/ (CSV and summary tables)` and `results_reference/tables/`.
 
 ## One-shot reproduction
@@ -30,7 +32,7 @@ pip install -e .
 
 ### 2. Full TSGG validation package
 
-Regenerates harness honesty and privacy fuzz LaTeX tables:
+Regenerates privacy fuzz and baseline LaTeX tables:
 
 ```bash
 python3.12 -m dualexis.cli experiment validate-tsgg
@@ -52,7 +54,24 @@ python3.12 -m dualexis.cli experiment formal-governance-audit
 
 Writes governance metrics under `results/governance/formal/`.
 
-### 5. Unit tests
+### 5. Trust propagation (mean path trust for Table 7)
+
+```bash
+python3.12 -m dualexis.cli experiment tsgg-trust-propagation --fast --seeds 1,2,3
+```
+
+Writes `results/tsgg/trust/trust_propagation_report.json`.
+
+### 6. Harness honesty export (Table 7)
+
+```bash
+python3.12 -m dualexis.cli experiment export-harness-honesty
+```
+
+Reads leakage, privacy fuzz, governance, and trust artefacts; writes
+`results_reference/tables/harness_honesty.tex`.
+
+### 7. Unit tests
 
 ```bash
 python3.12 -m pytest tests/unit -q

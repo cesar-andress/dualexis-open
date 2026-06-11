@@ -1272,6 +1272,72 @@ def experiment_formal_governance_audit_cmd(
         typer.echo(f"{key}: {value}")
 
 
+@experiment_app.command("export-harness-honesty")
+def experiment_export_harness_honesty_cmd(
+    output: str = typer.Option(
+        "results_reference/tables/harness_honesty.tex",
+        "--output",
+        "-o",
+        help="Path for regenerated Table 7 LaTeX fragment.",
+    ),
+    leakage_report: str = typer.Option(
+        "results/leakage_audit/leakage_audit_report.json",
+        "--leakage-report",
+    ),
+    privacy_csv: str = typer.Option(
+        "results/privacy_fuzz/results.csv",
+        "--privacy-csv",
+    ),
+    governance_report: str = typer.Option(
+        "results/governance/formal/governance_audit_report.json",
+        "--governance-report",
+    ),
+    trust_report: str = typer.Option(
+        "results/tsgg/trust/trust_propagation_report.json",
+        "--trust-report",
+    ),
+    expected_fuzz_probes: int = typer.Option(
+        10,
+        "--expected-fuzz-probes",
+        help="Required privacy fuzz probe count (default 10).",
+    ),
+) -> None:
+    """Export consolidated harness honesty Table 7 from generated audit artefacts."""
+    from dualexis.evaluation.harness_honesty_export import (
+        HarnessHonestyInputError,
+        HarnessHonestyPaths,
+        export_harness_honesty_tex,
+        load_harness_honesty_metrics,
+    )
+
+    paths = HarnessHonestyPaths(
+        leakage_report=Path(leakage_report),
+        privacy_fuzz_csv=Path(privacy_csv),
+        governance_report=Path(governance_report),
+        trust_report=Path(trust_report),
+    )
+    try:
+        metrics = load_harness_honesty_metrics(
+            paths,
+            expected_fuzz_probes=expected_fuzz_probes,
+        )
+        tex_path = export_harness_honesty_tex(
+            Path(output),
+            metrics=metrics,
+            caption_variant="artifact",
+        )
+    except HarnessHonestyInputError as exc:
+        typer.secho(str(exc), fg=typer.colors.RED, err=True)
+        raise typer.Exit(code=1) from exc
+
+    typer.echo(f"Wrote {tex_path}")
+    typer.echo(f"leakage_score_LS={metrics.leakage_score:.3f}")
+    typer.echo(f"privacy_fuzz_pass_rate={metrics.privacy_fuzz_pass_rate:.3f}")
+    typer.echo(f"governance_compliance={metrics.governance_compliance_score:.3f}")
+    typer.echo(f"decision_traceability={metrics.decision_traceability:.3f}")
+    typer.echo(f"mean_path_trust={metrics.mean_path_trust:.3f}")
+
+
 @experiment_app.command("empirical-legacy", hidden=True)
 def experiment_empirical_legacy_cmd(
     output: str = typer.Option(
