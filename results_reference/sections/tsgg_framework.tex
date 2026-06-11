@@ -1,0 +1,82 @@
+\section{Trusted Safety State Governance Graph (TSGG)}
+\label{sec:tsgg}
+
+DUALEXIS contributes a \textbf{single scientific artefact}---the Trusted Safety State
+Governance Graph (TSGG)---that unifies semantic safety-state reasoning (SSSG), benchmark
+leakage auditing, and formal human--AI governance into one auditable pipeline. Prior
+decompositions treated these as independent engineering modules; TSGG positions them as
+\emph{stages of one trust-bearing decision trace}.
+
+\paragraph{Pipeline.}
+The end-to-end chain is:
+\emph{evidence $\rightarrow$ safety state $\rightarrow$ causal transition $\rightarrow$ recommendation $\rightarrow$ governance decision $\rightarrow$ audit trace}.
+Figure~\ref{fig:tsgg-framework} summarises the architecture; Section~\ref{sec:tsgg-theory}
+states the formal theory (axioms, invariants, propositions); Equations~\eqref{eq:tsgg-pipeline}
+and~\eqref{eq:tsgg-trust} provide the operational reporting formulation.
+
+\input{sections/tsgg_figure}
+\input{tables/tsgg_unified_metrics}
+
+\begin{equation}
+  \label{eq:tsgg-pipeline}
+  \Phi_{\mathrm{TSGG}}:
+  \; E \xrightarrow{\rho} S \xrightarrow{\kappa} C \xrightarrow{\omega} R
+  \xrightarrow{\delta} G \xrightarrow{\alpha} A
+\end{equation}
+where $E$ is a multiset of privacy-bounded evidence records, $S$ a zone-indexed safety-state
+trajectory, $C$ causal transitions with typed factors
+$(\texttt{contributes\_to}, \texttt{aggravates}, \texttt{mitigates}, \texttt{triggers})$,
+$R$ orchestration recommendations, $G$ macro governance decisions over
+$S_{\mathrm{gov}}=\{s^{AI}, s^{H}, s^{I}\}$, and $A$ an append-only audit trace.
+
+\begin{equation}
+  \label{eq:tsgg-trust}
+  \mathcal{I}_{\mathrm{TSGG}} =
+  0.30\,\bar{P}_{\mathrm{st}} +
+  0.25\,\Pi_{\mathrm{causal}} +
+  0.25\,\bigl(0.5\,\pi_{\mathrm{proc}} + 0.5\,\pi_{\mathrm{dist}}\bigr)(1 - L_S) +
+  0.20\,\bar{P}_{\mathrm{gov}}
+\end{equation}
+with $\bar{P}_{\mathrm{st}}=(P_{\mathrm{prec}}+P_{\mathrm{rec}})/2$,
+$\Pi_{\mathrm{causal}}$ causal-path completeness, $L_S\in[0,1]$ the leakage score,
+$\pi_{\mathrm{proc}},\pi_{\mathrm{dist}}$ procedural and distributional independence,
+and $\bar{P}_{\mathrm{gov}}=(\gamma_{\mathrm{comp}}+\tau_{\mathrm{trace}})/2$.
+Synthetic harness evaluation yields
+$\mathcal{I}_{\mathrm{TSGG}}=0.667$.
+
+
+\paragraph{Stage semantics.}
+\begin{itemize}[noitemsep]
+  \item \textbf{Evidence ($E$).} Privacy-bounded observations ingested from the synthetic
+        world and event generator (L1--L3).
+  \item \textbf{Safety state ($S$).} Zone-scoped semantic labels
+        (\texttt{NORMAL} $\rightarrow$ \texttt{EVACUATION\_CANDIDATE}) with temporal edges.
+  \item \textbf{Causal transition ($C$).} Typed causal factors and root-cause attribution
+        (CSSG backbone inside TSGG).
+  \item \textbf{Recommendation ($R$).} Orchestration advisories with mandatory human review
+        for elevated severities.
+  \item \textbf{Governance decision ($G$).} Macro-state FSM
+        $S_{\mathrm{gov}}=\{s^{AI}, s^{H}, s^{I}\}$ with transition alphabet
+        $\Sigma$.
+  \item \textbf{Audit trace ($A$).} Append-only $(s,\sigma,s')$ chains for institutional review.
+\end{itemize}
+
+\paragraph{Benchmark trust.}
+The leakage audit supplies $L_S$ and independence estimates $\pi_{\mathrm{proc}}$,
+$\pi_{\mathrm{dist}}$ as \emph{external} trust constraints on the evaluation harness---
+not as a separate paper contribution. Low $L_S$ with high independence supports interpreting
+state and governance metrics as non-leaking descriptive evidence.
+
+\paragraph{Trust-aware reasoning.}
+Vertex-level trust propagation (Section~\ref{sec:trust-propagation}) assigns
+$T(v)\in[0,1]$ to every TSGG node with operators
+$\rho,\sigma,\kappa,\omega,\delta,\alpha$, yielding path trust $T(\pi)$ and
+trust-theoretic metrics (consistency, decay, recovery) beyond the composite
+$\mathcal{I}_{\mathrm{TSGG}}$.
+
+\paragraph{Positioning.}
+TSGG subsumes SSSG (state graph), CSSG (causal layer), E2 leakage audit, and the formal
+governance FSM as a \textbf{trust-aware reasoning graph}. Implementation modules remain in
+\texttt{dualexis/sssg}, \texttt{dualexis/cssg}, \texttt{dualexis/leakage\_audit},
+\texttt{dualexis/governance}, and \texttt{dualexis/tsgg/trust\_propagation.py}.
+TSGG unified framework on synthetic confined-space harness. Integrates semantic state graph, causal attribution, benchmark leakage audit, and formal governance traces. Not a field certification.
