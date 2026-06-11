@@ -63,33 +63,33 @@ Audit date: 2026-06-02
 
 ## Verification checks
 
-- **PASS** — file README.md
-- **PASS** — file LICENSE
-- **PASS** — file CITATION.cff
-- **PASS** — file CONTRIBUTING.md
-- **PASS** — file CODE_OF_CONDUCT.md
-- **PASS** — file CHANGELOG.md
-- **PASS** — file Dockerfile
-- **PASS** — file Makefile
-- **PASS** — file requirements.txt
-- **PASS** — file environment.yml
-- **PASS** — file .zenodo.json
-- **PASS** — file artifact/INSTALL.md
-- **PASS** — file artifact/REPRODUCE.md
-- **PASS** — file artifact/ARTIFACT_EVALUATION.md
-- **PASS** — file artifact/expected_outputs.md
-- **PASS** — file artifact/EXPECTED_OUTPUTS.md
-- **PASS** — file artifact/commands.sh
-- **PASS** — file artifact/clean.sh
-- **PASS** — file artifact/environment.yml
-- **PASS** — file artifact/LICENSE
-- **PASS** — file artifact/requirements.txt
-- **PASS** — file artifact/Dockerfile
-- **PASS** — file results_reference/baseline_comparison/results.csv
-- **PASS** — file tests/artifact/test_jss_reproduce_outputs.py
-- **PASS** — no ESWA paths outside legacy_archive: []
-- **PASS** — no paper/ directory
-- **PASS** — no legacy_archive/ directory
+- Pass: file README.md
+- Pass: file LICENSE
+- Pass: file CITATION.cff
+- Pass: file CONTRIBUTING.md
+- Pass: file CODE_OF_CONDUCT.md
+- Pass: file CHANGELOG.md
+- Pass: file Dockerfile
+- Pass: file Makefile
+- Pass: file requirements.txt
+- Pass: file environment.yml
+- Pass: file .zenodo.json
+- Pass: file artifact/INSTALL.md
+- Pass: file artifact/REPRODUCE.md
+- Pass: file artifact/ARTIFACT_EVALUATION.md
+- Pass: file artifact/expected_outputs.md
+- Pass: file artifact/EXPECTED_OUTPUTS.md
+- Pass: file artifact/commands.sh
+- Pass: file artifact/clean.sh
+- Pass: file artifact/environment.yml
+- Pass: file artifact/LICENSE
+- Pass: file artifact/requirements.txt
+- Pass: file artifact/Dockerfile
+- Pass: file results_reference/baseline_comparison/results.csv
+- Pass: file tests/artifact/test_jss_reproduce_outputs.py
+- Pass: no ESWA paths outside legacy_archive: []
+- Pass: no paper/ directory
+- Pass: no legacy_archive/ directory
 
 ## Required artefact paths
 
@@ -99,7 +99,7 @@ Audit date: 2026-06-02
 - `environment.yml` (root; mirrored in `artifact/environment.yml`)
 - `artifact/INSTALL.md`, `artifact/REPRODUCE.md`, `artifact/commands.sh`, `artifact/expected_outputs.md`
 
-## Overall: **PASS**
+## Overall: Pass
 
 ## Audit actions (2026-06-01)
 

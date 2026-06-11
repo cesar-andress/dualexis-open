@@ -23,7 +23,7 @@ def render_harness_b5_labels_latex(alignment: HarnessB5Alignment) -> str:
         "",
         "\\begin{table}[htbp]",
         "  \\centering",
-        "  \\caption{Reference orchestration path \\textbf{harness honesty labels} vs.\\ "
+        "  \\caption{Reference orchestration path harness honesty labels vs.\\ "
         "procedural ground truth by scenario "
         f"($N={seed_count}$ seeds). Pass/Partial/Fail derive from mean B5 "
         "\\texttt{event\\_detection\\_accuracy}: Pass $=1.0$, Fail $=0.0$, "

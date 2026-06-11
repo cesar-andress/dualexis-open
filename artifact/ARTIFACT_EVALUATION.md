@@ -1,6 +1,6 @@
 # Artifact Evaluation Guide (JSS)
 
-This document supports **Journal of Systems and Software** artifact evaluation for the TSGG reference implementation. It describes what the repository contains, how to install and run it, what to expect, and what reproducibility guarantees apply.
+This document supports Journal of Systems and Software artifact evaluation for the TSGG reference implementation. It describes what the repository contains, how to install and run it, what to expect, and what reproducibility guarantees apply.
 
 **Release:** v1.0.3 · **GitHub:** https://github.com/cesar-andress/dualexis-open · **Zenodo:** https://doi.org/10.5281/zenodo.20499184
 
@@ -46,7 +46,7 @@ Evaluators should use the repository root (parent of `artifact/`). Core layout:
 | Python | **3.12+** (tested with 3.12) |
 | OS | Linux or macOS recommended; Windows supported for CLI/tests |
 | Network | Required once for `pip install` |
-| External datasets | **None** — bundled synthetic scenarios only |
+| External datasets | None (bundled synthetic scenarios only) |
 | GPU / CUDA | **Not required** |
 | LaTeX | **Not required** for `commands.sh` |
 
@@ -76,7 +76,7 @@ python3.12 -m pytest tests/artifact -q
 
 `artifact/commands.sh` performs, in order:
 
-1. `artifact/clean.sh results-only` — remove regeneratable JSS outputs  
+1. `artifact/clean.sh results-only` (remove regeneratable JSS outputs)  
 2. `pip install -e ".[dev]"`  
 3. `python3.12 -m dualexis.cli experiment validate-tsgg`  
 4. `python3.12 -m dualexis.cli experiment leakage-audit --fast`  
@@ -96,14 +96,14 @@ Measured on a clean virtual environment (Linux, Python 3.12, laptop-class CPU, 2
 
 | Step | Approx. time |
 | --- | ---: |
-| `pip install -e ".[dev]"` | 5–30 s (network-dependent) |
-| `validate-tsgg` | 30–45 s |
-| `leakage-audit --fast` | 5–10 s |
-| `formal-governance-audit` | 2–5 s |
-| `tsgg-trust-propagation --fast` | 5–15 s |
+| `pip install -e ".[dev]"` | 5-30 s (network-dependent) |
+| `validate-tsgg` | 30-45 s |
+| `leakage-audit --fast` | 5-10 s |
+| `formal-governance-audit` | 2-5 s |
+| `tsgg-trust-propagation --fast` | 5-15 s |
 | `export-harness-honesty` + `export-harness-b5-labels` | < 1 s |
-| Pytest (JSS AE suite) | 12–20 s |
-| **Total `commands.sh`** | **~1–2 min** (after install) |
+| Pytest (JSS AE suite) | 12-20 s |
+| Total `commands.sh` | ~1-2 min (after install) |
 
 Full multiseed validation without `--fast` flags can take several minutes; the JSS paper uses pre-registered fast modes for leakage Monte Carlo where noted.
 
@@ -170,11 +170,11 @@ Values below are from a verified clean run (seed 42, default iterations). Small 
 | `governance_compliance_score` | 0.435 |
 | `institutional_reliance_index` | 0.465 |
 | `human_override_resilience` | 0.103 |
-| `decision_traceability` | **1.00** |
+| `decision_traceability` | 1.00 |
 | Mean path trust \(\bar{T}_\pi\) | ~0.06 |
-| Governance trace JSON count | **100** |
-| Table 8 B5 labels | normal_flow Pass; 4× Fail; exit_blockage Partial |
-| Pytest | **617 passed**, 0 failed |
+| Governance trace JSON count | 100 |
+| Table 8 B5 labels | normal_flow Pass; four Fail; exit_blockage Partial |
+| Pytest | 626 passed, 0 failed |
 
 ### 6.4 Tests
 
@@ -198,8 +198,8 @@ Automated coverage: `tests/artifact/test_tsgg_json_export_coverage.py`.
 
 Legacy tests excluded from AE path:
 
-- `tests/unit/test_paper_check.py` — legacy manuscript structure check (not shipped in this repo)
-- `tests/unit/test_pipeline.py` — full JSON snapshot (UUID edge IDs non-stable across runs)
+- `tests/unit/test_paper_check.py`: legacy manuscript structure check (not shipped in this repo)
+- `tests/unit/test_pipeline.py`: full JSON snapshot (UUID edge IDs non-stable across runs)
 
 ---
 
@@ -207,15 +207,15 @@ Legacy tests excluded from AE path:
 
 | Guarantee | Mechanism |
 | --- | --- |
-| **Fixed randomness** | Default `--seed 42` on harness commands; deterministic scenario loaders |
-| **No external data** | All inputs from `experiments/` YAML and in-repo simulators |
-| **Clean regeneration** | `clean.sh` removes prior `results/` artefacts before reproduction |
-| **No trace accumulation** | `formal-governance-audit` clears `results/governance/formal/traces/` before export (≤100 JSON files per run) |
-| **Versioned dependencies** | Lower bounds in `pyproject.toml` / `artifact/requirements.txt` |
-| **Fail-closed privacy** | Unit + fuzz tests assert forbidden keys never reach trace projections |
-| **Idempotent tables** | Regenerated LaTeX fragments overwrite `results_reference/tables/` deterministically for fixed seeds |
+| Fixed randomness | Default `--seed 42` on harness commands; deterministic scenario loaders |
+| No external data | All inputs from `experiments/` YAML and in-repo simulators |
+| Clean regeneration | `clean.sh` removes prior `results/` artefacts before reproduction |
+| No trace accumulation | `formal-governance-audit` clears `results/governance/formal/traces/` before export (at most 100 JSON files per run) |
+| Versioned dependencies | Lower bounds in `pyproject.toml` / `artifact/requirements.txt` |
+| Fail-closed privacy | Unit + fuzz tests assert forbidden keys never reach trace projections |
+| Idempotent tables | Regenerated LaTeX fragments overwrite `results_reference/tables/` deterministically for fixed seeds |
 
-**Not guaranteed (explicit non-claims):**
+Not guaranteed (explicit non-claims):
 
 - Bit-identical JSON across Python patch releases if hash or float formatting changes  
 - Field deployment outcomes or user-study results  
@@ -252,6 +252,6 @@ Legacy tests excluded from AE path:
 
 ## 10. Contact and scope statement
 
-This artifact validates **software trace structure, privacy ingress, governance FSM exports, benchmark leakage disclosure, and reproducible harness diagnostics** on synthetic data. It does not reproduce operational safety outcomes in deployed environments.
+This artifact validates software trace structure, privacy ingress, governance FSM exports, benchmark leakage disclosure, and reproducible harness diagnostics on synthetic data. It does not reproduce operational safety outcomes in deployed environments.
 
 For questions during artifact evaluation, refer to `artifact/REPRODUCE.md`.

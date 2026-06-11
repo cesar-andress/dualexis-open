@@ -1,4 +1,4 @@
-# Public repository cleanup report (historical audit — 2026-06-01)
+# Public repository cleanup report (historical audit, 2026-06-01)
 
 **Update (2026-06-02):** Zenodo DOI `10.5281/zenodo.20499184` integrated; current release **v1.0.3**. Placeholder-removal actions below were completed; citation metadata now uses the real DOI in `CITATION.cff`, `.zenodo.json`, and README.
 
@@ -12,15 +12,15 @@
 
 | Check | Result |
 |-------|--------|
-| `EXPORT_REPORT.md` absent from root | **PASS** (not tracked; `.gitignore` blocks re-add) |
-| `OPEN_SOURCE_READINESS_REPORT.md` absent from root | **PASS** (not tracked; `.gitignore` blocks re-add) |
-| Fake Zenodo DOI placeholders removed | **PASS** |
-| `legacy_archive` removed from `pyproject.toml` norecursedirs | **PASS** |
-| `.tex` files limited to `results_reference/` | **PASS** — 9 files, all harness-generated |
-| `bash artifact/commands.sh` | **PASS** — 591 tests |
-| `python3.12 -m pytest tests/unit -q` | **PARTIAL** — 594 passed, 1 failed (`test_pipeline.py`) |
-| Forbidden-string scan | **PASS with justified residuals** (see §4) |
-| **Overall** | **PASS** |
+| `EXPORT_REPORT.md` absent from root | Pass (not tracked; `.gitignore` blocks re-add) |
+| `OPEN_SOURCE_READINESS_REPORT.md` absent from root | Pass (not tracked; `.gitignore` blocks re-add) |
+| Fake Zenodo DOI placeholders removed | Pass |
+| `legacy_archive` removed from `pyproject.toml` norecursedirs | Pass |
+| `.tex` files limited to `results_reference/` | Pass (9 files, all harness-generated) |
+| `bash artifact/commands.sh` | Pass (591 tests) |
+| `python3.12 -m pytest tests/unit -q` | Partial (594 passed, 1 failed: `test_pipeline.py`) |
+| Forbidden-string scan | Pass with justified residuals (see section 4) |
+| Overall | Pass |
 
 ---
 
@@ -56,7 +56,7 @@ grep -rn "10.5281/zenodo.TBD\|pending-zenodo-archival" .   # no matches
 
 ## 3. `pyproject.toml`
 
-Removed `"legacy_archive"` from `[tool.pytest.ini_options].norecursedirs` — that directory does not exist in the public tree.
+Removed `"legacy_archive"` from `[tool.pytest.ini_options].norecursedirs`; that directory does not exist in the public tree.
 
 ---
 
@@ -68,7 +68,7 @@ find /home/cesar/dualexis-open -name "*.tex"
 
 | File | Generator / use | Keep? |
 |------|-----------------|-------|
-| `results_reference/tables/harness_honesty.tex` | `validate-tsgg` | Yes — reproducibility diff |
+| `results_reference/tables/harness_honesty.tex` | `validate-tsgg` | Yes (reproducibility diff) |
 | `results_reference/tables/privacy_fuzz_results.tex` | `validate-tsgg` | Yes |
 | `results_reference/tables/leakage_audit.tex` | `leakage-audit --fast` | Yes |
 | `results_reference/tables/baseline_results.tex` | `validate-tsgg` | Yes |
@@ -95,13 +95,13 @@ grep -Rni "ESWA|Expert Systems with Applications|reviewer|camera-ready|draft|TOD
 
 | Pattern | Disposition |
 |---------|-------------|
-| `TODO` / `FIXME` / `camera-ready` / `draft` / `main_jss` | **None** in artefact-critical paths |
-| `paper/` in `docs/*.md` | **Justified** — cross-refs to private monorepo manuscript (not shipped) |
-| `paper/` in `.gitignore` | **Justified** — ignore rule |
-| `ESWA` / `run_empirical_eswa_package` | **Justified** — hidden legacy CLI (`experiment empirical-legacy`); not in `commands.sh` |
-| `reviewer` in `multiseed_statistics.py` | **Justified** — author-only narrative markdown in legacy battery |
-| `submission` in `LICENSE` | **Justified** — Apache 2.0 legal wording |
-| `TBD` in `docs/evaluation.md` | **Justified** — research-ethics placeholder policy (not a Zenodo DOI) |
+| `TODO` / `FIXME` / `camera-ready` / `draft` / `main_jss` | None in artefact-critical paths |
+| `paper/` in `docs/*.md` | Justified (cross-refs to private monorepo manuscript, not shipped) |
+| `paper/` in `.gitignore` | Justified (ignore rule) |
+| `ESWA` / `run_empirical_eswa_package` | Justified (hidden legacy CLI; not in `commands.sh`) |
+| `reviewer` in `multiseed_statistics.py` | Justified (author-only narrative markdown in legacy battery) |
+| `submission` in `LICENSE` | Justified (Apache 2.0 legal wording) |
+| `TBD` in `docs/evaluation.md` | Justified (research-ethics placeholder policy, not a Zenodo DOI) |
 
 ---
 
@@ -125,6 +125,6 @@ FAILED tests/unit/test_pipeline.py::test_deterministic_pipeline_output
 
 ---
 
-## Final verdict: **PASS**
+## Final verdict: Pass
 
 Public artefact is clean: no root export reports, no fake Zenodo DOIs, pytest norecursedirs aligned with tree, `.tex` confined to reproducibility outputs under `results_reference/`, validation harness green.

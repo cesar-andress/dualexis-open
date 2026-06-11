@@ -11,7 +11,7 @@ bash artifact/commands.sh
 ```
 
 The script clears regeneratable outputs first (`artifact/clean.sh results-only`), then installs,
-runs the validation harness, exports Tables 7–8, and executes the JSS artifact test suite.
+runs the validation harness, exports Tables 7-8, and executes the JSS artifact test suite.
 
 ## Full clean (artifact evaluation prep)
 
