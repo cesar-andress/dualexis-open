@@ -53,7 +53,7 @@ From the repository root:
 bash artifact/commands.sh
 ```
 
-This cleans regeneratable outputs, installs the package, runs `validate-tsgg`, `leakage-audit --fast`, `formal-governance-audit`, `tsgg-trust-propagation --fast`, `export-harness-honesty`, and the JSS artifact test suite.
+This cleans regeneratable outputs, installs the package, runs `validate-tsgg`, `leakage-audit --fast`, `formal-governance-audit`, `tsgg-trust-propagation --fast`, `export-harness-honesty`, `export-harness-b5-labels`, and the JSS artifact test suite.
 
 See [`artifact/INSTALL.md`](artifact/INSTALL.md) and [`artifact/REPRODUCE.md`](artifact/REPRODUCE.md) for alternatives (conda, Docker).
 
@@ -64,6 +64,7 @@ After `artifact/commands.sh`:
 | Output | Command |
 |--------|---------|
 | `results_reference/tables/harness_honesty.tex` | `export-harness-honesty` |
+| `results_reference/tables/harness_b5_by_scenario.tex` | `export-harness-b5-labels` |
 | `results/tsgg/trust/trust_propagation_report.json` | `tsgg-trust-propagation --fast` |
 | `results_reference/tables/privacy_fuzz_results.tex` | `validate-tsgg` |
 | `results_reference/tables/leakage_audit.tex` | `leakage-audit --fast` |

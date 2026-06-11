@@ -81,7 +81,10 @@ python3.12 -m pytest tests/artifact -q
 3. `python3.12 -m dualexis.cli experiment validate-tsgg`  
 4. `python3.12 -m dualexis.cli experiment leakage-audit --fast`  
 5. `python3.12 -m dualexis.cli experiment formal-governance-audit`  
-6. JSS artifact test suite (`tests/artifact` + `tests/unit`, excluding legacy manuscript-check and non-deterministic pipeline snapshot test)
+6. `python3.12 -m dualexis.cli experiment tsgg-trust-propagation --fast --seeds 1,2,3`  
+7. `python3.12 -m dualexis.cli experiment export-harness-honesty`  
+8. `python3.12 -m dualexis.cli experiment export-harness-b5-labels`  
+9. JSS artifact test suite (`tests/artifact` + `tests/unit`, excluding legacy manuscript-check and non-deterministic pipeline snapshot test)
 
 Equivalent: `make reproduce` from repository root.
 
@@ -97,8 +100,10 @@ Measured on a clean virtual environment (Linux, Python 3.12, laptop-class CPU, 2
 | `validate-tsgg` | 30–45 s |
 | `leakage-audit --fast` | 5–10 s |
 | `formal-governance-audit` | 2–5 s |
-| Pytest (640 tests) | 12–18 s |
-| **Total `commands.sh`** | **~1 min** (after install) |
+| `tsgg-trust-propagation --fast` | 5–15 s |
+| `export-harness-honesty` + `export-harness-b5-labels` | < 1 s |
+| Pytest (JSS AE suite, 617 tests) | 12–18 s |
+| **Total `commands.sh`** | **~1–2 min** (after install) |
 
 Full multiseed validation without `--fast` flags can take several minutes; the JSS paper uses pre-registered fast modes for leakage Monte Carlo where noted.
 
@@ -122,6 +127,7 @@ After successful `commands.sh`, verify with `artifact/expected_outputs.md` or:
 
 ```bash
 grep -q 'tab:harness-honesty' results_reference/tables/harness_honesty.tex
+grep -q 'tab:harness-b5-by-scenario' results_reference/tables/harness_b5_by_scenario.tex
 grep -q 'tab:privacy-fuzz' results_reference/tables/privacy_fuzz_results.tex
 grep -q 'tab:leakage-audit' results_reference/tables/leakage_audit.tex
 python3.12 -m pytest tests/artifact -q
@@ -132,6 +138,7 @@ python3.12 -m pytest tests/artifact -q
 | File | Generator |
 | --- | --- |
 | `results_reference/tables/harness_honesty.tex` | `export-harness-honesty` |
+| `results_reference/tables/harness_b5_by_scenario.tex` | `export-harness-b5-labels` |
 | `results_reference/tables/privacy_fuzz_results.tex` | `validate-tsgg` |
 | `results_reference/tables/leakage_audit.tex` | `leakage-audit --fast` |
 | `results_reference/tables/baseline_results.tex` | `validate-tsgg` (supplementary) |
@@ -160,20 +167,21 @@ Values below are from a verified clean run (seed 42, default iterations). Small 
 | Procedural independence | 1.00 |
 | Semantic independence | ~0.71 |
 | Distributional independence | ~0.70 |
-| `governance_compliance_score` | ~0.44 |
-| `institutional_reliance_index` | ~0.47 |
-| `human_override_resilience` | ~0.10 |
+| `governance_compliance_score` | ~0.435 |
+| `institutional_reliance_index` | ~0.465 |
+| `human_override_resilience` | ~0.103 |
 | `decision_traceability` | **1.00** |
 | Mean path trust \(\bar{T}_\pi\) | ~0.06 |
 | Governance trace JSON count | **100** |
-| Pytest | **640 passed**, 0 failed |
+| Table 8 B5 labels | normal_flow Pass; 4× Fail; exit_blockage Partial |
+| Pytest | **617 passed**, 0 failed |
 
 ### 6.4 Tests
 
 | Suite | Command | Expected |
 | --- | --- | --- |
-| Artifact smoke | `pytest tests/artifact -q` | 6 passed |
-| Full JSS AE suite | as in `commands.sh` | 640 passed |
+| Artifact smoke | `pytest tests/artifact -q` | 14 passed |
+| Full JSS AE suite | as in `commands.sh` | 617 passed |
 
 Legacy tests excluded from AE path:
 
@@ -207,7 +215,7 @@ Legacy tests excluded from AE path:
 - [ ] Clone repository; confirm `artifact/INSTALL.md`, `REPRODUCE.md`, `commands.sh`, `expected_outputs.md` present  
 - [ ] Run `bash artifact/clean.sh full`  
 - [ ] Create fresh venv; run `bash artifact/commands.sh`  
-- [ ] Confirm exit code 0 and 640 pytest passes  
+- [ ] Confirm exit code 0 and JSS AE pytest suite passes (617 tests)  
 - [ ] Confirm 100 governance trace JSON files (not hundreds from stale runs)  
 - [ ] Spot-check tables contain expected `\label{tab:…}` markers  
 

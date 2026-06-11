@@ -25,6 +25,9 @@ python3.12 -m dualexis.cli experiment tsgg-trust-propagation --fast --seeds 1,2,
 echo "==> export-harness-honesty"
 python3.12 -m dualexis.cli experiment export-harness-honesty
 
+echo "==> export-harness-b5-labels"
+python3.12 -m dualexis.cli experiment export-harness-b5-labels
+
 echo "==> pytest (JSS artifact suite)"
 python3.12 -m pytest tests/artifact tests/unit \
   --ignore=tests/unit/test_paper_check.py \

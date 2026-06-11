@@ -1338,6 +1338,52 @@ def experiment_export_harness_honesty_cmd(
     typer.echo(f"mean_path_trust={metrics.mean_path_trust:.3f}")
 
 
+@experiment_app.command("export-harness-b5-labels")
+def experiment_export_harness_b5_labels_cmd(
+    output: str = typer.Option(
+        "results_reference/tables/harness_b5_by_scenario.tex",
+        "--output",
+        "-o",
+        help="Path for regenerated Table 8 LaTeX fragment.",
+    ),
+    baseline_csv: str = typer.Option(
+        "results/baseline_comparison/results.csv",
+        "--baseline-csv",
+        help="Multiseed baseline CSV produced by validate-tsgg.",
+    ),
+    paper_baseline: str = typer.Option(
+        "B5",
+        "--paper-baseline",
+        help="Paper baseline id used for Pass/Partial/Fail labels (default B5).",
+    ),
+) -> None:
+    """Export harness honesty Table 8 from B5 detection-accuracy aggregates."""
+    from dualexis.evaluation.harness_b5_alignment import (
+        HarnessB5InputError,
+        load_harness_b5_alignment,
+    )
+    from dualexis.evaluation.harness_b5_labels_export import export_harness_b5_labels_tex
+
+    try:
+        alignment = load_harness_b5_alignment(
+            Path(baseline_csv),
+            paper_baseline=paper_baseline,
+        )
+        tex_path = export_harness_b5_labels_tex(
+            Path(output),
+            alignment=alignment,
+        )
+    except HarnessB5InputError as exc:
+        typer.secho(str(exc), fg=typer.colors.RED, err=True)
+        raise typer.Exit(code=1) from exc
+
+    typer.echo(f"Wrote {tex_path}")
+    for row in alignment.rows:
+        typer.echo(
+            f"{row.scenario}: mean_acc={row.mean_detection_accuracy:.3f} -> {row.label}"
+        )
+
+
 @experiment_app.command("empirical-legacy", hidden=True)
 def experiment_empirical_legacy_cmd(
     output: str = typer.Option(
