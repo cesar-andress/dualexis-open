@@ -2,7 +2,7 @@
 
 This document supports Journal of Systems and Software artifact evaluation for the TSGG reference implementation. It describes what the repository contains, how to install and run it, what to expect, and what reproducibility guarantees apply.
 
-**Release:** v1.0.3 · **GitHub:** https://github.com/cesar-andress/dualexis-open · **Zenodo:** https://doi.org/10.5281/zenodo.20499184
+Release: v1.0.4 | GitHub: https://github.com/cesar-andress/dualexis-open | Zenodo: https://doi.org/10.5281/zenodo.20499184
 
 **Canonical entry point:** `bash artifact/commands.sh`  
 **Full clean before evaluation:** `bash artifact/clean.sh full`

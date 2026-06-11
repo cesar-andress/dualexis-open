@@ -20,4 +20,4 @@ lint:
 	ruff format .
 
 docker:
-	docker build -t tsgg-reference:v1.0.3 .
+	docker build -t tsgg-reference:v1.0.4 .

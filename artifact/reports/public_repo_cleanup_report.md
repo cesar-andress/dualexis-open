@@ -1,6 +1,6 @@
 # Public repository cleanup report (historical audit, 2026-06-01)
 
-**Update (2026-06-02):** Zenodo DOI `10.5281/zenodo.20499184` integrated; current release **v1.0.3**. Placeholder-removal actions below were completed; citation metadata now uses the real DOI in `CITATION.cff`, `.zenodo.json`, and README.
+Update (2026-06-11): current public release is v1.0.4. Zenodo DOI `10.5281/zenodo.20499184` remains the archival identifier; citation metadata is in `CITATION.cff`, `.zenodo.json`, and README.
 
 ---
 

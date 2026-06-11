@@ -1,9 +1,9 @@
 # TSGG Reference Implementation
 
-Open-source reference code and validation harness for **Trusted Safety State Governance Graph (TSGG)** — a software trace architecture for auditable human–AI systems.
+Open-source reference code and validation harness for Trusted Safety State Governance Graph (TSGG), a software trace architecture for auditable human-AI systems.
 
-**Repository:** https://github.com/cesar-andress/dualexis-open  
-**Version:** v1.0.3 · **Zenodo:** https://doi.org/10.5281/zenodo.20499184 · **License:** Apache-2.0
+Repository: https://github.com/cesar-andress/dualexis-open  
+Version: v1.0.4 | Zenodo: https://doi.org/10.5281/zenodo.20499184 | License: Apache-2.0
 
 This repository does not contain the manuscript, journal correspondence, editorial reports, or publication packaging.
 
@@ -80,7 +80,7 @@ Regeneratable runtime outputs under `results/` are gitignored. Pinned snapshots 
   author       = {Andr{\'e}s, C{\'e}sar and Mart{\'i}n Moncunill, David},
   title        = {Trusted Safety State Governance Graph ({TSGG}) Reference Implementation},
   year         = {2026},
-  version      = {1.0.3},
+  version      = {1.0.4},
   howpublished = {Zenodo},
   doi          = {10.5281/zenodo.20499184},
   url          = {https://doi.org/10.5281/zenodo.20499184}
@@ -91,4 +91,4 @@ Machine-readable metadata: [`CITATION.cff`](CITATION.cff) · Zenodo: https://doi
 
 ## License
 
-Apache License 2.0 — see [`LICENSE`](LICENSE).
+Apache License 2.0. See [`LICENSE`](LICENSE).

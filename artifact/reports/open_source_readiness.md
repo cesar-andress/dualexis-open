@@ -2,7 +2,7 @@
 
 Repository: **TSGG Reference Implementation**
 URL: https://github.com/cesar-andress/dualexis-open
-Version: v1.0.3
+Version: v1.0.4
 Audit date: 2026-06-02
 
 ## Repository quality score
@@ -24,7 +24,7 @@ Audit date: 2026-06-02
 
 ## Missing metadata
 
-- None: Zenodo DOI https://doi.org/10.5281/zenodo.20499184 in `CITATION.cff` (release v1.0.3).
+- None: Zenodo DOI https://doi.org/10.5281/zenodo.20499184 in `CITATION.cff` (release v1.0.4).
 
 ## Licensing issues
 
