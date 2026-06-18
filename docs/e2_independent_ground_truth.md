@@ -98,3 +98,4 @@ After `experiment e2`:
 4. **Descriptive statistics** — means over 30 seeds; no inferential tests or superiority claims.
 5. **Placeholder L2/L5** — perception and reasoning use scaffold implementations; metrics measure protocol alignment, not production CV/LLM quality.
 6. **Not a privacy certification** — fuzz and violation counts are harness checks only.
+7. **Rule-driven simulator emission** — ``SyntheticEventGenerator`` evaluates the same procedural YAML rules as the independent labeler via ``rule_driven_emitter.py`` (separate modules; frozen evaluation YAML unchanged). B5 multiseed alignment instantiates those rules at each evaluation seed.

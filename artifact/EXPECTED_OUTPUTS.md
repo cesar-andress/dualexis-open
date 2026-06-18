@@ -10,6 +10,18 @@ All paths are relative to the repository root.
 | `results_reference/tables/harness_b5_by_scenario.tex` | `export-harness-b5-labels` | Contains `tab:harness-b5-by-scenario`; labels match B5 CSV |
 | `results_reference/tables/privacy_fuzz_results.tex` | `validate-tsgg` | Contains `tab:privacy-fuzz` |
 | `results_reference/tables/leakage_audit.tex` | `leakage-audit --fast` | Contains `tab:leakage-audit` |
+| `results_reference/audit_comparison/audit_comparison.tex` | `audit-comparison` | Contains `tab:audit-comparison`; \(L_S=0.575\) in caption |
+
+## Audit comparison (Phase 2)
+
+| Path | Command |
+|------|---------|
+| `results_reference/audit_comparison/audit_comparison_results.csv` | `audit-comparison` |
+| `results_reference/audit_comparison/audit_comparison_summary.json` | `audit-comparison` |
+| `results_reference/audit_comparison/audit_task_results.csv` | `audit-comparison` |
+| `results_reference/audit_comparison/exports/{format}/` | `audit-comparison` |
+
+Post-hoc trace auditability comparison (6 scenarios × 30 seeds, same underlying run record per seed). Reference leakage score \(L_S \approx 0.575\) is reported transparently. Methodology: `docs/audit_comparison_methodology.md`.
 
 ## CSV / JSON results
 
@@ -24,7 +36,13 @@ All paths are relative to the repository root.
 ## Table 8 label criteria
 
 Pass/Partial/Fail labels derive from mean B5 `event_detection_accuracy` per scenario
-(`N=30` seeds by default):
+(`N=30` seeds by default). B5 alignment compares pipeline outputs against procedural
+ground truth instantiated at each evaluation seed (YAML rules in
+`experiments/ground_truth/rules/`). Frozen labels in `experiments/ground_truth/*.yaml`
+(seed-0 reference export) are unchanged.
+
+Internal L3 placeholder categories (`multimodal_fusion`, `fused_event`) are excluded
+from B5 alignment; simulator semantic events are never filtered.
 
 | Condition | Label |
 |-----------|-------|
@@ -32,12 +50,14 @@ Pass/Partial/Fail labels derive from mean B5 `event_detection_accuracy` per scen
 | mean $= 0.0$ | Fail |
 | $0 < \text{mean} < 1$ | Partial |
 
+After Phase 1 reference-implementation alignment, all six scenarios report **Pass**.
+
 ## Tests
 
 | Command | Expected |
 |---------|----------|
-| `bash artifact/commands.sh` | Exit 0; JSS artifact test suite passes (617 tests) |
-| `pytest tests/artifact -q` | 14 passed |
+| `bash artifact/commands.sh` | Exit 0; JSS artifact test suite passes |
+| `pytest tests/artifact -q` | all passed |
 
 ## Quick verification
 
@@ -45,6 +65,7 @@ Pass/Partial/Fail labels derive from mean B5 `event_detection_accuracy` per scen
 grep -q 'tab:harness-honesty' results_reference/tables/harness_honesty.tex
 grep -q 'tab:harness-b5-by-scenario' results_reference/tables/harness_b5_by_scenario.tex
 grep -q 'tab:privacy-fuzz' results_reference/tables/privacy_fuzz_results.tex
+grep -q 'tab:audit-comparison' results_reference/audit_comparison/audit_comparison.tex
 python3.12 -m pytest tests/artifact -q
 ```
 

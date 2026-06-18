@@ -84,7 +84,8 @@ python3.12 -m pytest tests/artifact -q
 6. `python3.12 -m dualexis.cli experiment tsgg-trust-propagation --fast --seeds 1,2,3`  
 7. `python3.12 -m dualexis.cli experiment export-harness-honesty`  
 8. `python3.12 -m dualexis.cli experiment export-harness-b5-labels`  
-9. JSS artifact test suite (`tests/artifact` + `tests/unit`, excluding legacy manuscript-check and non-deterministic pipeline snapshot test)
+9. `python3.12 -m dualexis.cli experiment audit-comparison`  
+10. JSS artifact test suite (`tests/artifact` + `tests/unit`, excluding legacy manuscript-check and non-deterministic pipeline snapshot test)
 
 Equivalent: `make reproduce` from repository root.
 
@@ -102,8 +103,9 @@ Measured on a clean virtual environment (Linux, Python 3.12, laptop-class CPU, 2
 | `formal-governance-audit` | 2-5 s |
 | `tsgg-trust-propagation --fast` | 5-15 s |
 | `export-harness-honesty` + `export-harness-b5-labels` | < 1 s |
-| Pytest (JSS AE suite) | 12-20 s |
-| Total `commands.sh` | ~1-2 min (after install) |
+| `audit-comparison` | 10-20 s |
+| Pytest (JSS AE suite) | 25-40 s |
+| Total `commands.sh` | ~2-3 min (after install) |
 
 Full multiseed validation without `--fast` flags can take several minutes; the JSS paper uses pre-registered fast modes for leakage Monte Carlo where noted.
 
@@ -130,6 +132,7 @@ grep -q 'tab:harness-honesty' results_reference/tables/harness_honesty.tex
 grep -q 'tab:harness-b5-by-scenario' results_reference/tables/harness_b5_by_scenario.tex
 grep -q 'tab:privacy-fuzz' results_reference/tables/privacy_fuzz_results.tex
 grep -q 'tab:leakage-audit' results_reference/tables/leakage_audit.tex
+grep -q 'tab:audit-comparison' results_reference/audit_comparison/audit_comparison.tex
 python3.12 -m pytest tests/artifact -q
 ```
 
@@ -142,6 +145,10 @@ python3.12 -m pytest tests/artifact -q
 | `results_reference/tables/privacy_fuzz_results.tex` | `validate-tsgg` |
 | `results_reference/tables/leakage_audit.tex` | `leakage-audit --fast` |
 | `results_reference/tables/baseline_results.tex` | `validate-tsgg` (supplementary) |
+| `results_reference/audit_comparison/audit_comparison.tex` | `audit-comparison` |
+| `results_reference/audit_comparison/audit_comparison_summary.json` | `audit-comparison` |
+
+See `docs/audit_comparison_methodology.md` for post-hoc trace auditability comparison (Phase 2). Reference leakage score \(L_S \approx 0.575\) after Phase 1 procedural alignment.
 
 ### 6.2 CSV / JSON artefacts
 
@@ -163,7 +170,7 @@ Values below are from a verified clean run (seed 42, default iterations). Small 
 | Metric | Expected (approx.) |
 | --- | ---: |
 | Privacy fuzz pass rate | 10/10 probes pass (see CSV) |
-| Leakage score \(L_S\) | 0.30 |
+| Leakage score \(L_S\) | ~0.575 |
 | Procedural independence | 1.00 |
 | Semantic independence | ~0.71 |
 | Distributional independence | ~0.70 |
@@ -173,7 +180,7 @@ Values below are from a verified clean run (seed 42, default iterations). Small 
 | `decision_traceability` | 1.00 |
 | Mean path trust \(\bar{T}_\pi\) | ~0.06 |
 | Governance trace JSON count | 100 |
-| Table 8 B5 labels | normal_flow Pass; four Fail; exit_blockage Partial |
+| Table 8 B5 labels | all six scenarios Pass (procedural alignment) |
 | Pytest | 626 passed, 0 failed |
 
 ### 6.4 Tests

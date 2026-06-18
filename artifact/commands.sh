@@ -25,8 +25,20 @@ python3.12 -m dualexis.cli experiment tsgg-trust-propagation --fast --seeds 1,2,
 echo "==> export-harness-honesty"
 python3.12 -m dualexis.cli experiment export-harness-honesty
 
-echo "==> export-harness-b5-labels"
+echo "==> verify-benchmark-manifest"
+python3.12 -m dualexis.cli experiment verify-benchmark-manifest
+
+echo "==> decoupled-benchmark"
+python3.12 -m dualexis.cli experiment decoupled-benchmark
+
+echo "==> shared-spec-regression"
+python3.12 -m dualexis.cli experiment shared-spec-regression
+
+echo "==> export-harness-b5-labels (shared-spec regression supplementary)"
 python3.12 -m dualexis.cli experiment export-harness-b5-labels
+
+echo "==> audit-comparison"
+python3.12 -m dualexis.cli experiment audit-comparison
 
 echo "==> pytest (JSS artifact suite)"
 python3.12 -m pytest tests/artifact tests/unit \
