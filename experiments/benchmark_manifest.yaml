@@ -1,0 +1,88 @@
+manifest_version: benchmark_manifest_v1
+generated_for_release: "1.0.5"
+description: >
+  Pre-registered benchmark artefacts for decoupled procedural agreement evaluation.
+  Emission profiles are independent of frozen ground-truth rule YAML.
+  SHA-256 hashes cover UTF-8 file contents as stored on disk.
+
+evaluation_seeds:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+
+calibration_seeds:
+  - 101
+  - 102
+  - 103
+  - 104
+  - 105
+
+ground_truth_rules:
+  version: gt_rules_v1
+  files:
+    - path: experiments/ground_truth/rules/normal_flow.yaml
+      sha256: 7dc460b6d7d78c482817fd9182d777a67013c3c68ea1b2caa0d90b861686460f
+    - path: experiments/ground_truth/rules/exit_blockage.yaml
+      sha256: 441764ff53fb8e7e9415b3a8c59e09e3d417ab1b84d76eb6bd2815654094a2ed
+    - path: experiments/ground_truth/rules/multimodal_conflict.yaml
+      sha256: 1bd77b2289ad00d9d54799db81ff8a5884cdb9cfd025453bc98051ea33790759
+    - path: experiments/ground_truth/rules/evacuation_recommendation.yaml
+      sha256: 2399db296262a6b176020b59c29acb18ed8476c41743562aa545a4ae40c8d0cf
+    - path: experiments/ground_truth/rules/crowd_acceleration.yaml
+      sha256: 0d9e534b527ed6af3dec1b44a0d9788835da33e0d2d777978725a9c0c5faba19
+    - path: experiments/ground_truth/rules/audio_stress_signal.yaml
+      sha256: 9c095bae93d35cf74fa8c7f5f88069d55f51a82e1ad16b89cdbf53fe96453c42
+
+emission_profiles:
+  version: emit_profiles_v1
+  files:
+    - path: experiments/simulator/emission_profiles/normal_flow.yaml
+      sha256: 3cb070955724c1be252c27a6427f4fa781fa1133f154266ab632b1d974b4379b
+    - path: experiments/simulator/emission_profiles/exit_blockage.yaml
+      sha256: 0b1931fc5cc299725c3b2192c96648a0669f0a4954a4d05b3e23179439be85c6
+    - path: experiments/simulator/emission_profiles/multimodal_conflict.yaml
+      sha256: c75a315dfe5b149fb598fecce8fb08f59029b8c5eaed996af5d28a28a9616baf
+    - path: experiments/simulator/emission_profiles/evacuation_recommendation.yaml
+      sha256: 284e31f3c66666fa78d527326f21c093dcb63dfd15b77d106408e2ab6e21d63e
+    - path: experiments/simulator/emission_profiles/crowd_acceleration.yaml
+      sha256: ac7fc87468b802432dc572f2848e080adc422728b5ab212a58ce0bc5ae19bb39
+    - path: experiments/simulator/emission_profiles/audio_stress_signal.yaml
+      sha256: c6a7424091fd2feab19bed085d708f323772da99f9dcde5b1e2a9cc17f662881
+
+target_par_band: [0.78, 0.94]
+target_fpr_band: [0.0, 0.18]
+target_fnr_band: [0.04, 0.22]
+target_ls_max: 0.58
+shared_threshold_ratio_max: 0.55
+
+calibration_policy: >
+  Emission profile thresholds were fixed before evaluation-seed freeze using
+  design offsets from GT rules and calibration seeds 101-105 only.
+  Evaluation seeds 1-30 were not used for profile tuning.
