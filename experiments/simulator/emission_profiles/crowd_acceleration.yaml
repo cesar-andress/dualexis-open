@@ -1,0 +1,24 @@
+scenario_id: crowd_acceleration
+version: emit_profiles_v1
+description: Decoupled emission profile; GT cafeteria density gte 0.38 at tick 2.
+emit_rules:
+  - semantic_label: crowd_density_elevated
+    zone_id: cafeteria
+    expected_event_type: crowd_acceleration
+    min_tick: 2
+    miss_probability: 0.0
+    conditions:
+      - metric: zone_density
+        zone: cafeteria
+        op: gte
+        value: 0.36
+  - semantic_label: crowd_density_elevated
+    zone_id: cafeteria
+    expected_event_type: crowd_acceleration
+    min_tick: 2
+    miss_probability: 0.08
+    conditions:
+      - metric: zone_density
+        zone: cafeteria
+        op: gte
+        value: 0.44

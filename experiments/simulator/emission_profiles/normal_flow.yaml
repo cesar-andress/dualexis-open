@@ -1,0 +1,16 @@
+scenario_id: normal_flow
+version: emit_profiles_v1
+description: >
+  Decoupled emission profile for normal_flow. Thresholds offset from frozen GT rules
+  (GT zone_density gte 0.18). Calibrated on manifest calibration seeds 101-105 only.
+emit_rules:
+  - semantic_label: normal_flow
+    zone_id: "*"
+    expected_event_type: normal_flow
+    min_tick: 0
+    miss_probability: 0.05
+    conditions:
+      - metric: zone_density
+        zone: "*"
+        op: gte
+        value: 0.22

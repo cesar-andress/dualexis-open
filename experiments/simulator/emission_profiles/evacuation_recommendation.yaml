@@ -1,0 +1,15 @@
+scenario_id: evacuation_recommendation
+version: emit_profiles_v1
+description: Decoupled emission profile; GT zone_density gte 0.52 from tick 3, max 2 zones.
+emit_rules:
+  - semantic_label: evacuation_stress_pattern
+    zone_id: "*"
+    expected_event_type: evacuation_signal
+    min_tick: 3
+    max_zones_per_tick: 2
+    miss_probability: 0.06
+    conditions:
+      - metric: zone_density
+        zone: "*"
+        op: gte
+        value: 0.58

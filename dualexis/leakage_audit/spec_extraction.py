@@ -3,11 +3,9 @@
 from __future__ import annotations
 
 import ast
-import inspect
-import textwrap
 from pathlib import Path
 
-from dualexis.simulation import event_generator, world_dynamics
+from dualexis.simulation import world_dynamics
 from dualexis.simulation.gt_rules import load_ground_truth_rules
 from dualexis.simulation.scenario import ScenarioId
 from dualexis.leakage_audit.models import ComponentSpec, LogicPredicate, ThresholdPredicate
@@ -92,124 +90,26 @@ _WORLD_DYNAMICS_LOGIC: tuple[LogicPredicate, ...] = tuple(
 
 
 def _extract_event_generator_thresholds() -> tuple[ThresholdPredicate, ...]:
-    source = inspect.getsource(event_generator.SyntheticEventGenerator._classify_signal)
-    dedented = textwrap.dedent(source)
-    wrapped = f"class _EventGeneratorProbe:\n{textwrap.indent(dedented, '    ')}"
-    tree = ast.parse(wrapped)
+    """Procedural thresholds for decoupled metric-heuristic emission profiles."""
+    from dualexis.simulation.emission_profiles import load_emission_profile
+
     thresholds: list[ThresholdPredicate] = []
-    scenario = ""
-    zone = ""
-
-    for node in ast.walk(tree):
-        if isinstance(node, ast.Compare):
-            metric = "zone_density"
-            for comparator in node.comparators:
-                if isinstance(comparator, ast.Constant) and isinstance(comparator.value, (int, float)):
-                    op = "gt"
-                    if isinstance(node.ops[0], ast.Lt):
-                        op = "lt"
-                    elif isinstance(node.ops[0], ast.LtE):
-                        op = "lte"
-                    elif isinstance(node.ops[0], ast.GtE):
-                        op = "gte"
-                    thresholds.append(
-                        ThresholdPredicate(
-                            metric=metric,
-                            zone=zone or "*",
-                            operator=op,
-                            value=float(comparator.value),
-                            scenario_id=scenario,
-                            component="event_generator",
-                            label=f"{scenario}:{zone}",
-                        )
+    for scenario in ScenarioId:
+        doc = load_emission_profile(scenario)
+        for rule in doc.emit_rules:
+            for cond in rule.conditions:
+                thresholds.append(
+                    ThresholdPredicate(
+                        metric=cond.metric,
+                        zone=cond.zone if cond.zone != "*" else rule.zone_id,
+                        operator=cond.op.value,
+                        value=cond.value,
+                        scenario_id=scenario.value,
+                        component="metric_heuristic_emitter",
+                        label=rule.semantic_label,
                     )
-        if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name):
-            if node.attr == "value":
-                scenario = ""
-        if isinstance(node, ast.Constant) and isinstance(node.value, str):
-            if node.value in {s.value for s in ScenarioId}:
-                scenario = node.value
-            elif node.value in {"cafeteria", "exit-lobby", "hallway-a"}:
-                zone = node.value
-
-    # Hand-curate from known classify_signal for reliability
-    return (
-        ThresholdPredicate(
-            metric="zone_density",
-            zone="cafeteria",
-            operator="gt",
-            value=0.45,
-            scenario_id="crowd_acceleration",
-            component="event_generator",
-        ),
-        ThresholdPredicate(
-            metric="zone_density",
-            zone="exit-lobby",
-            operator="gt",
-            value=0.5,
-            scenario_id="exit_blockage",
-            component="event_generator",
-        ),
-        ThresholdPredicate(
-            metric="zone_audio",
-            zone="hallway-a",
-            operator="gt",
-            value=0.55,
-            scenario_id="audio_stress_signal",
-            component="event_generator",
-        ),
-        ThresholdPredicate(
-            metric="zone_activity",
-            zone="cafeteria",
-            operator="lt",
-            value=0.3,
-            scenario_id="multimodal_conflict",
-            component="event_generator",
-        ),
-        ThresholdPredicate(
-            metric="zone_audio",
-            zone="cafeteria",
-            operator="gt",
-            value=0.6,
-            scenario_id="multimodal_conflict",
-            component="event_generator",
-        ),
-        ThresholdPredicate(
-            metric="zone_density",
-            zone="*",
-            operator="gt",
-            value=0.6,
-            scenario_id="evacuation_recommendation",
-            component="event_generator",
-        ),
-        ThresholdPredicate(
-            metric="zone_density",
-            zone="*",
-            operator="gt",
-            value=0.7,
-            scenario_id="*",
-            component="event_generator",
-            label="generic elevated density",
-        ),
-        ThresholdPredicate(
-            metric="zone_audio",
-            zone="*",
-            operator="gt",
-            value=0.75,
-            scenario_id="*",
-            component="event_generator",
-            label="generic elevated audio",
-        ),
-        ThresholdPredicate(
-            metric="composite_score",
-            zone="*",
-            operator="lt",
-            value=0.25,
-            scenario_id="*",
-            component="event_generator",
-            label="emit skip threshold",
-        ),
-    )
+                )
+    return tuple(thresholds)
 
 
 def _extract_event_generator_logic() -> tuple[LogicPredicate, ...]:
@@ -217,8 +117,8 @@ def _extract_event_generator_logic() -> tuple[LogicPredicate, ...]:
         LogicPredicate(
             predicate_id=f"eg-{scenario.value}",
             scenario_id=scenario.value,
-            component="event_generator",
-            expression=f"_classify_signal scenario=={scenario.value}",
+            component="metric_heuristic_emitter",
+            expression=f"emit_metric_heuristic_events scenario=={scenario.value}",
         )
         for scenario in ScenarioId
     )
@@ -271,13 +171,8 @@ def extract_world_dynamics_spec() -> ComponentSpec:
 
 def extract_event_generator_spec() -> ComponentSpec:
     return ComponentSpec(
-        component_id="event_generator",
-        variables=(
-            "zone_density",
-            "zone_activity",
-            "zone_audio",
-            "composite_score",
-        ),
+        component_id="metric_heuristic_emitter",
+        variables=tuple(sorted(CANONICAL_VARIABLES)),
         thresholds=_extract_event_generator_thresholds(),
         logic_predicates=_extract_event_generator_logic(),
     )

@@ -1,0 +1,14 @@
+scenario_id: audio_stress_signal
+version: emit_profiles_v1
+description: Decoupled emission profile; GT hallway-a audio gte 0.48 at tick 2.
+emit_rules:
+  - semantic_label: acoustic_stress
+    zone_id: hallway-a
+    expected_event_type: audio_stress_signal
+    min_tick: 2
+    miss_probability: 0.07
+    conditions:
+      - metric: zone_audio
+        zone: hallway-a
+        op: gte
+        value: 0.55

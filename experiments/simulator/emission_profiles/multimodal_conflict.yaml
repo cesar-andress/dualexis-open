@@ -1,0 +1,18 @@
+scenario_id: multimodal_conflict
+version: emit_profiles_v1
+description: Decoupled emission profile; GT cafeteria audio gte 0.52 and activity lt 0.28.
+emit_rules:
+  - semantic_label: multimodal_conflict
+    zone_id: cafeteria
+    expected_event_type: multimodal_conflict
+    min_tick: 3
+    miss_probability: 0.09
+    conditions:
+      - metric: zone_audio
+        zone: cafeteria
+        op: gte
+        value: 0.57
+      - metric: zone_activity
+        zone: cafeteria
+        op: lt
+        value: 0.32
