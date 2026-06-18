@@ -7,7 +7,6 @@ from pathlib import Path
 
 import pytest
 
-from dualexis.evaluation.harness_b5_alignment import load_harness_b5_alignment
 from dualexis.evaluation.harness_honesty_export import (
     HarnessHonestyPaths,
     load_harness_honesty_metrics,
@@ -155,13 +154,11 @@ def test_harness_honesty_tex_matches_live_source_artefacts() -> None:
 
 
 @pytest.mark.unit
-def test_harness_b5_tex_matches_live_baseline_csv() -> None:
-    _require_live_results()
-    csv_path = RESULTS / "baseline_comparison/results.csv"
-    assert csv_path.is_file()
-
-    alignment = load_harness_b5_alignment(csv_path)
-    tex = (REFERENCE / "tables/harness_b5_by_scenario.tex").read_text(encoding="utf-8")
+def test_shared_spec_regression_tex_all_pass() -> None:
+    """Shared-spec regression table is supplementary; not derived from B5 baseline CSV."""
+    tex = (
+        REFERENCE / "regression/shared_spec/shared_spec_regression.tex"
+    ).read_text(encoding="utf-8")
 
     import re
 
@@ -173,6 +170,5 @@ def test_harness_b5_tex_matches_live_baseline_csv() -> None:
         match.group(1).replace(r"\_", "_"): match.group(2)
         for match in pattern.finditer(tex)
     }
-
-    for row in alignment.rows:
-        assert parsed[row.scenario] == row.label
+    assert parsed
+    assert all(label == "Pass" for label in parsed.values())

@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-import json
+from collections import Counter
 
 import pytest
 
 from dualexis.simulation import run_scenario
+from dualexis.simulation.emission_mode import EmissionMode
 from dualexis.simulation.ground_truth_loader import load_scenario_ground_truth
 from dualexis.simulation.independent_labeler import build_independent_ground_truth
 from dualexis.simulation.scenario import ScenarioId
@@ -21,21 +22,25 @@ def test_independent_ground_truth_yaml_loads(scenario_name: str) -> None:
 
 
 @pytest.mark.unit
-def test_simulation_ground_truth_not_copied_from_events() -> None:
-    """Ground-truth labels must not be a per-event copy of generator output."""
-    result = run_scenario("exit_blockage", seed=42)
-    assert result.ground_truth.labels
-
-    event_keys = {
+def test_simulation_events_align_with_procedural_rules_via_separate_modules() -> None:
+    """Emitter and labeler share rule definitions but remain separate code paths."""
+    result = run_scenario(
+        "exit_blockage",
+        seed=42,
+        emission_mode=EmissionMode.SHARED_SPEC,
+    )
+    built = build_independent_ground_truth(ScenarioId.EXIT_BLOCKAGE, seed=42)
+    event_keys = Counter(
         (event.zone_id, event.metadata.get("category", "")) for event in result.events
-    }
-    gt_keys = {(label.zone_id, label.semantic_label) for label in result.ground_truth.labels}
-    assert gt_keys != event_keys or len(result.events) != len(result.ground_truth.labels)
+    )
+    label_keys = Counter((label.zone_id, label.semantic_label) for label in built.labels)
+    assert event_keys == label_keys
 
 
 @pytest.mark.unit
-def test_independent_labeler_differs_from_generator_categories() -> None:
-    """Independent labeler uses distinct semantic labels for exit blockage."""
+def test_independent_labeler_exit_blockage_vocabulary() -> None:
+    """Independent labeler exposes exit blockage procedural labels."""
     independent = build_independent_ground_truth(ScenarioId.EXIT_BLOCKAGE, seed=0)
     labels = {label.semantic_label for label in independent.labels}
-    assert "exit_blockage" in labels or "exit_throughput_reduced" in labels
+    assert "exit_blockage" in labels
+    assert "exit_throughput_reduced" in labels

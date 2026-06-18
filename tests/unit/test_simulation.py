@@ -118,11 +118,11 @@ def test_ground_truth_recommends_review_for_high_risk_scenarios() -> None:
 def test_scenario_specific_labels() -> None:
     crowd = run_scenario("crowd_acceleration", seed=42)
     categories = {event.metadata.get("category") for event in crowd.events}
-    assert "density_elevated" in categories
+    assert "crowd_density_elevated" in categories
 
     audio = run_scenario("audio_stress_signal", seed=42)
     audio_cats = {event.metadata.get("category") for event in audio.events}
-    assert "elevated_sound_level" in audio_cats
+    assert "acoustic_stress" in audio_cats
 
 
 @pytest.mark.unit
