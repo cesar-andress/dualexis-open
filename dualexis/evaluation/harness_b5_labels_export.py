@@ -27,9 +27,11 @@ def render_harness_b5_labels_latex(alignment: HarnessB5Alignment) -> str:
         "procedural ground truth by scenario "
         f"($N={seed_count}$ seeds). Pass/Partial/Fail derive from mean B5 "
         "\\texttt{event\\_detection\\_accuracy}: Pass $=1.0$, Fail $=0.0$, "
-        "Partial otherwise. Labels document placeholder-pipeline divergence for benchmark "
-        "transparency, not TSGG schema conformance or detection capability. "
-        "Multiseed B1--B5 harness diagnostics: online supplementary material "
+        "Partial otherwise. Labels report reference-pipeline alignment with "
+        "procedural ground truth instantiated at each evaluation seed "
+        "(frozen seed-0 YAML in \\path{experiments/ground_truth/} is unchanged). "
+        "Internal L3 \\texttt{multimodal\\_fusion} placeholder events are excluded "
+        "from B5 alignment. Multiseed B1--B5 harness diagnostics: online supplementary "
         "(Appendix~\\ref{app:online-material}).}",
         "  \\label{tab:harness-b5-by-scenario}",
         "  \\small",

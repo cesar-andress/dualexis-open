@@ -19,6 +19,24 @@ from dualexis.simulation.ground_truth import ScenarioGroundTruth
 
 _HIGH_SEVERITIES = frozenset({SeverityLevel.HIGH, SeverityLevel.CRITICAL})
 
+# Internal L3 pipeline placeholder categories excluded from B5 procedural alignment.
+# These are audit-scaffolding fusion artefacts, not simulator semantic observations.
+B5_EXCLUDED_PIPELINE_CATEGORIES = frozenset({"multimodal_fusion", "fused_event"})
+
+
+def events_for_b5_alignment(events: tuple[SemanticEvent, ...]) -> tuple[SemanticEvent, ...]:
+    """Return events used for B5 event_detection_accuracy vs procedural ground truth.
+
+    Excludes ``multimodal_fusion`` and ``fused_event`` categories emitted by the
+    placeholder ``DefaultSemanticEventService`` during full-pipeline runs. Simulator
+    events (including rule-driven categories such as ``normal_flow``) are retained.
+    """
+    return tuple(
+        event
+        for event in events
+        if event.metadata.get("category", "") not in B5_EXCLUDED_PIPELINE_CATEGORIES
+    )
+
 
 class EvaluationMetricSet(BaseModel):
     """Legacy metric bundle for baseline evaluation reports."""
@@ -258,8 +276,10 @@ def compute_metrics(
 
 
 __all__ = [
+    "B5_EXCLUDED_PIPELINE_CATEGORIES",
     "EvaluationMetricSet",
     "compute_average_confidence",
+    "events_for_b5_alignment",
     "compute_event_count",
     "compute_event_detection_accuracy",
     "compute_experiment_metrics",

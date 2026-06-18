@@ -12,8 +12,10 @@ from dualexis.evaluation.metrics import (
     compute_explanation_completeness_score,
     compute_false_negative_rate,
     compute_false_positive_rate,
+    events_for_b5_alignment,
 )
-from dualexis.simulation.ground_truth_loader import load_scenario_ground_truth
+from dualexis.simulation.independent_labeler import build_independent_ground_truth
+from dualexis.simulation.ground_truth import ScenarioGroundTruth
 from dualexis.simulation.scenario import ScenarioId
 from dualexis.evaluation.protocol import (
     ExperimentProtocolId,
@@ -398,6 +400,15 @@ class DualexisFullPipelineBaseline(ComparableBaseline):
         )
 
 
+def _procedural_ground_truth_for_seed(scenario: str, seed: int) -> ScenarioGroundTruth:
+    """Instantiate procedural GT rules at the evaluation seed for B5 alignment.
+
+    Frozen YAML under ``experiments/ground_truth/`` (seed-0 reference export) is
+    unchanged; multiseed B5 compares against rules applied to the same world walk.
+    """
+    return build_independent_ground_truth(ScenarioId(scenario), seed=seed)
+
+
 def _result_from_protocol(
     runner: ComparableBaseline,
     *,
@@ -406,8 +417,12 @@ def _result_from_protocol(
     protocol: ProtocolExecutionResult,
     recommendation_count: int,
 ) -> ComparableBaselineResult:
-    ground_truth = load_scenario_ground_truth(ScenarioId(scenario))
-    events = protocol.events
+    ground_truth = _procedural_ground_truth_for_seed(scenario, seed)
+    events = (
+        events_for_b5_alignment(protocol.events)
+        if runner.baseline_id == ComparableBaselineId.DUALEXIS_FULL_PIPELINE
+        else protocol.events
+    )
     expl_score = protocol.explanation_completeness_score
     if expl_score >= 1.0 and events:
         expl_score = compute_explanation_completeness_score(events)
