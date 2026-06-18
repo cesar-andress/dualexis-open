@@ -1341,47 +1341,247 @@ def experiment_export_harness_honesty_cmd(
 @experiment_app.command("export-harness-b5-labels")
 def experiment_export_harness_b5_labels_cmd(
     output: str = typer.Option(
-        "results_reference/tables/harness_b5_by_scenario.tex",
+        "results_reference/regression/shared_spec/shared_spec_regression.tex",
         "--output",
         "-o",
-        help="Path for regenerated Table 8 LaTeX fragment.",
+        help="Path for shared-spec regression LaTeX (supplementary only).",
     ),
-    baseline_csv: str = typer.Option(
-        "results/baseline_comparison/results.csv",
-        "--baseline-csv",
-        help="Multiseed baseline CSV produced by validate-tsgg.",
+    regression_dir: str = typer.Option(
+        "results_reference/regression/shared_spec",
+        "--regression-dir",
+        help="Directory for shared-spec regression JSON/LaTeX.",
     ),
-    paper_baseline: str = typer.Option(
-        "B5",
-        "--paper-baseline",
-        help="Paper baseline id used for Pass/Partial/Fail labels (default B5).",
+    seeds: str = typer.Option(
+        ",".join(str(s) for s in range(1, 31)),
+        "--seeds",
+        help="Comma-separated seeds (default 1--30).",
+    ),
+    scenarios: str = typer.Option(
+        ",".join(
+            [
+                "normal_flow",
+                "exit_blockage",
+                "multimodal_conflict",
+                "evacuation_recommendation",
+                "crowd_acceleration",
+                "audio_stress_signal",
+            ]
+        ),
+        "--scenarios",
+        help="Comma-separated scenario identifiers.",
     ),
 ) -> None:
-    """Export harness honesty Table 8 from B5 detection-accuracy aggregates."""
-    from dualexis.evaluation.harness_b5_alignment import (
-        HarnessB5InputError,
-        load_harness_b5_alignment,
+    """Export shared-spec regression table (6/6 Pass retained for CI/regression only)."""
+    from dualexis.experiments.decoupled_benchmark import run_shared_spec_regression
+
+    seed_values = tuple(int(token.strip()) for token in seeds.split(",") if token.strip())
+    scenario_values = tuple(token.strip() for token in scenarios.split(",") if token.strip())
+    out_dir = Path(regression_dir)
+    summary = run_shared_spec_regression(
+        output_dir=out_dir,
+        scenarios=scenario_values,
+        seeds=seed_values,
     )
-    from dualexis.evaluation.harness_b5_labels_export import export_harness_b5_labels_tex
+    default_tex = out_dir / "shared_spec_regression.tex"
+    target = Path(output).resolve()
+    if target != default_tex.resolve():
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(default_tex.read_text(encoding="utf-8"), encoding="utf-8")
+    typer.echo(f"Wrote {target}")
+    for row in summary["rows"]:
+        if row.get("aggregate"):
+            typer.echo(f"{row['scenario']}: mean_par={row['mean_par']} -> {row['label']}")
 
-    try:
-        alignment = load_harness_b5_alignment(
-            Path(baseline_csv),
-            paper_baseline=paper_baseline,
-        )
-        tex_path = export_harness_b5_labels_tex(
-            Path(output),
-            alignment=alignment,
-        )
-    except HarnessB5InputError as exc:
-        typer.secho(str(exc), fg=typer.colors.RED, err=True)
-        raise typer.Exit(code=1) from exc
 
-    typer.echo(f"Wrote {tex_path}")
-    for row in alignment.rows:
+@experiment_app.command("export-audit-baselines")
+def experiment_export_audit_baselines_cmd(
+    output: str = typer.Option(
+        "results/audit_comparison/exports",
+        "--output",
+        "-o",
+        help="Directory for per-format baseline JSON exports.",
+    ),
+    scenario: str = typer.Option("exit_blockage", "--scenario", help="Scenario identifier."),
+    seed: int = typer.Option(1, "--seed", help="Deterministic seed."),
+    leakage_fast: bool = typer.Option(True, "--fast/--full", help="Fast leakage audit."),
+) -> None:
+    """Export flat JSON, PROV, XES, and TSGG traces from one underlying run record."""
+    from dualexis.experiments.audit_comparison_battery import export_audit_baselines_for_run
+
+    out = export_audit_baselines_for_run(
+        None,
+        scenario=scenario,
+        seed=seed,
+        output_dir=Path(output),
+        leakage_fast=leakage_fast,
+    )
+    typer.echo(f"Wrote baseline exports to {out}")
+
+
+@experiment_app.command("audit-comparison")
+def experiment_audit_comparison_cmd(
+    output: str = typer.Option(
+        "results_reference/audit_comparison",
+        "--output",
+        "-o",
+        help="Directory for audit comparison CSV/JSON/LaTeX artefacts.",
+    ),
+    seeds: str = typer.Option(
+        ",".join(str(s) for s in range(1, 31)),
+        "--seeds",
+        help="Comma-separated seeds (default 1--30).",
+    ),
+    scenarios: str = typer.Option(
+        ",".join(
+            [
+                "normal_flow",
+                "exit_blockage",
+                "multimodal_conflict",
+                "evacuation_recommendation",
+                "crowd_acceleration",
+                "audio_stress_signal",
+            ]
+        ),
+        "--scenarios",
+        help="Comma-separated scenario identifiers.",
+    ),
+    leakage_fast: bool = typer.Option(True, "--fast/--full", help="Fast leakage audit."),
+) -> None:
+    """Run post-hoc trace auditability comparison across export formats."""
+    from dualexis.experiments.audit_comparison_battery import run_audit_comparison_battery
+
+    seed_values = tuple(int(token.strip()) for token in seeds.split(",") if token.strip())
+    scenario_values = tuple(token.strip() for token in scenarios.split(",") if token.strip())
+    report = run_audit_comparison_battery(
+        output_dir=Path(output),
+        scenarios=scenario_values,
+        seeds=seed_values,
+        leakage_fast=leakage_fast,
+    )
+    typer.echo(f"Wrote audit comparison artefacts to {output}")
+    typer.echo(f"runs={report.run_count} leakage_score_LS={report.leakage_score:.3f}")
+    for export_format, metrics in report.format_metrics.items():
         typer.echo(
-            f"{row.scenario}: mean_acc={row.mean_detection_accuracy:.3f} -> {row.label}"
+            f"{export_format}: QSR={metrics.query_success_rate:.3f} "
+            f"completeness={metrics.mean_completeness:.3f} "
+            f"info_loss={metrics.mean_information_loss:.3f} "
+            f"violation_f1={metrics.violation_f1:.3f}"
         )
+
+
+@experiment_app.command("verify-benchmark-manifest")
+def experiment_verify_benchmark_manifest_cmd(
+    manifest: str = typer.Option(
+        "experiments/benchmark_manifest.yaml",
+        "--manifest",
+        help="Path to benchmark manifest YAML.",
+    ),
+) -> None:
+    """Verify SHA-256 hashes of frozen GT rules and emission profiles."""
+    from dualexis.experiments.benchmark_manifest import verify_benchmark_manifest
+
+    result = verify_benchmark_manifest(Path(manifest))
+    if result.ok:
+        typer.secho("Benchmark manifest verification: PASS", fg=typer.colors.GREEN)
+        return
+    typer.secho("Benchmark manifest verification: FAIL", fg=typer.colors.RED, err=True)
+    for mismatch in result.mismatches:
+        typer.echo(mismatch, err=True)
+    raise typer.Exit(code=1)
+
+
+@experiment_app.command("decoupled-benchmark")
+def experiment_decoupled_benchmark_cmd(
+    output: str = typer.Option(
+        "results_reference/benchmark_decoupled",
+        "--output",
+        "-o",
+        help="Directory for primary PAR CSV/JSON/LaTeX artefacts.",
+    ),
+    seeds: str = typer.Option(
+        ",".join(str(s) for s in range(1, 31)),
+        "--seeds",
+        help="Comma-separated evaluation seeds (default 1--30).",
+    ),
+    scenarios: str = typer.Option(
+        ",".join(
+            [
+                "normal_flow",
+                "exit_blockage",
+                "multimodal_conflict",
+                "evacuation_recommendation",
+                "crowd_acceleration",
+                "audio_stress_signal",
+            ]
+        ),
+        "--scenarios",
+        help="Comma-separated scenario identifiers.",
+    ),
+    leakage_fast: bool = typer.Option(True, "--fast/--full", help="Fast leakage audit."),
+) -> None:
+    """Run primary decoupled procedural agreement benchmark (PAR/FPR/FNR)."""
+    from dualexis.experiments.decoupled_benchmark import run_decoupled_benchmark
+
+    seed_values = tuple(int(token.strip()) for token in seeds.split(",") if token.strip())
+    scenario_values = tuple(token.strip() for token in scenarios.split(",") if token.strip())
+    report = run_decoupled_benchmark(
+        output_dir=Path(output),
+        scenarios=scenario_values,
+        seeds=seed_values,
+        leakage_fast=leakage_fast,
+    )
+    typer.echo(f"Wrote decoupled benchmark artefacts to {output}")
+    typer.echo(
+        f"aggregate_par={report.aggregate.par:.4f} "
+        f"[{report.aggregate_ci.lower:.4f}, {report.aggregate_ci.upper:.4f}]"
+    )
+    typer.echo(f"fpr={report.aggregate.fpr:.4f} fnr={report.aggregate.fnr:.4f}")
+    typer.echo(f"leakage_score_LS={report.leakage_score:.3f}")
+    typer.echo(f"pi_dist={report.distributional_independence:.3f}")
+
+
+@experiment_app.command("shared-spec-regression")
+def experiment_shared_spec_regression_cmd(
+    output: str = typer.Option(
+        "results_reference/regression/shared_spec",
+        "--output",
+        "-o",
+        help="Directory for shared-spec regression JSON/LaTeX.",
+    ),
+    seeds: str = typer.Option(
+        ",".join(str(s) for s in range(1, 31)),
+        "--seeds",
+        help="Comma-separated seeds (default 1--30).",
+    ),
+    scenarios: str = typer.Option(
+        ",".join(
+            [
+                "normal_flow",
+                "exit_blockage",
+                "multimodal_conflict",
+                "evacuation_recommendation",
+                "crowd_acceleration",
+                "audio_stress_signal",
+            ]
+        ),
+        "--scenarios",
+        help="Comma-separated scenario identifiers.",
+    ),
+) -> None:
+    """Run shared-spec implementation regression (NOT primary conformance evidence)."""
+    from dualexis.experiments.decoupled_benchmark import run_shared_spec_regression
+
+    seed_values = tuple(int(token.strip()) for token in seeds.split(",") if token.strip())
+    scenario_values = tuple(token.strip() for token in scenarios.split(",") if token.strip())
+    summary = run_shared_spec_regression(
+        output_dir=Path(output),
+        scenarios=scenario_values,
+        seeds=seed_values,
+    )
+    typer.echo(f"Wrote shared-spec regression artefacts to {output}")
+    for row in summary["rows"]:
+        if row.get("aggregate"):
+            typer.echo(f"{row['scenario']}: mean_par={row['mean_par']} -> {row['label']}")
 
 
 @experiment_app.command("empirical-legacy", hidden=True)
