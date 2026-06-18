@@ -1,0 +1,17 @@
+digraph E2Leakage {
+  rankdir=LR;
+  node [shape=box, style=rounded];
+  world_dynamics [label="world_dynamics\n(shared dynamics)"];
+  metric_heuristic_emitter [label="event_generator\n(emission)"];
+  ground_truth_rules [label="ground_truth_rules\n(labeling)"];
+  independent_labeler [label="independent_labeler", style=dashed];
+  ground_truth_rules -> independent_labeler [label="authoring", style=dotted];
+  world_dynamics -> metric_heuristic_emitter [label="feeds WorldState"];
+  world_dynamics -> ground_truth_rules [label="feeds metrics"];
+  world_dynamics -> metric_heuristic_emitter [label="shared_world_variables: elapsed_seconds, exit_throughput, tick"]; weight=6];
+  world_dynamics -> metric_heuristic_emitter [label="threshold_align=0.60", style=dashed];
+  world_dynamics -> ground_truth_rules [label="shared_world_metrics: elapsed_seconds, exit_throughput, tick"]; weight=6];
+  world_dynamics -> ground_truth_rules [label="threshold_align=0.75", style=dashed];
+  metric_heuristic_emitter -> ground_truth_rules [label="shared_thresholds: elapsed_seconds, exit_throughput, tick"]; weight=6];
+  metric_heuristic_emitter -> ground_truth_rules [label="threshold_align=1.00", style=dashed];
+}

@@ -13,7 +13,7 @@ For $v\in V$,
   T(v) \in [0,1], \qquad T(v_0) = \pi_0,
 \end{equation}
 where $\pi_0$ is the \emph{benchmark trust prior} from leakage independence
-($\pi_0=0.594$ in the current harness).
+($\pi_0=0.360$ in the current harness).
 
 \paragraph{Update operators.}
 Multiplicative propagation composes parent trust with local confidence $\phi$:
@@ -39,19 +39,19 @@ Equation~\eqref{eq:tsgg-trust-compose}, path trust is the terminal label
 \end{equation}
 (Local factors $\phi(v_i)$ satisfy $T(v_i)=T(v_{i-1})\cdot\phi(v_i)$ along $\pi$.)
 Recommendation trust is $T(r)=T(\pi_r)$ for the path $\pi_r$ terminating at recommendation
-vertex $r$ (mean $\bar{T}_r=0.105$ over the audit sample).
+vertex $r$ (mean $\bar{T}_r=0.039$ over the audit sample).
 
 \paragraph{Trust-theoretic metrics.}
 \begin{itemize}[noitemsep]
-  \item \textbf{trust\_consistency} $=0.522$ --- low dispersion of
+  \item \textbf{trust\_consistency} $=0.530$ --- low dispersion of
         mean stage trust (stable propagation profile);
-  \item \textbf{trust\_decay} $=0.971$ --- average relative loss
+  \item \textbf{trust\_decay} $=0.996$ --- average relative loss
         $1-T(v_k)/T(v_1)$ along audit paths;
-  \item \textbf{trust\_recovery} $=0.017$ --- governance-stage uplift
+  \item \textbf{trust\_recovery} $=0.008$ --- governance-stage uplift
         when $T(g)>T(r)$ after low recommendation trust.
 \end{itemize}
-Mean node trust $\bar{T}_V=0.127$;
-mean path trust $\bar{T}_\pi=0.060$.
+Mean node trust $\bar{T}_V=0.039$;
+mean path trust $\bar{T}_\pi=0.019$.
 
 \input{sections/trust_flow_figure}
 \input{tables/trust_propagation_metrics}

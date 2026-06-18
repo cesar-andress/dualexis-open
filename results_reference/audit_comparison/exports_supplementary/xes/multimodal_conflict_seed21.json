@@ -1,0 +1,246 @@
+{
+  "format": "xes_json",
+  "scenario_id": "multimodal_conflict",
+  "seed": 21,
+  "log": {
+    "xes": "2.0",
+    "global": {
+      "concept:name": "DualexisSyntheticAuditTrace",
+      "lifecycle:model": "standard"
+    },
+    "traces": [
+      {
+        "concept:name": "multimodal_conflict-seed21",
+        "events": [
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:evidence_id": "ev-cafeteria-density-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:evidence_id": "ev-cafeteria-activity-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:evidence_id": "ev-cafeteria-audio-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:evidence_id": "ev-exit-exit-north-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:evidence_id": "ev-exit-exit-main-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:transition_id": "c96b0937-4f99-5d32-a817-18277f11d9b2",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "multi_modal_conflict",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-1",
+              "ev-cafeteria-activity-1",
+              "ev-cafeteria-audio-1",
+              "ev-exit-exit-north-1",
+              "ev-exit-exit-main-1"
+            ]
+          },
+          {
+            "concept:name": "RecommendationIssued",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:recommendation_id": "e99a9654-835e-53c4-a489-e35c8a0c117c",
+            "dualexis:requires_human_review": false,
+            "dualexis:human_review_status": "not_required",
+            "dualexis:severity": "low"
+          },
+          {
+            "concept:name": "AuditPerception_Processed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:audit_entry_id": "4302c4a7-b516-5abb-8c18-29bbd42f6d59",
+            "dualexis:action": "perception_processed"
+          },
+          {
+            "concept:name": "AuditPerception_Processed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:audit_entry_id": "270b2529-ec98-50cf-9f58-c53555ad2bb3",
+            "dualexis:action": "perception_processed"
+          },
+          {
+            "concept:name": "AuditPerception_Processed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:audit_entry_id": "4cdffbd7-c416-5039-8a7c-c4338a42d6c5",
+            "dualexis:action": "perception_processed"
+          },
+          {
+            "concept:name": "AuditFusion_Completed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:audit_entry_id": "caf1e82c-b1ba-576d-9615-d09851dc1293",
+            "dualexis:action": "fusion_completed"
+          },
+          {
+            "concept:name": "AuditReasoning_Invoked",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:audit_entry_id": "52ad0e30-71a7-50f6-bc44-30d4083acb98",
+            "dualexis:action": "reasoning_invoked"
+          },
+          {
+            "concept:name": "AuditEvent_Published",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:audit_entry_id": "f7830094-8398-5a1e-be67-356ba9b68969",
+            "dualexis:action": "event_published"
+          },
+          {
+            "concept:name": "AuditPrivacy_Check_Passed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:audit_entry_id": "0274e580-8b02-5265-bb11-ed42af15cf00",
+            "dualexis:action": "privacy_check_passed"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:event_id": "5a0ae98f-b3a4-567b-8dc5-41ed9f4b971a",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_fusion"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:event_id": "1d8a43d6-7ffd-592e-a8f2-eb7939d9f4f4",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "BenchmarkCouplingDisclosed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:leakage_score": 0.575,
+            "dualexis:benchmark_disclosure": "This benchmark is procedurally independent but not distributionally independent.",
+            "dualexis:procedural_independence": 1.0
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:event_id": "bb7cea63-61c1-5cd0-a0de-68024bbbc7f1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:event_id": "d7619104-a4a7-557d-ae34-a08eade65076",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:event_id": "04f46444-3928-5a4e-a57b-2bf4cd2df9f1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:event_id": "8543c90b-f0bd-5e44-9d4b-028c8f9b7f24",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:event_id": "3210946f-e94c-54b2-a1a0-6b72581f8fd6",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:event_id": "22d4ee11-be44-598c-8021-1d8caedbb6a4",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:event_id": "6405d74f-a1c4-54e2-a32a-df534803b92e",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed21",
+            "dualexis:event_id": "9f7581bf-def3-511e-a57b-3a0408c74126",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,1785 @@
+{
+  "format": "flat_json_event_log",
+  "scenario_id": "audio_stress_signal",
+  "seed": 11,
+  "records": [
+    {
+      "seq": 1,
+      "record_type": "safety_state",
+      "id": "ed3fb638-ff0d-59db-bdd8-fb74aa050046",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 2,
+      "record_type": "safety_state",
+      "id": "6e64e6ef-d9d7-57e5-9842-ec3a86cc1719",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 3,
+      "record_type": "safety_state",
+      "id": "3145b6cf-4d05-5e97-ad4a-06e2376fc8ac",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "normal",
+        "tick": 1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 4,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-density-3",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "hallway-a",
+        "tick": 3,
+        "metric_value": 0.3034953931539959
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 5,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-activity-3",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "hallway-a",
+        "tick": 3,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 6,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-audio-3",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "hallway-a",
+        "tick": 3,
+        "metric_value": 0.5603136509224909
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 7,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-3",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 3,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 8,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-3",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 3,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 9,
+      "record_type": "evidence",
+      "id": "ev-event-00ecc86b-35ff-5ab8-b937-4e03677badf6",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "hallway-a",
+        "tick": 3,
+        "metric_value": 0.3268
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 10,
+      "record_type": "safety_state",
+      "id": "849e8ee4-7de7-594c-bcd5-1fe7a68fa4e7",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "audio_stress",
+        "tick": 3
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 11,
+      "record_type": "safety_state",
+      "id": "1e4bc46d-08fd-5022-ab12-c32ae5547048",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 3
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 12,
+      "record_type": "causal_transition",
+      "id": "de00f9ef-ebc7-56b2-bf63-4280a2a7b218",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "normal",
+        "to_state": "audio_stress",
+        "tick": 3,
+        "supporting_evidence_ids": [
+          "ev-hallway-a-density-3",
+          "ev-hallway-a-activity-3",
+          "ev-hallway-a-audio-3",
+          "ev-exit-exit-north-3",
+          "ev-exit-exit-main-3"
+        ]
+      },
+      "related_ids": [
+        "ev-hallway-a-density-3",
+        "ev-hallway-a-activity-3",
+        "ev-hallway-a-audio-3",
+        "ev-exit-exit-north-3",
+        "ev-exit-exit-main-3"
+      ]
+    },
+    {
+      "seq": 13,
+      "record_type": "causal_transition",
+      "id": "5468c9d9-c473-58d6-b60d-f90d314ae4da",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "audio_stress",
+        "to_state": "normal",
+        "tick": 3,
+        "supporting_evidence_ids": [
+          "ev-event-00ecc86b-35ff-5ab8-b937-4e03677badf6"
+        ]
+      },
+      "related_ids": [
+        "ev-event-00ecc86b-35ff-5ab8-b937-4e03677badf6"
+      ]
+    },
+    {
+      "seq": 14,
+      "record_type": "recommendation",
+      "id": "79f35d54-0834-5a7d-b380-a104249e0459",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "target_zone_id": "hallway-a",
+        "action": "no_action",
+        "severity": "low",
+        "requires_human_review": false,
+        "human_review_status": "not_required"
+      },
+      "related_ids": [
+        "144e6bb0-c610-5fd0-ac52-e8c5c8db9f59"
+      ]
+    },
+    {
+      "seq": 15,
+      "record_type": "audit_entry",
+      "id": "0de5bfe4-e391-56d2-b15b-4c281c764424",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "action": "perception_processed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "signal_id": "d370b5d1-a828-51da-90f2-312fb632ccfe",
+          "modality": "video"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 16,
+      "record_type": "audit_entry",
+      "id": "94e4af7a-4f57-5561-a4ee-642fc1710766",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "action": "perception_processed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "signal_id": "64db2108-0569-5326-8ef3-2d4b4db4d67e",
+          "modality": "audio"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 17,
+      "record_type": "audit_entry",
+      "id": "99890e01-4da0-5add-a5a0-24216530fe6e",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "action": "perception_processed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "signal_id": "3e68c797-a074-50cf-bf5b-754fb9a49e16",
+          "modality": "sensor"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 18,
+      "record_type": "audit_entry",
+      "id": "38e80eb8-4ef7-58ee-b9ed-7dee912dea88",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "action": "fusion_completed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "fusion_id": "82972f25-6d03-55a2-bb28-e01a1089625b"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 19,
+      "record_type": "audit_entry",
+      "id": "8b1edca3-9051-5e50-8faf-e087948da134",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "action": "reasoning_invoked",
+        "node_id": "pipeline-edge-001",
+        "event_id": "144e6bb0-c610-5fd0-ac52-e8c5c8db9f59",
+        "details": {
+          "recommended_action": "no_action"
+        }
+      },
+      "related_ids": [
+        "144e6bb0-c610-5fd0-ac52-e8c5c8db9f59"
+      ]
+    },
+    {
+      "seq": 20,
+      "record_type": "audit_entry",
+      "id": "885d253c-4c2e-57f3-b7e7-80e55586f5d5",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "action": "event_published",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "published_event_id": "144e6bb0-c610-5fd0-ac52-e8c5c8db9f59"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 21,
+      "record_type": "audit_entry",
+      "id": "e88f5282-34b5-5324-a16b-5b670d1d22d3",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "action": "privacy_check_passed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "policy_compliant": "True"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 22,
+      "record_type": "semantic_event",
+      "id": "144e6bb0-c610-5fd0-ac52-e8c5c8db9f59",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "multimodal_fusion",
+        "event_type": "multimodal_conflict",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 23,
+      "record_type": "semantic_event",
+      "id": "abb7a720-eb23-5cef-ac9f-6d815b68704d",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "acoustic_stress",
+        "event_type": "audio_stress_signal",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 24,
+      "record_type": "benchmark_coupling",
+      "id": "leakage:audio_stress_signal:11",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "leakage_score": 0.575,
+        "procedural_independence": 1.0,
+        "distributional_independence": 0.6954,
+        "benchmark_disclosure": "This benchmark is procedurally independent but not distributionally independent."
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 25,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-density-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 0.3004763455616722
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 26,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-activity-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 27,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-audio-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 0.6173864137541951
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 28,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 29,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 30,
+      "record_type": "evidence",
+      "id": "ev-event-b7626214-0813-56c4-b227-5206057729a3",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 0.3429
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 31,
+      "record_type": "safety_state",
+      "id": "643d7ea3-9914-5401-9dbe-754d0785bed1",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "audio_stress",
+        "tick": 4
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 32,
+      "record_type": "safety_state",
+      "id": "2d78dca1-21e3-5df1-a962-38f813f8ed6e",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 4
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 33,
+      "record_type": "causal_transition",
+      "id": "943857c8-8b8b-5e56-9b2a-46874dfb2ed2",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "normal",
+        "to_state": "audio_stress",
+        "tick": 4,
+        "supporting_evidence_ids": [
+          "ev-hallway-a-density-4",
+          "ev-hallway-a-activity-4",
+          "ev-hallway-a-audio-4",
+          "ev-exit-exit-north-4",
+          "ev-exit-exit-main-4"
+        ]
+      },
+      "related_ids": [
+        "ev-hallway-a-density-4",
+        "ev-hallway-a-activity-4",
+        "ev-hallway-a-audio-4",
+        "ev-exit-exit-north-4",
+        "ev-exit-exit-main-4"
+      ]
+    },
+    {
+      "seq": 34,
+      "record_type": "causal_transition",
+      "id": "18cd8893-8688-5ce8-9dba-c8392576e2c0",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "audio_stress",
+        "to_state": "normal",
+        "tick": 4,
+        "supporting_evidence_ids": [
+          "ev-event-b7626214-0813-56c4-b227-5206057729a3"
+        ]
+      },
+      "related_ids": [
+        "ev-event-b7626214-0813-56c4-b227-5206057729a3"
+      ]
+    },
+    {
+      "seq": 35,
+      "record_type": "semantic_event",
+      "id": "bab8004d-c4b5-53b1-aeae-a4838d8f8c42",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "acoustic_stress",
+        "event_type": "audio_stress_signal",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 36,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-density-5",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "hallway-a",
+        "tick": 5,
+        "metric_value": 0.3117190749007981
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 37,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-activity-5",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "hallway-a",
+        "tick": 5,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 38,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-audio-5",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "hallway-a",
+        "tick": 5,
+        "metric_value": 0.705195308808672
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 39,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-5",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 5,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 40,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-5",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 5,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 41,
+      "record_type": "evidence",
+      "id": "ev-event-2e764464-5777-551a-a58c-e81517b3a1a9",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "hallway-a",
+        "tick": 5,
+        "metric_value": 0.3732
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 42,
+      "record_type": "safety_state",
+      "id": "090ac29e-0e9d-578a-9baf-6e9345bfedcd",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "audio_stress",
+        "tick": 5
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 43,
+      "record_type": "safety_state",
+      "id": "0481be15-0e6f-56cf-8947-1b070c14aa99",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 5
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 44,
+      "record_type": "causal_transition",
+      "id": "3163a6bc-63cd-51ab-b67e-52e11aecbf67",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "normal",
+        "to_state": "audio_stress",
+        "tick": 5,
+        "supporting_evidence_ids": [
+          "ev-hallway-a-density-5",
+          "ev-hallway-a-activity-5",
+          "ev-hallway-a-audio-5",
+          "ev-exit-exit-north-5",
+          "ev-exit-exit-main-5"
+        ]
+      },
+      "related_ids": [
+        "ev-hallway-a-density-5",
+        "ev-hallway-a-activity-5",
+        "ev-hallway-a-audio-5",
+        "ev-exit-exit-north-5",
+        "ev-exit-exit-main-5"
+      ]
+    },
+    {
+      "seq": 45,
+      "record_type": "causal_transition",
+      "id": "0e7d84f3-4e7b-5fc5-b2d8-8d69605b1c65",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "audio_stress",
+        "to_state": "normal",
+        "tick": 5,
+        "supporting_evidence_ids": [
+          "ev-event-2e764464-5777-551a-a58c-e81517b3a1a9"
+        ]
+      },
+      "related_ids": [
+        "ev-event-2e764464-5777-551a-a58c-e81517b3a1a9"
+      ]
+    },
+    {
+      "seq": 46,
+      "record_type": "semantic_event",
+      "id": "4c26ed43-1a36-561d-8919-caac904cfc39",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "acoustic_stress",
+        "event_type": "audio_stress_signal",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 47,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-density-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "hallway-a",
+        "tick": 6,
+        "metric_value": 0.292136050504981
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 48,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-activity-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "hallway-a",
+        "tick": 6,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 49,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-audio-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "hallway-a",
+        "tick": 6,
+        "metric_value": 0.7537649382491688
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 50,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 6,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 51,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 6,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 52,
+      "record_type": "evidence",
+      "id": "ev-event-652083f6-7cca-5d81-bdf3-ee81f8b4fcd8",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "hallway-a",
+        "tick": 6,
+        "metric_value": 0.3809
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 53,
+      "record_type": "safety_state",
+      "id": "7b749fde-8e4d-5825-a4ba-751c2989e424",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "audio_stress",
+        "tick": 6
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 54,
+      "record_type": "safety_state",
+      "id": "4362c987-9cc0-5430-8c54-339d4af21218",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 6
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 55,
+      "record_type": "causal_transition",
+      "id": "37e8208c-ac5f-5356-8d7d-22d33ada471c",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "normal",
+        "to_state": "audio_stress",
+        "tick": 6,
+        "supporting_evidence_ids": [
+          "ev-hallway-a-density-6",
+          "ev-hallway-a-activity-6",
+          "ev-hallway-a-audio-6",
+          "ev-exit-exit-north-6",
+          "ev-exit-exit-main-6"
+        ]
+      },
+      "related_ids": [
+        "ev-hallway-a-density-6",
+        "ev-hallway-a-activity-6",
+        "ev-hallway-a-audio-6",
+        "ev-exit-exit-north-6",
+        "ev-exit-exit-main-6"
+      ]
+    },
+    {
+      "seq": 56,
+      "record_type": "causal_transition",
+      "id": "413833eb-1c66-524d-a4a3-0ae4341b147d",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "audio_stress",
+        "to_state": "normal",
+        "tick": 6,
+        "supporting_evidence_ids": [
+          "ev-event-652083f6-7cca-5d81-bdf3-ee81f8b4fcd8"
+        ]
+      },
+      "related_ids": [
+        "ev-event-652083f6-7cca-5d81-bdf3-ee81f8b4fcd8"
+      ]
+    },
+    {
+      "seq": 57,
+      "record_type": "semantic_event",
+      "id": "eb944c58-2ffe-53de-b258-44aadd8c8de1",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "acoustic_stress",
+        "event_type": "audio_stress_signal",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 58,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-density-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "hallway-a",
+        "tick": 7,
+        "metric_value": 0.3123857813746871
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 59,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-activity-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "hallway-a",
+        "tick": 7,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 60,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-audio-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "hallway-a",
+        "tick": 7,
+        "metric_value": 0.8236268214996737
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 61,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 7,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 62,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 7,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 63,
+      "record_type": "evidence",
+      "id": "ev-event-90892f1a-41e5-513b-b549-075f6ee807e5",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "hallway-a",
+        "tick": 7,
+        "metric_value": 0.4089
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 64,
+      "record_type": "safety_state",
+      "id": "2f0b8808-8113-5205-9927-5337482e4dfd",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "audio_stress",
+        "tick": 7
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 65,
+      "record_type": "safety_state",
+      "id": "b5f29506-0abe-5a57-b832-24ed63538839",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 7
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 66,
+      "record_type": "causal_transition",
+      "id": "f12a7c66-5512-51de-87d8-b5eb20dd55d1",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "normal",
+        "to_state": "audio_stress",
+        "tick": 7,
+        "supporting_evidence_ids": [
+          "ev-hallway-a-density-7",
+          "ev-hallway-a-activity-7",
+          "ev-hallway-a-audio-7",
+          "ev-exit-exit-north-7",
+          "ev-exit-exit-main-7"
+        ]
+      },
+      "related_ids": [
+        "ev-hallway-a-density-7",
+        "ev-hallway-a-activity-7",
+        "ev-hallway-a-audio-7",
+        "ev-exit-exit-north-7",
+        "ev-exit-exit-main-7"
+      ]
+    },
+    {
+      "seq": 67,
+      "record_type": "causal_transition",
+      "id": "acbc4932-77a0-5cab-ac5e-ae218a61cbb7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "audio_stress",
+        "to_state": "normal",
+        "tick": 7,
+        "supporting_evidence_ids": [
+          "ev-event-90892f1a-41e5-513b-b549-075f6ee807e5"
+        ]
+      },
+      "related_ids": [
+        "ev-event-90892f1a-41e5-513b-b549-075f6ee807e5"
+      ]
+    },
+    {
+      "seq": 68,
+      "record_type": "semantic_event",
+      "id": "fd69063a-ac1c-5b25-a4a7-11efe6d8dd3c",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "acoustic_stress",
+        "event_type": "audio_stress_signal",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 69,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-density-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "hallway-a",
+        "tick": 8,
+        "metric_value": 0.28167521345479385
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 70,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-activity-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "hallway-a",
+        "tick": 8,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 71,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-audio-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "hallway-a",
+        "tick": 8,
+        "metric_value": 0.9177375393016496
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 72,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 8,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 73,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 8,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 74,
+      "record_type": "evidence",
+      "id": "ev-event-41ea5b0a-9046-5c39-a0ae-596963e01b9e",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "hallway-a",
+        "tick": 8,
+        "metric_value": 0.4264
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 75,
+      "record_type": "safety_state",
+      "id": "a08b1842-f620-5bfc-972e-be97415455c8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "audio_stress",
+        "tick": 8
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 76,
+      "record_type": "safety_state",
+      "id": "ff942ae8-7a7f-5b12-86f7-25f98e1943cb",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 8
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 77,
+      "record_type": "causal_transition",
+      "id": "b0b2e6c7-196a-532c-bc36-295d6aed1bb4",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "normal",
+        "to_state": "audio_stress",
+        "tick": 8,
+        "supporting_evidence_ids": [
+          "ev-hallway-a-density-8",
+          "ev-hallway-a-activity-8",
+          "ev-hallway-a-audio-8",
+          "ev-exit-exit-north-8",
+          "ev-exit-exit-main-8"
+        ]
+      },
+      "related_ids": [
+        "ev-hallway-a-density-8",
+        "ev-hallway-a-activity-8",
+        "ev-hallway-a-audio-8",
+        "ev-exit-exit-north-8",
+        "ev-exit-exit-main-8"
+      ]
+    },
+    {
+      "seq": 78,
+      "record_type": "causal_transition",
+      "id": "a4b5040f-7bb4-5f73-833b-ccbdf8202edc",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "audio_stress",
+        "to_state": "normal",
+        "tick": 8,
+        "supporting_evidence_ids": [
+          "ev-event-41ea5b0a-9046-5c39-a0ae-596963e01b9e"
+        ]
+      },
+      "related_ids": [
+        "ev-event-41ea5b0a-9046-5c39-a0ae-596963e01b9e"
+      ]
+    },
+    {
+      "seq": 79,
+      "record_type": "semantic_event",
+      "id": "03827f6c-af5c-5e73-9624-40341c8953b7",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "acoustic_stress",
+        "event_type": "audio_stress_signal",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 80,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-density-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "hallway-a",
+        "tick": 9,
+        "metric_value": 0.3185903112450227
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 81,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-activity-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "hallway-a",
+        "tick": 9,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 82,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-audio-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "hallway-a",
+        "tick": 9,
+        "metric_value": 0.9992877368319513
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 83,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 9,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 84,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 9,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 85,
+      "record_type": "evidence",
+      "id": "ev-event-7e6a3451-ae3d-506f-b35e-e2ab46f93a44",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "hallway-a",
+        "tick": 9,
+        "metric_value": 0.4638
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 86,
+      "record_type": "safety_state",
+      "id": "0f88028c-67f6-59dc-9c59-257230d9ed45",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "audio_stress",
+        "tick": 9
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 87,
+      "record_type": "safety_state",
+      "id": "126e37f6-a40f-5c1e-9005-ebbca75e3c54",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 9
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 88,
+      "record_type": "causal_transition",
+      "id": "a43315f9-abaa-550b-95d3-fb9e404ff5d7",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "normal",
+        "to_state": "audio_stress",
+        "tick": 9,
+        "supporting_evidence_ids": [
+          "ev-hallway-a-density-9",
+          "ev-hallway-a-activity-9",
+          "ev-hallway-a-audio-9",
+          "ev-exit-exit-north-9",
+          "ev-exit-exit-main-9"
+        ]
+      },
+      "related_ids": [
+        "ev-hallway-a-density-9",
+        "ev-hallway-a-activity-9",
+        "ev-hallway-a-audio-9",
+        "ev-exit-exit-north-9",
+        "ev-exit-exit-main-9"
+      ]
+    },
+    {
+      "seq": 89,
+      "record_type": "causal_transition",
+      "id": "94c659cc-9f0f-51c2-aaa7-8a428f1bb984",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "audio_stress",
+        "to_state": "normal",
+        "tick": 9,
+        "supporting_evidence_ids": [
+          "ev-event-7e6a3451-ae3d-506f-b35e-e2ab46f93a44"
+        ]
+      },
+      "related_ids": [
+        "ev-event-7e6a3451-ae3d-506f-b35e-e2ab46f93a44"
+      ]
+    },
+    {
+      "seq": 90,
+      "record_type": "semantic_event",
+      "id": "e0569d22-adf8-5730-bc7b-cc9f4555d6e6",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "acoustic_stress",
+        "event_type": "audio_stress_signal",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 91,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-density-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "hallway-a",
+        "tick": 10,
+        "metric_value": 0.30462250818314285
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 92,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-activity-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "hallway-a",
+        "tick": 10,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 93,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-audio-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "hallway-a",
+        "tick": 10,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 94,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 10,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 95,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 10,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 96,
+      "record_type": "evidence",
+      "id": "ev-event-4ffe00d7-fdc4-5f04-93fd-5a217cc0321d",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "hallway-a",
+        "tick": 10,
+        "metric_value": 0.4591
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 97,
+      "record_type": "safety_state",
+      "id": "c4264fff-0214-5109-957e-9089e7646786",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "audio_stress",
+        "tick": 10
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 98,
+      "record_type": "safety_state",
+      "id": "63c3088b-5c21-55df-a1e3-401426a26b19",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 10
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 99,
+      "record_type": "causal_transition",
+      "id": "10298d1c-b257-52f7-a099-41bb0345cfa3",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "normal",
+        "to_state": "audio_stress",
+        "tick": 10,
+        "supporting_evidence_ids": [
+          "ev-hallway-a-density-10",
+          "ev-hallway-a-activity-10",
+          "ev-hallway-a-audio-10",
+          "ev-exit-exit-north-10",
+          "ev-exit-exit-main-10"
+        ]
+      },
+      "related_ids": [
+        "ev-hallway-a-density-10",
+        "ev-hallway-a-activity-10",
+        "ev-hallway-a-audio-10",
+        "ev-exit-exit-north-10",
+        "ev-exit-exit-main-10"
+      ]
+    },
+    {
+      "seq": 100,
+      "record_type": "causal_transition",
+      "id": "139cf801-2c63-56ee-acb8-8982857eec56",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "audio_stress",
+        "to_state": "normal",
+        "tick": 10,
+        "supporting_evidence_ids": [
+          "ev-event-4ffe00d7-fdc4-5f04-93fd-5a217cc0321d"
+        ]
+      },
+      "related_ids": [
+        "ev-event-4ffe00d7-fdc4-5f04-93fd-5a217cc0321d"
+      ]
+    },
+    {
+      "seq": 101,
+      "record_type": "semantic_event",
+      "id": "584de346-9469-5169-91ab-ec6212fca7cf",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "acoustic_stress",
+        "event_type": "audio_stress_signal",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 102,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-density-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "hallway-a",
+        "tick": 11,
+        "metric_value": 0.2806000294779842
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 103,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-activity-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "hallway-a",
+        "tick": 11,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 104,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-audio-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "hallway-a",
+        "tick": 11,
+        "metric_value": 0.9862997638056065
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 105,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 11,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 106,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 11,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 107,
+      "record_type": "evidence",
+      "id": "ev-event-5d89026c-c7df-515b-bf09-77880f160232",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "hallway-a",
+        "tick": 11,
+        "metric_value": 0.4466
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 108,
+      "record_type": "safety_state",
+      "id": "259e8631-5184-5102-aa8e-2424cfc4a59c",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "audio_stress",
+        "tick": 11
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 109,
+      "record_type": "safety_state",
+      "id": "8fc14f3d-c37a-529e-82fd-501786013946",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 11
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 110,
+      "record_type": "causal_transition",
+      "id": "80925fb8-69a9-5655-b566-e9d677505ab9",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "normal",
+        "to_state": "audio_stress",
+        "tick": 11,
+        "supporting_evidence_ids": [
+          "ev-hallway-a-density-11",
+          "ev-hallway-a-activity-11",
+          "ev-hallway-a-audio-11",
+          "ev-exit-exit-north-11",
+          "ev-exit-exit-main-11"
+        ]
+      },
+      "related_ids": [
+        "ev-hallway-a-density-11",
+        "ev-hallway-a-activity-11",
+        "ev-hallway-a-audio-11",
+        "ev-exit-exit-north-11",
+        "ev-exit-exit-main-11"
+      ]
+    },
+    {
+      "seq": 111,
+      "record_type": "causal_transition",
+      "id": "985e1a93-a003-5206-9317-63d48935362f",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "audio_stress",
+        "to_state": "normal",
+        "tick": 11,
+        "supporting_evidence_ids": [
+          "ev-event-5d89026c-c7df-515b-bf09-77880f160232"
+        ]
+      },
+      "related_ids": [
+        "ev-event-5d89026c-c7df-515b-bf09-77880f160232"
+      ]
+    },
+    {
+      "seq": 112,
+      "record_type": "semantic_event",
+      "id": "2ddaec25-2976-5fbd-b2eb-42d0baf3e1e3",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "acoustic_stress",
+        "event_type": "audio_stress_signal",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 113,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-density-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "hallway-a",
+        "tick": 12,
+        "metric_value": 0.28238204420675417
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 114,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-activity-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "hallway-a",
+        "tick": 12,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 115,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-audio-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "hallway-a",
+        "tick": 12,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 116,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 12,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 117,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 12,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 118,
+      "record_type": "evidence",
+      "id": "ev-event-139f4d1e-3c50-5fae-880e-192c126a4778",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "hallway-a",
+        "tick": 12,
+        "metric_value": 0.4513
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 119,
+      "record_type": "safety_state",
+      "id": "ed1bd628-2e1f-55fd-9aea-8e16167d0651",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "audio_stress",
+        "tick": 12
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 120,
+      "record_type": "safety_state",
+      "id": "a67d7418-2232-50db-8112-e3080290b633",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 12
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 121,
+      "record_type": "causal_transition",
+      "id": "ee34e5af-e02c-5762-885d-9f7fb283fa9b",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "normal",
+        "to_state": "audio_stress",
+        "tick": 12,
+        "supporting_evidence_ids": [
+          "ev-hallway-a-density-12",
+          "ev-hallway-a-activity-12",
+          "ev-hallway-a-audio-12",
+          "ev-exit-exit-north-12",
+          "ev-exit-exit-main-12"
+        ]
+      },
+      "related_ids": [
+        "ev-hallway-a-density-12",
+        "ev-hallway-a-activity-12",
+        "ev-hallway-a-audio-12",
+        "ev-exit-exit-north-12",
+        "ev-exit-exit-main-12"
+      ]
+    },
+    {
+      "seq": 122,
+      "record_type": "causal_transition",
+      "id": "05d33d22-050f-5693-806f-ddb4d5e04726",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "audio_stress",
+        "to_state": "normal",
+        "tick": 12,
+        "supporting_evidence_ids": [
+          "ev-event-139f4d1e-3c50-5fae-880e-192c126a4778"
+        ]
+      },
+      "related_ids": [
+        "ev-event-139f4d1e-3c50-5fae-880e-192c126a4778"
+      ]
+    },
+    {
+      "seq": 123,
+      "record_type": "semantic_event",
+      "id": "580edea7-09bc-5bdb-aedc-cce0630c8a00",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "acoustic_stress",
+        "event_type": "audio_stress_signal",
+        "severity": "low"
+      },
+      "related_ids": []
+    }
+  ]
+}

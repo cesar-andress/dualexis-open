@@ -1,0 +1,2229 @@
+{
+  "format": "xes_json",
+  "scenario_id": "evacuation_recommendation",
+  "seed": 23,
+  "log": {
+    "xes": "2.0",
+    "global": {
+      "concept:name": "DualexisSyntheticAuditTrace",
+      "lifecycle:model": "standard"
+    },
+    "traces": [
+      {
+        "concept:name": "evacuation_recommendation-seed23",
+        "events": [
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-hallway-a-density-1",
+            "dualexis:zone_id": "hallway-a",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-hallway-a-activity-1",
+            "dualexis:zone_id": "hallway-a",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-hallway-a-audio-1",
+            "dualexis:zone_id": "hallway-a",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-1",
+            "dualexis:zone_id": "hallway-a",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-1",
+            "dualexis:zone_id": "hallway-a",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "24651a94-3bbe-5366-acae-0d56ae466990",
+            "dualexis:zone_id": "hallway-a",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "crowding_risk",
+            "dualexis:supporting_evidence_ids": [
+              "ev-hallway-a-density-1",
+              "ev-hallway-a-activity-1",
+              "ev-hallway-a-audio-1",
+              "ev-exit-exit-north-1",
+              "ev-exit-exit-main-1"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-density-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-activity-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-audio-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "89f995fe-04e7-5ac4-8ee4-c02de82d6cc8",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "crowding_risk",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-1",
+              "ev-cafeteria-activity-1",
+              "ev-cafeteria-audio-1",
+              "ev-exit-exit-north-1",
+              "ev-exit-exit-main-1"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-density-1",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-activity-1",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-audio-1",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-1",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-1",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "74321b59-1cb3-5983-be45-f151dca3ca05",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "crowding_risk",
+            "dualexis:supporting_evidence_ids": [
+              "ev-exit-lobby-density-1",
+              "ev-exit-lobby-activity-1",
+              "ev-exit-lobby-audio-1",
+              "ev-exit-exit-north-1",
+              "ev-exit-exit-main-1"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-hallway-a-density-2",
+            "dualexis:zone_id": "hallway-a",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-hallway-a-activity-2",
+            "dualexis:zone_id": "hallway-a",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-hallway-a-audio-2",
+            "dualexis:zone_id": "hallway-a",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-2",
+            "dualexis:zone_id": "hallway-a",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-2",
+            "dualexis:zone_id": "hallway-a",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "54c37de9-0768-5ec3-9dcd-cc563147bf1c",
+            "dualexis:zone_id": "hallway-a",
+            "dualexis:from_state": "crowding_risk",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-hallway-a-density-2",
+              "ev-hallway-a-activity-2",
+              "ev-hallway-a-audio-2",
+              "ev-exit-exit-north-2",
+              "ev-exit-exit-main-2"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-density-2",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-activity-2",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-audio-2",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-2",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-2",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "d66c9ada-c977-5a41-a5ae-bb6ca4889d30",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "crowding_risk",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-2",
+              "ev-cafeteria-activity-2",
+              "ev-cafeteria-audio-2",
+              "ev-exit-exit-north-2",
+              "ev-exit-exit-main-2"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-density-2",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-activity-2",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-audio-2",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-2",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-2",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:02+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "3bd5d484-5160-5663-942a-1ee0c65bd987",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "crowding_risk",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-exit-lobby-density-2",
+              "ev-exit-lobby-activity-2",
+              "ev-exit-lobby-audio-2",
+              "ev-exit-exit-north-2",
+              "ev-exit-exit-main-2"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-23173be5-ae1e-52aa-a889-f57fac3b5396",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "b6476b2c-6e18-56a6-9ef3-26cb111c3cc5",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-23173be5-ae1e-52aa-a889-f57fac3b5396"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-830370dc-5a67-5514-9bee-85bc68321bb0",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "edef95a2-6a04-5e24-8d0b-3e5fd8ecbf33",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-830370dc-5a67-5514-9bee-85bc68321bb0"
+            ]
+          },
+          {
+            "concept:name": "RecommendationIssued",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:recommendation_id": "fea08eee-7cef-5627-9a13-52b69b8ed6c8",
+            "dualexis:requires_human_review": true,
+            "dualexis:human_review_status": "pending",
+            "dualexis:severity": "high"
+          },
+          {
+            "concept:name": "GovernanceIssue",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-23-fea08eee",
+            "dualexis:step_index": 0,
+            "dualexis:from_state": "ai_recommendation",
+            "dualexis:to_state": "human_review"
+          },
+          {
+            "concept:name": "AuditPerception_Processed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:audit_entry_id": "99851e86-c207-5245-975b-414aa4b8ed9a",
+            "dualexis:action": "perception_processed"
+          },
+          {
+            "concept:name": "AuditPerception_Processed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:audit_entry_id": "8ba7fd07-2b38-50f7-b116-7b66a19a96aa",
+            "dualexis:action": "perception_processed"
+          },
+          {
+            "concept:name": "AuditPerception_Processed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:audit_entry_id": "7aa8ca5d-5e59-5378-b534-29878e089d77",
+            "dualexis:action": "perception_processed"
+          },
+          {
+            "concept:name": "AuditFusion_Completed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:audit_entry_id": "fa521371-755e-5c44-8c95-893aee324cc4",
+            "dualexis:action": "fusion_completed"
+          },
+          {
+            "concept:name": "AuditReasoning_Invoked",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:audit_entry_id": "557b0eb2-31dc-586e-abd4-b1c24adf8325",
+            "dualexis:action": "reasoning_invoked"
+          },
+          {
+            "concept:name": "AuditEvent_Published",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:audit_entry_id": "080d5b30-5888-5c2a-87a5-1ab4306c2721",
+            "dualexis:action": "event_published"
+          },
+          {
+            "concept:name": "AuditPrivacy_Check_Passed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:audit_entry_id": "d69d8e9e-69ea-579c-b935-556478fcf6cf",
+            "dualexis:action": "privacy_check_passed"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "636fa817-faae-53e3-9175-a40ea81d778c",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_fusion"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "23173be5-ae1e-52aa-a889-f57fac3b5396",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "830370dc-5a67-5514-9bee-85bc68321bb0",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "BenchmarkCouplingDisclosed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:leakage_score": 0.575,
+            "dualexis:benchmark_disclosure": "This benchmark is procedurally independent but not distributionally independent.",
+            "dualexis:procedural_independence": 1.0
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-density-4",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-activity-4",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-audio-4",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-4",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-4",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "e9522a88-c8c2-5988-bef6-0b8ced7427df",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-4",
+              "ev-cafeteria-activity-4",
+              "ev-cafeteria-audio-4",
+              "ev-exit-exit-north-4",
+              "ev-exit-exit-main-4"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-density-4",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-activity-4",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-audio-4",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-4",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-4",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "184030c5-be86-5cd6-89e2-516623cd1549",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-exit-lobby-density-4",
+              "ev-exit-lobby-activity-4",
+              "ev-exit-lobby-audio-4",
+              "ev-exit-exit-north-4",
+              "ev-exit-exit-main-4"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-76238082-40db-5120-8599-8a2928f310ca",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "5d3db3ae-d503-58e8-af8d-d6800ee9eb06",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-76238082-40db-5120-8599-8a2928f310ca"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-8028b8f5-14a2-54bc-a1cb-54ac9770f3e6",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "e843ebd9-1300-5bae-a18d-4f5f75fb022f",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-8028b8f5-14a2-54bc-a1cb-54ac9770f3e6"
+            ]
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "76238082-40db-5120-8599-8a2928f310ca",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:04+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "8028b8f5-14a2-54bc-a1cb-54ac9770f3e6",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-density-5",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-activity-5",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-audio-5",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-5",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-5",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "3fa958fe-0fe9-5086-82fc-30097f56fcce",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-5",
+              "ev-cafeteria-activity-5",
+              "ev-cafeteria-audio-5",
+              "ev-exit-exit-north-5",
+              "ev-exit-exit-main-5"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-density-5",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-activity-5",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-audio-5",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-5",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-5",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "1989eca2-6949-5d0b-bf22-cb6461f96418",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-exit-lobby-density-5",
+              "ev-exit-lobby-activity-5",
+              "ev-exit-lobby-audio-5",
+              "ev-exit-exit-north-5",
+              "ev-exit-exit-main-5"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-6add2ae2-391b-56fc-92d7-3fffa53513b6",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "cf8dd24d-6d6b-5c65-bae3-a0c22f3de1f4",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-6add2ae2-391b-56fc-92d7-3fffa53513b6"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-35e2026f-50be-559d-8845-61c8a3cad473",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "89180323-8995-53ba-94b4-1fc5e07cf01d",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-35e2026f-50be-559d-8845-61c8a3cad473"
+            ]
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "6add2ae2-391b-56fc-92d7-3fffa53513b6",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:05+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "35e2026f-50be-559d-8845-61c8a3cad473",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-density-6",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-activity-6",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-audio-6",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-6",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-6",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "f2896f38-7813-5a16-845b-719f8f87d87b",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-6",
+              "ev-cafeteria-activity-6",
+              "ev-cafeteria-audio-6",
+              "ev-exit-exit-north-6",
+              "ev-exit-exit-main-6"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-density-6",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-activity-6",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-audio-6",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-6",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-6",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "5735dc3a-3494-5529-9103-0c7aaf54235b",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-exit-lobby-density-6",
+              "ev-exit-lobby-activity-6",
+              "ev-exit-lobby-audio-6",
+              "ev-exit-exit-north-6",
+              "ev-exit-exit-main-6"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-24538a51-d979-54cf-adbf-ae5f8f85ff4e",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "7d6b434c-cc5a-521b-9271-5c0869d86cdd",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-24538a51-d979-54cf-adbf-ae5f8f85ff4e"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-2c2e0812-01f2-50d6-afcd-152e0dd9765e",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "68953ce0-5837-5c6b-b779-667d288a475a",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-2c2e0812-01f2-50d6-afcd-152e0dd9765e"
+            ]
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "24538a51-d979-54cf-adbf-ae5f8f85ff4e",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:06+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "2c2e0812-01f2-50d6-afcd-152e0dd9765e",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-density-7",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-activity-7",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-audio-7",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-7",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-7",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "f6dd428c-4b88-50d0-9dfd-3ef5e8493128",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-7",
+              "ev-cafeteria-activity-7",
+              "ev-cafeteria-audio-7",
+              "ev-exit-exit-north-7",
+              "ev-exit-exit-main-7"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-density-7",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-activity-7",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-audio-7",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-7",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-7",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "d7e91450-173c-5e3a-85b3-c63a4be934e3",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-exit-lobby-density-7",
+              "ev-exit-lobby-activity-7",
+              "ev-exit-lobby-audio-7",
+              "ev-exit-exit-north-7",
+              "ev-exit-exit-main-7"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-6a52599f-d75e-562d-8ada-1e27ea95c5d5",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "0db0a23a-80ec-525a-a540-2bc3b25ba304",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-6a52599f-d75e-562d-8ada-1e27ea95c5d5"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-210606c7-bfa4-57d4-8c95-9ac06e75b0ae",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "225c0b0c-398e-54cf-8475-4da8a1117739",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-210606c7-bfa4-57d4-8c95-9ac06e75b0ae"
+            ]
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "6a52599f-d75e-562d-8ada-1e27ea95c5d5",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "210606c7-bfa4-57d4-8c95-9ac06e75b0ae",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-density-8",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-activity-8",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-audio-8",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-8",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-8",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "b2f6a673-46ed-5d9a-893f-486a6b00545d",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-8",
+              "ev-cafeteria-activity-8",
+              "ev-cafeteria-audio-8",
+              "ev-exit-exit-north-8",
+              "ev-exit-exit-main-8"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-density-8",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-activity-8",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-audio-8",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-8",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-8",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "e959efed-07d3-5406-94b2-debf82d952bd",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-exit-lobby-density-8",
+              "ev-exit-lobby-activity-8",
+              "ev-exit-lobby-audio-8",
+              "ev-exit-exit-north-8",
+              "ev-exit-exit-main-8"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-14a2c364-b16f-5649-82de-065a7cc5cac4",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "83b1ce8e-b74d-5744-b654-03e0fe264d17",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-14a2c364-b16f-5649-82de-065a7cc5cac4"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-1e6ddebe-b619-5f6e-97e6-44480a997482",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "9364aece-7930-5f70-b5c6-3d2323066bc2",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-1e6ddebe-b619-5f6e-97e6-44480a997482"
+            ]
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "14a2c364-b16f-5649-82de-065a7cc5cac4",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "1e6ddebe-b619-5f6e-97e6-44480a997482",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-density-9",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-activity-9",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-audio-9",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-9",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-9",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "8fca051e-e438-5b5c-baae-857c5b7aa440",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-9",
+              "ev-cafeteria-activity-9",
+              "ev-cafeteria-audio-9",
+              "ev-exit-exit-north-9",
+              "ev-exit-exit-main-9"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-density-9",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-activity-9",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-audio-9",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-9",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-9",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "31bc0cbf-8b01-5cee-9e1c-29ef761d74e9",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-exit-lobby-density-9",
+              "ev-exit-lobby-activity-9",
+              "ev-exit-lobby-audio-9",
+              "ev-exit-exit-north-9",
+              "ev-exit-exit-main-9"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-e68a47a1-1d72-5b4e-90c3-c9d20de422d2",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "db98dcf4-71f9-519c-b261-d408594e73a9",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-e68a47a1-1d72-5b4e-90c3-c9d20de422d2"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-e1ab2070-c77a-566a-b827-0d93d9697c91",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "04f1ab6a-f12b-5753-b020-84394dc62e22",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-e1ab2070-c77a-566a-b827-0d93d9697c91"
+            ]
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "e68a47a1-1d72-5b4e-90c3-c9d20de422d2",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "e1ab2070-c77a-566a-b827-0d93d9697c91",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-density-10",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-activity-10",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-audio-10",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-10",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-10",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "3daadf49-00a7-5b94-81df-a2e9df5860aa",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-10",
+              "ev-cafeteria-activity-10",
+              "ev-cafeteria-audio-10",
+              "ev-exit-exit-north-10",
+              "ev-exit-exit-main-10"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-density-10",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-activity-10",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-audio-10",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-10",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-10",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "625c279d-faf9-57ac-a25a-4f145cb8a477",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-exit-lobby-density-10",
+              "ev-exit-lobby-activity-10",
+              "ev-exit-lobby-audio-10",
+              "ev-exit-exit-north-10",
+              "ev-exit-exit-main-10"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-3b7b5bf4-a7ad-51f5-a524-430786dddd6d",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "01e546c1-5e24-5eb8-b2dd-04d3d4536d03",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-3b7b5bf4-a7ad-51f5-a524-430786dddd6d"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-51174e98-08bf-57fc-a5cc-cd891aca20cb",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "1f089e0f-f92c-5401-89c4-339c6640702e",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-51174e98-08bf-57fc-a5cc-cd891aca20cb"
+            ]
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "3b7b5bf4-a7ad-51f5-a524-430786dddd6d",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "51174e98-08bf-57fc-a5cc-cd891aca20cb",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-density-11",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-activity-11",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-audio-11",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-11",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-11",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "8281b760-52ca-59db-b8da-e2d55253cffc",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-11",
+              "ev-cafeteria-activity-11",
+              "ev-cafeteria-audio-11",
+              "ev-exit-exit-north-11",
+              "ev-exit-exit-main-11"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-density-11",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-activity-11",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-audio-11",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-11",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-11",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "393e1125-ec2f-57aa-bf24-da42b70229bd",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-exit-lobby-density-11",
+              "ev-exit-lobby-activity-11",
+              "ev-exit-lobby-audio-11",
+              "ev-exit-exit-north-11",
+              "ev-exit-exit-main-11"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-d73c821d-34dc-5468-8e93-4f66669dc381",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "84a7b928-11f1-51e0-8d59-6aaa0d3b5b2b",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-d73c821d-34dc-5468-8e93-4f66669dc381"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-68cc3b5a-7c07-5003-9b48-b312c542acaf",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "7c363d74-531b-554e-a1f2-b7ddde74ad46",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-68cc3b5a-7c07-5003-9b48-b312c542acaf"
+            ]
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "d73c821d-34dc-5468-8e93-4f66669dc381",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "68cc3b5a-7c07-5003-9b48-b312c542acaf",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-density-12",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-activity-12",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-cafeteria-audio-12",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-12",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-12",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "5e87fa78-e3ce-5f34-9842-59d22c0b7259",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-12",
+              "ev-cafeteria-activity-12",
+              "ev-cafeteria-audio-12",
+              "ev-exit-exit-north-12",
+              "ev-exit-exit-main-12"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-density-12",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-activity-12",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-lobby-audio-12",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-north-12",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-exit-exit-main-12",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "6f8dc80f-14bf-50a8-b4b4-120a10c39cf2",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "evacuation_candidate",
+            "dualexis:supporting_evidence_ids": [
+              "ev-exit-lobby-density-12",
+              "ev-exit-lobby-activity-12",
+              "ev-exit-lobby-audio-12",
+              "ev-exit-exit-north-12",
+              "ev-exit-exit-main-12"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-daf747e2-f7dd-5616-b31e-465730a0009e",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "817291e1-3105-587d-a5a6-fe3ab896ff3e",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-daf747e2-f7dd-5616-b31e-465730a0009e"
+            ]
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:evidence_id": "ev-event-e5b1d543-6948-5fdc-88ec-941882a55d1a",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:kind": "semantic_event"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:transition_id": "cef4837f-35e9-5084-99be-3709908b3c1f",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:from_state": "evacuation_candidate",
+            "dualexis:to_state": "normal",
+            "dualexis:supporting_evidence_ids": [
+              "ev-event-e5b1d543-6948-5fdc-88ec-941882a55d1a"
+            ]
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "daf747e2-f7dd-5616-b31e-465730a0009e",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-seed23",
+            "dualexis:event_id": "e5b1d543-6948-5fdc-88ec-941882a55d1a",
+            "dualexis:zone_id": "exit-lobby",
+            "dualexis:category": "evacuation_stress_pattern"
+          },
+          {
+            "concept:name": "GovernanceOverride",
+            "time:timestamp": "2026-06-18T19:06:08.495306+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "evacuation_recommendation-23-fea08eee",
+            "dualexis:step_index": 1,
+            "dualexis:from_state": "human_review",
+            "dualexis:to_state": "human_review"
+          }
+        ]
+      }
+    ]
+  }
+}

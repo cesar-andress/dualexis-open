@@ -1,0 +1,2021 @@
+{
+  "format": "flat_json_event_log",
+  "scenario_id": "crowd_acceleration",
+  "seed": 20,
+  "records": [
+    {
+      "seq": 1,
+      "record_type": "safety_state",
+      "id": "80fc3707-3e87-5b9c-b81c-d8b1d089ca04",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 2,
+      "record_type": "safety_state",
+      "id": "f7482618-52b5-55fb-bc94-b7a9800db1e2",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 3,
+      "record_type": "safety_state",
+      "id": "86bfa93a-a437-58e8-938a-882ca19060c1",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "normal",
+        "tick": 1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 4,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 2,
+        "metric_value": 0.38618464951253095
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 5,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 2,
+        "metric_value": 0.3233930978995591
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 6,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 2,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 7,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 2,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 8,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 2,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 9,
+      "record_type": "evidence",
+      "id": "ev-event-d3c94fe4-d0dc-543e-b2ce-743eba73181f",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "cafeteria",
+        "tick": 2,
+        "metric_value": 0.2784
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 10,
+      "record_type": "safety_state",
+      "id": "2d86f08e-1014-5b74-9200-7cea80d73801",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "crowding_risk",
+        "tick": 2
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 11,
+      "record_type": "safety_state",
+      "id": "9ee8fa0b-6e7d-52bd-a641-31e6a14a1ec7",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 2
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 12,
+      "record_type": "causal_transition",
+      "id": "827a389a-1a3c-5f10-82d0-4aafd05a8378",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 2,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-2",
+          "ev-cafeteria-activity-2",
+          "ev-cafeteria-audio-2",
+          "ev-exit-exit-north-2",
+          "ev-exit-exit-main-2"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-2",
+        "ev-cafeteria-activity-2",
+        "ev-cafeteria-audio-2",
+        "ev-exit-exit-north-2",
+        "ev-exit-exit-main-2"
+      ]
+    },
+    {
+      "seq": 13,
+      "record_type": "causal_transition",
+      "id": "cb01a037-79ae-56df-a9a7-58cacabc52d6",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "crowding_risk",
+        "to_state": "normal",
+        "tick": 2,
+        "supporting_evidence_ids": [
+          "ev-event-d3c94fe4-d0dc-543e-b2ce-743eba73181f"
+        ]
+      },
+      "related_ids": [
+        "ev-event-d3c94fe4-d0dc-543e-b2ce-743eba73181f"
+      ]
+    },
+    {
+      "seq": 14,
+      "record_type": "recommendation",
+      "id": "e789ef1f-8855-5423-8530-0db8240c86e0",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "target_zone_id": "cafeteria",
+        "action": "no_action",
+        "severity": "medium",
+        "requires_human_review": false,
+        "human_review_status": "not_required"
+      },
+      "related_ids": [
+        "b571d42d-5729-5a7e-947a-5195face8bc7"
+      ]
+    },
+    {
+      "seq": 15,
+      "record_type": "audit_entry",
+      "id": "48f82445-a4ab-587e-aec7-283cd205b895",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "perception_processed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "signal_id": "52e52cc9-c73b-52c0-bcc5-5edb7ce29250",
+          "modality": "video"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 16,
+      "record_type": "audit_entry",
+      "id": "da04047a-ee3d-55b3-a3c0-776ce517e842",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "perception_processed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "signal_id": "d0d87621-7ec7-5703-a679-a63bb87af6e0",
+          "modality": "audio"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 17,
+      "record_type": "audit_entry",
+      "id": "85d124ef-4ad5-5798-9396-f271cededd8d",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "perception_processed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "signal_id": "24696c1a-d3e5-56f4-b8d1-a1f49775fa6f",
+          "modality": "sensor"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 18,
+      "record_type": "audit_entry",
+      "id": "09e59a17-1a62-58fb-8a95-26e181b605f7",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "fusion_completed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "fusion_id": "b6d9fa92-de52-53d9-b222-9761fa4b2238"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 19,
+      "record_type": "audit_entry",
+      "id": "8421e8c0-9c7a-5463-b959-54b7b51609bd",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "reasoning_invoked",
+        "node_id": "pipeline-edge-001",
+        "event_id": "b571d42d-5729-5a7e-947a-5195face8bc7",
+        "details": {
+          "recommended_action": "no_action"
+        }
+      },
+      "related_ids": [
+        "b571d42d-5729-5a7e-947a-5195face8bc7"
+      ]
+    },
+    {
+      "seq": 20,
+      "record_type": "audit_entry",
+      "id": "ba6e7eba-ea0d-574d-8090-7d7a9ae9cb85",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "event_published",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "published_event_id": "b571d42d-5729-5a7e-947a-5195face8bc7"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 21,
+      "record_type": "audit_entry",
+      "id": "2d9bab49-4521-5d98-b82a-da42f9178266",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "privacy_check_passed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "policy_compliant": "True"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 22,
+      "record_type": "semantic_event",
+      "id": "b571d42d-5729-5a7e-947a-5195face8bc7",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "multimodal_fusion",
+        "event_type": "multimodal_conflict",
+        "severity": "medium"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 23,
+      "record_type": "semantic_event",
+      "id": "de3e1e6d-576e-58da-bae1-5f5d93ed0c2d",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "crowd_density_elevated",
+        "event_type": "crowd_acceleration",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 24,
+      "record_type": "benchmark_coupling",
+      "id": "leakage:crowd_acceleration:20",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "leakage_score": 0.575,
+        "procedural_independence": 1.0,
+        "distributional_independence": 0.6954,
+        "benchmark_disclosure": "This benchmark is procedurally independent but not distributionally independent."
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 25,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-3",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 3,
+        "metric_value": 0.4461978277866591
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 26,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-3",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 3,
+        "metric_value": 0.40188521496278845
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 27,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-3",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 3,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 28,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-3",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 3,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 29,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-3",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 3,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 30,
+      "record_type": "evidence",
+      "id": "ev-event-29b51168-2b16-5f53-ac35-a1eb49639b53",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "cafeteria",
+        "tick": 3,
+        "metric_value": 0.3268
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 31,
+      "record_type": "safety_state",
+      "id": "1a9b8809-c8c4-59b3-b5a2-ee6330ac703d",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "crowding_risk",
+        "tick": 3
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 32,
+      "record_type": "safety_state",
+      "id": "b3fe0616-0b0f-5278-9e04-74e06237c725",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 3
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 33,
+      "record_type": "causal_transition",
+      "id": "f474a587-3155-5288-ae6e-7c410423fa93",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 3,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-3",
+          "ev-cafeteria-activity-3",
+          "ev-cafeteria-audio-3",
+          "ev-exit-exit-north-3",
+          "ev-exit-exit-main-3"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-3",
+        "ev-cafeteria-activity-3",
+        "ev-cafeteria-audio-3",
+        "ev-exit-exit-north-3",
+        "ev-exit-exit-main-3"
+      ]
+    },
+    {
+      "seq": 34,
+      "record_type": "causal_transition",
+      "id": "c0cd2cc0-ea6a-5f32-ad69-0f92538ad2a6",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "crowding_risk",
+        "to_state": "normal",
+        "tick": 3,
+        "supporting_evidence_ids": [
+          "ev-event-29b51168-2b16-5f53-ac35-a1eb49639b53"
+        ]
+      },
+      "related_ids": [
+        "ev-event-29b51168-2b16-5f53-ac35-a1eb49639b53"
+      ]
+    },
+    {
+      "seq": 35,
+      "record_type": "semantic_event",
+      "id": "e3c466d7-eb0a-5800-b322-43d747ed554c",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "crowd_density_elevated",
+        "event_type": "crowd_acceleration",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 36,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-density-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 0.3997535205110932
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 37,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-activity-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 38,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-audio-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 39,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 40,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 41,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 4,
+        "metric_value": 0.47677512348502277
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 42,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 4,
+        "metric_value": 0.43746092248163826
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 43,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 4,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 44,
+      "record_type": "evidence",
+      "id": "ev-event-68dc36f9-a59d-58c8-99bc-380bb63a4a95",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "cafeteria",
+        "tick": 4,
+        "metric_value": 0.35
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 45,
+      "record_type": "safety_state",
+      "id": "4bf01094-ef67-5002-a675-79c13f9ec020",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "crowding_risk",
+        "tick": 4
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 46,
+      "record_type": "safety_state",
+      "id": "df944e31-d8e9-5441-b6cf-b92eeda21e1d",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "crowding_risk",
+        "tick": 4
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 47,
+      "record_type": "safety_state",
+      "id": "f75dfb7b-c5d8-56ce-9c4b-f86d3bc3a58d",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 4
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 48,
+      "record_type": "causal_transition",
+      "id": "b716a966-4b8a-5025-954b-7484388cb985",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 4,
+        "supporting_evidence_ids": [
+          "ev-hallway-a-density-4",
+          "ev-hallway-a-activity-4",
+          "ev-hallway-a-audio-4",
+          "ev-exit-exit-north-4",
+          "ev-exit-exit-main-4"
+        ]
+      },
+      "related_ids": [
+        "ev-hallway-a-density-4",
+        "ev-hallway-a-activity-4",
+        "ev-hallway-a-audio-4",
+        "ev-exit-exit-north-4",
+        "ev-exit-exit-main-4"
+      ]
+    },
+    {
+      "seq": 49,
+      "record_type": "causal_transition",
+      "id": "04c0d858-e044-56dd-95ad-b2a6ea7328b6",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 4,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-4",
+          "ev-cafeteria-activity-4",
+          "ev-cafeteria-audio-4",
+          "ev-exit-exit-north-4",
+          "ev-exit-exit-main-4"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-4",
+        "ev-cafeteria-activity-4",
+        "ev-cafeteria-audio-4",
+        "ev-exit-exit-north-4",
+        "ev-exit-exit-main-4"
+      ]
+    },
+    {
+      "seq": 50,
+      "record_type": "causal_transition",
+      "id": "0ea74766-5672-59e0-a246-5105e3865450",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "crowding_risk",
+        "to_state": "normal",
+        "tick": 4,
+        "supporting_evidence_ids": [
+          "ev-event-68dc36f9-a59d-58c8-99bc-380bb63a4a95"
+        ]
+      },
+      "related_ids": [
+        "ev-event-68dc36f9-a59d-58c8-99bc-380bb63a4a95"
+      ]
+    },
+    {
+      "seq": 51,
+      "record_type": "semantic_event",
+      "id": "cf95c2d5-f628-5476-af7d-0dcb16f830c6",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "crowd_density_elevated",
+        "event_type": "crowd_acceleration",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 52,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-5",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 5,
+        "metric_value": 0.5341299119964472
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 53,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-5",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 5,
+        "metric_value": 0.48776556595397164
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 54,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-5",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 5,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 55,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-5",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 5,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 56,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-5",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 5,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 57,
+      "record_type": "evidence",
+      "id": "ev-event-10393553-ce0c-55d7-97f2-e72f359d9e5c",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "cafeteria",
+        "tick": 5,
+        "metric_value": 0.3877
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 58,
+      "record_type": "safety_state",
+      "id": "6f08414b-aeab-5897-9734-ae1b560c1ee3",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "crowding_risk",
+        "tick": 5
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 59,
+      "record_type": "safety_state",
+      "id": "4bd2c69c-9135-526b-bb04-6274c515bef2",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 5
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 60,
+      "record_type": "causal_transition",
+      "id": "868750c7-a8b3-594c-bbe8-b22f65e8f70b",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 5,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-5",
+          "ev-cafeteria-activity-5",
+          "ev-cafeteria-audio-5",
+          "ev-exit-exit-north-5",
+          "ev-exit-exit-main-5"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-5",
+        "ev-cafeteria-activity-5",
+        "ev-cafeteria-audio-5",
+        "ev-exit-exit-north-5",
+        "ev-exit-exit-main-5"
+      ]
+    },
+    {
+      "seq": 61,
+      "record_type": "causal_transition",
+      "id": "d3aacd8f-253a-5e98-bc33-f9e62f652a0c",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "crowding_risk",
+        "to_state": "normal",
+        "tick": 5,
+        "supporting_evidence_ids": [
+          "ev-event-10393553-ce0c-55d7-97f2-e72f359d9e5c"
+        ]
+      },
+      "related_ids": [
+        "ev-event-10393553-ce0c-55d7-97f2-e72f359d9e5c"
+      ]
+    },
+    {
+      "seq": 62,
+      "record_type": "semantic_event",
+      "id": "713ee129-344e-520b-8190-29439ce16f1f",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "crowd_density_elevated",
+        "event_type": "crowd_acceleration",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 63,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 6,
+        "metric_value": 0.607976030234093
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 64,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 6,
+        "metric_value": 0.5373461028932978
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 65,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 6,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 66,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 6,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 67,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 6,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 68,
+      "record_type": "evidence",
+      "id": "ev-event-168d0fd0-c582-543b-9f87-c9a1d4a27913",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "cafeteria",
+        "tick": 6,
+        "metric_value": 0.4309
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 69,
+      "record_type": "safety_state",
+      "id": "8afcf94d-df30-573d-b6e3-1c78fd12c827",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "crowding_risk",
+        "tick": 6
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 70,
+      "record_type": "safety_state",
+      "id": "9e8c7ad3-862b-5ad7-b46d-0c31240f70ef",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 6
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 71,
+      "record_type": "causal_transition",
+      "id": "fe9258e0-a8c9-544d-9e97-b7f88030c932",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 6,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-6",
+          "ev-cafeteria-activity-6",
+          "ev-cafeteria-audio-6",
+          "ev-exit-exit-north-6",
+          "ev-exit-exit-main-6"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-6",
+        "ev-cafeteria-activity-6",
+        "ev-cafeteria-audio-6",
+        "ev-exit-exit-north-6",
+        "ev-exit-exit-main-6"
+      ]
+    },
+    {
+      "seq": 72,
+      "record_type": "causal_transition",
+      "id": "f30bcb9a-909f-50cc-83a3-3d49f0749c46",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "crowding_risk",
+        "to_state": "normal",
+        "tick": 6,
+        "supporting_evidence_ids": [
+          "ev-event-168d0fd0-c582-543b-9f87-c9a1d4a27913"
+        ]
+      },
+      "related_ids": [
+        "ev-event-168d0fd0-c582-543b-9f87-c9a1d4a27913"
+      ]
+    },
+    {
+      "seq": 73,
+      "record_type": "semantic_event",
+      "id": "ca30c197-0555-5e39-b4a7-5d5c5639db52",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "crowd_density_elevated",
+        "event_type": "crowd_acceleration",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 74,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 7,
+        "metric_value": 0.6863454337958445
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 75,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 7,
+        "metric_value": 0.596422752418739
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 76,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 7,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 77,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 7,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 78,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 7,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 79,
+      "record_type": "evidence",
+      "id": "ev-event-979d9aa0-7bbb-50f3-97fe-eac20625006b",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "cafeteria",
+        "tick": 7,
+        "metric_value": 0.479
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 80,
+      "record_type": "safety_state",
+      "id": "07ad4dda-4fe7-5181-8fe2-af46b92863c9",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "crowding_risk",
+        "tick": 7
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 81,
+      "record_type": "safety_state",
+      "id": "d5c5cc34-c13f-5b95-98f6-50a671c8ef88",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 7
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 82,
+      "record_type": "causal_transition",
+      "id": "a1125813-a602-5659-9b7b-995f768e7030",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 7,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-7",
+          "ev-cafeteria-activity-7",
+          "ev-cafeteria-audio-7",
+          "ev-exit-exit-north-7",
+          "ev-exit-exit-main-7"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-7",
+        "ev-cafeteria-activity-7",
+        "ev-cafeteria-audio-7",
+        "ev-exit-exit-north-7",
+        "ev-exit-exit-main-7"
+      ]
+    },
+    {
+      "seq": 83,
+      "record_type": "causal_transition",
+      "id": "1b43940c-2672-59a1-a4f7-3c9179bc9cf4",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "crowding_risk",
+        "to_state": "normal",
+        "tick": 7,
+        "supporting_evidence_ids": [
+          "ev-event-979d9aa0-7bbb-50f3-97fe-eac20625006b"
+        ]
+      },
+      "related_ids": [
+        "ev-event-979d9aa0-7bbb-50f3-97fe-eac20625006b"
+      ]
+    },
+    {
+      "seq": 84,
+      "record_type": "semantic_event",
+      "id": "17abc38c-1715-547e-8fc1-799a59e09fb2",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "crowd_density_elevated",
+        "event_type": "crowd_acceleration",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 85,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 8,
+        "metric_value": 0.7351073534839897
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 86,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 8,
+        "metric_value": 0.6692234028105866
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 87,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 8,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 88,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 8,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 89,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 8,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 90,
+      "record_type": "evidence",
+      "id": "ev-event-bc264c40-34fd-5552-9985-532c61e805a1",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "cafeteria",
+        "tick": 8,
+        "metric_value": 0.5215
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 91,
+      "record_type": "safety_state",
+      "id": "6b06c861-98a2-5e02-8ca0-d6b01611970b",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "crowding_risk",
+        "tick": 8
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 92,
+      "record_type": "safety_state",
+      "id": "4db30438-8ffd-5834-b4db-ca26a54af6b4",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 8
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 93,
+      "record_type": "causal_transition",
+      "id": "82da41b9-4072-5fb0-9ac7-2340c0c82bf2",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 8,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-8",
+          "ev-cafeteria-activity-8",
+          "ev-cafeteria-audio-8",
+          "ev-exit-exit-north-8",
+          "ev-exit-exit-main-8"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-8",
+        "ev-cafeteria-activity-8",
+        "ev-cafeteria-audio-8",
+        "ev-exit-exit-north-8",
+        "ev-exit-exit-main-8"
+      ]
+    },
+    {
+      "seq": 94,
+      "record_type": "causal_transition",
+      "id": "4b52ae27-5240-5f0f-8689-d6ed594a35c1",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "crowding_risk",
+        "to_state": "normal",
+        "tick": 8,
+        "supporting_evidence_ids": [
+          "ev-event-bc264c40-34fd-5552-9985-532c61e805a1"
+        ]
+      },
+      "related_ids": [
+        "ev-event-bc264c40-34fd-5552-9985-532c61e805a1"
+      ]
+    },
+    {
+      "seq": 95,
+      "record_type": "semantic_event",
+      "id": "38bfe9a7-2ea7-5a82-879f-5806cea0d3f9",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "crowd_density_elevated",
+        "event_type": "crowd_acceleration",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 96,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 9,
+        "metric_value": 0.7732586393375228
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 97,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 9,
+        "metric_value": 0.7139283977278001
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 98,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 9,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 99,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 9,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 100,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 9,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 101,
+      "record_type": "evidence",
+      "id": "ev-event-08961e0b-0f75-5b93-ba80-07a4891dac9a",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "cafeteria",
+        "tick": 9,
+        "metric_value": 0.5505
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 102,
+      "record_type": "safety_state",
+      "id": "48b52679-ac73-5506-a686-c2de95040114",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "crowding_risk",
+        "tick": 9
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 103,
+      "record_type": "safety_state",
+      "id": "8309bcd1-d6e0-53bc-addc-90e70859c9e2",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 9
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 104,
+      "record_type": "causal_transition",
+      "id": "41b9ceea-5f29-5619-806a-ab3c74247ba5",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 9,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-9",
+          "ev-cafeteria-activity-9",
+          "ev-cafeteria-audio-9",
+          "ev-exit-exit-north-9",
+          "ev-exit-exit-main-9"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-9",
+        "ev-cafeteria-activity-9",
+        "ev-cafeteria-audio-9",
+        "ev-exit-exit-north-9",
+        "ev-exit-exit-main-9"
+      ]
+    },
+    {
+      "seq": 105,
+      "record_type": "causal_transition",
+      "id": "010d0cc4-6ada-56db-8c64-2d5dd5b5cf12",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "crowding_risk",
+        "to_state": "normal",
+        "tick": 9,
+        "supporting_evidence_ids": [
+          "ev-event-08961e0b-0f75-5b93-ba80-07a4891dac9a"
+        ]
+      },
+      "related_ids": [
+        "ev-event-08961e0b-0f75-5b93-ba80-07a4891dac9a"
+      ]
+    },
+    {
+      "seq": 106,
+      "record_type": "semantic_event",
+      "id": "0a1507ba-63e5-5ec5-ada7-09d54d6f746f",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "crowd_density_elevated",
+        "event_type": "crowd_acceleration",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 107,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 10,
+        "metric_value": 0.8337809989105914
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 108,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 10,
+        "metric_value": 0.752613501624293
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 109,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 10,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 110,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 10,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 111,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 10,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 112,
+      "record_type": "evidence",
+      "id": "ev-event-e345eaf2-5e53-50fa-befa-ad341e335d97",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "cafeteria",
+        "tick": 10,
+        "metric_value": 0.5852
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 113,
+      "record_type": "safety_state",
+      "id": "48a38723-a613-52a6-a9d2-64051b14190d",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "crowding_risk",
+        "tick": 10
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 114,
+      "record_type": "safety_state",
+      "id": "738aff36-9cf3-59d9-8b81-b0017c908ed5",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 10
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 115,
+      "record_type": "causal_transition",
+      "id": "6029dfd3-f799-5f74-a864-0f9c6054d683",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 10,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-10",
+          "ev-cafeteria-activity-10",
+          "ev-cafeteria-audio-10",
+          "ev-exit-exit-north-10",
+          "ev-exit-exit-main-10"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-10",
+        "ev-cafeteria-activity-10",
+        "ev-cafeteria-audio-10",
+        "ev-exit-exit-north-10",
+        "ev-exit-exit-main-10"
+      ]
+    },
+    {
+      "seq": 116,
+      "record_type": "causal_transition",
+      "id": "4ab93035-897b-57ec-80d5-955ddc8515e6",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "crowding_risk",
+        "to_state": "normal",
+        "tick": 10,
+        "supporting_evidence_ids": [
+          "ev-event-e345eaf2-5e53-50fa-befa-ad341e335d97"
+        ]
+      },
+      "related_ids": [
+        "ev-event-e345eaf2-5e53-50fa-befa-ad341e335d97"
+      ]
+    },
+    {
+      "seq": 117,
+      "record_type": "semantic_event",
+      "id": "87f32ce6-2037-5b17-a6ab-38966b5949d1",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "crowd_density_elevated",
+        "event_type": "crowd_acceleration",
+        "severity": "medium"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 118,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 11,
+        "metric_value": 0.9013388968423197
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 119,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 11,
+        "metric_value": 0.8266099924018332
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 120,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 11,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 121,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 11,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 122,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 11,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 123,
+      "record_type": "evidence",
+      "id": "ev-event-b10f60de-ce9d-53db-a7a4-4b1c6559fec7",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "cafeteria",
+        "tick": 11,
+        "metric_value": 0.6348
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 124,
+      "record_type": "safety_state",
+      "id": "52d1ff86-80c1-555c-8972-13c0f6132909",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "crowding_risk",
+        "tick": 11
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 125,
+      "record_type": "safety_state",
+      "id": "416f8cbf-4a78-5aca-a2d7-b73d09934965",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 11
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 126,
+      "record_type": "causal_transition",
+      "id": "cd8dc20e-b1a7-535f-9410-54b5e02fd50b",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 11,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-11",
+          "ev-cafeteria-activity-11",
+          "ev-cafeteria-audio-11",
+          "ev-exit-exit-north-11",
+          "ev-exit-exit-main-11"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-11",
+        "ev-cafeteria-activity-11",
+        "ev-cafeteria-audio-11",
+        "ev-exit-exit-north-11",
+        "ev-exit-exit-main-11"
+      ]
+    },
+    {
+      "seq": 127,
+      "record_type": "causal_transition",
+      "id": "64649b06-7748-5c42-bc31-b20d999ed26b",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "crowding_risk",
+        "to_state": "normal",
+        "tick": 11,
+        "supporting_evidence_ids": [
+          "ev-event-b10f60de-ce9d-53db-a7a4-4b1c6559fec7"
+        ]
+      },
+      "related_ids": [
+        "ev-event-b10f60de-ce9d-53db-a7a4-4b1c6559fec7"
+      ]
+    },
+    {
+      "seq": 128,
+      "record_type": "semantic_event",
+      "id": "90cdc7f3-b444-5336-b903-63fe19411664",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "crowd_density_elevated",
+        "event_type": "crowd_acceleration",
+        "severity": "medium"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 129,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 12,
+        "metric_value": 0.954707875521686
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 130,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 12,
+        "metric_value": 0.8539337890945534
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 131,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 12,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 132,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 12,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 133,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 12,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 134,
+      "record_type": "evidence",
+      "id": "ev-event-2a98fabb-1f56-57d5-b2a6-04d72ba71e38",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "cafeteria",
+        "tick": 12,
+        "metric_value": 0.663
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 135,
+      "record_type": "safety_state",
+      "id": "bc7486e4-d8d3-5551-a80f-34ea90794193",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "crowding_risk",
+        "tick": 12
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 136,
+      "record_type": "safety_state",
+      "id": "f746cb7d-0de6-5008-8013-c42182f08cae",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 12
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 137,
+      "record_type": "causal_transition",
+      "id": "54a1e895-6f90-5f7f-b600-99757df8de1b",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 12,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-12",
+          "ev-cafeteria-activity-12",
+          "ev-cafeteria-audio-12",
+          "ev-exit-exit-north-12",
+          "ev-exit-exit-main-12"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-12",
+        "ev-cafeteria-activity-12",
+        "ev-cafeteria-audio-12",
+        "ev-exit-exit-north-12",
+        "ev-exit-exit-main-12"
+      ]
+    },
+    {
+      "seq": 138,
+      "record_type": "causal_transition",
+      "id": "806a66be-0739-5483-94ec-397baa586eaa",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "crowding_risk",
+        "to_state": "normal",
+        "tick": 12,
+        "supporting_evidence_ids": [
+          "ev-event-2a98fabb-1f56-57d5-b2a6-04d72ba71e38"
+        ]
+      },
+      "related_ids": [
+        "ev-event-2a98fabb-1f56-57d5-b2a6-04d72ba71e38"
+      ]
+    },
+    {
+      "seq": 139,
+      "record_type": "semantic_event",
+      "id": "7426e7cf-e6bf-54c6-b44e-6229a6725237",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "crowd_density_elevated",
+        "event_type": "crowd_acceleration",
+        "severity": "medium"
+      },
+      "related_ids": []
+    }
+  ]
+}

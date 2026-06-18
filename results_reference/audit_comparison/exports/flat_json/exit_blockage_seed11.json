@@ -1,0 +1,1893 @@
+{
+  "format": "flat_json_event_log",
+  "scenario_id": "exit_blockage",
+  "seed": 11,
+  "records": [
+    {
+      "seq": 1,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-1",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 1,
+        "metric_value": 0.4023908954432198
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 2,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-1",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 1,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 3,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-1",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 1,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 4,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-1",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 1,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 5,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-1",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 1,
+        "metric_value": 0.88
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 6,
+      "record_type": "safety_state",
+      "id": "581f88c9-8517-5476-a194-0565a560f169",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "normal",
+        "tick": 1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 7,
+      "record_type": "safety_state",
+      "id": "6985a9d9-559d-535c-aa93-cbf12bedc479",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "normal",
+        "tick": 1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 8,
+      "record_type": "safety_state",
+      "id": "46c74ff6-1d7e-57ad-b640-9e3ed64764f6",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "crowding_risk",
+        "tick": 1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 9,
+      "record_type": "safety_state",
+      "id": "19b989ec-97e0-524d-b772-29b395901bdb",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "normal",
+        "tick": 1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 10,
+      "record_type": "causal_transition",
+      "id": "540dccdc-2e02-5e8f-8f38-491708db8cef",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "normal",
+        "to_state": "crowding_risk",
+        "tick": 1,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-1",
+          "ev-cafeteria-activity-1",
+          "ev-cafeteria-audio-1",
+          "ev-exit-exit-north-1",
+          "ev-exit-exit-main-1"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-1",
+        "ev-cafeteria-activity-1",
+        "ev-cafeteria-audio-1",
+        "ev-exit-exit-north-1",
+        "ev-exit-exit-main-1"
+      ]
+    },
+    {
+      "seq": 11,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-density-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "cafeteria",
+        "tick": 2,
+        "metric_value": 0.4486260028039909
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 12,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-activity-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "cafeteria",
+        "tick": 2,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 13,
+      "record_type": "evidence",
+      "id": "ev-cafeteria-audio-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "cafeteria",
+        "tick": 2,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 14,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 2,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 15,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "cafeteria",
+        "tick": 2,
+        "metric_value": 0.76
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 16,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-density-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "exit-lobby",
+        "tick": 2,
+        "metric_value": 0.47696842336094913
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 17,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-activity-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "exit-lobby",
+        "tick": 2,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 18,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-audio-2",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "exit-lobby",
+        "tick": 2,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 19,
+      "record_type": "safety_state",
+      "id": "9f92e7a3-3930-5bc3-a4ef-25a6060ae624",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "state": "exit_impairment",
+        "tick": 2
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 20,
+      "record_type": "safety_state",
+      "id": "60f9f66a-3415-5959-b701-ab41c1847780",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "exit_impairment",
+        "tick": 2
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 21,
+      "record_type": "causal_transition",
+      "id": "076d6eaa-827d-5e35-895a-863649c03370",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "from_state": "crowding_risk",
+        "to_state": "exit_impairment",
+        "tick": 2,
+        "supporting_evidence_ids": [
+          "ev-cafeteria-density-2",
+          "ev-cafeteria-activity-2",
+          "ev-cafeteria-audio-2",
+          "ev-exit-exit-north-2",
+          "ev-exit-exit-main-2"
+        ]
+      },
+      "related_ids": [
+        "ev-cafeteria-density-2",
+        "ev-cafeteria-activity-2",
+        "ev-cafeteria-audio-2",
+        "ev-exit-exit-north-2",
+        "ev-exit-exit-main-2"
+      ]
+    },
+    {
+      "seq": 22,
+      "record_type": "causal_transition",
+      "id": "78efc610-4a93-5900-822e-92405b7b89a3",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "normal",
+        "to_state": "exit_impairment",
+        "tick": 2,
+        "supporting_evidence_ids": [
+          "ev-exit-lobby-density-2",
+          "ev-exit-lobby-activity-2",
+          "ev-exit-lobby-audio-2",
+          "ev-exit-exit-north-2",
+          "ev-exit-exit-main-2"
+        ]
+      },
+      "related_ids": [
+        "ev-exit-lobby-density-2",
+        "ev-exit-lobby-activity-2",
+        "ev-exit-lobby-audio-2",
+        "ev-exit-exit-north-2",
+        "ev-exit-exit-main-2"
+      ]
+    },
+    {
+      "seq": 23,
+      "record_type": "recommendation",
+      "id": "79f35d54-0834-5a7d-b380-a104249e0459",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "target_zone_id": "exit-lobby",
+        "action": "no_action",
+        "severity": "low",
+        "requires_human_review": false,
+        "human_review_status": "not_required"
+      },
+      "related_ids": [
+        "144e6bb0-c610-5fd0-ac52-e8c5c8db9f59"
+      ]
+    },
+    {
+      "seq": 24,
+      "record_type": "audit_entry",
+      "id": "0de5bfe4-e391-56d2-b15b-4c281c764424",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "perception_processed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "signal_id": "d370b5d1-a828-51da-90f2-312fb632ccfe",
+          "modality": "video"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 25,
+      "record_type": "audit_entry",
+      "id": "94e4af7a-4f57-5561-a4ee-642fc1710766",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "perception_processed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "signal_id": "64db2108-0569-5326-8ef3-2d4b4db4d67e",
+          "modality": "audio"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 26,
+      "record_type": "audit_entry",
+      "id": "99890e01-4da0-5add-a5a0-24216530fe6e",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "perception_processed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "signal_id": "3e68c797-a074-50cf-bf5b-754fb9a49e16",
+          "modality": "sensor"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 27,
+      "record_type": "audit_entry",
+      "id": "38e80eb8-4ef7-58ee-b9ed-7dee912dea88",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "fusion_completed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "fusion_id": "82972f25-6d03-55a2-bb28-e01a1089625b"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 28,
+      "record_type": "audit_entry",
+      "id": "8b1edca3-9051-5e50-8faf-e087948da134",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "reasoning_invoked",
+        "node_id": "pipeline-edge-001",
+        "event_id": "144e6bb0-c610-5fd0-ac52-e8c5c8db9f59",
+        "details": {
+          "recommended_action": "no_action"
+        }
+      },
+      "related_ids": [
+        "144e6bb0-c610-5fd0-ac52-e8c5c8db9f59"
+      ]
+    },
+    {
+      "seq": 29,
+      "record_type": "audit_entry",
+      "id": "885d253c-4c2e-57f3-b7e7-80e55586f5d5",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "event_published",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "published_event_id": "144e6bb0-c610-5fd0-ac52-e8c5c8db9f59"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 30,
+      "record_type": "audit_entry",
+      "id": "e88f5282-34b5-5324-a16b-5b670d1d22d3",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "action": "privacy_check_passed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "policy_compliant": "True"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 31,
+      "record_type": "semantic_event",
+      "id": "144e6bb0-c610-5fd0-ac52-e8c5c8db9f59",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "multimodal_fusion",
+        "event_type": "multimodal_conflict",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 32,
+      "record_type": "semantic_event",
+      "id": "7a3d24ab-cff0-5aa2-860b-808cb3f722cd",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_blockage",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 33,
+      "record_type": "benchmark_coupling",
+      "id": "leakage:exit_blockage:11",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "leakage_score": 0.575,
+        "procedural_independence": 1.0,
+        "distributional_independence": 0.6954,
+        "benchmark_disclosure": "This benchmark is procedurally independent but not distributionally independent."
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 34,
+      "record_type": "semantic_event",
+      "id": "39d8f0ca-c7dc-51f0-9ada-e475004ea248",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_blockage",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 35,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-density-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 0.2
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 36,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-activity-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 37,
+      "record_type": "evidence",
+      "id": "ev-hallway-a-audio-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 38,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 39,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-4",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "hallway-a",
+        "tick": 4,
+        "metric_value": 0.52
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 40,
+      "record_type": "safety_state",
+      "id": "c9853a2f-f5e6-5e89-9867-13dbdcf8675c",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "state": "exit_impairment",
+        "tick": 4
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 41,
+      "record_type": "causal_transition",
+      "id": "75fa74a3-3b2b-5672-b2f5-c23ec3aa4e07",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "from_state": "normal",
+        "to_state": "exit_impairment",
+        "tick": 4,
+        "supporting_evidence_ids": [
+          "ev-hallway-a-density-4",
+          "ev-hallway-a-activity-4",
+          "ev-hallway-a-audio-4",
+          "ev-exit-exit-north-4",
+          "ev-exit-exit-main-4"
+        ]
+      },
+      "related_ids": [
+        "ev-hallway-a-density-4",
+        "ev-hallway-a-activity-4",
+        "ev-hallway-a-audio-4",
+        "ev-exit-exit-north-4",
+        "ev-exit-exit-main-4"
+      ]
+    },
+    {
+      "seq": 42,
+      "record_type": "semantic_event",
+      "id": "6bf8105e-7b29-5ea4-a8c7-9d0354c14bc2",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_blockage",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 43,
+      "record_type": "evidence",
+      "id": "ev-event-2e262b9b-7aed-5439-bef3-d114c07b085e",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "exit-lobby",
+        "tick": 5,
+        "metric_value": 0.3293
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 44,
+      "record_type": "safety_state",
+      "id": "781592d3-93b7-58e9-be74-a78e80b8c1e3",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "normal",
+        "tick": 5
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 45,
+      "record_type": "causal_transition",
+      "id": "6b4c55df-093f-51e7-8fba-3cf3e3b9e4c6",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "exit_impairment",
+        "to_state": "normal",
+        "tick": 5,
+        "supporting_evidence_ids": [
+          "ev-event-2e262b9b-7aed-5439-bef3-d114c07b085e"
+        ]
+      },
+      "related_ids": [
+        "ev-event-2e262b9b-7aed-5439-bef3-d114c07b085e"
+      ]
+    },
+    {
+      "seq": 46,
+      "record_type": "semantic_event",
+      "id": "44b48ce1-d0b3-51c8-a071-23f3c1af7520",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_blockage",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 47,
+      "record_type": "semantic_event",
+      "id": "cfaa5889-102e-5420-8c6e-144b5f2a4eea",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_throughput_reduced",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 48,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-density-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "exit-lobby",
+        "tick": 6,
+        "metric_value": 0.7637649382491688
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 49,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-activity-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "exit-lobby",
+        "tick": 6,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 50,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-audio-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "exit-lobby",
+        "tick": 6,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 51,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 6,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 52,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-6",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 6,
+        "metric_value": 0.28
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 53,
+      "record_type": "evidence",
+      "id": "ev-event-0144dcdc-e688-58d0-a2d2-5d6af05221c8",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "exit-lobby",
+        "tick": 6,
+        "metric_value": 0.3498
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 54,
+      "record_type": "safety_state",
+      "id": "64b7a3fd-2d4c-5863-a880-aff99795eb08",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "exit_impairment",
+        "tick": 6
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 55,
+      "record_type": "safety_state",
+      "id": "49d0c361-b7fa-5bb1-a993-28121253b0bb",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "normal",
+        "tick": 6
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 56,
+      "record_type": "causal_transition",
+      "id": "ddcab961-f98f-5dfb-9b56-7ada1c8cb33b",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "normal",
+        "to_state": "exit_impairment",
+        "tick": 6,
+        "supporting_evidence_ids": [
+          "ev-exit-lobby-density-6",
+          "ev-exit-lobby-activity-6",
+          "ev-exit-lobby-audio-6",
+          "ev-exit-exit-north-6",
+          "ev-exit-exit-main-6"
+        ]
+      },
+      "related_ids": [
+        "ev-exit-lobby-density-6",
+        "ev-exit-lobby-activity-6",
+        "ev-exit-lobby-audio-6",
+        "ev-exit-exit-north-6",
+        "ev-exit-exit-main-6"
+      ]
+    },
+    {
+      "seq": 57,
+      "record_type": "causal_transition",
+      "id": "e790c0ca-c08b-5b5e-bb75-92ee6b69dbc0",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "exit_impairment",
+        "to_state": "normal",
+        "tick": 6,
+        "supporting_evidence_ids": [
+          "ev-event-0144dcdc-e688-58d0-a2d2-5d6af05221c8"
+        ]
+      },
+      "related_ids": [
+        "ev-event-0144dcdc-e688-58d0-a2d2-5d6af05221c8"
+      ]
+    },
+    {
+      "seq": 58,
+      "record_type": "semantic_event",
+      "id": "85b4e4f3-2e73-58d7-924e-ad668afbaae4",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_blockage",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 59,
+      "record_type": "semantic_event",
+      "id": "5f5a5d47-6063-5ed0-a567-8002bfd8cb65",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_throughput_reduced",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 60,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-density-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "exit-lobby",
+        "tick": 7,
+        "metric_value": 0.8436268214996737
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 61,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-activity-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "exit-lobby",
+        "tick": 7,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 62,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-audio-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "exit-lobby",
+        "tick": 7,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 63,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 7,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 64,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-7",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 7,
+        "metric_value": 0.16000000000000003
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 65,
+      "record_type": "evidence",
+      "id": "ev-event-2bb8fb61-b380-57ad-90d3-786e1a9f7137",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "exit-lobby",
+        "tick": 7,
+        "metric_value": 0.3778
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 66,
+      "record_type": "safety_state",
+      "id": "d7974481-52f4-50a5-88f3-ca307dba8816",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "exit_impairment",
+        "tick": 7
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 67,
+      "record_type": "safety_state",
+      "id": "be9eaf82-bc88-5d62-a686-4b8b4b592ee5",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "normal",
+        "tick": 7
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 68,
+      "record_type": "causal_transition",
+      "id": "3c8f186b-a792-51d2-a4cc-903fb941e85f",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "normal",
+        "to_state": "exit_impairment",
+        "tick": 7,
+        "supporting_evidence_ids": [
+          "ev-exit-lobby-density-7",
+          "ev-exit-lobby-activity-7",
+          "ev-exit-lobby-audio-7",
+          "ev-exit-exit-north-7",
+          "ev-exit-exit-main-7"
+        ]
+      },
+      "related_ids": [
+        "ev-exit-lobby-density-7",
+        "ev-exit-lobby-activity-7",
+        "ev-exit-lobby-audio-7",
+        "ev-exit-exit-north-7",
+        "ev-exit-exit-main-7"
+      ]
+    },
+    {
+      "seq": 69,
+      "record_type": "causal_transition",
+      "id": "2ae0cd59-0e02-5341-8ed2-2cb1bfe23cad",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "exit_impairment",
+        "to_state": "normal",
+        "tick": 7,
+        "supporting_evidence_ids": [
+          "ev-event-2bb8fb61-b380-57ad-90d3-786e1a9f7137"
+        ]
+      },
+      "related_ids": [
+        "ev-event-2bb8fb61-b380-57ad-90d3-786e1a9f7137"
+      ]
+    },
+    {
+      "seq": 70,
+      "record_type": "semantic_event",
+      "id": "1a75cee3-ec0d-5128-a784-14dc46cbc530",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_blockage",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 71,
+      "record_type": "semantic_event",
+      "id": "f1316ac4-230a-5794-b1d8-d140773ce7b8",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_throughput_reduced",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 72,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-density-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "exit-lobby",
+        "tick": 8,
+        "metric_value": 0.9477375393016495
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 73,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-activity-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "exit-lobby",
+        "tick": 8,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 74,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-audio-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "exit-lobby",
+        "tick": 8,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 75,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 8,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 76,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-8",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 8,
+        "metric_value": 0.05
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 77,
+      "record_type": "evidence",
+      "id": "ev-event-5ff73270-7c7a-5d6a-86e8-d612812e7547",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "exit-lobby",
+        "tick": 8,
+        "metric_value": 0.4142
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 78,
+      "record_type": "safety_state",
+      "id": "1c843799-c4e6-564e-8bf1-c7b3833de9d2",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "exit_impairment",
+        "tick": 8
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 79,
+      "record_type": "safety_state",
+      "id": "af6b4bf1-3eec-5e39-baad-2c5fc588f316",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "normal",
+        "tick": 8
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 80,
+      "record_type": "causal_transition",
+      "id": "be3279ec-cf1d-5093-bfae-5a03e435bbbf",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "normal",
+        "to_state": "exit_impairment",
+        "tick": 8,
+        "supporting_evidence_ids": [
+          "ev-exit-lobby-density-8",
+          "ev-exit-lobby-activity-8",
+          "ev-exit-lobby-audio-8",
+          "ev-exit-exit-north-8",
+          "ev-exit-exit-main-8"
+        ]
+      },
+      "related_ids": [
+        "ev-exit-lobby-density-8",
+        "ev-exit-lobby-activity-8",
+        "ev-exit-lobby-audio-8",
+        "ev-exit-exit-north-8",
+        "ev-exit-exit-main-8"
+      ]
+    },
+    {
+      "seq": 81,
+      "record_type": "causal_transition",
+      "id": "24d04d1a-eb28-57a8-847a-b97554d9085a",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "exit_impairment",
+        "to_state": "normal",
+        "tick": 8,
+        "supporting_evidence_ids": [
+          "ev-event-5ff73270-7c7a-5d6a-86e8-d612812e7547"
+        ]
+      },
+      "related_ids": [
+        "ev-event-5ff73270-7c7a-5d6a-86e8-d612812e7547"
+      ]
+    },
+    {
+      "seq": 82,
+      "record_type": "semantic_event",
+      "id": "1468b066-cdf4-55d0-ba05-ad012be635da",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_blockage",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 83,
+      "record_type": "semantic_event",
+      "id": "500249b3-9229-5ffa-aad8-94ade5599596",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_throughput_reduced",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 84,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-density-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "exit-lobby",
+        "tick": 9,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 85,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-activity-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "exit-lobby",
+        "tick": 9,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 86,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-audio-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "exit-lobby",
+        "tick": 9,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 87,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 9,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 88,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-9",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 9,
+        "metric_value": 0.05
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 89,
+      "record_type": "evidence",
+      "id": "ev-event-f31ae6b1-2c1d-5998-910c-5b6c2ed34ae6",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "exit-lobby",
+        "tick": 9,
+        "metric_value": 0.4325
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 90,
+      "record_type": "safety_state",
+      "id": "48a964b6-1dd1-5e83-bdcc-ea1726660d89",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "exit_impairment",
+        "tick": 9
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 91,
+      "record_type": "safety_state",
+      "id": "420a2826-7b9f-5407-99b8-98f7972c0aab",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "normal",
+        "tick": 9
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 92,
+      "record_type": "causal_transition",
+      "id": "9cffbf8d-30f8-51c9-be51-7819cbae5a52",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "normal",
+        "to_state": "exit_impairment",
+        "tick": 9,
+        "supporting_evidence_ids": [
+          "ev-exit-lobby-density-9",
+          "ev-exit-lobby-activity-9",
+          "ev-exit-lobby-audio-9",
+          "ev-exit-exit-north-9",
+          "ev-exit-exit-main-9"
+        ]
+      },
+      "related_ids": [
+        "ev-exit-lobby-density-9",
+        "ev-exit-lobby-activity-9",
+        "ev-exit-lobby-audio-9",
+        "ev-exit-exit-north-9",
+        "ev-exit-exit-main-9"
+      ]
+    },
+    {
+      "seq": 93,
+      "record_type": "causal_transition",
+      "id": "0f60a638-411f-5299-9758-250bfc1adb50",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "exit_impairment",
+        "to_state": "normal",
+        "tick": 9,
+        "supporting_evidence_ids": [
+          "ev-event-f31ae6b1-2c1d-5998-910c-5b6c2ed34ae6"
+        ]
+      },
+      "related_ids": [
+        "ev-event-f31ae6b1-2c1d-5998-910c-5b6c2ed34ae6"
+      ]
+    },
+    {
+      "seq": 94,
+      "record_type": "semantic_event",
+      "id": "d6db49e2-ebc5-5401-864d-3f9d9d152b8b",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_blockage",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 95,
+      "record_type": "semantic_event",
+      "id": "fd242abc-7282-54ca-88a2-435cc7b1fd9d",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_throughput_reduced",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 96,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-density-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "exit-lobby",
+        "tick": 10,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 97,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-activity-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "exit-lobby",
+        "tick": 10,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 98,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-audio-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "exit-lobby",
+        "tick": 10,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 99,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 10,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 100,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-10",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 10,
+        "metric_value": 0.05
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 101,
+      "record_type": "evidence",
+      "id": "ev-event-96792769-dc2f-5361-9ef5-ec3f848a318e",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "exit-lobby",
+        "tick": 10,
+        "metric_value": 0.4325
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 102,
+      "record_type": "safety_state",
+      "id": "6ebf8149-d9a3-5080-94c0-bd915758af79",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "exit_impairment",
+        "tick": 10
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 103,
+      "record_type": "safety_state",
+      "id": "a0023aaf-c03e-5891-a9af-95f7ea42a900",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "normal",
+        "tick": 10
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 104,
+      "record_type": "causal_transition",
+      "id": "d37cc91e-fae9-5a70-9964-e71d8166e442",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "normal",
+        "to_state": "exit_impairment",
+        "tick": 10,
+        "supporting_evidence_ids": [
+          "ev-exit-lobby-density-10",
+          "ev-exit-lobby-activity-10",
+          "ev-exit-lobby-audio-10",
+          "ev-exit-exit-north-10",
+          "ev-exit-exit-main-10"
+        ]
+      },
+      "related_ids": [
+        "ev-exit-lobby-density-10",
+        "ev-exit-lobby-activity-10",
+        "ev-exit-lobby-audio-10",
+        "ev-exit-exit-north-10",
+        "ev-exit-exit-main-10"
+      ]
+    },
+    {
+      "seq": 105,
+      "record_type": "causal_transition",
+      "id": "1f7aefd9-337b-5214-ab5b-f7547f6842cf",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "exit_impairment",
+        "to_state": "normal",
+        "tick": 10,
+        "supporting_evidence_ids": [
+          "ev-event-96792769-dc2f-5361-9ef5-ec3f848a318e"
+        ]
+      },
+      "related_ids": [
+        "ev-event-96792769-dc2f-5361-9ef5-ec3f848a318e"
+      ]
+    },
+    {
+      "seq": 106,
+      "record_type": "semantic_event",
+      "id": "7d6ee327-2ae6-5925-aa6b-80a093aed8b7",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_blockage",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 107,
+      "record_type": "semantic_event",
+      "id": "88ea0352-b0b7-59be-9753-ee63d75bb8c4",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_throughput_reduced",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 108,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-density-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "exit-lobby",
+        "tick": 11,
+        "metric_value": 0.9862997638056065
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 109,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-activity-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "exit-lobby",
+        "tick": 11,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 110,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-audio-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "exit-lobby",
+        "tick": 11,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 111,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 11,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 112,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-11",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 11,
+        "metric_value": 0.05
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 113,
+      "record_type": "evidence",
+      "id": "ev-event-2cf0017a-b684-5c9c-9125-672e96085b36",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "exit-lobby",
+        "tick": 11,
+        "metric_value": 0.4277
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 114,
+      "record_type": "safety_state",
+      "id": "b15bbc5f-2f54-56ed-9b35-978d6aa62a75",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "exit_impairment",
+        "tick": 11
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 115,
+      "record_type": "safety_state",
+      "id": "31970aee-2783-5ca8-be09-2ab39720f2fa",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "normal",
+        "tick": 11
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 116,
+      "record_type": "causal_transition",
+      "id": "92fdb5aa-fb7a-587b-9ff4-9056f07cc3e5",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "normal",
+        "to_state": "exit_impairment",
+        "tick": 11,
+        "supporting_evidence_ids": [
+          "ev-exit-lobby-density-11",
+          "ev-exit-lobby-activity-11",
+          "ev-exit-lobby-audio-11",
+          "ev-exit-exit-north-11",
+          "ev-exit-exit-main-11"
+        ]
+      },
+      "related_ids": [
+        "ev-exit-lobby-density-11",
+        "ev-exit-lobby-activity-11",
+        "ev-exit-lobby-audio-11",
+        "ev-exit-exit-north-11",
+        "ev-exit-exit-main-11"
+      ]
+    },
+    {
+      "seq": 117,
+      "record_type": "causal_transition",
+      "id": "56da1dea-4eec-5e8b-8793-f305eeac9c38",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "exit_impairment",
+        "to_state": "normal",
+        "tick": 11,
+        "supporting_evidence_ids": [
+          "ev-event-2cf0017a-b684-5c9c-9125-672e96085b36"
+        ]
+      },
+      "related_ids": [
+        "ev-event-2cf0017a-b684-5c9c-9125-672e96085b36"
+      ]
+    },
+    {
+      "seq": 118,
+      "record_type": "semantic_event",
+      "id": "9e107cc6-2cf5-5821-8c89-c656b5d49f1c",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_blockage",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 119,
+      "record_type": "semantic_event",
+      "id": "2c94be55-1ccc-52cf-902a-b9a49636957f",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_throughput_reduced",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 120,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-density-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "zone_density",
+        "zone_id": "exit-lobby",
+        "tick": 12,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 121,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-activity-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "zone_activity",
+        "zone_id": "exit-lobby",
+        "tick": 12,
+        "metric_value": 0.15
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 122,
+      "record_type": "evidence",
+      "id": "ev-exit-lobby-audio-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "zone_audio",
+        "zone_id": "exit-lobby",
+        "tick": 12,
+        "metric_value": 0.1
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 123,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-north-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 12,
+        "metric_value": 1.0
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 124,
+      "record_type": "evidence",
+      "id": "ev-exit-exit-main-12",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "exit_throughput",
+        "zone_id": "exit-lobby",
+        "tick": 12,
+        "metric_value": 0.05
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 125,
+      "record_type": "evidence",
+      "id": "ev-event-9149b227-5c9e-5df3-9d45-145529867bab",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "kind": "semantic_event",
+        "zone_id": "exit-lobby",
+        "tick": 12,
+        "metric_value": 0.4325
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 126,
+      "record_type": "safety_state",
+      "id": "e3b62522-b00a-582e-a7df-842f155b0474",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "exit_impairment",
+        "tick": 12
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 127,
+      "record_type": "safety_state",
+      "id": "b8e8b44c-e060-53ef-b806-4d62c13a309f",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "state": "normal",
+        "tick": 12
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 128,
+      "record_type": "causal_transition",
+      "id": "d3308a1d-6eb4-5bcf-bbfc-1c45f849e34e",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "normal",
+        "to_state": "exit_impairment",
+        "tick": 12,
+        "supporting_evidence_ids": [
+          "ev-exit-lobby-density-12",
+          "ev-exit-lobby-activity-12",
+          "ev-exit-lobby-audio-12",
+          "ev-exit-exit-north-12",
+          "ev-exit-exit-main-12"
+        ]
+      },
+      "related_ids": [
+        "ev-exit-lobby-density-12",
+        "ev-exit-lobby-activity-12",
+        "ev-exit-lobby-audio-12",
+        "ev-exit-exit-north-12",
+        "ev-exit-exit-main-12"
+      ]
+    },
+    {
+      "seq": 129,
+      "record_type": "causal_transition",
+      "id": "4ad952b6-f4aa-5482-b843-1bd3e1506acc",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "from_state": "exit_impairment",
+        "to_state": "normal",
+        "tick": 12,
+        "supporting_evidence_ids": [
+          "ev-event-9149b227-5c9e-5df3-9d45-145529867bab"
+        ]
+      },
+      "related_ids": [
+        "ev-event-9149b227-5c9e-5df3-9d45-145529867bab"
+      ]
+    },
+    {
+      "seq": 130,
+      "record_type": "semantic_event",
+      "id": "519e5cd3-276e-5daa-b786-73240128cc8e",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_blockage",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 131,
+      "record_type": "semantic_event",
+      "id": "be975fe6-de31-5ee9-b535-37ca1c2aa589",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "exit_throughput_reduced",
+        "event_type": "exit_blockage",
+        "severity": "low"
+      },
+      "related_ids": []
+    }
+  ]
+}

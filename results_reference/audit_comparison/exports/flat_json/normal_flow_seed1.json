@@ -1,0 +1,614 @@
+{
+  "format": "flat_json_event_log",
+  "scenario_id": "normal_flow",
+  "seed": 1,
+  "records": [
+    {
+      "seq": 1,
+      "record_type": "recommendation",
+      "id": "1316d4b9-0163-5b5c-b83c-25dea45105c0",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "target_zone_id": "cafeteria",
+        "action": "no_action",
+        "severity": "low",
+        "requires_human_review": false,
+        "human_review_status": "not_required"
+      },
+      "related_ids": [
+        "60f37445-a8b8-5c44-9ba9-7a5feba471c1"
+      ]
+    },
+    {
+      "seq": 2,
+      "record_type": "audit_entry",
+      "id": "bb27162b-1cc4-5ace-9be4-32336abb8168",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "action": "perception_processed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "signal_id": "11e333d4-d7c4-5520-a982-2c81bafe395c",
+          "modality": "video"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 3,
+      "record_type": "audit_entry",
+      "id": "735a1564-e135-530f-97a4-61cf882c0b48",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "action": "perception_processed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "signal_id": "028f16ff-2c3e-56b5-815c-2b183c38390f",
+          "modality": "audio"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 4,
+      "record_type": "audit_entry",
+      "id": "cca85c60-33a0-5fe6-af15-4d2bfc977cd1",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "action": "perception_processed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "signal_id": "94eb97d3-a01c-555a-b81f-005280f76a98",
+          "modality": "sensor"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 5,
+      "record_type": "audit_entry",
+      "id": "bff1f4ad-b3d6-518f-87ad-35d043907138",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "action": "fusion_completed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "fusion_id": "0f580d5d-122c-507a-a3a3-3125448b4b00"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 6,
+      "record_type": "audit_entry",
+      "id": "79552114-e14c-5f44-860a-6e6083ef372e",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "action": "reasoning_invoked",
+        "node_id": "pipeline-edge-001",
+        "event_id": "60f37445-a8b8-5c44-9ba9-7a5feba471c1",
+        "details": {
+          "recommended_action": "no_action"
+        }
+      },
+      "related_ids": [
+        "60f37445-a8b8-5c44-9ba9-7a5feba471c1"
+      ]
+    },
+    {
+      "seq": 7,
+      "record_type": "audit_entry",
+      "id": "74e9d983-0c3a-54e9-a770-a23b16c7111b",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "action": "event_published",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "published_event_id": "60f37445-a8b8-5c44-9ba9-7a5feba471c1"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 8,
+      "record_type": "audit_entry",
+      "id": "f8603d79-b59a-590e-81e6-e13edc5b2741",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "action": "privacy_check_passed",
+        "node_id": "pipeline-edge-001",
+        "event_id": null,
+        "details": {
+          "policy_compliant": "True"
+        }
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 9,
+      "record_type": "semantic_event",
+      "id": "60f37445-a8b8-5c44-9ba9-7a5feba471c1",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "multimodal_fusion",
+        "event_type": "multimodal_conflict",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 10,
+      "record_type": "semantic_event",
+      "id": "8a246045-4e9f-52c0-ad4a-b0e2a3021fe0",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 11,
+      "record_type": "semantic_event",
+      "id": "a739623c-c569-555d-9242-d7bce7fa6f58",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 12,
+      "record_type": "semantic_event",
+      "id": "949facbf-2088-5415-907a-9d5cb637c459",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 13,
+      "record_type": "benchmark_coupling",
+      "id": "leakage:normal_flow:1",
+      "timestamp": "2026-01-01T12:00:01+00:00",
+      "attributes": {
+        "leakage_score": 0.575,
+        "procedural_independence": 1.0,
+        "distributional_independence": 0.6954,
+        "benchmark_disclosure": "This benchmark is procedurally independent but not distributionally independent."
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 14,
+      "record_type": "semantic_event",
+      "id": "7d683962-8793-52c3-9386-999fc96559e3",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 15,
+      "record_type": "semantic_event",
+      "id": "d7d31230-2633-55bf-9793-c056d718a3a4",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 16,
+      "record_type": "semantic_event",
+      "id": "7f46981d-3272-59bc-9455-15fcf77bbc1b",
+      "timestamp": "2026-01-01T12:00:02+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 17,
+      "record_type": "semantic_event",
+      "id": "3bf0f706-a858-50bc-80e5-8b3259bdd5e4",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 18,
+      "record_type": "semantic_event",
+      "id": "d08a5045-386e-5d23-aedf-ff919cc439a7",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 19,
+      "record_type": "semantic_event",
+      "id": "12f96f93-584c-53b5-8f59-509fe823c091",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 20,
+      "record_type": "semantic_event",
+      "id": "459d2a89-a174-553b-8837-40c17c59548d",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 21,
+      "record_type": "semantic_event",
+      "id": "986b8538-adc1-5a89-86ed-dea29ffa84c5",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 22,
+      "record_type": "semantic_event",
+      "id": "0a3b52db-6d2b-5675-a5d3-a2aeef538fa0",
+      "timestamp": "2026-01-01T12:00:04+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 23,
+      "record_type": "semantic_event",
+      "id": "f1a6020c-aecb-5651-b7f9-7c5f7bb212dd",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 24,
+      "record_type": "semantic_event",
+      "id": "d3cf04a0-8122-522f-bbcc-9f8cdd65ed56",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 25,
+      "record_type": "semantic_event",
+      "id": "d8e5a345-aa60-59e4-a1bd-7a785e6ff85f",
+      "timestamp": "2026-01-01T12:00:05+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 26,
+      "record_type": "semantic_event",
+      "id": "c1e3a95c-533d-5405-bf8a-647318b7888a",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 27,
+      "record_type": "semantic_event",
+      "id": "63c69c41-f396-5409-8ace-f4d730d3f721",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 28,
+      "record_type": "semantic_event",
+      "id": "372a6eec-578b-53db-abc3-1144986063db",
+      "timestamp": "2026-01-01T12:00:06+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 29,
+      "record_type": "semantic_event",
+      "id": "11f2e782-2db8-55f0-9958-12e420243224",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 30,
+      "record_type": "semantic_event",
+      "id": "8fbe137e-2220-54f5-85e3-0e6db18f626e",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 31,
+      "record_type": "semantic_event",
+      "id": "e549d0d0-dcb9-54db-b6a4-b932bf8bcc5a",
+      "timestamp": "2026-01-01T12:00:07+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 32,
+      "record_type": "semantic_event",
+      "id": "28b70ff6-2292-5a62-827d-5071cb8906b2",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 33,
+      "record_type": "semantic_event",
+      "id": "2f0ec1ac-d587-5ed2-a66d-ac5ef5e54070",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 34,
+      "record_type": "semantic_event",
+      "id": "4ef11b03-6b80-58e2-b406-3832d9d2f7ef",
+      "timestamp": "2026-01-01T12:00:08+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 35,
+      "record_type": "semantic_event",
+      "id": "5a8e0421-819b-5a84-8148-b251e676643a",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 36,
+      "record_type": "semantic_event",
+      "id": "11ecacc9-2816-5063-9c74-3b611c5e2a0c",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 37,
+      "record_type": "semantic_event",
+      "id": "e76152ad-ba15-5e9c-9f71-1a4d52a00737",
+      "timestamp": "2026-01-01T12:00:09+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 38,
+      "record_type": "semantic_event",
+      "id": "0306eb3d-6a11-556d-a646-d538ac225445",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 39,
+      "record_type": "semantic_event",
+      "id": "529d32fe-7e69-5889-b86b-acc325834a29",
+      "timestamp": "2026-01-01T12:00:10+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 40,
+      "record_type": "semantic_event",
+      "id": "02ed56eb-2f2e-5531-be22-122cf0254cbe",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 41,
+      "record_type": "semantic_event",
+      "id": "20423bdb-3ce1-50b0-a10c-9e4a51afc73e",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 42,
+      "record_type": "semantic_event",
+      "id": "641968fc-da94-5566-8a99-4d11db6cfa7d",
+      "timestamp": "2026-01-01T12:00:11+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 43,
+      "record_type": "semantic_event",
+      "id": "0bb24126-62d2-50ab-adca-7f94817ae05d",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "cafeteria",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 44,
+      "record_type": "semantic_event",
+      "id": "63b967cf-0705-59f1-aa5f-f2cdcd4f5b41",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "exit-lobby",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    },
+    {
+      "seq": 45,
+      "record_type": "semantic_event",
+      "id": "39459aec-6ba1-5615-878b-f897665eb822",
+      "timestamp": "2026-01-01T12:00:12+00:00",
+      "attributes": {
+        "zone_id": "hallway-a",
+        "category": "normal_flow",
+        "event_type": "normal_flow",
+        "severity": "low"
+      },
+      "related_ids": []
+    }
+  ]
+}

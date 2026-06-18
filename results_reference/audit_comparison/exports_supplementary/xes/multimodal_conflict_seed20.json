@@ -1,0 +1,228 @@
+{
+  "format": "xes_json",
+  "scenario_id": "multimodal_conflict",
+  "seed": 20,
+  "log": {
+    "xes": "2.0",
+    "global": {
+      "concept:name": "DualexisSyntheticAuditTrace",
+      "lifecycle:model": "standard"
+    },
+    "traces": [
+      {
+        "concept:name": "multimodal_conflict-seed20",
+        "events": [
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:evidence_id": "ev-cafeteria-density-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_density"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:evidence_id": "ev-cafeteria-activity-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_activity"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:evidence_id": "ev-cafeteria-audio-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "zone_audio"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:evidence_id": "ev-exit-exit-north-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "EvidenceObserved",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:evidence_id": "ev-exit-exit-main-1",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:kind": "exit_throughput"
+          },
+          {
+            "concept:name": "CausalStateTransition",
+            "time:timestamp": "2026-01-01T12:00:01+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:transition_id": "64210074-de96-5ace-b4d2-41d0688b0508",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:from_state": "normal",
+            "dualexis:to_state": "multi_modal_conflict",
+            "dualexis:supporting_evidence_ids": [
+              "ev-cafeteria-density-1",
+              "ev-cafeteria-activity-1",
+              "ev-cafeteria-audio-1",
+              "ev-exit-exit-north-1",
+              "ev-exit-exit-main-1"
+            ]
+          },
+          {
+            "concept:name": "RecommendationIssued",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:recommendation_id": "e789ef1f-8855-5423-8530-0db8240c86e0",
+            "dualexis:requires_human_review": false,
+            "dualexis:human_review_status": "not_required",
+            "dualexis:severity": "low"
+          },
+          {
+            "concept:name": "AuditPerception_Processed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:audit_entry_id": "48f82445-a4ab-587e-aec7-283cd205b895",
+            "dualexis:action": "perception_processed"
+          },
+          {
+            "concept:name": "AuditPerception_Processed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:audit_entry_id": "da04047a-ee3d-55b3-a3c0-776ce517e842",
+            "dualexis:action": "perception_processed"
+          },
+          {
+            "concept:name": "AuditPerception_Processed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:audit_entry_id": "85d124ef-4ad5-5798-9396-f271cededd8d",
+            "dualexis:action": "perception_processed"
+          },
+          {
+            "concept:name": "AuditFusion_Completed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:audit_entry_id": "09e59a17-1a62-58fb-8a95-26e181b605f7",
+            "dualexis:action": "fusion_completed"
+          },
+          {
+            "concept:name": "AuditReasoning_Invoked",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:audit_entry_id": "8421e8c0-9c7a-5463-b959-54b7b51609bd",
+            "dualexis:action": "reasoning_invoked"
+          },
+          {
+            "concept:name": "AuditEvent_Published",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:audit_entry_id": "ba6e7eba-ea0d-574d-8090-7d7a9ae9cb85",
+            "dualexis:action": "event_published"
+          },
+          {
+            "concept:name": "AuditPrivacy_Check_Passed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:audit_entry_id": "2d9bab49-4521-5d98-b82a-da42f9178266",
+            "dualexis:action": "privacy_check_passed"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:event_id": "b571d42d-5729-5a7e-947a-5195face8bc7",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_fusion"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:event_id": "d0fadf29-e077-58d4-ac5b-97de8b6f80f9",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "BenchmarkCouplingDisclosed",
+            "time:timestamp": "2026-01-01T12:00:03+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:leakage_score": 0.575,
+            "dualexis:benchmark_disclosure": "This benchmark is procedurally independent but not distributionally independent.",
+            "dualexis:procedural_independence": 1.0
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:07+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:event_id": "b73dba24-4c46-5bd9-828a-d168a2b15904",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:08+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:event_id": "2cd336b4-b79c-5c46-9b14-dd3703cf2a41",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:09+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:event_id": "327d88e2-8d7e-5d12-ad4f-a49459e9c685",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:10+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:event_id": "5cfe04c9-6762-59e0-bcec-b8fb7cdc135e",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:11+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:event_id": "8641b440-9854-5145-81af-e67211673a83",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          },
+          {
+            "concept:name": "SemanticEventObserved",
+            "time:timestamp": "2026-01-01T12:00:12+00:00",
+            "lifecycle:transition": "complete",
+            "dualexis:case_id": "multimodal_conflict-seed20",
+            "dualexis:event_id": "e4d5aff5-2349-5f24-810f-a24144f344fb",
+            "dualexis:zone_id": "cafeteria",
+            "dualexis:category": "multimodal_conflict"
+          }
+        ]
+      }
+    ]
+  }
+}

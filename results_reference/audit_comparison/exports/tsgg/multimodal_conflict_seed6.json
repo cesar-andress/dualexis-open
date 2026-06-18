@@ -1,0 +1,246 @@
+{
+  "format": "tsgg_native",
+  "scenario_id": "multimodal_conflict",
+  "seed": 6,
+  "stage_counts": {
+    "evidence": 5,
+    "safety_state": 4,
+    "causal_transition": 1,
+    "recommendation": 1,
+    "governance_decision": 0,
+    "audit_trace": 0
+  },
+  "evidence": [
+    {
+      "evidence_id": "ev-cafeteria-density-1",
+      "kind": "zone_density",
+      "zone_id": "cafeteria",
+      "tick": 1,
+      "timestamp": "2026-01-01T12:00:01+00:00"
+    },
+    {
+      "evidence_id": "ev-cafeteria-activity-1",
+      "kind": "zone_activity",
+      "zone_id": "cafeteria",
+      "tick": 1,
+      "timestamp": "2026-01-01T12:00:01+00:00"
+    },
+    {
+      "evidence_id": "ev-cafeteria-audio-1",
+      "kind": "zone_audio",
+      "zone_id": "cafeteria",
+      "tick": 1,
+      "timestamp": "2026-01-01T12:00:01+00:00"
+    },
+    {
+      "evidence_id": "ev-exit-exit-north-1",
+      "kind": "exit_throughput",
+      "zone_id": "cafeteria",
+      "tick": 1,
+      "timestamp": "2026-01-01T12:00:01+00:00"
+    },
+    {
+      "evidence_id": "ev-exit-exit-main-1",
+      "kind": "exit_throughput",
+      "zone_id": "cafeteria",
+      "tick": 1,
+      "timestamp": "2026-01-01T12:00:01+00:00"
+    }
+  ],
+  "causal_transitions": [
+    {
+      "transition_id": "9ab5c809-7bc2-5096-a9bf-8c24e8c09e3b",
+      "zone_id": "cafeteria",
+      "tick": 1,
+      "from_state": "normal",
+      "to_state": "multi_modal_conflict",
+      "supporting_evidence_ids": [
+        "ev-cafeteria-density-1",
+        "ev-cafeteria-activity-1",
+        "ev-cafeteria-audio-1",
+        "ev-exit-exit-north-1",
+        "ev-exit-exit-main-1"
+      ],
+      "timestamp": "2026-01-01T12:00:01+00:00"
+    }
+  ],
+  "recommendations": [
+    {
+      "recommendation_id": "216318bc-63ed-56c2-82f8-57f461d51851",
+      "target_zone_id": "cafeteria",
+      "action": "no_action",
+      "severity": "low",
+      "requires_human_review": false,
+      "human_review_status": "not_required",
+      "based_on_event_ids": [
+        "ab665452-0c1f-54da-a84d-497602bb0e34"
+      ],
+      "derived_from_transition_ids": [
+        "9ab5c809-7bc2-5096-a9bf-8c24e8c09e3b"
+      ],
+      "created_at": "2026-01-01T12:00:03+00:00"
+    }
+  ],
+  "governance_traces": [],
+  "audit_records": [
+    {
+      "entry_id": "d7564a3e-e16e-5dc8-a3ff-5d3a9eaf159a",
+      "action": "perception_processed",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "event_id": null
+    },
+    {
+      "entry_id": "bf342e81-f9ff-5368-93bc-d9985a984d5d",
+      "action": "perception_processed",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "event_id": null
+    },
+    {
+      "entry_id": "81c33ba7-997b-55f1-9134-86f5fc83f00a",
+      "action": "perception_processed",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "event_id": null
+    },
+    {
+      "entry_id": "143ad87d-804e-5a59-8ee8-8e375c829750",
+      "action": "fusion_completed",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "event_id": null
+    },
+    {
+      "entry_id": "76a59899-82eb-5211-aeac-a3bd02f75337",
+      "action": "reasoning_invoked",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "event_id": "ab665452-0c1f-54da-a84d-497602bb0e34"
+    },
+    {
+      "entry_id": "034e1e73-70f5-59a1-8983-bb5893ef557c",
+      "action": "event_published",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "event_id": null
+    },
+    {
+      "entry_id": "75215e7b-a028-5e1e-87df-fab1e2478d9e",
+      "action": "privacy_check_passed",
+      "timestamp": "2026-01-01T12:00:03+00:00",
+      "event_id": null
+    }
+  ],
+  "semantic_events": [
+    {
+      "event_id": "ab665452-0c1f-54da-a84d-497602bb0e34",
+      "zone_id": "cafeteria",
+      "category": "multimodal_fusion",
+      "event_type": "multimodal_conflict",
+      "timestamp": "2026-01-01T12:00:03+00:00"
+    },
+    {
+      "event_id": "bbdf46e2-ef2c-521b-916c-121ba34bc3e0",
+      "zone_id": "cafeteria",
+      "category": "multimodal_conflict",
+      "event_type": "multimodal_conflict",
+      "timestamp": "2026-01-01T12:00:03+00:00"
+    },
+    {
+      "event_id": "99273713-b14d-5ecb-b123-22f3f5dc7f6f",
+      "zone_id": "cafeteria",
+      "category": "multimodal_conflict",
+      "event_type": "multimodal_conflict",
+      "timestamp": "2026-01-01T12:00:04+00:00"
+    },
+    {
+      "event_id": "6017e91b-cc0e-560f-bd21-423f42721508",
+      "zone_id": "cafeteria",
+      "category": "multimodal_conflict",
+      "event_type": "multimodal_conflict",
+      "timestamp": "2026-01-01T12:00:05+00:00"
+    },
+    {
+      "event_id": "593bfccb-c725-5a03-b590-82fbf60bab8e",
+      "zone_id": "cafeteria",
+      "category": "multimodal_conflict",
+      "event_type": "multimodal_conflict",
+      "timestamp": "2026-01-01T12:00:06+00:00"
+    },
+    {
+      "event_id": "7fa3db35-6a5e-5d46-9d0b-3afc02c0449b",
+      "zone_id": "cafeteria",
+      "category": "multimodal_conflict",
+      "event_type": "multimodal_conflict",
+      "timestamp": "2026-01-01T12:00:07+00:00"
+    },
+    {
+      "event_id": "50b55a90-47b2-595b-8184-cfd6a91e55de",
+      "zone_id": "cafeteria",
+      "category": "multimodal_conflict",
+      "event_type": "multimodal_conflict",
+      "timestamp": "2026-01-01T12:00:08+00:00"
+    },
+    {
+      "event_id": "5c275069-a19b-5f6e-83b2-0eeab52f7053",
+      "zone_id": "cafeteria",
+      "category": "multimodal_conflict",
+      "event_type": "multimodal_conflict",
+      "timestamp": "2026-01-01T12:00:09+00:00"
+    },
+    {
+      "event_id": "018a87b2-05ef-568b-b45b-fac4b2bb836f",
+      "zone_id": "cafeteria",
+      "category": "multimodal_conflict",
+      "event_type": "multimodal_conflict",
+      "timestamp": "2026-01-01T12:00:10+00:00"
+    },
+    {
+      "event_id": "bbcde655-9a9a-517d-9c44-42cb1dab6464",
+      "zone_id": "cafeteria",
+      "category": "multimodal_conflict",
+      "event_type": "multimodal_conflict",
+      "timestamp": "2026-01-01T12:00:11+00:00"
+    },
+    {
+      "event_id": "95e0e4ef-1d62-5903-a007-91fad2c4c8e6",
+      "zone_id": "cafeteria",
+      "category": "multimodal_conflict",
+      "event_type": "multimodal_conflict",
+      "timestamp": "2026-01-01T12:00:12+00:00"
+    }
+  ],
+  "links": [
+    {
+      "link_type": "evidence_supports_transition",
+      "from_id": "ev-cafeteria-density-1",
+      "to_id": "9ab5c809-7bc2-5096-a9bf-8c24e8c09e3b"
+    },
+    {
+      "link_type": "evidence_supports_transition",
+      "from_id": "ev-cafeteria-activity-1",
+      "to_id": "9ab5c809-7bc2-5096-a9bf-8c24e8c09e3b"
+    },
+    {
+      "link_type": "evidence_supports_transition",
+      "from_id": "ev-cafeteria-audio-1",
+      "to_id": "9ab5c809-7bc2-5096-a9bf-8c24e8c09e3b"
+    },
+    {
+      "link_type": "evidence_supports_transition",
+      "from_id": "ev-exit-exit-north-1",
+      "to_id": "9ab5c809-7bc2-5096-a9bf-8c24e8c09e3b"
+    },
+    {
+      "link_type": "evidence_supports_transition",
+      "from_id": "ev-exit-exit-main-1",
+      "to_id": "9ab5c809-7bc2-5096-a9bf-8c24e8c09e3b"
+    },
+    {
+      "link_type": "transition_informs_recommendation",
+      "from_id": "9ab5c809-7bc2-5096-a9bf-8c24e8c09e3b",
+      "to_id": "216318bc-63ed-56c2-82f8-57f461d51851"
+    }
+  ],
+  "benchmark_coupling": {
+    "leakage_score": 0.575,
+    "procedural_independence": 1.0,
+    "distributional_independence": 0.6954,
+    "benchmark_disclosure": "This benchmark is procedurally independent but not distributionally independent."
+  }
+}

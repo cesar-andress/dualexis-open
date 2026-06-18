@@ -10,45 +10,45 @@
     \toprule
     Scenario & Baseline & Metric & Unique & Mode frac. \\
     \midrule
-    normal\_flow & B1 & event\_detection\_accuracy & 1 & 1.00 \\
+    normal\_flow & B1 & event\_detection\_accuracy & 5 & 0.37 \\
     normal\_flow & B1 & false\_positive\_rate & 1 & 1.00 \\
     normal\_flow & B2 & event\_detection\_accuracy & 1 & 1.00 \\
     normal\_flow & B2 & false\_positive\_rate & 1 & 1.00 \\
-    normal\_flow & B3 & event\_detection\_accuracy & 1 & 1.00 \\
+    normal\_flow & B3 & event\_detection\_accuracy & 5 & 0.37 \\
     normal\_flow & B3 & false\_positive\_rate & 1 & 1.00 \\
     normal\_flow & B4 & event\_detection\_accuracy & 1 & 1.00 \\
     normal\_flow & B4 & false\_positive\_rate & 1 & 1.00 \\
-    normal\_flow & B5 & event\_detection\_accuracy & 1 & 1.00 \\
+    normal\_flow & B5 & event\_detection\_accuracy & 5 & 0.37 \\
     normal\_flow & B5 & false\_positive\_rate & 1 & 1.00 \\
-    exit\_blockage & B1 & event\_detection\_accuracy & 1 & 1.00 \\
-    exit\_blockage & B1 & false\_positive\_rate & 2 & 0.73 \\
+    exit\_blockage & B1 & event\_detection\_accuracy & 3 & 0.53 \\
+    exit\_blockage & B1 & false\_positive\_rate & 4 & 0.50 \\
     exit\_blockage & B2 & event\_detection\_accuracy & 2 & 0.80 \\
     exit\_blockage & B2 & false\_positive\_rate & 1 & 1.00 \\
-    exit\_blockage & B3 & event\_detection\_accuracy & 1 & 1.00 \\
-    exit\_blockage & B3 & false\_positive\_rate & 2 & 0.73 \\
+    exit\_blockage & B3 & event\_detection\_accuracy & 3 & 0.53 \\
+    exit\_blockage & B3 & false\_positive\_rate & 4 & 0.50 \\
     exit\_blockage & B4 & event\_detection\_accuracy & 1 & 1.00 \\
     exit\_blockage & B4 & false\_positive\_rate & 1 & 1.00 \\
-    exit\_blockage & B5 & event\_detection\_accuracy & 1 & 1.00 \\
-    exit\_blockage & B5 & false\_positive\_rate & 2 & 0.73 \\
-    multimodal\_conflict & B1 & event\_detection\_accuracy & 1 & 1.00 \\
+    exit\_blockage & B5 & event\_detection\_accuracy & 3 & 0.53 \\
+    exit\_blockage & B5 & false\_positive\_rate & 4 & 0.50 \\
+    multimodal\_conflict & B1 & event\_detection\_accuracy & 5 & 0.53 \\
     multimodal\_conflict & B1 & false\_positive\_rate & 1 & 1.00 \\
-    multimodal\_conflict & B2 & event\_detection\_accuracy & 1 & 1.00 \\
+    multimodal\_conflict & B2 & event\_detection\_accuracy & 2 & 0.80 \\
     multimodal\_conflict & B2 & false\_positive\_rate & 1 & 1.00 \\
-    multimodal\_conflict & B3 & event\_detection\_accuracy & 1 & 1.00 \\
+    multimodal\_conflict & B3 & event\_detection\_accuracy & 5 & 0.53 \\
     multimodal\_conflict & B3 & false\_positive\_rate & 1 & 1.00 \\
     multimodal\_conflict & B4 & event\_detection\_accuracy & 1 & 1.00 \\
     multimodal\_conflict & B4 & false\_positive\_rate & 1 & 1.00 \\
-    multimodal\_conflict & B5 & event\_detection\_accuracy & 1 & 1.00 \\
+    multimodal\_conflict & B5 & event\_detection\_accuracy & 5 & 0.53 \\
     multimodal\_conflict & B5 & false\_positive\_rate & 1 & 1.00 \\
-    evacuation\_recommendation & B1 & event\_detection\_accuracy & 1 & 1.00 \\
+    evacuation\_recommendation & B1 & event\_detection\_accuracy & 4 & 0.47 \\
     evacuation\_recommendation & B1 & false\_positive\_rate & 1 & 1.00 \\
     evacuation\_recommendation & B2 & event\_detection\_accuracy & 1 & 1.00 \\
     evacuation\_recommendation & B2 & false\_positive\_rate & 1 & 1.00 \\
-    evacuation\_recommendation & B3 & event\_detection\_accuracy & 1 & 1.00 \\
+    evacuation\_recommendation & B3 & event\_detection\_accuracy & 4 & 0.47 \\
     evacuation\_recommendation & B3 & false\_positive\_rate & 1 & 1.00 \\
     evacuation\_recommendation & B4 & event\_detection\_accuracy & 1 & 1.00 \\
     evacuation\_recommendation & B4 & false\_positive\_rate & 1 & 1.00 \\
-    evacuation\_recommendation & B5 & event\_detection\_accuracy & 1 & 1.00 \\
+    evacuation\_recommendation & B5 & event\_detection\_accuracy & 4 & 0.47 \\
     evacuation\_recommendation & B5 & false\_positive\_rate & 1 & 1.00 \\
     \bottomrule
   \end{tabular}
@@ -63,16 +63,22 @@
     \toprule
     Baseline & Metric & Mean & Boot. CI low & Boot. CI high & Unique \\
     \midrule
-    B1 & false\_positive\_rate & 0.344 & 0.337 & 0.351 & 2 \\
+    B1 & event\_detection\_accuracy & 0.923 & 0.913 & 0.933 & 3 \\
+    B1 & false\_positive\_rate & 0.026 & 0.017 & 0.034 & 4 \\
+    B1 & false\_negative\_rate & 0.077 & 0.067 & 0.087 & 3 \\
     B1 & end\_to\_end\_latency\_ms & 325.533 & 312.333 & 342.400 & 20 \\
-    B2 & event\_detection\_accuracy & 0.040 & 0.032 & 0.047 & 2 \\
-    B2 & false\_negative\_rate & 0.960 & 0.953 & 0.968 & 2 \\
+    B2 & event\_detection\_accuracy & 0.080 & 0.063 & 0.093 & 2 \\
+    B2 & false\_negative\_rate & 0.920 & 0.907 & 0.937 & 2 \\
     B2 & explanation\_completeness\_score & 0.800 & 0.633 & 0.933 & 2 \\
     B2 & end\_to\_end\_latency\_ms & 305.200 & 297.167 & 312.867 & 20 \\
-    B3 & false\_positive\_rate & 0.344 & 0.337 & 0.351 & 2 \\
+    B3 & event\_detection\_accuracy & 0.923 & 0.913 & 0.933 & 3 \\
+    B3 & false\_positive\_rate & 0.026 & 0.017 & 0.034 & 4 \\
+    B3 & false\_negative\_rate & 0.077 & 0.067 & 0.087 & 3 \\
     B3 & end\_to\_end\_latency\_ms & 350.200 & 342.167 & 357.867 & 20 \\
     B4 & end\_to\_end\_latency\_ms & 167.200 & 159.167 & 174.867 & 20 \\
-    B5 & false\_positive\_rate & 0.385 & 0.379 & 0.391 & 2 \\
+    B5 & event\_detection\_accuracy & 0.923 & 0.913 & 0.933 & 3 \\
+    B5 & false\_positive\_rate & 0.026 & 0.017 & 0.034 & 4 \\
+    B5 & false\_negative\_rate & 0.077 & 0.067 & 0.087 & 3 \\
     B5 & end\_to\_end\_latency\_ms & 167.200 & 159.167 & 174.867 & 20 \\
     \bottomrule
   \end{tabular}
@@ -131,9 +137,9 @@
     \toprule
     Scenario & Modal ranking (high to low Acc.) & Agreement \\
     \midrule
-    evacuation\_recommendation & B1>B2>B3>B4>B5 & 1.00 \\
+    evacuation\_recommendation & B1>B3>B5>B2>B4 & 1.00 \\
     exit\_blockage & B1>B3>B5>B2>B4 & 1.00 \\
-    multimodal\_conflict & B1>B2>B3>B4>B5 & 1.00 \\
+    multimodal\_conflict & B1>B3>B5>B2>B4 & 1.00 \\
     normal\_flow & B1>B3>B5>B2>B4 & 1.00 \\
     \bottomrule
   \end{tabular}

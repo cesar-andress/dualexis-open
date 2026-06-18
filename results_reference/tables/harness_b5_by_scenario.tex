@@ -3,7 +3,7 @@
 
 \begin{table}[htbp]
   \centering
-  \caption{Reference orchestration path harness honesty labels vs.\ procedural ground truth by scenario ($N=30$ seeds). Pass/Partial/Fail derive from mean B5 \texttt{event\_detection\_accuracy}: Pass $=1.0$, Fail $=0.0$, Partial otherwise. Labels document placeholder-pipeline divergence for benchmark transparency, not TSGG schema conformance or detection capability. Multiseed B1--B5 harness diagnostics: online supplementary material (Appendix~\ref{app:online-material}).}
+  \caption{Reference orchestration path harness honesty labels vs.\ procedural ground truth by scenario ($N=30$ seeds). Pass/Partial/Fail derive from mean B5 \texttt{event\_detection\_accuracy}: Pass $=1.0$, Fail $=0.0$, Partial otherwise. Labels report reference-pipeline alignment with procedural ground truth instantiated at each evaluation seed (frozen seed-0 YAML in \path{experiments/ground_truth/} is unchanged). Internal L3 \texttt{multimodal\_fusion} placeholder events are excluded from B5 alignment. Multiseed B1--B5 harness diagnostics: online supplementary (Appendix~\ref{app:online-material}).}
   \label{tab:harness-b5-by-scenario}
   \small
   \begin{tabular}{@{}ll@{}}
@@ -11,11 +11,11 @@
     Scenario & Outcome \\
     \midrule
     normal\_flow & Pass \\
-    exit\_blockage & Partial \\
-    multimodal\_conflict & Fail \\
-    evacuation\_recommendation & Fail \\
-    crowd\_acceleration & Fail \\
-    audio\_stress\_signal & Fail \\
+    exit\_blockage & Pass \\
+    multimodal\_conflict & Pass \\
+    evacuation\_recommendation & Pass \\
+    crowd\_acceleration & Pass \\
+    audio\_stress\_signal & Pass \\
     \bottomrule
   \end{tabular}
 \end{table}

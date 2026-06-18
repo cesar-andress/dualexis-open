@@ -1,0 +1,226 @@
+{
+  "prefix": {
+    "ex": "https://dualexis.local/prov#"
+  },
+  "agent": {
+    "ex:agent-system": {
+      "prov:type": "SoftwareAgent",
+      "ex:label": "dualexis-reference"
+    },
+    "ex:agent-operator": {
+      "prov:type": "Person",
+      "ex:label": "simulated-operator"
+    }
+  },
+  "entity": {
+    "ex:ev-cafeteria-density-1": {
+      "prov:type": "Evidence",
+      "ex:kind": "zone_density",
+      "ex:zone_id": "cafeteria",
+      "ex:tick": {
+        "$": 1,
+        "type": "xsd:int"
+      }
+    },
+    "ex:ev-cafeteria-activity-1": {
+      "prov:type": "Evidence",
+      "ex:kind": "zone_activity",
+      "ex:zone_id": "cafeteria",
+      "ex:tick": {
+        "$": 1,
+        "type": "xsd:int"
+      }
+    },
+    "ex:ev-cafeteria-audio-1": {
+      "prov:type": "Evidence",
+      "ex:kind": "zone_audio",
+      "ex:zone_id": "cafeteria",
+      "ex:tick": {
+        "$": 1,
+        "type": "xsd:int"
+      }
+    },
+    "ex:ev-exit-exit-north-1": {
+      "prov:type": "Evidence",
+      "ex:kind": "exit_throughput",
+      "ex:zone_id": "cafeteria",
+      "ex:tick": {
+        "$": 1,
+        "type": "xsd:int"
+      }
+    },
+    "ex:ev-exit-exit-main-1": {
+      "prov:type": "Evidence",
+      "ex:kind": "exit_throughput",
+      "ex:zone_id": "cafeteria",
+      "ex:tick": {
+        "$": 1,
+        "type": "xsd:int"
+      }
+    },
+    "ex:d534d3b2-cea5-5973-ba08-0d5a6967916f": {
+      "prov:type": "CausalTransition",
+      "ex:zone_id": "cafeteria",
+      "ex:from_state": "normal",
+      "ex:to_state": "multi_modal_conflict"
+    },
+    "ex:89414579-a1cb-5348-a387-9ad3d75935e9": {
+      "prov:type": "Recommendation",
+      "ex:action": "no_action",
+      "ex:severity": "low",
+      "ex:requires_human_review": false,
+      "ex:human_review_status": "not_required"
+    },
+    "ex:sem-9f1718c8-58bf-5a6a-a5eb-7fc8658cb4e5": {
+      "prov:type": "SemanticEvent",
+      "ex:event_id": "9f1718c8-58bf-5a6a-a5eb-7fc8658cb4e5",
+      "ex:zone_id": "cafeteria",
+      "ex:category": "multimodal_fusion"
+    },
+    "ex:sem-7a50fc4b-afce-5e79-9d89-11b362dd848f": {
+      "prov:type": "SemanticEvent",
+      "ex:event_id": "7a50fc4b-afce-5e79-9d89-11b362dd848f",
+      "ex:zone_id": "cafeteria",
+      "ex:category": "multimodal_conflict"
+    },
+    "ex:sem-e185bbd5-f91e-57c3-8c22-1a9425845678": {
+      "prov:type": "SemanticEvent",
+      "ex:event_id": "e185bbd5-f91e-57c3-8c22-1a9425845678",
+      "ex:zone_id": "cafeteria",
+      "ex:category": "multimodal_conflict"
+    },
+    "ex:sem-7bf275ba-337c-52e5-95bb-5278b20d4953": {
+      "prov:type": "SemanticEvent",
+      "ex:event_id": "7bf275ba-337c-52e5-95bb-5278b20d4953",
+      "ex:zone_id": "cafeteria",
+      "ex:category": "multimodal_conflict"
+    },
+    "ex:sem-43f8d955-57c7-5fb6-be44-2336f5d9da86": {
+      "prov:type": "SemanticEvent",
+      "ex:event_id": "43f8d955-57c7-5fb6-be44-2336f5d9da86",
+      "ex:zone_id": "cafeteria",
+      "ex:category": "multimodal_conflict"
+    },
+    "ex:sem-2bee1372-74ee-532d-a779-b3e0fcda58a2": {
+      "prov:type": "SemanticEvent",
+      "ex:event_id": "2bee1372-74ee-532d-a779-b3e0fcda58a2",
+      "ex:zone_id": "cafeteria",
+      "ex:category": "multimodal_conflict"
+    },
+    "ex:sem-ff7accc4-5ead-52eb-9e00-0922065232ed": {
+      "prov:type": "SemanticEvent",
+      "ex:event_id": "ff7accc4-5ead-52eb-9e00-0922065232ed",
+      "ex:zone_id": "cafeteria",
+      "ex:category": "multimodal_conflict"
+    },
+    "ex:sem-1be593f3-89e0-53d0-8af9-7881f23b7452": {
+      "prov:type": "SemanticEvent",
+      "ex:event_id": "1be593f3-89e0-53d0-8af9-7881f23b7452",
+      "ex:zone_id": "cafeteria",
+      "ex:category": "multimodal_conflict"
+    },
+    "ex:benchmark-coupling": {
+      "prov:type": "BenchmarkCouplingDisclosure",
+      "ex:leakage_score": {
+        "$": 0.575,
+        "type": "xsd:double"
+      },
+      "ex:procedural_independence": {
+        "$": 1.0,
+        "type": "xsd:double"
+      },
+      "ex:distributional_independence": {
+        "$": 0.6954,
+        "type": "xsd:double"
+      },
+      "ex:benchmark_disclosure": "This benchmark is procedurally independent but not distributionally independent."
+    }
+  },
+  "activity": {
+    "ex:act-infer-d534d3b2-cea5-5973-ba08-0d5a6967916f": {
+      "prov:type": "StateInference",
+      "ex:startTime": "2026-01-01T12:00:01+00:00",
+      "ex:endTime": "2026-01-01T12:00:01+00:00"
+    },
+    "ex:act-recommend-89414579-a1cb-5348-a387-9ad3d75935e9": {
+      "prov:type": "Reasoning",
+      "ex:startTime": "2026-01-01T12:00:03+00:00",
+      "ex:endTime": "2026-01-01T12:00:03+00:00"
+    }
+  },
+  "wasGeneratedBy": {
+    "_:id1": {
+      "prov:entity": "ex:d534d3b2-cea5-5973-ba08-0d5a6967916f",
+      "prov:activity": "ex:act-infer-d534d3b2-cea5-5973-ba08-0d5a6967916f"
+    },
+    "_:id13": {
+      "prov:entity": "ex:89414579-a1cb-5348-a387-9ad3d75935e9",
+      "prov:activity": "ex:act-recommend-89414579-a1cb-5348-a387-9ad3d75935e9"
+    }
+  },
+  "wasAssociatedWith": {
+    "_:id2": {
+      "prov:activity": "ex:act-infer-d534d3b2-cea5-5973-ba08-0d5a6967916f",
+      "prov:agent": "ex:agent-system"
+    },
+    "_:id14": {
+      "prov:activity": "ex:act-recommend-89414579-a1cb-5348-a387-9ad3d75935e9",
+      "prov:agent": "ex:agent-system"
+    }
+  },
+  "used": {
+    "_:id3": {
+      "prov:activity": "ex:act-infer-d534d3b2-cea5-5973-ba08-0d5a6967916f",
+      "prov:entity": "ex:ev-cafeteria-density-1"
+    },
+    "_:id5": {
+      "prov:activity": "ex:act-infer-d534d3b2-cea5-5973-ba08-0d5a6967916f",
+      "prov:entity": "ex:ev-cafeteria-activity-1"
+    },
+    "_:id7": {
+      "prov:activity": "ex:act-infer-d534d3b2-cea5-5973-ba08-0d5a6967916f",
+      "prov:entity": "ex:ev-cafeteria-audio-1"
+    },
+    "_:id9": {
+      "prov:activity": "ex:act-infer-d534d3b2-cea5-5973-ba08-0d5a6967916f",
+      "prov:entity": "ex:ev-exit-exit-north-1"
+    },
+    "_:id11": {
+      "prov:activity": "ex:act-infer-d534d3b2-cea5-5973-ba08-0d5a6967916f",
+      "prov:entity": "ex:ev-exit-exit-main-1"
+    }
+  },
+  "wasDerivedFrom": {
+    "_:id4": {
+      "prov:generatedEntity": "ex:d534d3b2-cea5-5973-ba08-0d5a6967916f",
+      "prov:usedEntity": "ex:ev-cafeteria-density-1"
+    },
+    "_:id6": {
+      "prov:generatedEntity": "ex:d534d3b2-cea5-5973-ba08-0d5a6967916f",
+      "prov:usedEntity": "ex:ev-cafeteria-activity-1"
+    },
+    "_:id8": {
+      "prov:generatedEntity": "ex:d534d3b2-cea5-5973-ba08-0d5a6967916f",
+      "prov:usedEntity": "ex:ev-cafeteria-audio-1"
+    },
+    "_:id10": {
+      "prov:generatedEntity": "ex:d534d3b2-cea5-5973-ba08-0d5a6967916f",
+      "prov:usedEntity": "ex:ev-exit-exit-north-1"
+    },
+    "_:id12": {
+      "prov:generatedEntity": "ex:d534d3b2-cea5-5973-ba08-0d5a6967916f",
+      "prov:usedEntity": "ex:ev-exit-exit-main-1"
+    },
+    "_:id15": {
+      "prov:generatedEntity": "ex:89414579-a1cb-5348-a387-9ad3d75935e9",
+      "prov:usedEntity": "ex:d534d3b2-cea5-5973-ba08-0d5a6967916f"
+    },
+    "_:id16": {
+      "prov:generatedEntity": "ex:89414579-a1cb-5348-a387-9ad3d75935e9",
+      "prov:usedEntity": "ex:event-9f1718c8-58bf-5a6a-a5eb-7fc8658cb4e5"
+    }
+  },
+  "format": "prov_json",
+  "scenario_id": "multimodal_conflict",
+  "seed": 19
+}
