@@ -56,6 +56,18 @@ Shared-spec regression retains **6/6 Pass** for CI/regression checks.
 See `results_reference/benchmark_decoupled/procedural_agreement_summary.json`.
 Manifest pre-registered band: PAR $\in [0.78, 0.94]$.
 
+## Coupling-controlled PAR (diagnostic)
+
+| Path | Command |
+|------|---------|
+| `results_reference/coupling_controlled_par/coupling_controlled_par.csv` | `coupling-controlled-par` |
+| `results_reference/coupling_controlled_par/coupling_controlled_par.json` | `coupling-controlled-par` |
+| `results_reference/coupling_controlled_par/coupling_controlled_par.tex` | `coupling-controlled-par` |
+| `results_reference/coupling_controlled_par/coupling_controlled_par_by_run.csv` | `coupling-controlled-par` |
+
+Diagnostic decomposition only; does not replace primary decoupled PAR benchmark.
+See `docs/coupling_controlled_par.md`.
+
 ## Tests
 
 | Command | Expected |

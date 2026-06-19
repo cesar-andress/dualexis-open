@@ -123,6 +123,76 @@ def bootstrap_ci(
     )
 
 
+def agreement_counts_from_label_keys(
+    predicted_keys: list[tuple[str, str]],
+    ground_truth: ScenarioGroundTruth,
+) -> AgreementCounts:
+    predicted_counts = Counter(predicted_keys)
+    truth_counts = Counter(
+        ground_truth_label_key(label.zone_id, label.semantic_label)
+        for label in ground_truth.labels
+    )
+    keys = set(predicted_counts) | set(truth_counts)
+    tp = fp = fn = 0
+    for key in keys:
+        predicted_n = predicted_counts.get(key, 0)
+        truth_n = truth_counts.get(key, 0)
+        tp += min(predicted_n, truth_n)
+        if predicted_n > truth_n:
+            fp += predicted_n - truth_n
+        if truth_n > predicted_n:
+            fn += truth_n - predicted_n
+    return AgreementCounts(true_positives=tp, false_positives=fp, false_negatives=fn)
+
+
+def metrics_from_label_keys(
+    predicted_keys: list[tuple[str, str]],
+    ground_truth: ScenarioGroundTruth,
+) -> ProceduralAgreementMetrics:
+    counts = agreement_counts_from_label_keys(predicted_keys, ground_truth)
+    total = counts.total
+    if total == 0:
+        return ProceduralAgreementMetrics(par=1.0, fpr=0.0, fnr=0.0, counts=counts)
+    par = counts.true_positives / total
+    fpr = counts.false_positives / (counts.false_positives + counts.true_positives) if (
+        counts.false_positives + counts.true_positives
+    ) else 0.0
+    fnr = counts.false_negatives / (counts.false_negatives + counts.true_positives) if (
+        counts.false_negatives + counts.true_positives
+    ) else 0.0
+    return ProceduralAgreementMetrics(
+        par=round(par, 4),
+        fpr=round(fpr, 4),
+        fnr=round(fnr, 4),
+        counts=counts,
+    )
+
+
+def chance_par_baseline(
+    predicted: tuple[SemanticEvent, ...],
+    ground_truth: ScenarioGroundTruth,
+    *,
+    n_permutations: int = 1000,
+    seed: int = 42,
+) -> tuple[float, BootstrapInterval]:
+    """PAR under random label reassignment for predicted zone keys (chance baseline PAR_0)."""
+    predicted_keys = [event_label_key(event) for event in predicted]
+    if not predicted_keys:
+        interval = BootstrapInterval(lower=1.0, upper=1.0)
+        return 1.0, interval
+    zones = [key[0] for key in predicted_keys]
+    labels = [key[1] for key in predicted_keys]
+    rng = random.Random(seed)
+    par_values: list[float] = []
+    for _ in range(n_permutations):
+        shuffled_labels = labels.copy()
+        rng.shuffle(shuffled_labels)
+        permuted_keys = [(zones[i], shuffled_labels[i]) for i in range(len(zones))]
+        par_values.append(metrics_from_label_keys(permuted_keys, ground_truth).par)
+    mean_par = round(sum(par_values) / len(par_values), 4)
+    return mean_par, bootstrap_ci(par_values, seed=seed + 1)
+
+
 def aggregate_micro_rates(metrics: list[ProceduralAgreementMetrics]) -> ProceduralAgreementMetrics:
     """Micro-average PAR/FPR/FNR across runs."""
     tp = sum(m.counts.true_positives for m in metrics)
@@ -147,8 +217,11 @@ __all__ = [
     "ProceduralAgreementMetrics",
     "aggregate_micro_rates",
     "agreement_counts",
+    "agreement_counts_from_label_keys",
     "bootstrap_ci",
+    "chance_par_baseline",
     "event_label_key",
     "ground_truth_label_key",
+    "metrics_from_label_keys",
     "procedural_agreement_metrics",
 ]

@@ -1584,6 +1584,60 @@ def experiment_shared_spec_regression_cmd(
             typer.echo(f"{row['scenario']}: mean_par={row['mean_par']} -> {row['label']}")
 
 
+@experiment_app.command("coupling-controlled-par")
+def experiment_coupling_controlled_par_cmd(
+    output: str = typer.Option(
+        "results_reference/coupling_controlled_par",
+        "--output",
+        "-o",
+        help="Directory for coupling-controlled PAR CSV/JSON/LaTeX artefacts.",
+    ),
+    seeds: str = typer.Option(
+        ",".join(str(s) for s in range(1, 31)),
+        "--seeds",
+        help="Comma-separated seeds (default 1--30).",
+    ),
+    scenarios: str = typer.Option(
+        ",".join(
+            [
+                "normal_flow",
+                "exit_blockage",
+                "multimodal_conflict",
+                "evacuation_recommendation",
+                "crowd_acceleration",
+                "audio_stress_signal",
+            ]
+        ),
+        "--scenarios",
+        help="Comma-separated scenario identifiers.",
+    ),
+    chance_permutations: int = typer.Option(
+        1000,
+        "--chance-permutations",
+        help="Label-permutation draws for PAR_0 chance baseline.",
+    ),
+) -> None:
+    """Run coupling-controlled PAR decomposition diagnostic experiment."""
+    from dualexis.experiments.coupling_controlled_par import run_coupling_controlled_par_experiment
+
+    seed_values = tuple(int(token.strip()) for token in seeds.split(",") if token.strip())
+    scenario_values = tuple(token.strip() for token in scenarios.split(",") if token.strip())
+    report = run_coupling_controlled_par_experiment(
+        output_dir=Path(output),
+        scenarios=scenario_values,
+        seeds=seed_values,
+        chance_permutations=chance_permutations,
+    )
+    typer.echo(f"Wrote coupling-controlled PAR artefacts to {output}")
+    for row in report.aggregate_rows:
+        if row.lambda_ in (0.0, 1.0):
+            typer.echo(
+                f"{row.channel} lambda={row.lambda_:.2f} par={row.par:.4f} "
+                f"par_zero={row.par_zero:.4f} delta_proc={row.delta_proc:.4f} "
+                f"ci=[{row.delta_proc_ci.lower:.4f},{row.delta_proc_ci.upper:.4f}]"
+            )
+
+
 @experiment_app.command("empirical-legacy", hidden=True)
 def experiment_empirical_legacy_cmd(
     output: str = typer.Option(

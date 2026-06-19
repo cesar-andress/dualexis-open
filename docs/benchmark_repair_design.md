@@ -628,6 +628,16 @@ Explain that perfect shared-spec agreement is retained as a **regression check**
 
 ---
 
+## 12. Coupling-controlled PAR decomposition (Phase E — diagnostic)
+
+See **`docs/coupling_controlled_par.md`** for the coupling-controlled perturbation sweep (λ∈{0,0.25,0.5,0.75,1}, zone permutation / temporal desync / noise injection). This experiment tests whether decoupled PAR≈0.925 is explained by residual simulator coupling (H0) or retains measurable Δ_proc above a label-reassignment chance baseline PAR₀ (H1). **Diagnostic only** — not a new headline claim.
+
+Command: `python -m dualexis.cli experiment coupling-controlled-par`
+
+Outputs: `results_reference/coupling_controlled_par/`
+
+---
+
 ## Final verdict
 
 ### Would this benchmark repair materially weaken the circularity criticism?

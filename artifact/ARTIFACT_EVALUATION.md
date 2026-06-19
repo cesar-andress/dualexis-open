@@ -83,9 +83,13 @@ python3.12 -m pytest tests/artifact -q
 5. `python3.12 -m dualexis.cli experiment formal-governance-audit`  
 6. `python3.12 -m dualexis.cli experiment tsgg-trust-propagation --fast --seeds 1,2,3`  
 7. `python3.12 -m dualexis.cli experiment export-harness-honesty`  
-8. `python3.12 -m dualexis.cli experiment export-harness-b5-labels`  
-9. `python3.12 -m dualexis.cli experiment audit-comparison`  
-10. JSS artifact test suite (`tests/artifact` + `tests/unit`, excluding legacy manuscript-check and non-deterministic pipeline snapshot test)
+8. `python3.12 -m dualexis.cli experiment verify-benchmark-manifest`  
+9. `python3.12 -m dualexis.cli experiment decoupled-benchmark`  
+10. `python3.12 -m dualexis.cli experiment shared-spec-regression`  
+11. `python3.12 -m dualexis.cli experiment export-harness-b5-labels`  
+12. `python3.12 -m dualexis.cli experiment audit-comparison`  
+13. `python3.12 -m dualexis.cli experiment coupling-controlled-par` (diagnostic; ~15–25 min)  
+14. JSS artifact test suite (`tests/artifact` + `tests/unit`, excluding legacy manuscript-check and non-deterministic pipeline snapshot test)
 
 Equivalent: `make reproduce` from repository root.
 
@@ -104,8 +108,9 @@ Measured on a clean virtual environment (Linux, Python 3.12, laptop-class CPU, 2
 | `tsgg-trust-propagation --fast` | 5-15 s |
 | `export-harness-honesty` + `export-harness-b5-labels` | < 1 s |
 | `audit-comparison` | 10-20 s |
+| `coupling-controlled-par` | 15-25 min (2700 sims + chance baselines) |
 | Pytest (JSS AE suite) | 25-40 s |
-| Total `commands.sh` | ~2-3 min (after install) |
+| Total `commands.sh` | ~18-30 min (after install) |
 
 Full multiseed validation without `--fast` flags can take several minutes; the JSS paper uses pre-registered fast modes for leakage Monte Carlo where noted.
 
@@ -147,7 +152,10 @@ python3.12 -m pytest tests/artifact -q
 | `results_reference/tables/baseline_results.tex` | `validate-tsgg` (supplementary) |
 | `results_reference/audit_comparison/audit_comparison.tex` | `audit-comparison` |
 | `results_reference/audit_comparison/audit_comparison_summary.json` | `audit-comparison` |
+| `results_reference/coupling_controlled_par/coupling_controlled_par.tex` | `coupling-controlled-par` (diagnostic) |
+| `results_reference/coupling_controlled_par/coupling_controlled_par.json` | `coupling-controlled-par` (diagnostic) |
 
+See `docs/coupling_controlled_par.md` for coupling-controlled PAR decomposition (diagnostic only).
 See `docs/audit_comparison_methodology.md` for post-hoc trace auditability comparison (Phase 2). Reference leakage score \(L_S \approx 0.575\) after Phase 1 procedural alignment.
 
 ### 6.2 CSV / JSON artefacts
