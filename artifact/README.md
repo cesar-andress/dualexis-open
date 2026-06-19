@@ -20,7 +20,7 @@ and supports:
 - benchmark leakage auditing
 - reproducible validation harnesses
 
-This repository is the reference implementation and validation harness companion to the Journal of Systems and Software TSGG manuscript. It does not contain the manuscript source.
+This repository is the reference implementation and reproduction package companion to the SN Computer Science TSGG manuscript. It does not contain the manuscript source.
 
 ## Contents
 
@@ -31,7 +31,7 @@ This repository is the reference implementation and validation harness companion
 | Pinned outputs | `results_reference/` | Reference CSV/JSON/LaTeX fragments for diff review |
 | Reproduction docs | `artifact/` | Install, commands, expected outputs, AE guide |
 
-See `ARTIFACT_EVALUATION.md` for the JSS artifact evaluation checklist.
+See `ARTIFACT_EVALUATION.md` for the reproduction package checklist.
 
 ## Quick start
 
@@ -48,7 +48,7 @@ This artefact supports simulation-based software validation: trace export execut
 
 ## Citation
 
-See `CITATION.cff`. Please cite both the JSS paper (when available) and this software release.
+See `CITATION.cff`. Please cite both the SN Computer Science paper (when available) and this software release.
 
 ## License
 

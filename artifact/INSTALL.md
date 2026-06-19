@@ -30,15 +30,15 @@ See `requirements.txt` for core dependencies (also declared in `pyproject.toml`)
 
 ```bash
 conda env create -f artifact/environment.yml
-conda activate tsgg-jss
+conda activate tsgg-repro
 pip install -e ".[dev]"
 ```
 
 ## Optional Docker
 
 ```bash
-docker build -f artifact/Dockerfile -t tsgg-jss .
-docker run --rm tsgg-jss
+docker build -f artifact/Dockerfile -t tsgg-repro .
+docker run --rm tsgg-repro
 ```
 
 ## Verify installation
@@ -50,4 +50,4 @@ python3.12 -m pytest tests/artifact -q
 
 Expected: CLI help prints; artifact smoke tests pass.
 
-For the full JSS artifact evaluation checklist, see **`ARTIFACT_EVALUATION.md`**.
+For the full reproduction package checklist, see **`ARTIFACT_EVALUATION.md`**.

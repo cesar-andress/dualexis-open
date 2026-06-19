@@ -1,6 +1,6 @@
-# Artifact Evaluation Guide (JSS)
+# Reproduction Package Guide
 
-This document supports Journal of Systems and Software artifact evaluation for the TSGG reference implementation. It describes what the repository contains, how to install and run it, what to expect, and what reproducibility guarantees apply.
+This document supports reproducibility assessment for the TSGG reference implementation for the TSGG reference implementation. It describes what the repository contains, how to install and run it, what to expect, and what reproducibility guarantees apply.
 
 Release: v1.0.4 | GitHub: https://github.com/cesar-andress/dualexis-open | Zenodo: https://doi.org/10.5281/zenodo.20499184
 
@@ -13,13 +13,13 @@ Release: v1.0.4 | GitHub: https://github.com/cesar-andress/dualexis-open | Zenod
 
 Evaluators should use the repository root (parent of `artifact/`). Core layout:
 
-| Path | Role in AE | Required for `commands.sh` |
+| Path | Role in reproduction | Required for `commands.sh` |
 | --- | --- | --- |
 | `artifact/` | Install, reproduce, evaluation docs | Yes |
 | `dualexis/` | Reference implementation (CLI, harness, invariants) | Yes |
 | `configs/` | Pre-registered synthetic scenario YAML | Yes |
 | `experiments/` | Ground-truth YAML for bundled scenarios | Yes |
-| `tests/unit/` | Unit tests (JSS artifact subset) | Yes |
+| `tests/unit/` | Unit tests (reproduction-package subset) | Yes |
 | `tests/artifact/` | Post-reproduction output smoke tests | Yes |
 | `results_reference/` | Pinned reference outputs and harness-generated LaTeX fragments | Yes |
 | `results/` | CSV/JSON audit outputs (regenerable, gitignored) | Output |
@@ -33,7 +33,7 @@ Evaluators should use the repository root (parent of `artifact/`). Core layout:
 | Editorial or peer-review correspondence | Out of artefact scope |
 | Legacy deprecated experiment batteries | Removed from public tree |
 
-**Removed by `artifact/clean.sh full`:** Python caches, legacy experiment outputs under `results/`, and regenerable JSS result directories.
+**Removed by `artifact/clean.sh full`:** Python caches, legacy experiment outputs under `results/`, and regenerable validation result directories.
 
 ---
 
@@ -76,7 +76,7 @@ python3.12 -m pytest tests/artifact -q
 
 `artifact/commands.sh` performs, in order:
 
-1. `artifact/clean.sh results-only` (remove regeneratable JSS outputs)  
+1. `artifact/clean.sh results-only` (remove regeneratable validation outputs)  
 2. `pip install -e ".[dev]"`  
 3. `python3.12 -m dualexis.cli experiment validate-tsgg`  
 4. `python3.12 -m dualexis.cli experiment leakage-audit --fast`  
@@ -89,7 +89,7 @@ python3.12 -m pytest tests/artifact -q
 11. `python3.12 -m dualexis.cli experiment export-harness-b5-labels`  
 12. `python3.12 -m dualexis.cli experiment audit-comparison`  
 13. `python3.12 -m dualexis.cli experiment coupling-controlled-par` (diagnostic; ~15–25 min)  
-14. JSS artifact test suite (`tests/artifact` + `tests/unit`, excluding legacy manuscript-check and non-deterministic pipeline snapshot test)
+14. reproduction test suite (`tests/artifact` + `tests/unit`, excluding legacy manuscript-check and non-deterministic pipeline snapshot test)
 
 Equivalent: `make reproduce` from repository root.
 
@@ -109,10 +109,10 @@ Measured on a clean virtual environment (Linux, Python 3.12, laptop-class CPU, 2
 | `export-harness-honesty` + `export-harness-b5-labels` | < 1 s |
 | `audit-comparison` | 10-20 s |
 | `coupling-controlled-par` | 15-25 min (2700 sims + chance baselines) |
-| Pytest (JSS AE suite) | 25-40 s |
+| Pytest (reproduction test suite) | 25-40 s |
 | Total `commands.sh` | ~18-30 min (after install) |
 
-Full multiseed validation without `--fast` flags can take several minutes; the JSS paper uses pre-registered fast modes for leakage Monte Carlo where noted.
+Full multiseed validation without `--fast` flags can take several minutes; the manuscript uses pre-registered fast modes for leakage Monte Carlo where noted.
 
 ---
 
@@ -196,7 +196,7 @@ Values below are from a verified clean run (seed 42, default iterations). Small 
 | Suite | Command | Expected |
 | --- | --- | --- |
 | Artifact smoke | `pytest tests/artifact -q` | all passed |
-| Full JSS AE suite | as in `commands.sh` | all passed |
+| Full reproduction test suite | as in `commands.sh` | all passed |
 
 ### 6.5 Optional: six-scenario TSGG JSON export
 
@@ -243,7 +243,7 @@ Not guaranteed (explicit non-claims):
 - [ ] Clone repository; confirm `artifact/INSTALL.md`, `REPRODUCE.md`, `commands.sh`, `expected_outputs.md` present  
 - [ ] Run `bash artifact/clean.sh full`  
 - [ ] Create fresh venv; run `bash artifact/commands.sh`  
-- [ ] Confirm exit code 0 and JSS AE pytest suite passes (617 tests)  
+- [ ] Confirm exit code 0 and reproduction pytest suite passes (617 tests)  
 - [ ] Confirm 100 governance trace JSON files (not hundreds from stale runs)  
 - [ ] Spot-check tables contain expected `\label{tab:…}` markers  
 
@@ -269,4 +269,4 @@ Not guaranteed (explicit non-claims):
 
 This artifact validates software trace structure, privacy ingress, governance FSM exports, benchmark leakage disclosure, and reproducible harness diagnostics on synthetic data. It does not reproduce operational safety outcomes in deployed environments.
 
-For questions during artifact evaluation, refer to `artifact/REPRODUCE.md`.
+For questions during reproducibility assessment, refer to `artifact/REPRODUCE.md`.

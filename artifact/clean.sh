@@ -13,7 +13,7 @@ find "$ROOT/dualexis" "$ROOT/tests" -type d -name __pycache__ -print0 2>/dev/nul
 rm -rf "$ROOT/.pytest_cache" "$ROOT/.ruff_cache" "$ROOT/.mypy_cache" 2>/dev/null || true
 
 if [[ "$MODE" == "full" ]]; then
-  echo "==> Legacy experiment outputs (not in JSS AE path)"
+  echo "==> Legacy experiment outputs (not in reproduction path)"
   LEGACY_RESULTS=(
     results/adversarial_privacy
     results/counterfactuals
@@ -35,7 +35,7 @@ if [[ "$MODE" == "full" ]]; then
   done
 fi
 
-echo "==> JSS regeneratable results"
+echo "==> regeneratable results"
 rm -rf \
   "$ROOT/results/baseline_comparison" \
   "$ROOT/results/privacy_fuzz" \

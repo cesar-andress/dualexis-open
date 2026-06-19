@@ -1,4 +1,4 @@
-"""Smoke tests for JSS artifact evaluation outputs."""
+"""Smoke tests for reproduction-package outputs."""
 
 from __future__ import annotations
 

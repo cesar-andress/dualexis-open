@@ -64,7 +64,7 @@ GitHub: https://github.com/cesar-andress/dualexis-open
 **Date:** 2026-06-01  
 **License:** Apache-2.0
 
-First public release of the TSGG reference implementation and validation harness for JSS software-artefact evaluation.
+First public release of the TSGG reference implementation and reproduction package for simulation-based architecture validation.
 
 ### What this release contained
 

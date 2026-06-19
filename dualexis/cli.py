@@ -1711,7 +1711,7 @@ def experiment_validate_tsgg_cmd(
         help="Comma-separated scenario identifiers.",
     ),
 ) -> None:
-    """Run TSGG/JSS validation package: multiseed diagnostics, fuzz exports, paper tables."""
+    """Run TSGG validation package: multiseed diagnostics, fuzz exports, paper tables."""
     from dualexis.experiments.empirical_battery import run_empirical_eswa_package
     from dualexis.experiments.multiseed import parse_seed_list
 

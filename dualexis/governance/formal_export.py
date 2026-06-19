@@ -16,7 +16,7 @@ def write_formal_governance_model_section(report: GovernanceAuditReport, path: P
     content = f"""\\subsection{{Formal Human-AI Governance State Machine}}
 \\label{{sec:formal-governance-model}}
 
-\\jssrepname{{}} positions human oversight as a \\textbf{{formal governance framework for high-risk
+\\refimplname{{}} positions human oversight as a \\textbf{{formal governance framework for high-risk
 decision support systems}}, not an informal review flag. The macro-state space is
 \\begin{{equation*}}
   S = \\{{s^{{AI}}, s^{{H}}, s^{{I}}\\}}

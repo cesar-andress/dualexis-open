@@ -56,7 +56,7 @@ After Phase 1 reference-implementation alignment, all six scenarios report **Pas
 
 | Command | Expected |
 |---------|----------|
-| `bash artifact/commands.sh` | Exit 0; JSS artifact test suite passes |
+| `bash artifact/commands.sh` | Exit 0; reproduction test suite passes |
 | `pytest tests/artifact -q` | all passed |
 
 ## Quick verification

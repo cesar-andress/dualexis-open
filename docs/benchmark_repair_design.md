@@ -1,7 +1,7 @@
 # Benchmark Repair Design: Decoupled Conformance Evaluation for TSGG
 
 **Status:** Design specification (no implementation)  
-**Audience:** JSS artifact evaluators, manuscript reviewers, maintainers  
+**Audience:** manuscript reviewers, reproducibility assessors, maintainers  
 **Repository:** `dualexis` reference implementation (`~/papers/dualexis/dualexis`)  
 **Date:** 2026-06-18  
 
@@ -386,7 +386,7 @@ These ranges define **acceptance criteria for profile calibration** (not post-ho
 1. **Perfect agreement under shared rules** is logically equivalent to testing `emitter == labeler` — it carries **zero falsifiability**.
 2. **Non-zero FP/FN** demonstrate the benchmark can penalize mismatch (architecture/harness sensitivity).
 3. Reviewers trust **pre-registered imperfection** more than **post-hoc perfection** paired with \(L_S=0.575\).
-4. For JSS, the claim is **software trace validation under synthetic coupling**, not detector optimality — PAR in the 0.8 band supports “implementable with disclosed gaps.”
+4. For SN Computer Science, the claim is **simulation-based architecture validation under synthetic coupling**, not detector optimality — PAR in the 0.8 band supports “implementable with disclosed gaps.”
 
 ---
 
@@ -605,7 +605,7 @@ Explain that perfect shared-spec agreement is retained as a **regression check**
 
 ---
 
-## 11. Hostile JSS reviewer assessment
+## 11. Hostile reviewer assessment (simulation benchmark integrity)
 
 **Reviewer comment (simulated):**
 
@@ -649,7 +649,7 @@ Outputs: `results_reference/coupling_controlled_par/`
 - **Yes, materially**, for the specific criticism “emitter and labeler share procedural YAML → perfect B5 is tautological.” Independent emission profiles + PAR headline + reduced threshold overlap **directly dismantle** that logical chain.
 - **Only partially**, because (i) shared world simulator keeps `shared_variables_ratio = 1.0`, (ii) six synthetic scenarios remain a single domain, (iii) profile calibration could be accused of hidden fitting unless manifest preregistration is enforced, and (iv) audit-comparison circularity is **unaffected** by this repair.
 
-**Overall:** Moves the paper from **“likely Major Revision / reject on benchmark integrity”** to **“defensible JSS software-validation contribution with explicit limits”** — provided results are regenerated honestly and the manuscript stops headline-perfect conformance.
+**Overall:** Moves the paper from **“likely Major Revision / reject on benchmark integrity”** to **“defensible software-architecture contribution with explicit limits”** — provided results are regenerated honestly and the manuscript stops headline-perfect conformance.
 
 ---
 

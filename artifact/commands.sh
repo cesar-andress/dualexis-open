@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Reproduce JSS validation — see artifact/REPRODUCE.md
+# Reproduce validation results — see artifact/REPRODUCE.md
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
@@ -43,7 +43,7 @@ python3.12 -m dualexis.cli experiment audit-comparison
 echo "==> coupling-controlled-par (diagnostic)"
 python3.12 -m dualexis.cli experiment coupling-controlled-par
 
-echo "==> pytest (JSS artifact suite)"
+echo "==> pytest (reproduction test suite)"
 python3.12 -m pytest tests/artifact tests/unit \
   --ignore=tests/unit/test_paper_check.py \
   --ignore=tests/unit/test_pipeline.py \

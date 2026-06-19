@@ -72,7 +72,7 @@ See `docs/coupling_controlled_par.md`.
 
 | Command | Expected |
 |---------|----------|
-| `bash artifact/commands.sh` | Exit 0; JSS artifact test suite passes |
+| `bash artifact/commands.sh` | Exit 0; reproduction test suite passes |
 | `pytest tests/artifact -q` | all passed |
 
 ## Quick verification

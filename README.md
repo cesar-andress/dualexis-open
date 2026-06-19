@@ -1,6 +1,6 @@
 # TSGG Reference Implementation
 
-Open-source reference code and validation harness for Trusted Safety State Governance Graph (TSGG), a software trace architecture for auditable human-AI systems.
+Open-source reference code and reproducible synthetic evaluation protocol for Trusted Safety State Governance Graph (TSGG), a governance-aware trace architecture for auditable human-AI systems.
 
 Repository: https://github.com/cesar-andress/dualexis-open  
 Version: v1.0.4 | Zenodo: https://doi.org/10.5281/zenodo.20499184 | License: Apache-2.0
@@ -22,7 +22,7 @@ The reference implementation covers fail-closed privacy ingress (A1), governance
 | Path | Purpose |
 |------|---------|
 | `dualexis/` | Python reference implementation and CLI |
-| `artifact/` | Install, reproduce, and artifact-evaluation documentation |
+| `artifact/` | Install, reproduce, and reproduction-package documentation |
 | `tests/` | Unit and artifact smoke tests |
 | `configs/` | Pre-registered synthetic scenario YAML configs |
 | `experiments/` | Ground-truth definitions for bundled scenarios |
@@ -53,7 +53,7 @@ From the repository root:
 bash artifact/commands.sh
 ```
 
-This cleans regeneratable outputs, installs the package, runs `validate-tsgg`, `leakage-audit --fast`, `formal-governance-audit`, `tsgg-trust-propagation --fast`, `export-harness-honesty`, `export-harness-b5-labels`, and the JSS artifact test suite.
+This cleans regeneratable outputs, installs the package, runs `validate-tsgg`, `leakage-audit --fast`, `formal-governance-audit`, `tsgg-trust-propagation --fast`, `export-harness-honesty`, `export-harness-b5-labels`, and the reproduction test suite.
 
 See [`artifact/INSTALL.md`](artifact/INSTALL.md) and [`artifact/REPRODUCE.md`](artifact/REPRODUCE.md) for alternatives (conda, Docker).
 

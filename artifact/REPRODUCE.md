@@ -1,4 +1,4 @@
-# Reproduce JSS validation results
+# Reproduce validation results results
 
 Release: v1.0.4 | GitHub: https://github.com/cesar-andress/dualexis-open | Zenodo: https://doi.org/10.5281/zenodo.20499184
 
@@ -11,9 +11,9 @@ bash artifact/commands.sh
 ```
 
 The script clears regeneratable outputs first (`artifact/clean.sh results-only`), then installs,
-runs the validation harness, exports Tables 7-8, and executes the JSS artifact test suite.
+runs the validation harness, exports Tables 7-8, and executes the reproduction test suite.
 
-## Full clean (artifact evaluation prep)
+## Full clean (reproducibility prep)
 
 ```bash
 bash artifact/clean.sh full
@@ -81,7 +81,7 @@ Reads `results/baseline_comparison/results.csv` (B5 rows); classifies Pass/Parti
 mean `event_detection_accuracy` (Pass $=1.0$, Fail $=0.0$, Partial otherwise); writes
 `results_reference/tables/harness_b5_by_scenario.tex`.
 
-### 8. JSS artifact test suite
+### 8. reproduction test suite
 
 ```bash
 python3.12 -m pytest tests/artifact tests/unit \
@@ -103,7 +103,7 @@ See `docs/e2_independent_ground_truth.md`.
 
 ## Manuscript (out of scope)
 
-The JSS manuscript is maintained in a separate private repository and is not included in this artefact.
+The manuscript is maintained in a separate private repository and is not included in this artefact.
 
 ## Expected outputs
 
