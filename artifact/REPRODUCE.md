@@ -1,6 +1,6 @@
 # Reproduce validation results results
 
-Release: v1.0.4 | GitHub: https://github.com/cesar-andress/dualexis-open | Zenodo: https://doi.org/10.5281/zenodo.20499184
+Release: v1.0.4 | GitHub: https://github.com/cesar-andress/dualexis-open | Zenodo: https://doi.org/10.5281/zenodo.20638103
 
 These commands regenerate the tables and audit artefacts referenced in `results_reference/tables/` and `results/` (CSV/JSON).
 

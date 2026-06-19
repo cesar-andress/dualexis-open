@@ -3,7 +3,7 @@
 Open-source reference code and reproducible synthetic evaluation protocol for Trusted Safety State Governance Graph (TSGG), a governance-aware trace architecture for auditable human-AI systems.
 
 Repository: https://github.com/cesar-andress/dualexis-open  
-Version: v1.0.4 | Zenodo: https://doi.org/10.5281/zenodo.20499184 | License: Apache-2.0
+Version: v1.0.4 | Zenodo: https://doi.org/10.5281/zenodo.20638103 | License: Apache-2.0
 
 This repository does not contain the manuscript, journal correspondence, editorial reports, or publication packaging.
 
@@ -82,12 +82,12 @@ Regeneratable runtime outputs under `results/` are gitignored. Pinned snapshots 
   year         = {2026},
   version      = {1.0.4},
   howpublished = {Zenodo},
-  doi          = {10.5281/zenodo.20499184},
-  url          = {https://doi.org/10.5281/zenodo.20499184}
+  doi          = {10.5281/zenodo.20638103},
+  url          = {https://doi.org/10.5281/zenodo.20638103}
 }
 ```
 
-Machine-readable metadata: [`CITATION.cff`](CITATION.cff) · Zenodo: https://doi.org/10.5281/zenodo.20499184
+Machine-readable metadata: [`CITATION.cff`](CITATION.cff) · Zenodo: https://doi.org/10.5281/zenodo.20638103
 
 ## License
 

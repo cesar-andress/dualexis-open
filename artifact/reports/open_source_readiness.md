@@ -24,7 +24,7 @@ Audit date: 2026-06-02
 
 ## Missing metadata
 
-- None: Zenodo DOI https://doi.org/10.5281/zenodo.20499184 in `CITATION.cff` (release v1.0.4).
+- None: Zenodo DOI https://doi.org/10.5281/zenodo.20638103 in `CITATION.cff` (release v1.0.4).
 
 ## Licensing issues
 
